@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/code-jedi-front/static/css/main.7acaea2f.css",
+    "main.js": "/code-jedi-front/static/js/main.681b57f1.js",
+    "index.html": "/code-jedi-front/index.html",
+    "main.7acaea2f.css.map": "/code-jedi-front/static/css/main.7acaea2f.css.map",
+    "main.681b57f1.js.map": "/code-jedi-front/static/js/main.681b57f1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.681b57f1.js"
+  ]
+}
