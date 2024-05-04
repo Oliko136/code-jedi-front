@@ -1,5 +1,12 @@
 import { NavLink } from 'react-router-dom';
-import { WelcomeBg, WelcomeLogo } from './WelcomePage.styled';
+import {
+  WelcomeBg,
+  WelcomeLogo,
+  AuthContainer,
+  AuthARegister,
+  AuthLogin,
+} from './WelcomePage.styled';
+import Lightning from './Logo';
 
 import WelcomeImgTel1x from './WelcomeImages/welcome-mob-1x.png';
 import WelcomeImgTel2x from './WelcomeImages/welcome-mob-2x.png';
@@ -32,18 +39,22 @@ const WelcomePage = () => {
       </picture>
 
       <WelcomeLogo>
+        <span>
+          <Lightning width={15} height={20} fillColor={'#fff'} />
+        </span>
         <h1>Task Pro</h1>
       </WelcomeLogo>
 
-      <button>
-        <NavLink to="/auth/register">Register</NavLink>
-      </button>
-      <button>
-        <NavLink to="/auth/login">Login</NavLink>
-      </button>
-      <button>
-        <NavLink to="/home">Home</NavLink>
-      </button>
+      <p>
+        Supercharge your productivity and take control of your tasks with Task
+        Pro - Don't wait, start achieving your goals now!
+      </p>
+
+      <AuthContainer>
+        <AuthARegister to="/auth/register">Registration</AuthARegister>
+        <AuthLogin to="/auth/login">Log In</AuthLogin>
+        <AuthLogin to="/home">Home</AuthLogin>
+      </AuthContainer>
     </WelcomeBg>
   );
 };
