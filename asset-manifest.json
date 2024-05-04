@@ -1,13 +1,10 @@
 {
   "files": {
-    "main.css": "/code-jedi-front/static/css/main.c1cad30a.css",
-    "main.js": "/code-jedi-front/static/js/main.d219dd13.js",
+    "main.js": "/code-jedi-front/static/js/main.bf2e76e4.js",
     "index.html": "/code-jedi-front/index.html",
-    "main.c1cad30a.css.map": "/code-jedi-front/static/css/main.c1cad30a.css.map",
-    "main.d219dd13.js.map": "/code-jedi-front/static/js/main.d219dd13.js.map"
+    "main.bf2e76e4.js.map": "/code-jedi-front/static/js/main.bf2e76e4.js.map"
   },
   "entrypoints": [
-    "static/css/main.c1cad30a.css",
-    "static/js/main.d219dd13.js"
+    "static/js/main.bf2e76e4.js"
   ]
 }
