@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import AuthPage from 'pages/AuthPage/AuthPage';
 import HomePage from 'pages/HomePage/HomePage';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
@@ -22,6 +22,7 @@ import WelcomePage from 'pages/WelcomePage/WelcomePage';
 const App = () => {
   return (
     <Routes>
+      <Route path="/" element={ <Navigate to="/welcome" /> } />
       <Route path="/welcome" element={<WelcomePage />} />
       <Route path="/auth/:id" element={<AuthPage />} />
       <Route path="/home" element={<HomePage />}>
