@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/code-jedi-front/static/js/main.68d253af.js",
+    "main.js": "/code-jedi-front/static/js/main.5d89e34d.js",
     "index.html": "/code-jedi-front/index.html",
-    "main.68d253af.js.map": "/code-jedi-front/static/js/main.68d253af.js.map"
+    "main.5d89e34d.js.map": "/code-jedi-front/static/js/main.5d89e34d.js.map"
   },
   "entrypoints": [
-    "static/js/main.68d253af.js"
+    "static/js/main.5d89e34d.js"
   ]
 }
