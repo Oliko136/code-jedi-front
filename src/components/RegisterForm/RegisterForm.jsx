@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { registerThunk } from '../../redux/auth/authOperations';
 // import { useAuth } from 'hooks';
-import { registerSchema } from 'schemas';
-import { PROGRESS_BAR_COLORS } from 'constants';
+import  registerSchema  from '../../schema/registerSchema';
+// import { PROGRESS_BAR_COLORS } from 'constants';
 // import SmallLoader from 'components/Loader/SmallLoader';
 import {
   Background,
@@ -18,9 +18,9 @@ import {
   PassInputWrap,
   HideBtn,
   
-} from '../RegLogForm.styled';
-import Eye from 'components/Icons/Eye';
-import EyeCrossed from 'components/Icons/EyeCrossed';
+} from './RegisterForm.styled';
+import Eye from './Eye';
+import EyeCrossed from './EyCrossed';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
 
@@ -48,7 +48,7 @@ const RegisterForm = () => {
           if (!isValid) {
             return;
            }
-        dispatch(registerThunk({ ...formData }))
+        // dispatch(registerThunk({ ...formData }))
         // await new Promise(res => setTimeout(res, 500));
     reset();
   }
@@ -109,10 +109,10 @@ console.log(isValid)
               {...register('password') }
               
                
-                onChange={e => {
-                  setPwd(e.target.value);
-                  // handleChange(e);
-                }}
+                // onChange={e => {
+                //   setPwd(e.target.value);
+                //   handleChange(e);
+                // }}
                 
                 name="password"
                 placeholder= 'Create a password'
@@ -150,7 +150,7 @@ console.log(isValid)
             <PasswordStrengthBar
               password={pwd}
               minLength={6}
-              barColors={PROGRESS_BAR_COLORS}
+              // barColors={PROGRESS_BAR_COLORS}
             />
           )}
           
