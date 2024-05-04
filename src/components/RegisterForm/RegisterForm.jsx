@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { registerThunk } from '../../redux/auth/authOperations';
 // import { useAuth } from 'hooks';
-import  registerSchema  from '../../schema/registerSchema';
+import  registerSchema  from './registerSchema';
 // import { PROGRESS_BAR_COLORS } from 'constants';
 // import SmallLoader from 'components/Loader/SmallLoader';
 import {
