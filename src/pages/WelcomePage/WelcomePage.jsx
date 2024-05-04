@@ -18,7 +18,6 @@ import WelcomeImgDesktop2x from './WelcomeImages/welcome-desk-2x.png';
 const WelcomePage = () => {
   return (
     <WelcomeBg>
-      {/* Це лише заглушка. Можна буде прибрати/коригувати */}
       <picture>
         <source
           media="(max-width: 375px)"
@@ -35,7 +34,7 @@ const WelcomePage = () => {
           srcSet={`${WelcomeImgDesktop1x} 1x, ${WelcomeImgDesktop2x} 2x`}
         />
 
-        <img src={WelcomeImgTel1x} alt="User" />
+        <img src={WelcomeImgTel1x} alt="user" />
       </picture>
 
       <WelcomeLogo>
