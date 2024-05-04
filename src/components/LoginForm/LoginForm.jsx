@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import PasswordStrengthBar from 'react-password-strength-bar';
-import { registerThunk } from '../../redux/auth/authOperations';
+// активировать после санок
+// import { useDispatch } from 'react-redux';
+// import { loginThunk } from '../../redux/auth/authOperations';
 // import { useAuth } from 'hooks';
 import  loginSchema  from './loginSchema';
-// import { PROGRESS_BAR_COLORS } from 'constants';
 // import SmallLoader from 'components/Loader/SmallLoader';
 import {
   Background,
@@ -16,8 +15,7 @@ import {
   SubmitBtn,
   ErrorPara,
   PassInputWrap,
-  HideBtn,
-  
+  HideBtn, 
 } from '../RegisterForm/RegisterForm.styled';
 import Eye from '../RegisterForm/Eye';
 import EyeCrossed from '../RegisterForm/EyCrossed';
@@ -29,16 +27,15 @@ import { yupResolver } from "@hookform/resolvers/yup"
 const LoginForm = () => {
   
   const [visible, setVisible] = useState(false);
-  const [pwd, setPwd] = useState('');
-
-  const dispatch = useDispatch();
+ 
+// активировать после санок
+  // const dispatch = useDispatch();
 //   const { isLoading } = useAuth();
 
   const submit = async (evt) => {
     console.log(evt.email,'qwe' );
     
     const formData = {
-          name: evt.name,
           email: evt.email,
           password: evt.password,
         };
@@ -48,7 +45,8 @@ const LoginForm = () => {
           if (!isValid) {
             return;
            }
-        // dispatch(registerThunk({ ...formData }))
+           // активировать после санок
+        // dispatch(loginThunk({ ...formData }))
         // await new Promise(res => setTimeout(res, 500));
     reset();
   }
@@ -97,12 +95,6 @@ console.log(isValid)
             <PassInputWrap>
               <Input
               {...register('password') }
-              
-               
-                // onChange={e => {
-                //   setPwd(e.target.value);
-                //   handleChange(e);
-                // }}
                 
                 name="password"
                 placeholder= 'Create a password'
@@ -131,23 +123,13 @@ console.log(isValid)
                   />
                 )}
               </HideBtn>
-            </PassInputWrap>
-           
-            
+            </PassInputWrap>     
           </label>
-         
-          {pwd && (
-            <PasswordStrengthBar
-              password={pwd}
-              minLength={6}
-              // barColors={PROGRESS_BAR_COLORS}
-            />
-          )}
           
           <SubmitBtn type="submit"
             disabled={!isValid}> 
             
-              Register Now
+            Log In Now
             
           </SubmitBtn>
         </FormUi>

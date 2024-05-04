@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import PasswordStrengthBar from 'react-password-strength-bar';
-import { registerThunk } from '../../redux/auth/authOperations';
+// активировать после санок
+// import { useDispatch } from 'react-redux';
+// import { registerThunk } from '../../redux/auth/authOperations';
+// хук на useSelector
 // import { useAuth } from 'hooks';
 import  registerSchema  from './registerSchema';
-// import { PROGRESS_BAR_COLORS } from 'constants';
+// нужен Loader на кнопку?
 // import SmallLoader from 'components/Loader/SmallLoader';
 import {
   Background,
@@ -29,9 +30,8 @@ import { yupResolver } from "@hookform/resolvers/yup"
 const RegisterForm = () => {
   
   const [visible, setVisible] = useState(false);
-  const [pwd, setPwd] = useState('');
-
-  const dispatch = useDispatch();
+// активировать после санок
+  // const dispatch = useDispatch();
 //   const { isLoading } = useAuth();
 
   const submit = async (evt) => {
@@ -48,6 +48,7 @@ const RegisterForm = () => {
           if (!isValid) {
             return;
            }
+           // активировать после санок
         // dispatch(registerThunk({ ...formData }))
         // await new Promise(res => setTimeout(res, 500));
     reset();
@@ -65,7 +66,6 @@ const RegisterForm = () => {
 // console.log(errors.name.message)
 console.log(isValid)
   
-
   return (
     <Background>
       <FormWrap>
@@ -87,8 +87,7 @@ console.log(isValid)
               name="name"
               placeholder='Enter your name'
             />
-            {errors?.name && (<ErrorPara>{errors?.name?.message || 'Errors!'}</ErrorPara>)}
-            
+            {errors?.name && (<ErrorPara>{errors?.name?.message || 'Errors!'}</ErrorPara>)}       
           </label>        
           
           <label>
@@ -107,12 +106,6 @@ console.log(isValid)
             <PassInputWrap>
               <Input
               {...register('password') }
-              
-               
-                // onChange={e => {
-                //   setPwd(e.target.value);
-                //   handleChange(e);
-                // }}
                 
                 name="password"
                 placeholder= 'Create a password'
@@ -146,14 +139,6 @@ console.log(isValid)
             
           </label>
          
-          {pwd && (
-            <PasswordStrengthBar
-              password={pwd}
-              minLength={6}
-              // barColors={PROGRESS_BAR_COLORS}
-            />
-          )}
-          
           <SubmitBtn type="submit"
             disabled={!isValid}> 
             
