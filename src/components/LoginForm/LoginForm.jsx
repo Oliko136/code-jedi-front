@@ -1,13 +1,12 @@
 import { useState } from 'react';
 // активировать после санок
-// import { useDispatch } from 'react-redux';
-// import { loginThunk } from '../../redux/auth/authOperations';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../redux/auth/auth-operations';
 // import { useAuth } from 'hooks';
 import  loginSchema  from './loginSchema';
 // import SmallLoader from 'components/Loader/SmallLoader';
 import {
   Background,
-  FormWrap,
   AuthList,
   AuthLink,
   FormUi,
@@ -17,6 +16,7 @@ import {
   PassInputWrap,
   HideBtn, 
 } from '../RegisterForm/RegisterForm.styled';
+import {FormWrapLog} from './LoginForm.styled'
 import Eye from '../RegisterForm/Eye';
 import EyeCrossed from '../RegisterForm/EyCrossed';
 import { useForm } from 'react-hook-form';
@@ -29,7 +29,7 @@ const LoginForm = () => {
   const [visible, setVisible] = useState(false);
  
 // активировать после санок
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 //   const { isLoading } = useAuth();
 
   const submit = async (evt) => {
@@ -46,7 +46,7 @@ const LoginForm = () => {
             return;
            }
            // активировать после санок
-        // dispatch(loginThunk({ ...formData }))
+        dispatch(logIn({ ...formData }))
         // await new Promise(res => setTimeout(res, 500));
     reset();
   }
@@ -61,12 +61,12 @@ const LoginForm = () => {
     resolver:yupResolver(loginSchema)
   })
 // console.log(errors.name.message)
-console.log(isValid)
+// console.log(isValid)
   
 
   return (
     <Background>
-      <FormWrap>
+      <FormWrapLog>
         <AuthList>
           <li>
             <AuthLink to={`/auth/register`}>Registration</AuthLink>
@@ -133,7 +133,7 @@ console.log(isValid)
             
           </SubmitBtn>
         </FormUi>
-      </FormWrap>
+      </FormWrapLog>
     </Background>
   );
 };

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 // активировать после санок
-// import { useDispatch } from 'react-redux';
-// import { registerThunk } from '../../redux/auth/authOperations';
+import { useDispatch } from 'react-redux';
+import { registerThunk } from '../../redux/auth/auth-operations';
 // хук на useSelector
 // import { useAuth } from 'hooks';
 import  registerSchema  from './registerSchema';
@@ -31,8 +31,8 @@ const RegisterForm = () => {
   
   const [visible, setVisible] = useState(false);
 // активировать после санок
-  // const dispatch = useDispatch();
-//   const { isLoading } = useAuth();
+  const dispatch = useDispatch();
+  // const { isLoading } = useAuth();
 
   const submit = async (evt) => {
     console.log(evt.email,'qwe' );
@@ -49,7 +49,7 @@ const RegisterForm = () => {
             return;
            }
            // активировать после санок
-        // dispatch(registerThunk({ ...formData }))
+        dispatch(registerThunk({ ...formData }))
         // await new Promise(res => setTimeout(res, 500));
     reset();
   }
@@ -64,7 +64,7 @@ const RegisterForm = () => {
     resolver:yupResolver(registerSchema)
   })
 // console.log(errors.name.message)
-console.log(isValid)
+// console.log(isValid)
   
   return (
     <Background>

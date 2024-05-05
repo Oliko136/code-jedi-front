@@ -1,12 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import * as authAPI from '../../api/auth-api.js';
 import * as userAPI from '../../api/user-api.js';
+// установить react-toastify 
+// import { toast } from 'react-toastify';
 
 export const registerThunk = createAsyncThunk(
     'auth/register',
     async (credentials, {rejectWithValue}) => {
         try {
             const data = await authAPI.register(credentials);
+            // toast.success('Congratulations! You have successfully registered!');
             return data;
         } catch (error) {
             return rejectWithValue(error.response.data.message);
