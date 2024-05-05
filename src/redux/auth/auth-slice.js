@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { pending, rejected } from "../../helpers/redux-functions.js";
-import { register, logIn, logOut, getCurrentUser } from "./auth-operations.js";
+import { register, logIn, logOut, getCurrentUser, updateUserInfo, updateUserTheme, updateUserAvatar } from "./auth-operations.js";
 
 const initialState = {
     user: {},
@@ -53,6 +53,30 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.token = null;
             })
+            .addCase(updateUserInfo.pending, pending)
+            .addCase(updateUserInfo.fulfilled, (state, { payload }) => {
+                state.user = {...state.user, ...payload.user};
+                state.isLoggedIn = true;
+                state.isLoading = false;
+                state.error = null;
+            })
+            .addCase(updateUserInfo.rejected, rejected)
+            .addCase(updateUserTheme.pending, pending)
+            .addCase(updateUserTheme.fulfilled, (state, { payload }) => {
+                state.user.theme = payload.user.theme;
+                state.isLoggedIn = true;
+                state.isLoading = false;
+                state.error = null;
+            })
+            .addCase(updateUserTheme.rejected, rejected)
+            .addCase(updateUserAvatar.pending, pending)
+            .addCase(updateUserAvatar.fulfilled, (state, { payload }) => {
+                state.user.avatar = payload.user.avatar;
+                state.isLoggedIn = true;
+                state.isLoading = false;
+                state.error = null;
+            })
+            .addCase(updateUserAvatar.rejected, rejected)
     }
 });
 
