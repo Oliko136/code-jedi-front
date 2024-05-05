@@ -10,7 +10,7 @@ import css from './NeedHelp.module.css';
 const NeedHelp = () => {
   const [showModal, setShowModal] = useState(false); // Стан для відображення/приховування модального вікна
   const toggleModal = () => setShowModal(prevShowModal => !prevShowModal); // Функція для перемикання стану модального вікна
-  const dpr = window.devicePixelRatio || 1;
+  //const dpr = window.devicePixelRatio || 1;
 
   // const plantImage = dpr > 1 ? plant2x : plant; ------------  Вибір зображення рослини в залежності від девайсу
   const plantImage = ''; // заглушка для зображення рослини
