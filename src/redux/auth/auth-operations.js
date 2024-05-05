@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import * as authAPI from '../../api/auth-api.js';
+import * as userAPI from '../../api/user-api.js';
 
 export const register = createAsyncThunk(
     'auth/register',
@@ -52,6 +53,42 @@ export const getCurrentUser = createAsyncThunk(
             if (!auth.token) {
                 return false;
             }
+        }
+    }
+);
+
+export const updateUserInfo = createAsyncThunk(
+    'auth/updateUserInfo',
+    async (body, {rejectWithValue}) => {
+        try {
+            const data = await userAPI.updateUserInfo(body);
+            return data;
+        } catch (error) {
+            return rejectWithValue(error.response.data.message);
+        }
+    }
+);
+
+export const updateUserTheme = createAsyncThunk(
+    'auth/updateUserTheme',
+    async (theme, {rejectWithValue}) => {
+        try {
+            const data = await userAPI.updateUserTheme(theme);
+            return data;
+        } catch (error) {
+            return rejectWithValue(error.response.data.message);
+        }
+    }
+);
+
+export const updateUserAvatar = createAsyncThunk(
+    'auth/updateUserAvatar',
+    async (file, {rejectWithValue}) => {
+        try {
+            const data = await userAPI.updateUserAvatar(file);
+            return data;
+        } catch (error) {
+            return rejectWithValue(error.response.data.message);
         }
     }
 );
