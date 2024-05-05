@@ -4,6 +4,9 @@ import HomePage from 'pages/HomePage/HomePage';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import ScreensPage from 'pages/ScreensPage/ScreensPage';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
+// красивые сообщения о регистрации или чем то еще см.файл auth-operations
+// import { ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 // import PublicRoute from 'components/Routes/PublicRoute/PublicRoute';
 // import PrivateRoute from 'components/Routes/PrivateRoute/PrivateRoute';
 
@@ -38,5 +41,20 @@ const App = () => {
     </Routes>
   );
 };
+
+
+// return (<>
+//   <Routes>
+//         <Route path="/" element={ <Navigate to="/welcome" /> } />
+//         <Route path="/welcome" element={<WelcomePage />} />
+//         <Route path="/auth/:id" element={<AuthPage />} />
+//         <Route path="/home" element={<HomePage />}>
+//           <Route path="/home/:boardName" element={<ScreensPage />} />
+//         </Route>
+//         <Route path="*" element={<NotFoundPage />} />
+//       </Routes>
+//       <ToastContainer autoClose={3000} />
+//   </> )
+ 
 
 export default App;

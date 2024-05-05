@@ -7,7 +7,7 @@ export const Background = styled.div`
   justify-content: center;
   width: 100vw;
   min-height: 100vh;
-  background: var(--light-green-gradient);
+  background: var(--welcomeBgColor);
 `;
 
 export const FormWrap = styled.div`
@@ -15,29 +15,33 @@ export const FormWrap = styled.div`
   width: calc(100% - 40px);
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  background-color: #151515;
+  gap: 14px;
+  background-color: var(--bgColorAuth);
   border-radius: 8px;
 
   @media screen and (min-width: 375px) {
     width: 335px;
+    height: 363px;
   }
 
   @media screen and (min-width: 768px) {
     width: 424px;
+    height: 395px;
+    padding: 40px;
   }
 `;
 
 export const AuthList = styled.ul`
   display: flex;
   gap: 14px;
+  margin-bottom: 26px;
 `;
 
 export const AuthLink = styled(NavLink)`
-  color: #ffffff30;
+  color: rgba(255, 255, 255, 0.3);
   font-size: 18px;
   font-weight: 500;
-  transition: color var(--easedTransition);
+  transition: color 0.3s ease;
 
   &:hover {
     color: #ffffff;
@@ -62,11 +66,18 @@ export const Input = styled.input`
   width: 100%;
   padding: 14px 18px;
   background: transparent;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--inputBorderFocus);
   border-radius: 8px;
   color: #ffffff;
-  opacity: 0.5;
-  transition: opacity var(--easedTransition);
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+ background: var(--inputBgColor);
+ font-weight: 400;
+ font-size: 14px;
+letter-spacing: -0.02em;
+
+
 
   &:focus {
     opacity: 1;
@@ -79,13 +90,27 @@ export const Input = styled.input`
   ${({ $error }) =>
     $error &&
     `
-    border-color: #fc8181;
+    border-color: #fc8171;
   `}
 `;
 
 export const PassInputWrap = styled.div`
   position: relative;
 `;
+// инпут
+
+// width: 287px;
+// height: 49px;
+
+
+// opacity: 0.4;
+// font-family: var(--font-family);
+// font-weight: 400;
+// font-size: 14px;
+// letter-spacing: -0.02em;
+// color: #fff;
+// background: var(--light-green-gradient);
+
 
 export const HideBtn = styled.button`
   position: absolute;
@@ -103,10 +128,12 @@ export const SubmitBtn = styled.button`
   align-items: center;
   padding: 14px 0;
   font-weight: 500;
-  background: #bedbb0;
+  background: var(--inputBorderFocus);
   border-radius: 8px;
-  color: #161616;
-  transition: background var(--easedTransition);
+  color: var(--buttonColor);
+  transition: background 0.3s ease;
+
+  margin-top: 10px;
 
   &:hover {
     background: #9dc888;
