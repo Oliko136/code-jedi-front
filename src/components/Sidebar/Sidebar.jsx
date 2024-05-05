@@ -12,8 +12,8 @@ import Modal from '../Modal/Modal';
 const AddBoardForm = () => {}; // Компонент-заглушка для AddBoardForm
 
 // Заглушки для зображення та спрайту
-const sprite = '';
-const plantImage = '';
+//const sprite = '';
+//const plantImage = '';
 
 const Sidebar = ({ showSidebar }) => {
   const [showModal, setShowModal] = useState(false);
