@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import * as Styled from './ThemeSelection.styled';
 
 import UserHeader from '../UserHeader/UserHeader';
-import { updateTheme } from '../../../redux/theme/operations';
+import { updateTheme } from '../../../redux/theme/theme-operations';
 // import baseSvgSprite from ''; //Here should be import of our svg sprite
 
 const ThemeSelection = () => {
