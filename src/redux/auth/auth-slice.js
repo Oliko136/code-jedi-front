@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { pending, rejected } from "../../helpers/redux-functions.js";
-import { register, logIn, logOut, getCurrentUser, updateUserInfo, updateUserTheme, updateUserAvatar } from "./auth-operations.js";
+import { registerThunk, logIn, logOut, getCurrentUser, updateUserInfo, updateUserTheme, updateUserAvatar } from "./auth-operations.js";
 
 const initialState = {
     user: {},
@@ -15,15 +15,15 @@ const authSlice = createSlice({
     initialState,
     extraReducers: builder => {
         builder
-            .addCase(register.pending, pending)
-            .addCase(register.fulfilled, (state, { payload }) => {
+            .addCase(registerThunk.pending, pending)
+            .addCase(registerThunk.fulfilled, (state, { payload }) => {
                 state.user = payload.user;
                 state.token = payload.token;
                 state.isLoggedIn = true;
                 state.isLoading = false;
                 state.error = null;
             })
-            .addCase(register.rejected, rejected)
+            .addCase(registerThunk.rejected, rejected)
             .addCase(logIn.pending, pending)
             .addCase(logIn.fulfilled, (state, { payload }) => {
                 state.user = payload.user;
