@@ -1,4 +1,5 @@
 //import { Suspense } from 'react';
+import Sidebar from '../../components/Sidebar/Sidebar';
 
 const HomePage = () => {
   return (
@@ -6,6 +7,7 @@ const HomePage = () => {
       {/* Це лише заглушка. Можна буде прибрати/коригувати */}
 
       <h1>HomePage</h1>
+      <Sidebar showSidebar={true} />
     </>
   );
 };
