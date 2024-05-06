@@ -6,6 +6,7 @@ import { store, persistor } from './redux/store.js';
 import App from './components/App/App.jsx';
 import GlobalStyle from 'GlobalStyle.js';
 import { Provider } from 'react-redux';
+import './assets/theme/themeClrVars.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -14,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <PersistGate loading={null} persistor={persistor}>
           <GlobalStyle />
           <App />
-        </PersistGate> 
+        </PersistGate>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

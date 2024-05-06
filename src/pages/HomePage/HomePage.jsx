@@ -1,4 +1,5 @@
 //import { Suspense } from 'react';
+import { Header } from 'components/Header/Header';
 import Sidebar from '../../components/Sidebar/Sidebar';
 
 const HomePage = () => {
@@ -7,7 +8,7 @@ const HomePage = () => {
       {/* Це лише заглушка. Можна буде прибрати/коригувати */}
 
       <h1>HomePage</h1>
-      <Sidebar showSidebar={true} />
+      <Header />
     </>
   );
 };

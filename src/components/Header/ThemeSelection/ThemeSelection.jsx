@@ -4,7 +4,7 @@ import * as Styled from './ThemeSelection.styled';
 
 import UserHeader from '../UserHeader/UserHeader';
 import { updateTheme } from '../../../redux/theme/theme-operations';
-// import baseSvgSprite from ''; //Here should be import of our svg sprite
+import baseSvgPath from '../../../assets/svg/sprite.svg';
 
 const ThemeSelection = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -64,8 +64,9 @@ const ThemeSelection = () => {
       <Styled.ThemeSubDiv ref={textRef} onClick={toggleMenu}>
         <Styled.ThemeText>Theme</Styled.ThemeText>
         <Styled.ThemeIcon ref={svgRef}>
-          <use href="{baseSvgSprite + 'someID'}" /> //**Create an svg route and
-          id for theme selector
+          <use
+            href={baseSvgPath + (showMenu ? '#chevron-down' : '#chevron-down')} //I think we can have chevron-up icon when theme is being selecting
+          />
         </Styled.ThemeIcon>
       </Styled.ThemeSubDiv>
       {showMenu && (
