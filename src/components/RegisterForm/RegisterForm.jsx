@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// активировать после санок
 import { useDispatch } from 'react-redux';
 import { registerThunk } from '../../redux/auth/auth-operations';
 // хук на useSelector
