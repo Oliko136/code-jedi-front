@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// активировать после санок
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/auth-operations';
 // import { useAuth } from 'hooks';
@@ -17,7 +16,6 @@ import {
   HideBtn, 
 } from '../RegisterForm/RegisterForm.styled';
 import {FormWrapLog} from './LoginForm.styled'
-// import Eye from '../RegisterForm/Eye';
 import Icon from '../../Icon/Icon';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -28,7 +26,6 @@ const LoginForm = () => {
   
   const [visible, setVisible] = useState(false);
  
-// активировать после санок
   const dispatch = useDispatch();
 //   const { isLoading } = useAuth();
 
@@ -45,7 +42,7 @@ const LoginForm = () => {
           if (!isValid) {
             return;
            }
-           // активировать после санок
+           
         dispatch(logIn({ ...formData }))
         // await new Promise(res => setTimeout(res, 500));
     reset();
@@ -60,11 +57,8 @@ const LoginForm = () => {
     mode: "onBlur",
     resolver:yupResolver(loginSchema)
   })
-// console.log(errors.name.message)
-// console.log(isValid)
   
-const iconEye = visible ? "eye" :  "icon-plus";
-
+// const iconEye = visible ? "eye" :  "icon-plus";
 
   return (
     <Background>
@@ -113,7 +107,7 @@ const iconEye = visible ? "eye" :  "icon-plus";
                     height={20}
                     fillColor={'none'}
                     strokeColor={`#fff`}
-                    name={iconEye}
+                    name={"eye"}
                     />
                 
               </HideBtn>

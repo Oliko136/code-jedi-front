@@ -29,7 +29,6 @@ import { yupResolver } from "@hookform/resolvers/yup"
 const RegisterForm = () => {
   
   const [visible, setVisible] = useState(false);
-// активировать после санок
   const dispatch = useDispatch();
   // const { isLoading } = useAuth();
 
@@ -47,7 +46,7 @@ const RegisterForm = () => {
           if (!isValid) {
             return;
            }
-           // активировать после санок
+           
         dispatch(registerThunk({ ...formData }))
         // await new Promise(res => setTimeout(res, 500));
     reset();
@@ -62,10 +61,8 @@ const RegisterForm = () => {
     mode: "onBlur",
     resolver:yupResolver(registerSchema)
   })
-// console.log(errors.name.message)
-// console.log(isValid)
 
-const iconEye = visible ? "eye" :  "icon-plus";
+// const iconEye = visible ? "eye" :  "icon-plus";
   
   return (
     <Background>
@@ -123,7 +120,7 @@ const iconEye = visible ? "eye" :  "icon-plus";
                     height={20}
                     fillColor={'none'}
                     strokeColor={`#fff`}
-                    name={iconEye}
+                    name={"eye"}
                     />
               </HideBtn>
             </PassInputWrap>
