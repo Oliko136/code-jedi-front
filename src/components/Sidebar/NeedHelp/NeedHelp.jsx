@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 // import plant from '.....';
 // import plant2x from '......';
 // import sprite from '.......';
+import NeedHelpModal from '../../Modal/NeedHelpModal/NeedHelpModal';
+import helpcircle_img from './helpcircle.svg';
 
 import css from './NeedHelp.module.css';
 
@@ -25,19 +27,15 @@ const NeedHelp = () => {
       </p>
 
       {/* ------------Кнопка для відкриття модального вікна */}
-      <button className={css.helpOpenModal} type="button" onClick={toggleModal}>
-        <span>
-          {/* ----------Іконка відкриття модального вікна */}
-          <svg className={css.helpOpenModalIcon}>
-            {/* <use href={`${sprite}#....`}></use> */}
-          </svg>
-        </span>
-        Need help?
+      <button className={css.helpButton} type="button" onClick={toggleModal}>
+        <img src={helpcircle_img} alt="question mark" />
+        <p>Need help?</p>
       </button>
 
       {/* Модальне вікно для форми NeedHelp */}
       {showModal && (
         <div className={css.modal}>
+          {showModal && <NeedHelpModal showModal={setShowModal} />}
           {/* <Modal closeModal={toggleModal} style={css.helpModal}> */}
           {/* <HelpForm handleClose={toggleModal} /> */}
           {/* Placeholder for modal content */}
@@ -49,3 +47,11 @@ const NeedHelp = () => {
 };
 
 export default NeedHelp;
+
+// <span>
+//         {/* ----------Іконка відкриття модального вікна */}
+//         <svg className={css.helpOpenModalIcon}>
+//           {/* <use href={`${sprite}#....`}></use> */}
+//         </svg>
+//       </span>
+// Need help ?

@@ -99,3 +99,22 @@
     width: 400px;
   }
 }
+
+.helpButton {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+
+  font-size: 12px;
+  background: transparent;
+  padding: 0;
+  color: #161616;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+}

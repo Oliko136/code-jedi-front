@@ -1,0 +1,93 @@
+.modalform {
+  border-radius: 8px;
+  width: 352px;
+  height: 307px;
+  &:hover {
+    border-color: #9dc888;
+  }
+
+  @media screen and (min-width: 768px) {
+    input,
+    textarea {
+      width: 100%;
+    }
+  }
+}
+
+.modalTitle {
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 24px;
+  /* margin-top: 24px; */
+}
+
+.emailinput {
+  width: 100%;
+  border: 1px solid #bedbb0;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  opacity: 0.4;
+  height: 49px; /* Adjust the height as needed */
+  color: #fff;
+  padding: 14px 18px; /* Adjust the padding to change the input field size */
+  background-color: transparent;
+  transition: opacity 350ms ease-in-out;
+
+  &:focus {
+    outline: none;
+    opacity: 1;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.commenttextarea {
+  resize: none;
+  width: 100%;
+  border: 1px solid #bedbb0;
+  border-radius: 8px;
+  min-height: 120px;
+  opacity: 0.4;
+  color: #fff;
+  background-color: transparent;
+  margin-bottom: 24px;
+  margin-right: 18px;
+  padding: 14px 18px;
+  transition: opacity var(--easedTransition);
+
+  /* transition: opacity 350ms ease-in-out; */
+
+  &:focus {
+    outline: none;
+    opacity: 1;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.buttonSend {
+  border-radius: 8px;
+  width: 100%;
+  height: 49px;
+  background-color: #bedbb0;
+  color: #161616;
+  cursor: pointer;
+  transition: opacity 350ms ease-in-out;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+.themed_toaster {
+  border: 1px solid #bedbb0;
+  background-color: #1f1f1f;
+  color: #fff;
+  text-align: center;
+  filter: drop-shadow(1px 1px 7px #bedbb0);
+}
