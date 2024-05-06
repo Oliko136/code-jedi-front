@@ -1,8 +1,8 @@
 const Eye = ({ width, height, fillColor, strokeColor }) => {
   return (
     
- <svg width="24" height="24">
-        <use href="../LoginForm/sprite.svg#eye" />
+ <svg width={width} height={height} fill={fillColor} stroke={strokeColor}>
+        <use href="../../assets/svg/sprite.svg#eye" />
      </svg>
     
    
