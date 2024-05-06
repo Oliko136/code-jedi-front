@@ -113,7 +113,6 @@ export const HideBtn = styled.button`
   opacity: 0.4;
   background-color: transparent;
   cursor: pointer;
-  border: 2px solid red;
   
 `;
 
