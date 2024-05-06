@@ -20,8 +20,7 @@ import {
   HideBtn,
   
 } from './RegisterForm.styled';
-import Eye from './Eye';
-import EyeCrossed from './EyCrossed';
+import Icon from "../../Icon/Icon"
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
 
@@ -42,7 +41,7 @@ const RegisterForm = () => {
           email: evt.email,
           password: evt.password,
         };
-        console.log(formData)
+        // console.log(formData)
         const isValid = await registerSchema.isValid(formData);            
 
           if (!isValid) {
@@ -65,6 +64,8 @@ const RegisterForm = () => {
   })
 // console.log(errors.name.message)
 // console.log(isValid)
+
+const iconEye = visible ? "eye" :  "icon-plus";
   
   return (
     <Background>
@@ -118,25 +119,15 @@ const RegisterForm = () => {
                   setVisible(!visible);
                 }}
               >
-                {visible ? (
-                  <Eye
-                    width={20}
+               <Icon width={20}
                     height={20}
                     fillColor={'none'}
                     strokeColor={`#fff`}
-                  />
-                ) : (
-                  <EyeCrossed
-                    width={20}
-                    height={20}
-                    strokeColor={`#fff`}
-                    fillColor={'none'}
-                  />
-                )}
+                    name={iconEye}
+                    />
               </HideBtn>
             </PassInputWrap>
            
-            
           </label>
          
           <SubmitBtn type="submit"

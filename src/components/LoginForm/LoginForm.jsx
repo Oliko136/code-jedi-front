@@ -17,8 +17,8 @@ import {
   HideBtn, 
 } from '../RegisterForm/RegisterForm.styled';
 import {FormWrapLog} from './LoginForm.styled'
-import Eye from '../RegisterForm/Eye';
-import EyeCrossed from '../RegisterForm/EyCrossed';
+// import Eye from '../RegisterForm/Eye';
+import Icon from '../../Icon/Icon';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
 
@@ -63,6 +63,8 @@ const LoginForm = () => {
 // console.log(errors.name.message)
 // console.log(isValid)
   
+const iconEye = visible ? "eye" :  "icon-plus";
+
 
   return (
     <Background>
@@ -107,21 +109,13 @@ const LoginForm = () => {
                   setVisible(!visible);
                 }}
               >
-                {visible ? (
-                  <Eye
-                    width={20}
+                <Icon width={20}
                     height={20}
                     fillColor={'none'}
                     strokeColor={`#fff`}
-                  />
-                ) : (
-                  <EyeCrossed
-                    width={20}
-                    height={20}
-                    strokeColor={`#fff`}
-                    fillColor={'none'}
-                  />
-                )}
+                    name={iconEye}
+                    />
+                
               </HideBtn>
             </PassInputWrap>     
           </label>

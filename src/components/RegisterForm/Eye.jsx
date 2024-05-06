@@ -1,12 +1,17 @@
-const Eye = ({ width, height, fillColor, strokeColor }) => {
-  return (
+// import sprite from "../../assets/svg/sprite.svg"
+
+// const Eye = ({ width, height, fillColor, strokeColor, name}) => {
+//   console.log(name)
+  
+//   return (
     
- <svg width={width} height={height} fill={fillColor} stroke={strokeColor}>
-        <use href="../../assets/svg/sprite.svg#eye" />
-     </svg>
+//  <svg width={width} height={height} fill={fillColor} stroke={strokeColor}>
+//         <use href={`${sprite}#${name}`} />
+//      </svg>
     
    
-  )
+  // )
+
     // return (
     //   <svg
     //     width={width || '14px'}
@@ -30,7 +35,7 @@ const Eye = ({ width, height, fillColor, strokeColor }) => {
     //     />
     //   </svg>
     // );
-  };
+  // };
   
-  export default Eye;
+  // export default Eye;
   

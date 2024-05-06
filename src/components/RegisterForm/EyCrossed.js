@@ -1,9 +1,9 @@
-const EyeCrossed = ({ width, height, fillColor, strokeColor }) => {
-  return (
+// const EyeCrossed = ({ width, height, fillColor, strokeColor }) => {
+//   return (
     
-    <svg width={width} height={height} fill={fillColor} stroke={strokeColor}>
-           <use href="../../assets/svg/sprite.svg#icon-eye-off" />
-        </svg>)
+//     <svg width={width} height={height} fill={fillColor} stroke={strokeColor}>
+//            <use href="../../assets/svg/sprite.svg#icon-eye-off" />
+//         </svg>)
     // return (
     //   <svg
     //     width={width || '14px'}
@@ -21,7 +21,7 @@ const EyeCrossed = ({ width, height, fillColor, strokeColor }) => {
     //     <circle cx="12" cy="12" r="3" /> <path d="M3 21L20 4" />{' '}
     //   </svg>
     // );
-  };
+  // };
   
-  export default EyeCrossed;
+  // export default EyeCrossed;
   
