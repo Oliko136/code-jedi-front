@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/code-jedi-front/static/css/main.84e0a409.css",
-    "main.js": "/code-jedi-front/static/js/main.c8b2c6fa.js",
+    "main.js": "/code-jedi-front/static/js/main.4c7ea6d8.js",
     "static/media/welcome-desk-2x.png": "/code-jedi-front/static/media/welcome-desk-2x.47352d931ddfe9011871.png",
     "static/media/welcome-tab-2x.png": "/code-jedi-front/static/media/welcome-tab-2x.47352d931ddfe9011871.png",
     "static/media/welcome-mob-2x.png": "/code-jedi-front/static/media/welcome-mob-2x.dbdef087e71e45db1268.png",
@@ -16,6 +16,7 @@
     "static/media/poppins-regular-webfont.woff": "/code-jedi-front/static/media/poppins-regular-webfont.5692f882d3c551f1fec0.woff",
     "static/media/welcome-desk-1x.png": "/code-jedi-front/static/media/welcome-desk-1x.324d085f23796df69bd8.png",
     "static/media/welcome-tab-1x.png": "/code-jedi-front/static/media/welcome-tab-1x.324d085f23796df69bd8.png",
+    "static/media/sprite.svg": "/code-jedi-front/static/media/sprite.f186d8000e5d157b1c6f8e4663bbf6e8.svg",
     "static/media/poppins-semibold-webfont.eot": "/code-jedi-front/static/media/poppins-semibold-webfont.efc1e4eed1b3eb41868b.eot",
     "static/media/poppins-regular-webfont.eot": "/code-jedi-front/static/media/poppins-regular-webfont.7c328d4b2942bce22a79.eot",
     "static/media/poppins-medium-webfont.eot": "/code-jedi-front/static/media/poppins-medium-webfont.60cc58cfc68aa5a84213.eot",
@@ -27,10 +28,10 @@
     "static/media/helpcircle.svg": "/code-jedi-front/static/media/helpcircle.23446d6b292b9485b7a30953e7bbb67f.svg",
     "static/media/x-close.svg": "/code-jedi-front/static/media/x-close.233bf1019478d35c56bb9756681cd7d8.svg",
     "main.84e0a409.css.map": "/code-jedi-front/static/css/main.84e0a409.css.map",
-    "main.c8b2c6fa.js.map": "/code-jedi-front/static/js/main.c8b2c6fa.js.map"
+    "main.4c7ea6d8.js.map": "/code-jedi-front/static/js/main.4c7ea6d8.js.map"
   },
   "entrypoints": [
     "static/css/main.84e0a409.css",
-    "static/js/main.c8b2c6fa.js"
+    "static/js/main.4c7ea6d8.js"
   ]
 }
