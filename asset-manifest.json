@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/code-jedi-front/static/css/main.84e0a409.css",
-    "main.js": "/code-jedi-front/static/js/main.4c7ea6d8.js",
+    "main.js": "/code-jedi-front/static/js/main.1dd56c84.js",
     "static/media/welcome-desk-2x.png": "/code-jedi-front/static/media/welcome-desk-2x.47352d931ddfe9011871.png",
     "static/media/welcome-tab-2x.png": "/code-jedi-front/static/media/welcome-tab-2x.47352d931ddfe9011871.png",
     "static/media/welcome-mob-2x.png": "/code-jedi-front/static/media/welcome-mob-2x.dbdef087e71e45db1268.png",
@@ -28,10 +28,10 @@
     "static/media/helpcircle.svg": "/code-jedi-front/static/media/helpcircle.23446d6b292b9485b7a30953e7bbb67f.svg",
     "static/media/x-close.svg": "/code-jedi-front/static/media/x-close.233bf1019478d35c56bb9756681cd7d8.svg",
     "main.84e0a409.css.map": "/code-jedi-front/static/css/main.84e0a409.css.map",
-    "main.4c7ea6d8.js.map": "/code-jedi-front/static/js/main.4c7ea6d8.js.map"
+    "main.1dd56c84.js.map": "/code-jedi-front/static/js/main.1dd56c84.js.map"
   },
   "entrypoints": [
     "static/css/main.84e0a409.css",
-    "static/js/main.4c7ea6d8.js"
+    "static/js/main.1dd56c84.js"
   ]
 }
