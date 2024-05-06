@@ -77,8 +77,6 @@ export const Input = styled.input`
  font-size: 14px;
 letter-spacing: -0.02em;
 
-
-
   &:focus {
     opacity: 1;
   }
@@ -86,12 +84,7 @@ letter-spacing: -0.02em;
   &:hover {
     opacity: 1;
   }
-
-  ${({ $error }) =>
-    $error &&
-    `
-    border-color: #fc8171;
-  `}
+  
 `;
 
 export const PassInputWrap = styled.div`
@@ -120,6 +113,8 @@ export const HideBtn = styled.button`
   opacity: 0.4;
   background-color: transparent;
   cursor: pointer;
+  border: 2px solid red;
+  
 `;
 
 export const SubmitBtn = styled.button`
