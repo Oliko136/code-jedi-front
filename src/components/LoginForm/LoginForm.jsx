@@ -93,7 +93,7 @@ const LoginForm = () => {
               {...register('password') }
                 
                 name="password"
-                placeholder= 'Create a password'
+                placeholder= 'Confirm a password'
                 type={visible ? 'text' : 'password'}
               />
                {errors?.password && (<ErrorPara>{errors?.password?.message || 'Errors!'}</ErrorPara>)}

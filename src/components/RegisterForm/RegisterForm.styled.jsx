@@ -130,5 +130,5 @@ export const ErrorPara = styled.span`
   left: 0;
   bottom: -14px;
   font-size: 10px;
-  color: #03ecfc;
+  color: #00de00;
 `;

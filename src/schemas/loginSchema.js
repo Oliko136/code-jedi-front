@@ -16,7 +16,7 @@ const loginSchema = yup.object().shape({
     .max(64, 'Maximum password length is 64 symbols')
     .matches(
         /^[\S]+$/,
-        'Invalid email format')
+        'Invalid password format')
     .required('Password is required'),
 });
 
