@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/code-jedi-front/static/css/main.61a5ff6a.css",
-    "main.js": "/code-jedi-front/static/js/main.9bd794f5.js",
+    "main.js": "/code-jedi-front/static/js/main.7fe8ef75.js",
     "static/media/welcome-desk-2x.png": "/code-jedi-front/static/media/welcome-desk-2x.47352d931ddfe9011871.png",
     "static/media/welcome-tab-2x.png": "/code-jedi-front/static/media/welcome-tab-2x.47352d931ddfe9011871.png",
     "static/media/welcome-mob-2x.png": "/code-jedi-front/static/media/welcome-mob-2x.dbdef087e71e45db1268.png",
@@ -27,10 +27,10 @@
     "index.html": "/code-jedi-front/index.html",
     "static/media/x-close.svg": "/code-jedi-front/static/media/x-close.233bf1019478d35c56bb9756681cd7d8.svg",
     "main.61a5ff6a.css.map": "/code-jedi-front/static/css/main.61a5ff6a.css.map",
-    "main.9bd794f5.js.map": "/code-jedi-front/static/js/main.9bd794f5.js.map"
+    "main.7fe8ef75.js.map": "/code-jedi-front/static/js/main.7fe8ef75.js.map"
   },
   "entrypoints": [
     "static/css/main.61a5ff6a.css",
-    "static/js/main.9bd794f5.js"
+    "static/js/main.7fe8ef75.js"
   ]
 }
