@@ -1,7 +1,7 @@
 import { useState } from 'react';
 // активировать после санок
-// import { useDispatch } from 'react-redux';
-// import { registerThunk } from '../../redux/auth/authOperations';
+import { useDispatch } from 'react-redux';
+import { registerThunk } from '../../redux/auth/auth-operations';
 // хук на useSelector
 // import { useAuth } from 'hooks';
 import  registerSchema  from './registerSchema';
@@ -20,8 +20,7 @@ import {
   HideBtn,
   
 } from './RegisterForm.styled';
-import Eye from './Eye';
-import EyeCrossed from './EyCrossed';
+import Icon from "../../Icon/Icon"
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
 
@@ -30,9 +29,8 @@ import { yupResolver } from "@hookform/resolvers/yup"
 const RegisterForm = () => {
   
   const [visible, setVisible] = useState(false);
-// активировать после санок
-  // const dispatch = useDispatch();
-//   const { isLoading } = useAuth();
+  const dispatch = useDispatch();
+  // const { isLoading } = useAuth();
 
   const submit = async (evt) => {
     console.log(evt.email,'qwe' );
@@ -42,14 +40,14 @@ const RegisterForm = () => {
           email: evt.email,
           password: evt.password,
         };
-        console.log(formData)
+        // console.log(formData)
         const isValid = await registerSchema.isValid(formData);            
 
           if (!isValid) {
             return;
            }
-           // активировать после санок
-        // dispatch(registerThunk({ ...formData }))
+           
+        dispatch(registerThunk({ ...formData }))
         // await new Promise(res => setTimeout(res, 500));
     reset();
   }
@@ -63,8 +61,8 @@ const RegisterForm = () => {
     mode: "onBlur",
     resolver:yupResolver(registerSchema)
   })
-// console.log(errors.name.message)
-console.log(isValid)
+
+// const iconEye = visible ? "eye" :  "icon-plus";
   
   return (
     <Background>
@@ -118,25 +116,15 @@ console.log(isValid)
                   setVisible(!visible);
                 }}
               >
-                {visible ? (
-                  <Eye
-                    width={20}
+               <Icon width={20}
                     height={20}
                     fillColor={'none'}
                     strokeColor={`#fff`}
-                  />
-                ) : (
-                  <EyeCrossed
-                    width={20}
-                    height={20}
-                    strokeColor={`#fff`}
-                    fillColor={'none'}
-                  />
-                )}
+                    name={"eye"}
+                    />
               </HideBtn>
             </PassInputWrap>
            
-            
           </label>
          
           <SubmitBtn type="submit"

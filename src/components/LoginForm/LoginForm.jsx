@@ -1,13 +1,11 @@
 import { useState } from 'react';
-// активировать после санок
-// import { useDispatch } from 'react-redux';
-// import { loginThunk } from '../../redux/auth/authOperations';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../redux/auth/auth-operations';
 // import { useAuth } from 'hooks';
 import  loginSchema  from './loginSchema';
 // import SmallLoader from 'components/Loader/SmallLoader';
 import {
   Background,
-  FormWrap,
   AuthList,
   AuthLink,
   FormUi,
@@ -17,8 +15,8 @@ import {
   PassInputWrap,
   HideBtn, 
 } from '../RegisterForm/RegisterForm.styled';
-import Eye from '../RegisterForm/Eye';
-import EyeCrossed from '../RegisterForm/EyCrossed';
+import {FormWrapLog} from './LoginForm.styled'
+import Icon from '../../Icon/Icon';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
 
@@ -28,8 +26,7 @@ const LoginForm = () => {
   
   const [visible, setVisible] = useState(false);
  
-// активировать после санок
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 //   const { isLoading } = useAuth();
 
   const submit = async (evt) => {
@@ -45,8 +42,8 @@ const LoginForm = () => {
           if (!isValid) {
             return;
            }
-           // активировать после санок
-        // dispatch(loginThunk({ ...formData }))
+           
+        dispatch(logIn({ ...formData }))
         // await new Promise(res => setTimeout(res, 500));
     reset();
   }
@@ -60,13 +57,12 @@ const LoginForm = () => {
     mode: "onBlur",
     resolver:yupResolver(loginSchema)
   })
-// console.log(errors.name.message)
-console.log(isValid)
   
+// const iconEye = visible ? "eye" :  "icon-plus";
 
   return (
     <Background>
-      <FormWrap>
+      <FormWrapLog>
         <AuthList>
           <li>
             <AuthLink to={`/auth/register`}>Registration</AuthLink>
@@ -107,21 +103,13 @@ console.log(isValid)
                   setVisible(!visible);
                 }}
               >
-                {visible ? (
-                  <Eye
-                    width={20}
+                <Icon width={20}
                     height={20}
                     fillColor={'none'}
                     strokeColor={`#fff`}
-                  />
-                ) : (
-                  <EyeCrossed
-                    width={20}
-                    height={20}
-                    strokeColor={`#fff`}
-                    fillColor={'none'}
-                  />
-                )}
+                    name={"eye"}
+                    />
+                
               </HideBtn>
             </PassInputWrap>     
           </label>
@@ -133,9 +121,10 @@ console.log(isValid)
             
           </SubmitBtn>
         </FormUi>
-      </FormWrap>
+      </FormWrapLog>
     </Background>
   );
 };
 
 export default LoginForm;
+

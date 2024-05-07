@@ -1,11 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import * as authAPI from '../../api/auth-api.js';
+import * as userAPI from '../../api/user-api.js';
+// установить react-toastify 
+// import { toast } from 'react-toastify';
 
-export const register = createAsyncThunk(
+export const registerThunk = createAsyncThunk(
     'auth/register',
     async (credentials, {rejectWithValue}) => {
         try {
             const data = await authAPI.register(credentials);
+            // toast.success('Congratulations! You have successfully registered!');
             return data;
         } catch (error) {
             return rejectWithValue(error.response.data.message);
@@ -56,22 +60,26 @@ export const getCurrentUser = createAsyncThunk(
     }
 );
 
+export const updateUserInfo = createAsyncThunk(
+    'auth/updateUserInfo',
+    async (body, {rejectWithValue}) => {
+        try {
+            const data = await userAPI.updateUserInfo(body);
+            return data;
+        } catch (error) {
+            return rejectWithValue(error.response.data.message);
+        }
+    }
+);
 
-// export const registerThunk = createAsyncThunk(
-//     'auth/register',
-//     async (credentials, thunkAPI) => {
-//       try {
-//         const { data } = await axiosInstance.post(
-//           ENDPOINTS.auth.register,
-//           credentials
-//         );
-//         setAuthorizationHeader(data.user.tokenAccess);
-  
-//         return data;
-//       } catch (error) {
-//         toast.error(error.response.data.message, TOASTER_CONFIG);
-//         return thunkAPI.rejectWithValue(error.message);
-//       }
-//     }
-//   );
-  
+export const updateUserAvatar = createAsyncThunk(
+    'auth/updateUserAvatar',
+    async (file, {rejectWithValue}) => {
+        try {
+            const data = await userAPI.updateUserAvatar(file);
+            return data;
+        } catch (error) {
+            return rejectWithValue(error.response.data.message);
+        }
+    }
+);
