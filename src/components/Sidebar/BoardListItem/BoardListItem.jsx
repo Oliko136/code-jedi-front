@@ -3,17 +3,21 @@ import React, { useState } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 
 import Modal from 'components/Modal/Modal';
-//import EditBoardForm from '...';
+// import EditBoardForm from './EditBoardForm'; // Виправте шлях
 
 // import { deleteBoard } from '../../../redux/'; ----------------- Імпорт функції deleteBoard з Redux для видалення дошки
 // import { selectBoard } from '../../../redux/'; ----------------- Імпорт селектора selectBoard для отримання даних про дошку з Redux
-// import sprite from '.....sprite.svg'; ----------------- Імпорт спрайту SVG
-import css from './BoardListItem.module.css';
+import {
+  BoardItem,
+  BoardItemTitleBlock,
+  BoardIcon,
+  BoardTitle,
+  BoardItemButtonsBlock,
+  BoardBtn,
+  BoardBtnSvg,
+} from './BoardListItem.styled';
 
 // Заглушка для EditBoardForm
-const EditBoardForm = () => {
-  return <div>Placeholder for EditBoardForm</div>;
-};
 const BoardListItem = ({ board }) => {
   // const location = useLocation();
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +25,6 @@ const BoardListItem = ({ board }) => {
   // const dispatch = useDispatch();
   // const navigate = useNavigate();
   // const currentBoard = useSelector(selectBoard);
-
   const handleDeleteBoard = boardId => {
     // dispatch(deleteBoard(boardId)).then(action => {
     //   if (action.type !== 'boards/deleteBoard/fulfilled') {
@@ -32,68 +35,71 @@ const BoardListItem = ({ board }) => {
     //   }
     // });
     console.log(`Deleting board with ID ${boardId}`);
-  }; // Функція для видалення дошки та навігації на головну сторінку, якщо видаляється активна дошка
+  };
 
   return (
     <>
       {/* ------------Посилання на сторінку дошки з назвою та іконкою */}
-      {/* <NavLink
+      {/*<StyledNavLink
         to={`/home/${board.title}`}
         state={{ from: location }}
-        className={css.boardItem}
-      > */}
-      <div className={css.boardItem}>
-        <div className={css.boardItemTitleBlock}>
-          <svg className={css.boardIcon}>
-            {/* <use href={`${sprite}#${board.icon}`}></use> */}
-            {/* Placeholder for icon */}
-          </svg>
-          <h2 className={css.boardTitle}>{board.title}</h2>
-        </div>
+        className="boardItem"
+      >
+      </StyledNavLink>
+      */}
+      <BoardItem>
+        <BoardItemTitleBlock>
+          <BoardIcon>
+            {/*<StyledSVG>
+      <use href={`${sprite}#${icon}`} />
+    </StyledSVG>*/}
+            {/* Заглушка для іконки */}
+          </BoardIcon>
+          <BoardTitle>{board.title}</BoardTitle>
+        </BoardItemTitleBlock>
 
         {/*----------------- Блок з кнопками для редагування та видалення дошки */}
         <div>
-          <ul className={css.boardItemButtonsBlock}>
+          <BoardItemButtonsBlock>
             {/* --------------------- Кнопка для редагування дошки */}
             <li>
-              <button
-                className={css.boardBtn}
-                type="button"
-                onClick={toggleModal}
-              >
-                <svg className={css.boardBtnSvg}>
-                  {/* <use href={`${sprite}#...`}></use> */}
-                </svg>
-              </button>
+              <BoardBtn type="button" onClick={toggleModal}>
+                <BoardBtnSvg>
+                  {/* <StyledSVG>
+      <use href={`${sprite}#${icon}`} />
+    </StyledSVG> */}
+                </BoardBtnSvg>
+              </BoardBtn>
             </li>
+
             {/* ----------------------- Кнопка для видалення дошки */}
             <li>
-              <button
-                onClick={() => handleDeleteBoard(board._id)}
-                className={css.boardBtn}
+              <BoardBtn
                 type="button"
+                onClick={() => handleDeleteBoard(board._id)}
               >
-                <svg className={css.boardBtnSvg}>
-                  {/* <use href={`${sprite}#...`}></use> */}
-                  {/* Placeholder for delete icon */}
-                </svg>
-              </button>
+                <BoardBtnSvg>
+                  {/*<StyledSVG>
+      <use href={`${sprite}#${icon}`} />
+    </StyledSVG>*/}
+                </BoardBtnSvg>
+              </BoardBtn>
             </li>
-          </ul>
+          </BoardItemButtonsBlock>
         </div>
-      </div>
-      {/* </NavLink> */}
+      </BoardItem>
 
       {/* ----------------Модальне вікно для редагування дошки */}
       {showModal && (
         <Modal closeModal={toggleModal}>
-          <EditBoardForm
+          {/* <EditBoardForm
             boardId={board._id}
             initialTitle={board.title}
             initialIconName={board.icon}
             initialBackgroundName={board.background}
             handleClose={toggleModal}
-          />
+          /> */}
+          {/* Закоментовано виклик EditBoardForm */}
         </Modal>
       )}
     </>

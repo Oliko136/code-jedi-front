@@ -1,4 +1,6 @@
-.boardItem {
+import styled from 'styled-components';
+
+export const BoardItem = styled.div`
   display: flex;
   justify-content: space-between;
   height: 61px;
@@ -43,64 +45,45 @@
       display: block;
     }
   }
-}
+`;
 
-.boardItemTitleBlock {
+export const BoardItemTitleBlock = styled.div`
   display: flex;
   gap: 8px;
-}
+`;
 
-.boardIcon {
+export const BoardIcon = styled.svg`
   width: 18px;
   height: 18px;
   stroke-width: 1.5px;
   stroke: #bedbb0; /* Light green icon color */
   fill: none;
   animation: scaleAndRotate 5s infinite alternate;
-}
+`;
 
-@keyframes scaleAndRotate {
-  0% {
-    transform: scale(1) rotate(0deg);
-  }
-
-  50% {
-    transform: scale(1.2) rotate(180deg);
-  }
-
-  100% {
-    transform: scale(1) rotate(360deg);
-  }
-}
-
-.boardTitle {
+export const BoardTitle = styled.h2`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
   color: #bedbb0; /* Light green text color */
-}
+`;
 
-.boardItemButtonsBlock {
+export const BoardItemButtonsBlock = styled.ul`
   display: flex;
   gap: 8px;
-}
+`;
 
-.boardBtn {
+export const BoardBtn = styled.button`
   display: none;
   width: 16px;
   height: 16px;
   border: none;
   background-color: transparent;
-}
+`;
 
-.boardBtnSvg {
+export const BoardBtnSvg = styled.svg`
   width: 16px;
   height: 16px;
   stroke: #bedbb0; /* Light green icon color for button */
   fill: none;
-}
-
-.boardBtnSvg:hover,
-.boardBtnSvg:focus {
-  transform: scale(1.3);
-}
+`;

@@ -1,22 +1,26 @@
+import React from 'react';
+
 //import { useSelector, useDispatch } from 'react-redux';
 //import { useState } from 'react';
 
 //import { getBoard } from '../../../redux/';  ----- Імпорт функції getBoard для отримання даних про дошку з Redux
 //import { selectUser } from '../../../redux/'; // Імпорт селектора selectUser для отримання даних користувача з Redux
 
+import { BoardListContainer, BoardItem } from './BoardList.styled';
 import BoardListItem from '../BoardListItem/BoardListItem';
 
-import css from './BoardList.module.css';
-
-const BoardList = () => {
+const BoardList = ({ boards }) => {
   // Заглушка для даних користувача
-  const user = {
+  /*const user = {
     boards: [
       { _id: 1, name: 'Board 1' },
       { _id: 2, name: 'Board 2' },
     ],
-  };
-  const boards = user.boards;
+  };*/
+
+  // -----------------------------Видалимо дубльоване оголошення 'boards'.
+  // const boards = user.boards;
+
   //----------------------------- Отримання даних про користувача з Redux
   // const dispatch = useDispatch();
   // const [activeBoardId, setActiveBoardId] = useState(null);
@@ -26,24 +30,18 @@ const BoardList = () => {
   //   dispatch(getBoard(boardId));
   //   setActiveBoardId(boardId);
   // };
-
   return (
-    // Список дошок
-    <ul className={css.boardList}>
-      {/* ------------------Проходження по кожній дошці і рендеринг */}
+    <BoardListContainer>
       {boards?.map(board => (
-        <li
+        <BoardItem
           key={board._id}
           // onClick={() => handleClick(board._id)}
-          className={`${
-            /*activeBoardId === board._id ? css.activeBoard : ''*/ ''
-          }`}
+          // className={activeBoardId === board._id ? 'activeBoard' : ''}
         >
-          {/* --------------- Рендеринг компонента BoardListItem з даними про дошку */}
           <BoardListItem board={board} allBoards={boards} />
-        </li>
+        </BoardItem>
       ))}
-    </ul>
+    </BoardListContainer>
   );
 };
 

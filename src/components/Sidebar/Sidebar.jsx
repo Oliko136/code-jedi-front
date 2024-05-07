@@ -1,74 +1,91 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import css from './Sidebar.module.css';
-
-import { logOut } from '../../redux/auth/auth-operations'; // Імпорт функції logOut для виходу користувача з системи з Redux store
+import { useDispatch } from 'react-redux'; // Додали useDispatch
+import { logOut } from '../../redux/auth/auth-operations';
 import BoardList from './BoardList/BoardList';
 import NeedHelp from './NeedHelp/NeedHelp';
 import Modal from '../Modal/Modal';
-//import AddBoardForm from '../AddBoardForm'; // Імпорт форми для створення нової дошки
-//import sprite from '........'; // Імпорт спрайту для використання векторних іконок
+import {
+  SidebarWrapper,
+  SidebarHeader,
+  LogoBlock,
+  //SidebarBoardsList,
+  //LogoutBlock,
+  //LogoutLink,
+  //LogoutIcon,
+  //CreateBoardBlock,
+  //CreateBoardText,
+  //Button,
+  //PlusIcon,
+} from './Sidebar.styled';
 
-const AddBoardForm = () => {}; // Компонент-заглушка для AddBoardForm
+// Додали оголошення AddBoardForm
+const AddBoardForm = () => {};
 
-// Заглушки для зображення та спрайту
-//const sprite = '';
+const sprite = 'assets/svg/sprite.svg';
 //const plantImage = '';
 
 const Sidebar = ({ showSidebar }) => {
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
 
+  // Отримали функцію dispatch з useDispatch
+  const dispatch = useDispatch();
+
+  // Викликаємо функцію dispatch(logOut()) для виходу користувача
   const handleLogOut = () => {
-    logOut();
-  }; // заглушка
+    dispatch(logOut());
+  };
 
   return (
-    <aside className={`${css.sidebar} ${showSidebar ? css.showSidebar : ''}`}>
+    <SidebarWrapper className={showSidebar ? 'showSidebar' : ''}>
       {/* Логотип та назва додатку */}
-      <div className={css.sidebarHeader}>
-        <Link to="/home" className={css.logoBlock}>
-          <div className={css.logoIcon}>
-            <svg className={css.logoFlashIcon}>
-              {/* <use href={`${sprite}#....`}></use> */}
+      <SidebarHeader>
+        <LogoBlock to="/home">
+          <div>
+            {/* Використання спрайта */}
+            <svg>
+              <use href={`${sprite}#chevron-down`}></use>
             </svg>
           </div>
-          <p className={css.logo}>Task Pro</p>
-        </Link>
-      </div>
+          <p>Task Pro</p>
+        </LogoBlock>
+      </SidebarHeader>
 
-      <div className={css.sidebarWrapper}>
-        {/* Блок для створення нової дошки */}
-        <h2 className={css.sidebarBoardsHeading}>My boards</h2>
-        <div className={css.createBoardBlock}>
-          <h3 className={css.createBoardText}>Create a new board</h3>
-          <button className={css.button} onClick={toggleModal} type="button">
-            <svg className={css.plusIcon}>
+      {/* Блок для створення нової дошки */}
+      <div>
+        <h2>My boards</h2>
+        <div>
+          <h3>Create a new board</h3>
+          <button onClick={toggleModal} type="button">
+            <svg>
+              {/* Використання спрайта */}
               {/* <use href={`${sprite}#.....`}></use> */}
             </svg>
           </button>
         </div>
       </div>
 
-      <div className={css.sidebarBoardsList}>
-        {/* Виведення списку дошок */}
+      {/* Виведення списку дошок */}
+      <div>
         <BoardList />
       </div>
 
-      <div className={css.sidebarWrapper}>
-        {/* Блок з інформацією NeedHelp */}
+      {/* Блок з інформацією NeedHelp */}
+      <div>
         <NeedHelp />
       </div>
 
-      <div className={css.logoutBlock}>
-        {/* Кнопка LogOut */}
-        <Link to="/" className={css.logoutLink} onClick={handleLogOut}>
+      {/* Кнопка LogOut */}
+      <div>
+        <Link to="/" onClick={handleLogOut}>
           <span>
-            <svg className={css.logoutIcon}>
+            <svg>
+              {/* Використання спрайта */}
               {/* <use href={`${sprite}#.....`}></use> */}
             </svg>
           </span>
-          <p className={css.logoutText}>Log out</p>
+          <p>Log out</p>
         </Link>
       </div>
 
@@ -78,7 +95,7 @@ const Sidebar = ({ showSidebar }) => {
           <AddBoardForm handleClose={toggleModal} />
         </Modal>
       )}
-    </aside>
+    </SidebarWrapper>
   );
 };
 

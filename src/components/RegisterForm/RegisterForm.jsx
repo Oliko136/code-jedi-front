@@ -1,10 +1,9 @@
 import { useState } from 'react';
-// активировать после санок
 import { useDispatch } from 'react-redux';
 import { registerThunk } from '../../redux/auth/auth-operations';
 // хук на useSelector
 // import { useAuth } from 'hooks';
-import  registerSchema  from './registerSchema';
+import  registerSchema  from '../../schemas/registerSchema';
 // нужен Loader на кнопку?
 // import SmallLoader from 'components/Loader/SmallLoader';
 import {

@@ -90,20 +90,6 @@ letter-spacing: -0.02em;
 export const PassInputWrap = styled.div`
   position: relative;
 `;
-// инпут
-
-// width: 287px;
-// height: 49px;
-
-
-// opacity: 0.4;
-// font-family: var(--font-family);
-// font-weight: 400;
-// font-size: 14px;
-// letter-spacing: -0.02em;
-// color: #fff;
-// background: var(--light-green-gradient);
-
 
 export const HideBtn = styled.button`
   position: absolute;
