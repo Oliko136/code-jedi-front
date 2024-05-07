@@ -1,7 +1,7 @@
 //import { Suspense } from 'react';
 import Loader from 'components/Loader/Loader';
 import { MainContainer, CreateBoard } from './HomePage.styled';
-import { NavLink, Navigate } from 'react-router-dom';
+//import { NavLink, Navigate } from 'react-router-dom';
 import { selectAuthLoading } from '../../redux/auth/auth-selectors';
 import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar/Sidebar';

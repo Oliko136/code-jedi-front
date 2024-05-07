@@ -64,8 +64,7 @@ const ThemeSelection = () => {
       <Styled.ThemeSubDiv ref={textRef} onClick={toggleMenu}>
         <Styled.ThemeText>Theme</Styled.ThemeText>
         <Styled.ThemeIcon ref={svgRef}>
-          <use href="{baseSvgSprite + 'someID'}" /> //**Create an svg route and
-          id for theme selector
+          <use href="{baseSvgSprite + 'someID'}" /> {/*Create an svg route and id for theme selector*/}
         </Styled.ThemeIcon>
       </Styled.ThemeSubDiv>
       {showMenu && (

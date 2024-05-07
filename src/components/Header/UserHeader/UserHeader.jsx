@@ -1,4 +1,4 @@
-import { useState } from 'react';
+//import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import * as Styled from './UserHeader.styled';
 import { selectUser } from '../../../redux/auth/auth-selectors';
@@ -41,8 +41,8 @@ const UserHeader = ({ currentTheme }) => {
         ) : (
           <Styled.UserIcon onClick="{handleModalOpen}">
             {' '}
-            //*Should be a fucntion for opening a modal
-            <use href="{baseSvgSprite + iconId}" /> //*Add SvgSprite and Icon id
+            {/*Should be a fucntion for opening a modal*/}
+              <use href="{baseSvgSprite + iconId}" /> {/*Add SvgSprite and Icon id*/}
           </Styled.UserIcon>
         )}
       </Styled.UserDiv>
