@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Modal from '../Modal/Modal';
-import toast from 'react-hot-toast';
+import { toast } from 'react-toastify';
+// import toast from 'react-hot-toast';
 import axios from 'axios';
 import { BASE_API_URL } from '../../../constants/base-url';
 // import { xiosInstance } from '../../../api/axiosInstance.js';
@@ -75,9 +76,9 @@ const NeedHelpModal = ({ showModal }) => {
         color: '#fff',
         textAlign: 'center',
       },
+      position: 'ctop-center',
       duration: 1500,
     };
-
     if (email.trim() === '' || text.trim() === '') {
       toast('Please enter data to submit ❗️', TOASTER_CONFIG);
       return;
