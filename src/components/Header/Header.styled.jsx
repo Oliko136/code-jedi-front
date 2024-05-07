@@ -8,7 +8,7 @@ export const Header = styled.header`
   height: 60px;
   padding: 18px 20px;
   width: 100vw;
-  background-color: #161616;
+  background-color: var(--additional-bg-color);
 
   @media screen and (min-width: 768px) {
     height: 68px;
@@ -25,8 +25,7 @@ export const MobMenuBtn = styled.button`
   svg {
     width: 24px;
     height: 24px;
-    fill: #fff;
-    stroke: #fff;
+    stroke: var(--icon-color);
     @media screen and (min-width: 768px) {
       width: 32px;
       height: 32px;

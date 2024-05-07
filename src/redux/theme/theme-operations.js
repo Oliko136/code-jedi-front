@@ -5,7 +5,7 @@ export const updateTheme = createAsyncThunk(
   'theme/updateTheme',
   async ({ theme }, { rejectWithValue }) => {
     try {
-      const data = await updateUserTheme('/users', { theme });
+      const data = await updateUserTheme({ theme });
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

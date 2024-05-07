@@ -1,0 +1,65 @@
+[data-theme='dark'] {
+  --primary-bg-color: #1f1f1f;
+  --additional-bg-color: #161616;
+  --accent-bg-color: #121212;
+  --icon-color: #ffffff;
+  --accent-icon-color: #bedbb0;
+  --accent-icon-hover-color: #9dc888;
+  --additional-icon-color: #bedbb0;
+  --primary-text-color: #ffffff;
+  --additional-text-color: #ffffff;
+  --additional-text-color-op: #ffffffcc;
+  --input-text-color: #ffffff;
+  --additional-input-text-color: #ffffff80;
+  --input-border-color: #bedbb0;
+  --input-bg-color: #151515;
+  --btn-bg-color: #bedbb0;
+  --btn-bg-hover-color: #9dc888;
+  --btn-profile-bg-color: #bedbb0;
+  --additional-btn-bg-color: #bedbb0;
+  --additional-btn-bg-hover-color: #9dc888;
+}
+
+[data-theme='light'] {
+  --primary-background-color: #f6f6f7;
+  --additional-bg-color: #fcfcfc;
+  --accent-bg-color: #ffffff;
+  --icon-color: #161616;
+  --accent-icon-color: #bedbb0;
+  --accent-icon-hover-color: #9dc888;
+  --additional-icon-color: #bedbb0;
+  --primary-text-color: #161616;
+  --additional-text-color: #161616;
+  --additional-text-color-op: #161616cc;
+  --input-text-color: #161616;
+  --additional-input-text-color: #161616;
+  --input-border-color: #bedbb0;
+  --input-bg-color: #fcfcfc;
+  --btn-bg-color: #bedbb0;
+  --btn-bg-hover-color: #9dc888;
+  --btn-profile-bg-color: #bedbb0;
+  --additional-btn-bg-color: #bedbb0;
+  --additional-btn-bg-hover-color: #9dc888;
+}
+
+[data-theme='violet'] {
+  --primary-background-color: #ecedfd;
+  --additional-bg-color: #fcfcfc;
+  --accent-bg-color: #5255bc;
+  --icon-color: #161616;
+  --accent-icon-color: #ffffff;
+  --accent-icon-hover-color: #b8bcfd;
+  --additional-icon-color: #5255bc;
+  --primary-text-color: #ffffff;
+  --additional-text-color: #161616;
+  --additional-text-color-op: #161616cc;
+  --input-text-color: #161616;
+  --additional-input-text-color: #161616;
+  --input-border-color: #5255bc;
+  --input-bg-color: #fcfcfc;
+  --btn-bg-color: #b8bcfd;
+  --btn-bg-hover-color: #979cea;
+  --btn-profile-bg-color: #ecedfd;
+  --additional-btn-bg-color: #5255bc;
+  --additional-btn-bg-hover-color: #7b7ede;
+}

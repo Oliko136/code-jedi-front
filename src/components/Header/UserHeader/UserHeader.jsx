@@ -1,27 +1,31 @@
-//import { useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import * as Styled from './UserHeader.styled';
 import { selectUser } from '../../../redux/auth/auth-selectors';
-
-// import modal from ''; //Here should be imported modal
-// import baseSvgSprite from ''; //Here should be import of our svg sprite
+import UserDefaultDark from '../../../assets/img/user-default/user-default-dark.png';
+import UserDefaultLight from '../../../assets/img/user-default/user-default-light.png';
+import UserDefaultViolet from '../../../assets/img/user-default/user-default-violet.png';
 
 const UserHeader = ({ currentTheme }) => {
-  const { user } = useSelector(selectUser);
+  const user = useSelector(selectUser);
+  const [open, setOpen] = useState(false);
 
-  let iconId;
+  const handleModalOpen = () => setOpen(true);
+  const handleModalClose = () => setOpen(false);
+
+  let iconSrc;
   switch (currentTheme) {
     case 'dark':
-      iconId = '#someIdDark'; //Add and id for avatar for first users
+      iconSrc = UserDefaultDark;
       break;
     case 'light':
-      iconId = '#someIdLight'; //Add and id for avatar for first users
+      iconSrc = UserDefaultLight;
       break;
     case 'violet':
-      iconId = '#someIdViolet'; //Add and id for avatar for first users
+      iconSrc = UserDefaultViolet;
       break;
     default:
-      iconId = '#someIdDark'; //Add and id for avatar for first users
+      iconSrc = UserDefaultDark;
   }
 
   if (!user) {
@@ -32,21 +36,31 @@ const UserHeader = ({ currentTheme }) => {
     <>
       <Styled.UserDiv>
         <Styled.UserName>{user.name}</Styled.UserName>
-        {user.avatarURL ? (
+        {user.avatar !== 'avatar/standartAvatar.png' ? (
           <Styled.UserImg
             src={user.avatarURL}
             alt="User Image"
-            onClick="{handleModalOpen}" //Should be function for opening a modal
+            onClick={handleModalOpen}
           />
         ) : (
-          <Styled.UserIcon onClick="{handleModalOpen}">
-            {' '}
-            {/*Should be a fucntion for opening a modal*/}
-              <use href="{baseSvgSprite + iconId}" /> {/*Add SvgSprite and Icon id*/}
-          </Styled.UserIcon>
+          <Styled.UserIconImg
+            src={iconSrc}
+            alt="User default image"
+            onClick={handleModalOpen}
+          ></Styled.UserIconImg>
         )}
       </Styled.UserDiv>
-      {/* Here should be modal opening*/}
+      {/* 
+      {open && (
+        <Modal
+          open={open}
+          closeModal={handleModalClose}
+          children={
+            <UserMenu handleClose={handleModalClose} selectedTheme={selectedTheme} />
+          }
+        />
+      )}
+      */}
     </>
   );
 };

@@ -12,7 +12,7 @@ export const UserName = styled.p`
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: var(--additional-text-color);
 `;
 
 export const UserImg = styled.img`
@@ -23,11 +23,9 @@ export const UserImg = styled.img`
   object-fit: cover;
 `;
 
-export const UserIcon = styled.svg`
+export const UserIconImg = styled.img`
   width: 32px;
   height: 32px;
-  border-radius: 8px;
   cursor: pointer;
   object-fit: cover;
-  fill: #1f1f1f;
 `;
