@@ -6,17 +6,17 @@ import React from 'react';
 //import { getBoard } from '../../../redux/';  ----- Імпорт функції getBoard для отримання даних про дошку з Redux
 //import { selectUser } from '../../../redux/'; // Імпорт селектора selectUser для отримання даних користувача з Redux
 
-import { BoardListContainer, BoardItem } from './BoardList.styles';
+import { BoardListContainer, BoardItem } from './BoardList.styled';
 import BoardListItem from '../BoardListItem/BoardListItem';
 
 const BoardList = ({ boards }) => {
   // Заглушка для даних користувача
-  const user = {
+  /*const user = {
     boards: [
       { _id: 1, name: 'Board 1' },
       { _id: 2, name: 'Board 2' },
     ],
-  };
+  };*/
 
   // -----------------------------Видалимо дубльоване оголошення 'boards'.
   // const boards = user.boards;
