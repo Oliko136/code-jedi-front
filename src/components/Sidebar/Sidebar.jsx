@@ -9,21 +9,21 @@ import {
   SidebarWrapper,
   SidebarHeader,
   LogoBlock,
-  SidebarBoardsList,
-  LogoutBlock,
-  LogoutLink,
-  LogoutIcon,
-  CreateBoardBlock,
-  CreateBoardText,
-  Button,
-  PlusIcon,
-} from './SidebarStyles';
+  //SidebarBoardsList,
+  //LogoutBlock,
+  //LogoutLink,
+  //LogoutIcon,
+  //CreateBoardBlock,
+  //CreateBoardText,
+  //Button,
+  //PlusIcon,
+} from './Sidebar.styled';
 
 // Додали оголошення AddBoardForm
 const AddBoardForm = () => {};
 
 const sprite = 'assets/svg/sprite.svg';
-const plantImage = '';
+//const plantImage = '';
 
 const Sidebar = ({ showSidebar }) => {
   const [showModal, setShowModal] = useState(false);

@@ -15,7 +15,7 @@ import {
   BoardItemButtonsBlock,
   BoardBtn,
   BoardBtnSvg,
-} from './BoardListItemStyles';
+} from './BoardListItem.styled';
 
 // Заглушка для EditBoardForm
 const BoardListItem = ({ board }) => {

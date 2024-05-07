@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Modal from 'components/Modal/Modal';
+//import Modal from 'components/Modal/Modal';
 import {
   HelpBlock,
   PlantImage,
@@ -8,15 +8,15 @@ import {
   HelpOpenModalIcon,
   HelpModal,
   HelpModalContent,
-} from './NeedHelpStyles';
-//import HelpForm from '.........';// Імпортуйте компонент HelpForm з файлу HelpForm
+} from './NeedHelp.styled';
+import NeedHelpModal from 'components/Modal/NeedHelpModal/NeedHelpModal';// Імпортуйте компонент HelpForm з файлу HelpForm
 
 const NeedHelp = () => {
   const [showModal, setShowModal] = useState(false); // Стан для відображення/приховування модального вікна
   const toggleModal = () => setShowModal(prevShowModal => !prevShowModal); // Функція для перемикання стану модального вікна
-  const dpr = window.devicePixelRatio || 1;
+  //const dpr = window.devicePixelRatio || 1;
 
-  // const plantImage = dpr > 1 ? plant2x : plant; // ------------  Вибір зображення рослини в залежності від девайсу
+  //const plantImage = dpr > 1 ? plant2x : plant; // ------------  Вибір зображення рослини в залежності від девайсу
   const plantImage = ''; // заглушка для зображення рослини
 
   return (
@@ -37,17 +37,14 @@ const NeedHelp = () => {
         Need help?
       </HelpOpenModal>
 
-      {/* 
-      Модальне вікно для форми NeedHelp
+  
       {showModal && (
         <HelpModal>
           <HelpModalContent>
-            <HelpForm handleClose={toggleModal} />
-            {/* Placeholder for modal content 
+            <NeedHelpModal handleClose={toggleModal} />
           </HelpModalContent>
         </HelpModal>
       )}
-      */}
     </HelpBlock>
   );
 };
