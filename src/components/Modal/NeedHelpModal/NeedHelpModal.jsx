@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Modal from '../Modal/Modal';
 import { toast } from 'react-toastify';
-// import toast from 'react-hot-toast';
 import axios from 'axios';
 import { BASE_API_URL } from '../../../constants/base-url';
-// import { xiosInstance } from '../../../api/axiosInstance.js';
-// import { ENDPOINTS } from '../../../api/endpoints.js';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import css from './NeedHelpModal.module.css';
 
@@ -14,52 +11,26 @@ const NeedHelpModal = ({ showModal }) => {
   const [email, setEmail] = useState('');
   const [text, setText] = useState('');
   const dispatch = useDispatch();
-  const baseURL = BASE_API_URL;
-  const axiosInstance = axios.create({
-    baseURL,
-  });
-  const ENDPOINTS = Object.freeze({
-    auth: {
-      register: 'auth/register',
-      login: 'auth/login',
-      logout: 'auth/logout',
-      refreshToken: 'auth/refresh',
+  const axiosInstance = axios.create({ BASE_API_URL });
+  const TOASTER = {
+    style: {
+      border: '2px solid #bedbb0',
+      backgroundColor: '#1f1f1f',
+      color: '#fff',
+      textAlign: 'center',
     },
-    users: {
-      current: 'users/current',
-      theme: 'users/current/theme',
-    },
-    backgrounds: 'api/backgrounds',
-    boards: {
-      allBoards: 'api/boards',
-      oneBoard: boardId => `api/boards/${boardId}`,
-      boardFilter: boardId => `api/boards/${boardId}/filter`,
-    },
-    columns: {
-      allColumns: 'api/columns',
-      oneColumn: columnId => `api/columns/${columnId}`,
-    },
-    cards: {
-      allCards: 'api/cards',
-      cardsStats: 'api/cards/stats',
-      oneCard: cardId => `api/cards/${cardId}`,
-      cardStatus: cardId => `api/cards/${cardId}/status`,
-      cardOrder: cardId => `api/cards/${cardId}/order`,
-    },
-    email: {
-      support: 'email/support',
-    },
-  });
+    position: 'top-center',
+    duration: 2000,
+  };
 
-  const support = createAsyncThunk(
-    'email/support',
+  const needhelp = createAsyncThunk(
+    'email/needhelp',
     async ({ email, text }, thunkAPI) => {
       try {
-        const data = await axiosInstance.post(ENDPOINTS.email.support, {
+        const data = await axiosInstance.post('email/needhelp', {
           email,
           comment: text,
         });
-
         return data;
       } catch ({ message }) {
         thunkAPI.rejectWithValue(message);
@@ -69,32 +40,23 @@ const NeedHelpModal = ({ showModal }) => {
 
   const handleSubmit = async evt => {
     evt.preventDefault();
-    const TOASTER_CONFIG = {
-      style: {
-        border: '1px solid #bedbb0',
-        backgroundColor: '#1f1f1f',
-        color: '#fff',
-        textAlign: 'center',
-      },
-      position: 'ctop-center',
-      duration: 1500,
-    };
+
     if (email.trim() === '' || text.trim() === '') {
-      toast('Please enter data to submit ❗️', TOASTER_CONFIG);
+      toast('Please enter data to submit ❗️', TOASTER);
       return;
     }
 
-    if (text.trim().length < 5) {
-      toast('Comment must be at least 5 characters long ❗️', TOASTER_CONFIG);
+    if (text.trim().length < 10) {
+      toast('Comment must be at least 10 characters long ❗️', TOASTER);
       return;
     }
 
     try {
-      dispatch(support({ email, text }));
-      toast('Your message was sent successfully ✅', TOASTER_CONFIG);
+      dispatch(needhelp({ email, text }));
+      toast('Your message was sent successfully ✅', TOASTER);
       showModal(false);
     } catch (error) {
-      toast('Failed to send email', TOASTER_CONFIG);
+      toast('Failed to send email', TOASTER);
     }
   };
 
