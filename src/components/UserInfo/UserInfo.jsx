@@ -1,14 +1,17 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { registerThunk } from '../../redux/auth/auth-operations';
+import { useDispatch,useSelector } from 'react-redux';
+import { updateUserAvatar, updateUserInfo } from '../../redux/auth/auth-operations';
 // хук на useSelector
 // import { useAuth } from 'hooks';
-import  registerSchema  from '../RegisterForm/registerSchema';
+import  registerSchema  from '../../schemas/registerSchema';
 // нужен Loader на кнопку?
 // import SmallLoader from 'components/Loader/SmallLoader';
 import {
-    FormUserInfo
-  
+    FormUserInfo,
+    AddPhoto,
+    AvatarEdit,
+    Avatar,
+    PlusButton,
 } from './UserInfo.styled';
 import {
     Input,
@@ -20,13 +23,34 @@ import Icon from "../../Icon/Icon"
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
 
+import Modal from 'components/Modal/Modal';
+import { selectUser, selectUserAvatar } from 'redux/auth/auth-selectors';
 
 
-const UserInfo = () => {
+
+const UserInfo = ({showModal}) => {
+const {name, email,password} = selectUser
   
   const [visible, setVisible] = useState(false);
+  const [avatar_url, setAvatar_url] = useState(useSelector(selectUserAvatar));
+  // const [nameChange, setNameChange] = useState(name);
+  // const [emailChange, setEmailChange] = useState(email);
+  // const [passwordChange, setPasswordChange] = useState(password);
+  const [preview, setPreview] = useState(null);
+  // const [errorMsgShown, setErrorMsgShown] = useState(false);
+  // const [errorClassName, setErrorClassName] = useState('');
   const dispatch = useDispatch();
   // const { isLoading } = useAuth();
+
+  function changeImg(event) {
+    setAvatar_url(event.target.files[0]);
+    const file = new FileReader();
+    file.onload = function () {
+      setPreview(file.result);
+    };
+    file.readAsDataURL(event.target.files[0]);
+    dispatch(updateUserAvatar(avatar_url))
+  }
 
   const submit = async (evt) => {
     console.log(evt.email,'qwe' );
@@ -43,31 +67,63 @@ const UserInfo = () => {
             return;
            }
            
-        dispatch(registerThunk({ ...formData }))
+        dispatch(updateUserInfo({ ...formData }))
         // await new Promise(res => setTimeout(res, 500));
     reset();
   }
 
   const {register, handleSubmit,  reset, formState:{errors, isValid}  } = useForm({
     initialValues: {
-             name: '',
-            email: '',
-            password: '',
+             name: name,
+            email: email,
+            password: password,
           },
     mode: "onBlur",
     resolver:yupResolver(registerSchema)
   })
 
+  return (
+    <Modal width={335} height={440} onClose={() => showModal(false)}>
+      <h3>Edit  profile</h3>
+        
 
-return(
-    <div>
-        <h3>Edit  profile</h3>
-        <FormUserInfo onSubmit={handleSubmit(submit)}>
+      <Avatar>
+        <AvatarEdit>
+            {avatar_url !== 'default' ? (
+              <img
+                src={preview || avatar_url}
+                alt="avatar"
+                style={{ width: 68, height: 68, objectFit: 'cover' }}
+              />
+            ) : (
+              <Icon width={68}
+              height={68}
+              fillColor={'var(--bgColorAuth)'}
+              strokeColor={'var(--inputBgColor)'}
+              name={"user-avatar"}
+              />
+            )}
+            <PlusButton>
+              <Icon width={20}
+                    height={20}
+                    fillColor={'none'}
+                    strokeColor={'var(--buttonColor)'}
+                    name={"icon-plus"}
+                    />
+              <AddPhoto
+                type="file"
+                accept=".png, .jpg, .jpeg"
+                onChange={changeImg}
+              />
+            </PlusButton>
+         </AvatarEdit>
+      </Avatar>
+      <FormUserInfo onSubmit={handleSubmit(submit)}>
 
-        <label>
-            <Input
+         <label>
+             <Input
            
-            {...register('name') }
+             {...register('name') }
               
               name="name"
               placeholder='Enter your name'
@@ -75,9 +131,9 @@ return(
             {errors?.name && (<ErrorPara>{errors?.name?.message || 'Errors!'}</ErrorPara>)}       
           </label>        
           
-          <label>
+        <label>
             <Input
-            {...register('email') }
+             {...register('email') }
             
               name="email"
               placeholder= 'Enter your email'
@@ -120,14 +176,9 @@ return(
             Send
             
           </SubmitBtn>
-        </FormUserInfo >
-    </div>
-)
-  
-       
-          
-
-          
+      </FormUserInfo >  
+    </Modal>
+  )       
 
 };
 

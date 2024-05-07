@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/auth-operations';
 // import { useAuth } from 'hooks';
-import  loginSchema  from './loginSchema';
+import  loginSchema  from '../../schemas/loginSchema';
 // import SmallLoader from 'components/Loader/SmallLoader';
 import {
   Background,
