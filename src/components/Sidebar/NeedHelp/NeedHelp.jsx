@@ -45,7 +45,7 @@ const NeedHelp = () => {
       {showModal && (
         <HelpModal>
           <HelpModalContent>
-            <NeedHelpModal showModal={toggleModal} />
+            <NeedHelpModal handleClose={toggleModal} />
           </HelpModalContent>
         </HelpModal>
       )}
