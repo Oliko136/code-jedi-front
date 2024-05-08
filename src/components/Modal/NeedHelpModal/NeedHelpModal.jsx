@@ -70,7 +70,7 @@ const NeedHelpModal = ({ showModal }) => {
 
   return (
     <>
-      <Modal width={400} height={307} onClose={() => showModal(false)}>
+      <Modal width={400} height={307} onClose={showModal}>
         <form className={css.modalform} onSubmit={handleSubmit}>
           <div className={css.modalTitle}>{'Need help'}</div>
           <div className={css.emailinput}>
