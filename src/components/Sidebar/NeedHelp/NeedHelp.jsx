@@ -9,9 +9,9 @@ import {
   HelpModal,
   HelpModalContent,
 } from './NeedHelp.styled';
-import NeedHelpModal from 'components/Modal/NeedHelpModal/NeedHelpModal';// Імпортуйте компонент HelpForm з файлу HelpForm
-import plantImage from "../../../assets/img/png/flower.png";
-import sprite from "../../../assets/svg/sprite.svg";
+import NeedHelpModal from 'components/Modal/NeedHelpModal/NeedHelpModal'; // Імпортуйте компонент HelpForm з файлу HelpForm
+import plantImage from '../../../assets/img/png/flower.png';
+import sprite from '../../../assets/svg/sprite.svg';
 const NeedHelp = () => {
   const [showModal, setShowModal] = useState(false); // Стан для відображення/приховування модального вікна
   const toggleModal = () => setShowModal(prevShowModal => !prevShowModal); // Функція для перемикання стану модального вікна
@@ -45,7 +45,7 @@ const NeedHelp = () => {
       {showModal && (
         <HelpModal>
           <HelpModalContent>
-            <NeedHelpModal handleClose={toggleModal} />
+            <NeedHelpModal showModal={setShowModal} />
           </HelpModalContent>
         </HelpModal>
       )}
