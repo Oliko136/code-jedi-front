@@ -19,12 +19,12 @@ import {
     ErrorPara,
     PassInputWrap,
     HideBtn,} from '../RegisterForm/RegisterForm.styled'
-import Icon from "../../Icon/Icon"
+import Icon from "../Icon/Icon"
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
 
 import Modal from 'components/Modal/Modal';
-import { selectUser, selectUserAvatar } from 'redux/auth/auth-selectors';
+import { selectUser, selectUserAvatar } from '../../redux/auth/auth-selectors';
 
 
 

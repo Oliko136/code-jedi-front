@@ -19,12 +19,14 @@ import {
   Button,
   PlusIcon,
 } from './Sidebar.styled';
+import sprite from '../../assets/svg/sprite.svg';
+
 
 // Додали оголошення AddBoardForm
 const AddBoardForm = () => {};
 
-const sprite = 'assets/svg/sprite.svg';
-//const plantImage = '';
+// const sprite = 'assets/svg/sprite.svg';
+// const plantImage = '';
 
 const Sidebar = ({ showSidebar }) => {
   const [showModal, setShowModal] = useState(false);

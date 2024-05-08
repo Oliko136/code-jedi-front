@@ -2,7 +2,7 @@ import * as Styled from './Header.styled';
 import Burger from './Burger/Burger';
 import ThemeSelection from './ThemeSelection/ThemeSelection';
 
-export const Header = ({ openSidebar }) => {
+const Header = ({ openSidebar }) => {
   return (
     <Styled.Header>
       <Styled.MobMenuBtn type="button" onClick={openSidebar}>
@@ -15,3 +15,5 @@ export const Header = ({ openSidebar }) => {
     </Styled.Header>
   );
 };
+
+export default Header;

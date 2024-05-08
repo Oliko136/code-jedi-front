@@ -51,7 +51,6 @@ const WelcomePage = () => {
       <AuthContainer>
         <AuthARegister to="/auth/register">Registration</AuthARegister>
         <AuthLogin to="/auth/login">Log In</AuthLogin>
-        <AuthLogin to="/home">Home</AuthLogin>
       </AuthContainer>
     </WelcomeBg>
   );
