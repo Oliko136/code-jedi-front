@@ -9,9 +9,9 @@ export const SidebarWrapper = styled.aside`
   flex-direction: column;
   width: 225px;
   height: 100vh;
-  background: #121212; /*var(--accent-bg-color);*/
+  background: var(--accent-bg-color);
   transform: translateX(0px);
-  transition: all var(--transition);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 200;
 
   &.showSidebar {
@@ -30,7 +30,7 @@ export const SidebarWrapper = styled.aside`
 export const SidebarHeader = styled.div`
   padding: 14px 14px 0;
 
-    color: color: #fffff /*var(--icon-color);*/;
+    color: color: var(--icon-color);
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -54,20 +54,17 @@ export const LogoBlock = styled(Link)`
     width: 32px;
     height: 32px;
     border-radius: 8px;
-    background-color: #1f1f1f /*var(--primary-bg-color)*/;
-    padding: 8px 10px;
+    background-color: var(--primary-bg-color);
   }
   p {
-    color: #fff; /*var(--icon-color)*/
+    color: var(--icon-color);
     font-weight: 600;
     font-size: 16px;
     letter-spacing: -0.04em;
   }
   svg {
     display: block;
-    width: 12px;
-    height: 16px;
-    fill: #fffffff;
+    fill: var(--primary-text-color);
     stroke: none;
   }
 `;
@@ -79,7 +76,7 @@ export const BoardBlock = styled.div`
     font-weight: 400;
     font-size: 12px;
     letter-spacing: -0.02em;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--additional-text-color-op);
     margin-bottom: 8px;
   }
 `;
@@ -91,8 +88,8 @@ export const CreateBoardBlock = styled.div`
   margin-bottom: 40px;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid var(--additional-text-color-op);
+  border-bottom: 1px solid var(--additional-text-color-op);
 
   @media screen and (min-width: 768px) {
     width: 212px;
@@ -104,7 +101,7 @@ export const CreateBoardText = styled.h3`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff; /*var(--main-text-color);*/
+  color: var(--primary-text-color);
   width: 76px;
   height: 42px;
   display: flex;
@@ -116,14 +113,14 @@ export const Button = styled.button`
   width: 40px;
   height: 36px;
   border-radius: 6px;
-  padding: 8px 10px;
-  background-color: #bedbb0;
+
+  background-color: var(--accent-icon-color);
   transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    background-color: #9dc888;
+    background-color: var(--accent-icon-hover-color);
     transform: scale(1.05);
   }
 `;
@@ -131,11 +128,11 @@ export const Button = styled.button`
 export const PlusIcon = styled.svg`
   width: 20px;
   height: 20px;
-  stroke: #fff;
+  stroke: var(--icon-color);
 
   &:hover,
   &:focus {
-    stroke: #ccc;
+    stroke: var(--accent-icon-hover-color);
   }
 `;
 
@@ -150,14 +147,14 @@ export const SidebarBoardsList = styled.div`
   }
 
   &::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--accent-icon-color);
     border-radius: 8px;
     opacity: 0.08;
     cursor: pointer;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #fff;
+    background: var(--accent-icon-hover-color);
     border-radius: 5px;
     cursor: pointer;
   }
@@ -177,25 +174,26 @@ export const LogoutLink = styled(Link)`
   align-items: center;
   font-weight: 500;
   font-size: 14px;
-  color: #fff;
+  color: var(--primary-text-color);
   transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:hover,
-  &:hover .p {
-    stroke: #999;
-  }
+  
 
-  &:focus,
-  &:focus .p {
-    stroke: #999;
+  &:hover, 
+  &:focus .p {var(--accent-icon-hover-color);
   }
 `;
 
 export const LogoutIcon = styled.svg`
-  display: block;
   width: 32px;
   height: 32px;
-  stroke: #7b7b7b;
+  stroke: var(--accent-icon-color);
   fill: none;
   transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-icon-hover-color);
+    transform: scale(1.05);
+  }
 `;

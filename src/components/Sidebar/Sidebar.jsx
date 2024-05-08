@@ -21,7 +21,6 @@ import {
 } from './Sidebar.styled';
 import sprite from '../../assets/svg/sprite.svg';
 
-
 // Додали оголошення AddBoardForm
 const AddBoardForm = () => {};
 
@@ -62,8 +61,8 @@ const Sidebar = ({ showSidebar }) => {
           <CreateBoardText>Create a new board</CreateBoardText>
           <Button onClick={toggleModal} type="button">
             <PlusIcon>
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <use href={`${sprite}#plus-icon`} />
+              <svg>
+                <use href={`${sprite}#plus-icon`}></use>
               </svg>
             </PlusIcon>
           </Button>
@@ -87,7 +86,7 @@ const Sidebar = ({ showSidebar }) => {
             <LogoutIcon>
               <svg>
                 {/* Використання спрайта */}
-                {/* <use href={`${sprite}#.....`}></use> */}
+                <use href={`${sprite}#log-out`}></use>
               </svg>
             </LogoutIcon>
             <p>Log out</p>
