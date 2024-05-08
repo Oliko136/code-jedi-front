@@ -5,14 +5,15 @@ import Header from "components/Header/Header";
 import Sidebar from "components/Sidebar/Sidebar";
 
 const SharedLayout = () => {
-    
     return (
         <>
             <Header />
-            <Sidebar showSidebar={true}/>
-            <Suspense fallback={<Loader />}>
-                <Outlet />
-            </Suspense>
+            <Sidebar showSidebar={true} />
+            <main>
+                <Suspense fallback={<Loader />}>
+                    <Outlet />
+                </Suspense>
+            </main>
         </>
     )
 }
