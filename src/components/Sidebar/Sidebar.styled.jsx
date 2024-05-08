@@ -10,7 +10,7 @@ export const SidebarWrapper = styled.aside`
   width: 225px;
   height: 100vh;
   background: #121212; /*var(--accent-bg-color);*/
-  transform: translateX(0px);
+  transform: translateX(-100%);
   transition: all var(--transition);
   z-index: 200;
 
