@@ -10,6 +10,7 @@ const spin = keyframes`
 
 // Стили для Loader контейнера
 const LoaderContainer = styled.div`
+  margin: auto;
   border: 4px solid #f3f3f3; /* серый */
   border-top: 4px solid #3498db; /* синий */
   border-radius: 50%;

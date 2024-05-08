@@ -1,10 +1,13 @@
+import { lazy, Suspense, useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import PublicRoute from 'components/Routes/PublicRoute/PublicRoute';
-import PrivateRoute from 'components/Routes/PrivateRoute/PrivateRoute';
+import { getCurrentUser } from '../../redux/auth/auth-operations';
+import { selectAuthLoading } from '../../redux/auth/auth-selectors';
+import PublicRoute from 'routes/PublicRoute/PublicRoute';
+import PrivateRoute from 'routes/PrivateRoute/PrivateRoute';
 import Loader from 'components/Loader/Loader';
-import { lazy, Suspense } from 'react';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
@@ -13,7 +16,16 @@ const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 const NotFoundPage = lazy(() => import('../../pages/NotFoundPage/NotFoundPage'));
 
 const App = () => {
-  return (
+  const dispatch = useDispatch();
+  const isLoadingUser = useSelector(selectAuthLoading);
+
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  }, [dispatch]);
+
+  return isLoadingUser ? 
+    ( <Loader /> ) :
+    (
     <>
       <Suspense fallback={<Loader />}>
         <Routes>
