@@ -9,7 +9,7 @@ import { lazy, Suspense } from 'react';
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
-const ScreensPage = lazy(() => import('../../pages/ScreensPage/ScreensPage'));
+//const ScreensPage = lazy(() => import('../../pages/ScreensPage/ScreensPage'));
 const NotFoundPage = lazy(() => import('../../pages/NotFoundPage/NotFoundPage'));
 
 const App = () => {
@@ -19,14 +19,14 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Navigate to="/welcome" />} />
           <Route path="/welcome" element={<WelcomePage />} />
-          <Route element={<PublicRoute />}>
-            <Route path="/auth/:id" element={<AuthPage />} />
-          </Route>
-          <Route element={<PrivateRoute/>}>
+          <Route path="/auth/:id" element={<PublicRoute><AuthPage/></PublicRoute>}/>
+          {/*<Route path="/auth/:id" element={<AuthPage />} />*/}
+          {/*</Route>*/}
+          <Route path="/home" element={<PrivateRoute><HomePage /></PrivateRoute>} />
             <Route path="/home" element={<HomePage />}>
-              <Route path="/home/:boardName" element={<ScreensPage />} />
+              {/*<Route path="/home/:boardName" element={<ScreensPage />} />*/}
             </Route>
-          </Route>
+          {/*</Route>*/}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <ToastContainer autoClose={3000} />
