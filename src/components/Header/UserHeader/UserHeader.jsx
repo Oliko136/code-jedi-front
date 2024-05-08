@@ -6,12 +6,17 @@ import UserDefaultDark from '../../../assets/img/user-default/user-default-dark.
 import UserDefaultLight from '../../../assets/img/user-default/user-default-light.png';
 import UserDefaultViolet from '../../../assets/img/user-default/user-default-violet.png';
 
+import UserInfo from 'components/UserInfo/UserInfo';
+
 const UserHeader = ({ currentTheme }) => {
   const user = useSelector(selectUser);
-  const [open, setOpen] = useState(false);
 
-  const handleModalOpen = () => setOpen(true);
-  const handleModalClose = () => setOpen(false);
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => setShowModal(prevShowModal => !prevShowModal)
+
+  // const [open, setOpen] = useState(false);
+  // const handleModalOpen = () => setOpen(true);
+  // const handleModalClose = () => setOpen(false);
 
   let iconSrc;
   switch (currentTheme) {
@@ -40,16 +45,27 @@ const UserHeader = ({ currentTheme }) => {
           <Styled.UserImg
             src={user.avatarURL}
             alt="User Image"
-            onClick={handleModalOpen}
+            onClick={toggleModal}
           />
         ) : (
           <Styled.UserIconImg
             src={iconSrc}
             alt="User default image"
-            onClick={handleModalOpen}
+            onClick={toggleModal}
           ></Styled.UserIconImg>
         )}
+{showModal && (
+        
+            
+            <UserInfo showModal={setShowModal} />
+         
+      )}
+
       </Styled.UserDiv>
+
+      
+    
+
       {/* 
       {open && (
         <Modal
