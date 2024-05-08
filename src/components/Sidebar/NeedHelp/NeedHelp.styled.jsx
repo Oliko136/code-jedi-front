@@ -4,7 +4,7 @@ export const HelpBlock = styled.div`
   border-radius: 8px;
   width: 197px;
   height: 238px;
-  background: #bedbb0; /* Light green */
+  background: #1f1f1f;
   display: flex;
   flex-direction: column;
   padding: 14px;
@@ -31,7 +31,7 @@ export const HelpText = styled.p`
   font-size: 12px;
   line-height: 1.33333;
   letter-spacing: -0.02em;
-  color: #161616; /* Dark gray */
+  color: #ffffff;
   margin-bottom: 18px;
 
   @media screen and (min-width: 768px) {
@@ -40,7 +40,7 @@ export const HelpText = styled.p`
   }
 
   span {
-    color: #1f1f1f; /* Darker gray */
+    color: #bedbb0;
   }
 `;
 
@@ -53,16 +53,26 @@ export const HelpOpenModal = styled.button`
   font-weight: 500;
   font-size: 12px;
   letter-spacing: -0.02em;
-  color: #161616; /* Dark gray */
+  color: #ffffff;
   background-color: transparent;
   border: none;
+  transition: 0.3s ease;
+
+  &:hover {
+    color: #9dc888;
+  }
 
   svg {
     display: block;
     width: 20px;
     height: 20px;
-    stroke: #161616; /* Dark gray */
+    stroke: #ffffff;
     fill: none;
+    transition: stroke 0.3s ease;
+  }
+
+  &:hover svg {
+    stroke: #9dc888;
   }
 `;
 

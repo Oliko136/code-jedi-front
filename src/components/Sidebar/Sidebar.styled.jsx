@@ -9,7 +9,7 @@ export const SidebarWrapper = styled.aside`
   flex-direction: column;
   width: 225px;
   height: 100vh;
-  background: #151515;
+  background: #121212; /*var(--accent-bg-color);*/
   transform: translateX(0px);
   transition: all var(--transition);
   z-index: 200;
@@ -24,12 +24,17 @@ export const SidebarWrapper = styled.aside`
 
   @media screen and (min-width: 1440px) {
     transform: translateX(0);
-    position: unset;
   }
 `;
 
 export const SidebarHeader = styled.div`
   padding: 14px 14px 0;
+
+    color: color: #fffff /*var(--icon-color);*/;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.64px;
 
   @media screen and (min-width: 768px) {
     padding: 24px 24px 0;
@@ -49,17 +54,33 @@ export const LogoBlock = styled(Link)`
     width: 32px;
     height: 32px;
     border-radius: 8px;
-    background-color: #1f1f1f;
-    // padding: 8px 10px;
+    background-color: #1f1f1f /*var(--primary-bg-color)*/;
+    padding: 8px 10px;
   }
-
+  p {
+    color: #fff; /*var(--icon-color)*/
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -0.04em;
+  }
   svg {
     display: block;
-    // width: 12px;
-    // height: 16px;
-    fill: var(--icon-color);
-    // fill:blue;
-    stroke: var(--primary-bg-color);
+    width: 12px;
+    height: 16px;
+    fill: #fffffff;
+    stroke: none;
+  }
+`;
+
+export const BoardBlock = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  h2 {
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 8px;
   }
 `;
 
@@ -70,8 +91,8 @@ export const CreateBoardBlock = styled.div`
   margin-bottom: 40px;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid rgba(22, 22, 22, 0.1);
-  border-bottom: 1px solid rgba(22, 22, 22, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
   @media screen and (min-width: 768px) {
     width: 212px;
@@ -83,10 +104,12 @@ export const CreateBoardText = styled.h3`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: #fff; /*var(--main-text-color);*/
   width: 76px;
   height: 42px;
   display: flex;
+
+  align-items: center;
 `;
 
 export const Button = styled.button`
@@ -94,12 +117,14 @@ export const Button = styled.button`
   height: 36px;
   border-radius: 6px;
   padding: 8px 10px;
-  background-color: #7b7b7b;
-  transition: background-color var250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #bedbb0;
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    background-color: #999;
+    background-color: #9dc888;
+    transform: scale(1.05);
   }
 `;
 
@@ -156,12 +181,12 @@ export const LogoutLink = styled(Link)`
   transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
-  &:hover .logoutIcon {
+  &:hover .p {
     stroke: #999;
   }
 
   &:focus,
-  &:focus .logoutIcon {
+  &:focus .p {
     stroke: #999;
   }
 `;

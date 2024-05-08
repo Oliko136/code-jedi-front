@@ -9,12 +9,13 @@ import {
   SidebarWrapper,
   SidebarHeader,
   LogoBlock,
-  //SidebarBoardsList,
-  //LogoutBlock,
-  //LogoutLink,
-  //LogoutIcon,
-  //CreateBoardBlock,
-  //CreateBoardText,
+  LogoutLink,
+  SidebarBoardsList,
+  LogoutBlock,
+  LogoutIcon,
+  BoardBlock,
+  CreateBoardBlock,
+  CreateBoardText,
   Button,
   PlusIcon,
 } from './Sidebar.styled';
@@ -55,28 +56,24 @@ const Sidebar = ({ showSidebar }) => {
       </SidebarHeader>
 
       {/* Блок для створення нової дошки */}
-      <div>
+      <BoardBlock>
         <h2>My boards</h2>
-        <div>
-          <h3>Create a new board</h3>
-          <Button>
-            {' '}
-            <button onClick={toggleModal} type="button">
-              <PlusIcon>
-                <svg>
-                  {/* Використання спрайта */}
-                  <use href={`${sprite}#plus`}></use>
-                </svg>
-              </PlusIcon>
-            </button>
+        <CreateBoardBlock>
+          <CreateBoardText>Create a new board</CreateBoardText>
+          <Button onClick={toggleModal} type="button">
+            <PlusIcon>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <use href={`${sprite}#plus-icon`} />
+              </svg>
+            </PlusIcon>
           </Button>
-        </div>
-      </div>
+        </CreateBoardBlock>
+      </BoardBlock>
 
       {/* Виведення списку дошок */}
-      <div>
+      <SidebarBoardsList>
         <BoardList />
-      </div>
+      </SidebarBoardsList>
 
       {/* Блок з інформацією NeedHelp */}
       <div>
@@ -84,17 +81,19 @@ const Sidebar = ({ showSidebar }) => {
       </div>
 
       {/* Кнопка LogOut */}
-      <div>
-        <Link to="/" onClick={handleLogOut}>
-          <span>
-            <svg>
-              {/* Використання спрайта */}
-              <use href={`${sprite}#log-out`}></use>
-            </svg>
-          </span>
-          <p>Log out</p>
-        </Link>
-      </div>
+      <LogoutBlock>
+        <LogoutLink>
+          <Link to="/" onClick={handleLogOut}>
+            <LogoutIcon>
+              <svg>
+                {/* Використання спрайта */}
+                {/* <use href={`${sprite}#.....`}></use> */}
+              </svg>
+            </LogoutIcon>
+            <p>Log out</p>
+          </Link>
+        </LogoutLink>
+      </LogoutBlock>
 
       {/* Модальне вікно для створення нової дошки */}
       {showModal && (

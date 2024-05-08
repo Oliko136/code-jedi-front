@@ -56,7 +56,7 @@ export const BoardIcon = styled.svg`
   width: 18px;
   height: 18px;
   stroke-width: 1.5px;
-  stroke: #bedbb0; /* Light green icon color */
+  stroke: #fffff;
   fill: none;
   animation: scaleAndRotate 5s infinite alternate;
 `;
@@ -65,7 +65,7 @@ export const BoardTitle = styled.h2`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #bedbb0; /* Light green text color */
+  color: #ffffff;
 `;
 
 export const BoardItemButtonsBlock = styled.ul`
@@ -84,6 +84,6 @@ export const BoardBtn = styled.button`
 export const BoardBtnSvg = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: #bedbb0; /* Light green icon color for button */
+  stroke: #ffffff;
   fill: none;
 `;
