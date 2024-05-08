@@ -9,7 +9,7 @@ import {
   HelpModal,
   HelpModalContent,
 } from './NeedHelp.styled';
-import NeedHelpModal from 'components/Modal/NeedHelpModal/NeedHelpModal';// Імпортуйте компонент HelpForm з файлу HelpForm
+import NeedHelpModal from 'components/Modal/NeedHelpModal/NeedHelpModal'; // Імпортуйте компонент HelpForm з файлу HelpForm
 
 const NeedHelp = () => {
   const [showModal, setShowModal] = useState(false); // Стан для відображення/приховування модального вікна
@@ -37,11 +37,11 @@ const NeedHelp = () => {
         Need help?
       </HelpOpenModal>
 
-  
       {showModal && (
         <HelpModal>
           <HelpModalContent>
-            <NeedHelpModal handleClose={toggleModal} />
+            {/* <NeedHelpModal handleClose={toggleModal} /> */}
+            <NeedHelpModal showModal={setShowModal} />
           </HelpModalContent>
         </HelpModal>
       )}

@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Modal from '../Modal/Modal';
+import { needhelp } from '../../../redux/needhelp/needhelp-operation.js';
 import { toast } from 'react-toastify';
-import axios from 'axios';
-import { BASE_API_URL } from '../../../constants/base-url';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import css from './NeedHelpModal.module.css';
 
 const NeedHelpModal = ({ showModal }) => {
   const [email, setEmail] = useState('');
   const [text, setText] = useState('');
   const dispatch = useDispatch();
-  const axiosInstance = axios.create({ BASE_API_URL });
+
   const TOASTER = {
     style: {
       border: '2px solid #bedbb0',
@@ -22,21 +21,6 @@ const NeedHelpModal = ({ showModal }) => {
     position: 'top-center',
     duration: 2000,
   };
-
-  const needhelp = createAsyncThunk(
-    'email/needhelp',
-    async ({ email, text }, thunkAPI) => {
-      try {
-        const data = await axiosInstance.post('email/needhelp', {
-          email,
-          comment: text,
-        });
-        return data;
-      } catch ({ message }) {
-        thunkAPI.rejectWithValue(message);
-      }
-    }
-  );
 
   const handleSubmit = async evt => {
     evt.preventDefault();
