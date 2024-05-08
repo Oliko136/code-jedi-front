@@ -1,12 +1,8 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  updateUserAvatar,
-  updateUserInfo,
-} from '../../redux/auth/auth-operations';
-// хук на useSelector
-// import { useAuth } from 'hooks';
-import registerSchema from '../../schemas/registerSchema';
+import { useDispatch,useSelector } from 'react-redux';
+import { updateUserAvatar, updateUserInfo } from '../../redux/auth/auth-operations';
+
+import  registerSchema  from '../../schemas/registerSchema';
 // нужен Loader на кнопку?
 // import SmallLoader from 'components/Loader/SmallLoader';
 import {
@@ -27,17 +23,21 @@ import Icon from '../Icon/Icon';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import Modal from 'components/Modal/Modal/Modal';
-import { selectUser, selectUserAvatar } from '../../redux/auth/auth-selectors';
+import Modal from '../Modal/Modal/Modal';
+import { selectUser } from '../../redux/auth/auth-selectors';
 
 const UserInfo = ({ showModal }) => {
   const { name, email, password } = selectUser;
 
+
+const UserInfo = ({showModal}) => {
+  const {user} = useSelector(selectUser)
+const {name, email,password,avatar} = user
+console.log(avatar)
+  
   const [visible, setVisible] = useState(false);
-  const [avatar_url, setAvatar_url] = useState(useSelector(selectUserAvatar));
-  // const [nameChange, setNameChange] = useState(name);
-  // const [emailChange, setEmailChange] = useState(email);
-  // const [passwordChange, setPasswordChange] = useState(password);
+  const [avatar_url, setAvatar_url] = useState('');
+  console.log(avatar_url)
   const [preview, setPreview] = useState(null);
   // const [errorMsgShown, setErrorMsgShown] = useState(false);
   // const [errorClassName, setErrorClassName] = useState('');
@@ -90,6 +90,7 @@ const UserInfo = ({ showModal }) => {
   });
 
   return (
+    <>
     <Modal width={335} height={440} onClose={() => showModal(false)}>
       <h3>Edit profile</h3>
 

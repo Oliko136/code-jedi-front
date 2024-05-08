@@ -39,9 +39,9 @@ const UserHeader = ({ currentTheme }) => {
 
   return (
     <>
-      <Styled.UserDiv>
-        <Styled.UserName>{user.name}</Styled.UserName>
-        {user.avatar !== 'avatar/standartAvatar.png' ? (
+ <Styled.UserDiv>
+        <Styled.UserName>{user.user.name}</Styled.UserName>
+        {user.user.avatar !== 'avatar/standartAvatar.png' ? (
           <Styled.UserImg
             src={user.avatarURL}
             alt="User Image"
@@ -54,30 +54,14 @@ const UserHeader = ({ currentTheme }) => {
             onClick={toggleModal}
           ></Styled.UserIconImg>
         )}
-{showModal && (
-        
-            
-            <UserInfo showModal={setShowModal} />
-         
-      )}
+
 
       </Styled.UserDiv>
+      {showModal && (<UserInfo showModal={setShowModal} />)}
 
-      
-    
-
-      {/* 
-      {open && (
-        <Modal
-          open={open}
-          closeModal={handleModalClose}
-          children={
-            <UserMenu handleClose={handleModalClose} selectedTheme={selectedTheme} />
-          }
-        />
-      )}
-      */}
     </>
+     
+    
   );
 };
 export default UserHeader;

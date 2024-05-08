@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'; // Додали useDispatch
 import { logOut } from '../../redux/auth/auth-operations';
 import BoardList from './BoardList/BoardList';
 import NeedHelp from './NeedHelp/NeedHelp';
-import Modal from '../Modal/Modal';
+import Modal from '../Modal/ModalKill';
 import {
   SidebarWrapper,
   SidebarHeader,
