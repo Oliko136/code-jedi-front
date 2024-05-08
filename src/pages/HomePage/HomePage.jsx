@@ -1,10 +1,12 @@
 //import { Suspense } from 'react';
 import Loader from 'components/Loader/Loader';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import Header from '../../components/Header/Header';
 import { MainContainer, CreateBoard } from './HomePage.styled';
 //import { NavLink, Navigate } from 'react-router-dom';
 import { selectAuthLoading } from '../../redux/auth/auth-selectors';
 import { useSelector } from 'react-redux';
-import Sidebar from '../../components/Sidebar/Sidebar';
+
 
 const HomePage = () => {
   const isLoading = useSelector(selectAuthLoading);
@@ -12,7 +14,8 @@ const HomePage = () => {
   return isLoading ? (
     <Loader />
   ) : (
-    <>
+      <>
+      <Header />
       <MainContainer>
         <p>
           Before starting your project, it is essential{' '}

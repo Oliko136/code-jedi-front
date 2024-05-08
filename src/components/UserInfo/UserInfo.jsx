@@ -19,7 +19,7 @@ import {
     ErrorPara,
     PassInputWrap,
     HideBtn,} from '../RegisterForm/RegisterForm.styled'
-import Icon from "../../Icon/Icon"
+import Icon from "../Icon/Icon"
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
 

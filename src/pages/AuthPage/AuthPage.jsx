@@ -7,9 +7,7 @@ const AuthPage = () => {
 
   return (
     <>
-      {/* Це лише заглушка. Можна буде прибрати/коригувати */}
-      {/* <h1>AuthPage</h1> */}
-      {id === 'register' ? <RegisterForm /> : <LoginForm />}
+        { id === 'register' ? <RegisterForm /> : <LoginForm />}
     </>
   );
 };
