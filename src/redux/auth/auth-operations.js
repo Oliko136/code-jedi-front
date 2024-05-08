@@ -2,16 +2,17 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import * as authAPI from '../../api/auth-api.js';
 import * as userAPI from '../../api/user-api.js';
 // установить react-toastify 
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export const registerThunk = createAsyncThunk(
     'auth/register',
     async (credentials, {rejectWithValue}) => {
         try {
             const data = await authAPI.register(credentials);
-            // toast.success('Congratulations! You have successfully registered!');
+            toast.success('Congratulations! You have successfully registered!');
             return data;
         } catch (error) {
+            toast.error(`${error.message}`);
             return rejectWithValue(error.response.data.message);
         }
     }
@@ -24,6 +25,7 @@ export const logIn = createAsyncThunk(
             const data = await authAPI.logIn(credentials);
             return data;
         } catch (error) {
+            toast.error(`${error.message}`);
             return rejectWithValue(error.response.data.message);
         }
     }
@@ -33,7 +35,8 @@ export const logOut = createAsyncThunk(
     'auth/logOut',
     async (_, { rejectWithValue }) => {
         try {
-            await authAPI.logOut();
+            const data = await authAPI.logOut();
+            return data
         } catch (error) {
             return rejectWithValue(error.response.data.message);
         }

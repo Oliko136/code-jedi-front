@@ -24,8 +24,10 @@ export async function logIn(credentials) {
 }
 
 export async function logOut() {
-    await axios.post('/auth/logout');
+const {data} =  await axios.post('/auth/logout');
+    // await axios.post('/auth/logout');
     clearAuthHeader();
+    return data
 }
 
 export async function getCurrentUser(token) {
