@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import css from './Sidebar.module.css';
-
+import sprite from '../../assets/svg/sprite.svg';
+import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/auth-operations'; // Імпорт функції logOut для виходу користувача з системи з Redux store
 import BoardList from './BoardList/BoardList';
 import NeedHelp from './NeedHelp/NeedHelp';
@@ -18,10 +19,16 @@ const AddBoardForm = () => {}; // Компонент-заглушка для Add
 const Sidebar = ({ showSidebar }) => {
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
+  const dispatch = useDispatch();
+
+  // const handleLogOut = () => {
+  //   logOut();
+  // }; // заглушка
 
   const handleLogOut = () => {
-    logOut();
-  }; // заглушка
+    dispatch(logOut());
+    localStorage.removeItem('currentTheme');
+  };
 
   return (
     <aside className={`${css.sidebar} ${showSidebar ? css.showSidebar : ''}`}>
@@ -30,7 +37,7 @@ const Sidebar = ({ showSidebar }) => {
         <Link to="/home" className={css.logoBlock}>
           <div className={css.logoIcon}>
             <svg className={css.logoFlashIcon}>
-              {/* <use href={`${sprite}#....`}></use> */}
+              * <use href={`${sprite}#logo`}></use> *
             </svg>
           </div>
           <p className={css.logo}>Task Pro</p>

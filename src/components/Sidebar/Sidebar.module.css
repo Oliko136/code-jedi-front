@@ -82,18 +82,18 @@
 }
 
 .logoIcon {
-  display: flex;
+  /* display: flex; */
   width: 32px;
   height: 32px;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   background-color: #1f1f1f; /* Darker gray */
-  padding: 8px 10px;
+  /* padding: 8px 10px; */
 }
 
 .logoFlashIcon {
-  display: block;
-  width: 12px;
-  height: 16px;
+  /* display: block; */
+  width: 32px;
+  height: 32px;
   fill: #fff;
   stroke: none;
 }
