@@ -15,15 +15,17 @@ import {
   //LogoutIcon,
   //CreateBoardBlock,
   //CreateBoardText,
-  //Button,
-  //PlusIcon,
+  Button,
+  PlusIcon,
 } from './Sidebar.styled';
+import sprite from '../../assets/svg/sprite.svg';
+
 
 // Додали оголошення AddBoardForm
 const AddBoardForm = () => {};
 
-const sprite = 'assets/svg/sprite.svg';
-//const plantImage = '';
+// const sprite = 'assets/svg/sprite.svg';
+// const plantImage = '';
 
 const Sidebar = ({ showSidebar }) => {
   const [showModal, setShowModal] = useState(false);
@@ -45,7 +47,7 @@ const Sidebar = ({ showSidebar }) => {
           <div>
             {/* Використання спрайта */}
             <svg>
-              <use href={`${sprite}#chevron-down`}></use>
+              <use href={`${sprite}#logo`}></use>
             </svg>
           </div>
           <p>Task Pro</p>
@@ -57,12 +59,17 @@ const Sidebar = ({ showSidebar }) => {
         <h2>My boards</h2>
         <div>
           <h3>Create a new board</h3>
-          <button onClick={toggleModal} type="button">
-            <svg>
-              {/* Використання спрайта */}
-              {/* <use href={`${sprite}#.....`}></use> */}
-            </svg>
-          </button>
+          <Button>
+            {' '}
+            <button onClick={toggleModal} type="button">
+              <PlusIcon>
+                <svg>
+                  {/* Використання спрайта */}
+                  <use href={`${sprite}#plus`}></use>
+                </svg>
+              </PlusIcon>
+            </button>
+          </Button>
         </div>
       </div>
 
@@ -82,7 +89,7 @@ const Sidebar = ({ showSidebar }) => {
           <span>
             <svg>
               {/* Використання спрайта */}
-              {/* <use href={`${sprite}#.....`}></use> */}
+              <use href={`${sprite}#log-out`}></use>
             </svg>
           </span>
           <p>Log out</p>

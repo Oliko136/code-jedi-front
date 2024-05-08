@@ -50,15 +50,16 @@ export const LogoBlock = styled(Link)`
     height: 32px;
     border-radius: 8px;
     background-color: #1f1f1f;
-    padding: 8px 10px;
+    // padding: 8px 10px;
   }
 
   svg {
     display: block;
-    width: 12px;
-    height: 16px;
-    fill: var(--logo-icon-color);
-    stroke: none;
+    // width: 12px;
+    // height: 16px;
+    fill: var(--icon-color);
+    // fill:blue;
+    stroke: var(--primary-bg-color);
   }
 `;
 
