@@ -16,7 +16,7 @@ import {
   HideBtn, 
 } from '../RegisterForm/RegisterForm.styled';
 import {FormWrapLog} from './LoginForm.styled'
-import Icon from '../../Icon/Icon';
+import Icon from '../Icon/Icon';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
 
