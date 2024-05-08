@@ -23,8 +23,9 @@ export async function logIn(credentials) {
   return data;
 }
 
-export async function logOut() {
-  await axios.post('/auth/logout');
+export async function logOut(token) {
+  setAuthHeader(token);
+  await axios.post('/auth/logout', token);
   clearAuthHeader();
 }
 
