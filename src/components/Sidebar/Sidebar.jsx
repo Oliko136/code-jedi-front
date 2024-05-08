@@ -9,14 +9,15 @@ import {
   SidebarWrapper,
   SidebarHeader,
   LogoBlock,
-  //SidebarBoardsList,
-  //LogoutBlock,
-  //LogoutLink,
-  //LogoutIcon,
-  //CreateBoardBlock,
-  //CreateBoardText,
-  //Button,
-  //PlusIcon,
+  LogoutLink,
+  SidebarBoardsList,
+  LogoutBlock,
+  LogoutIcon,
+  BoardBlock,
+  CreateBoardBlock,
+  CreateBoardText,
+  Button,
+  PlusIcon,
 } from './Sidebar.styled';
 
 // Додали оголошення AddBoardForm
@@ -45,7 +46,7 @@ const Sidebar = ({ showSidebar }) => {
           <div>
             {/* Використання спрайта */}
             <svg>
-              <use href={`${sprite}#chevron-down`}></use>
+              <use href={`${sprite}#logo`}></use>
             </svg>
           </div>
           <p>Task Pro</p>
@@ -53,23 +54,24 @@ const Sidebar = ({ showSidebar }) => {
       </SidebarHeader>
 
       {/* Блок для створення нової дошки */}
-      <div>
+      <BoardBlock>
         <h2>My boards</h2>
-        <div>
-          <h3>Create a new board</h3>
-          <button onClick={toggleModal} type="button">
-            <svg>
-              {/* Використання спрайта */}
-              {/* <use href={`${sprite}#.....`}></use> */}
-            </svg>
-          </button>
-        </div>
-      </div>
+        <CreateBoardBlock>
+          <CreateBoardText>Create a new board</CreateBoardText>
+          <Button onClick={toggleModal} type="button">
+            <PlusIcon>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <use href={`${sprite}#plus-icon`} />
+              </svg>
+            </PlusIcon>
+          </Button>
+        </CreateBoardBlock>
+      </BoardBlock>
 
       {/* Виведення списку дошок */}
-      <div>
+      <SidebarBoardsList>
         <BoardList />
-      </div>
+      </SidebarBoardsList>
 
       {/* Блок з інформацією NeedHelp */}
       <div>
@@ -77,17 +79,19 @@ const Sidebar = ({ showSidebar }) => {
       </div>
 
       {/* Кнопка LogOut */}
-      <div>
-        <Link to="/" onClick={handleLogOut}>
-          <span>
-            <svg>
-              {/* Використання спрайта */}
-              {/* <use href={`${sprite}#.....`}></use> */}
-            </svg>
-          </span>
-          <p>Log out</p>
-        </Link>
-      </div>
+      <LogoutBlock>
+        <LogoutLink>
+          <Link to="/" onClick={handleLogOut}>
+            <LogoutIcon>
+              <svg>
+                {/* Використання спрайта */}
+                {/* <use href={`${sprite}#.....`}></use> */}
+              </svg>
+            </LogoutIcon>
+            <p>Log out</p>
+          </Link>
+        </LogoutLink>
+      </LogoutBlock>
 
       {/* Модальне вікно для створення нової дошки */}
       {showModal && (
