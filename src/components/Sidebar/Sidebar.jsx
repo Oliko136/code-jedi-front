@@ -62,7 +62,7 @@ const Sidebar = ({ showSidebar }) => {
           <Button onClick={toggleModal} type="button">
             <PlusIcon>
               <svg>
-                <use href={`${sprite}#plus-icon`}></use>
+                <use href={`${sprite}#plus`}></use>
               </svg>
             </PlusIcon>
           </Button>
@@ -82,13 +82,13 @@ const Sidebar = ({ showSidebar }) => {
       {/* Кнопка LogOut */}
       <LogoutBlock>
         <LogoutLink>
+          <LogoutIcon>
+            <svg>
+              {/* Використання спрайта */}
+              <use href={`${sprite}#log-out`}></use>
+            </svg>
+          </LogoutIcon>
           <Link to="/" onClick={handleLogOut}>
-            <LogoutIcon>
-              <svg>
-                {/* Використання спрайта */}
-                <use href={`${sprite}#log-out`}></use>
-              </svg>
-            </LogoutIcon>
             <p>Log out</p>
           </Link>
         </LogoutLink>

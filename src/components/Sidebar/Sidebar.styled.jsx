@@ -128,11 +128,11 @@ export const Button = styled.button`
 export const PlusIcon = styled.svg`
   width: 20px;
   height: 20px;
-  stroke: var(--icon-color);
+  stroke: var(--accent-bg-color);
 
   &:hover,
   &:focus {
-    stroke: var(--accent-icon-hover-color);
+    // stroke: var(--accent-icon-hover-color);
   }
 `;
 
