@@ -1,4 +1,4 @@
-//заглушка
+//заглушка Не использовать не использовать не использовать!!!!
 import React from 'react';
 
 const Modal = ({ children, closeModal }) => {
