@@ -40,8 +40,8 @@ const UserHeader = ({ currentTheme }) => {
   return (
     <>
  <Styled.UserDiv>
-        <Styled.UserName>{user.user.name}</Styled.UserName>
-        {user.user.avatar !== 'avatar/standartAvatar.png' ? (
+        <Styled.UserName>{user.name}</Styled.UserName>
+        {user.avatar !== 'avatar/standartAvatar.png' ? (
           <Styled.UserImg
             src={user.avatarURL}
             alt="User Image"
