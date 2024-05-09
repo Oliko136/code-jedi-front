@@ -16,6 +16,7 @@ export const Input = styled.input`
  font-weight: 400;
  font-size: 14px;
 letter-spacing: -0.02em;
+
   &:focus {
     opacity: 1;
   }
@@ -40,7 +41,7 @@ export const AvatarEdit = styled.label`
   cursor: pointer;
   border: 2px solid yellow;
   transition: transform var(--easedTransition);
-
+  border: 2px solid yellow;
   &:hover {
     transform: scale(1.2);
   }
@@ -54,7 +55,6 @@ export const Avatar = styled.div`
   margin-bottom: 14px;
   margin-top: 24px;
   border: 2px solid blue;
-
   img {
     border-radius: 8px;
     border: 2px solid var(--primary-bg-color);
@@ -66,6 +66,8 @@ export const PlusButton = styled.div`
   height: 24px;
   border-radius: 6px;
   background-color: var(--accent-icon-color);
+  
+  border: 2px solid red;
   display: flex;
   align-items: center;
   justify-content: center;

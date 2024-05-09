@@ -81,8 +81,12 @@ export const updateUserAvatar = createAsyncThunk(
   'auth/updateUserAvatar',
   async (file, { rejectWithValue }) => {
     try {
-      const data = await userAPI.updateUserAvatar(file);
-      console.log(data)
+      const formData = new FormData();
+    // const { avatar_url, name, email, password } = dataUser;
+    formData.append('file', file);
+      console.log(file)
+      const data = await userAPI.updateUserAvatar(formData);
+      console.log(formData)
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

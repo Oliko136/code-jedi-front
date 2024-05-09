@@ -90,7 +90,12 @@ console.log(avatar)
     <Modal widthMod={"335px"} heightMod={"440px"} onClose={() => showModal(false)}>
       <h3>Edit profile</h3>
 
-      <Avatar>
+      
+      
+      
+        
+
+        <Avatar>
           <AvatarEdit>
               {user.avatar !== 'avatar/standartAvatar.png'  ? (
                 <img
@@ -149,33 +154,36 @@ console.log(avatar)
              {errors?.email && (<ErrorPara>{errors?.email?.message || 'Errors!'}</ErrorPara>)}
           </LabelWrap>
         
-          <label>
+     
           
-            <PassInputWrap>
-              <Input
-              {...register('password', {value: password}) }
-              
-                name="password"
-                placeholder= 'password'
-                type={visible ? 'text' : 'password'}
-              />
-               {errors?.password && (<ErrorPara>{errors?.password?.message || 'Errors!'}</ErrorPara>)}
-              <HideBtn
-                type="button"
-                onClick={() => {
-                  setVisible(!visible);
-                }}
-              >
-               <Icon width={20}
-                    height={20}
-                    fillColor={'none'}
-                    strokeColor={`#fff`}
-                    name={"eye"}
-                    />
-              </HideBtn>
-            </PassInputWrap>
-           
-          </label>
+            
+       
+            
+              <PassInputWrap>
+                <Input
+                {...register('password', {value: password}) }
+                
+                  name="password"
+                  placeholder= "password"
+                  type={visible ? 'text' : 'password'}
+                />
+                 {errors?.password && (<ErrorPara>{errors?.password?.message || 'Errors!'}</ErrorPara>)}
+                <HideBtn
+                  type="button"
+                  onClick={() => {
+                    setVisible(!visible);
+                  }}
+                >
+                 <Icon width={20}
+                      height={20}
+                      fillColor={'none'}
+                      strokeColor={`#fff`}
+                      name={"eye"}
+                      />
+                </HideBtn>
+              </PassInputWrap>
+             
+            
          
           <SubmitBtnInfo type="submit"
             disabled={!isValid}> 
@@ -186,6 +194,11 @@ console.log(avatar)
       </FormUserInfo >  
     </Modal>
   
+            
+      
+      
+    
+    
     
   )       
 
