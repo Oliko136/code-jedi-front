@@ -46,13 +46,17 @@ console.log(avatar)
 
   function changeImg(event) {
     setAvatar_url(event.target.files[0]);
+    const qwe = event.target.files[0]
+    console.log(qwe.name)
     const file = new FileReader();
     console.log(file)
     file.onload = function () {
       setPreview(file.result);
     };
     file.readAsDataURL(event.target.files[0]);
-    dispatch(updateUserAvatar(file))
+    // dispatch(updateUserAvatar(qwe.name))
+    dispatch(updateUserAvatar(event.target.files[0]))
+    // dispatch(updateUserAvatar(file))
   }
 
   const submit = async evt => {
