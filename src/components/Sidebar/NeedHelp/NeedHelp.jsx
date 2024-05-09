@@ -10,16 +10,18 @@ import {
   HelpModalContent,
 } from './NeedHelp.styled';
 import NeedHelpModal from 'components/Modal/NeedHelpModal/NeedHelpModal'; // Імпортуйте компонент HelpForm з файлу HelpForm
-import plantImage from '../../../assets/img/png/flower.png';
+// import plantImage from '../../../assets/img/png/flower1x.png';
 import sprite from '../../../assets/svg/sprite.svg';
+import plant1x from "../../../assets/img/png/flower1x.png"
+import plant2x from "../../../assets/img/png/flower2x.png"
 
 const NeedHelp = () => {
   const [showModal, setShowModal] = useState(false); // Стан для відображення/приховування модального вікна
   const toggleModal = () => setShowModal(prevShowModal => !prevShowModal); // Функція для перемикання стану модального вікна
-  //const dpr = window.devicePixelRatio || 1;
+  const dpr = window.devicePixelRatio || 1;
 
-  //const plantImage = dpr > 1 ? plant2x : plant; // ------------  Вибір зображення рослини в залежності від девайсу
-  // const plantImage = '../../../assets/img/png/flower.png'; // заглушка для зображення рослини
+  const plantImage = dpr > 1 ? plant2x : plant1x; // ------------  Вибір зображення рослини в залежності від девайсу
+  // const plantImage = '../../../assets/img/png/flower1x.png'; // заглушка для зображення рослини
 
   return (
     // Блок з інформацією та кнопкою для відкриття модального вікна
