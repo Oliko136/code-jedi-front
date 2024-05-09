@@ -32,12 +32,12 @@ import { selectUser } from '../../redux/auth/auth-selectors';
 
 const UserInfo = ({showModal}) => {
   const {user} = useSelector(selectUser)
-const {name, email,password,avatar} = user
+const {name, email,password, avatar} = user
 console.log(avatar)
   
   const [visible, setVisible] = useState(false);
-  const [avatar_url, setAvatar_url] = useState('');
-  console.log(avatar_url)
+  // const [avatar_url, setAvatar_url] = useState('');
+  // console.log(avatar_url)
   const [preview, setPreview] = useState(null);
   // const [errorMsgShown, setErrorMsgShown] = useState(false);
   // const [errorClassName, setErrorClassName] = useState('');
@@ -45,22 +45,21 @@ console.log(avatar)
   // const { isLoading } = useAuth();
 
   function changeImg(event) {
-    setAvatar_url(event.target.files[0]);
-    const qwe = event.target.files[0]
-    console.log(qwe.name)
+    // setAvatar_url(event.target.files[0]);
+    const avatarNew = event.target.files[0]
+    console.log(avatarNew)
     const file = new FileReader();
     console.log(file)
     file.onload = function () {
       setPreview(file.result);
     };
-    file.readAsDataURL(event.target.files[0]);
-    // dispatch(updateUserAvatar(qwe.name))
-    dispatch(updateUserAvatar(event.target.files[0]))
+    file.readAsDataURL(avatarNew);
+    dispatch(updateUserAvatar(avatarNew))
     // dispatch(updateUserAvatar(file))
   }
 
   const submit = async evt => {
-    console.log(evt.email, 'qwe');
+    // console.log(evt.email, 'qwe');
 
     const formData = {
       name: evt.name,
@@ -92,18 +91,14 @@ console.log(avatar)
   return (
     
     <Modal widthMod={"335px"} heightMod={"440px"} onClose={() => showModal(false)}>
+
       <h3>Edit profile</h3>
-
       
-      
-      
-        
-
         <Avatar>
           <AvatarEdit>
-              {user.avatar !== 'avatar/standartAvatar.png'  ? (
+              {avatar !== 'avatar/standartAvatar.png'  ? (
                 <img
-                  src={preview || avatar_url}
+                  src={preview || avatar}
                   alt="avatar"
                   style={{ width: 68, height: 68, objectFit: 'cover' }}
                 />
@@ -156,13 +151,8 @@ console.log(avatar)
               
             />
              {errors?.email && (<ErrorPara>{errors?.email?.message || 'Errors!'}</ErrorPara>)}
-          </LabelWrap>
-        
-     
-          
-            
+          </LabelWrap> 
        
-            
               <PassInputWrap>
                 <Input
                 {...register('password', {value: password}) }
@@ -186,8 +176,6 @@ console.log(avatar)
                       />
                 </HideBtn>
               </PassInputWrap>
-             
-            
          
           <SubmitBtnInfo type="submit"
             disabled={!isValid}> 

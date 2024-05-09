@@ -13,7 +13,6 @@ export const registerThunk = createAsyncThunk(
       return data;
     } catch (error) {
       toast.error(`${error.response.data.message}`);
-      console.log(error.response.data.message)
       return rejectWithValue(error.response.data.message);
     }
   }
@@ -26,7 +25,6 @@ export const logIn = createAsyncThunk(
       const data = await authAPI.logIn(credentials);
       return data;
     } catch (error) {
-      console.log(error.response.data.message)
       toast.error(`${error.response.data.message}`);
       return rejectWithValue(error.response.data.message);
     }
@@ -85,12 +83,13 @@ export const updateUserAvatar = createAsyncThunk(
     try {
       const formData = new FormData();
     // const { avatar_url, name, email, password } = dataUser;
-    formData.append('avatar,', file);
+    formData.append('avatar', file);
       console.log(file)
       const data = await userAPI.updateUserAvatar(formData);
       console.log(data)
       return data;
     } catch (error) {
+      toast.error(`${error.response.data.message}`);
       return rejectWithValue(error.response.data.message);
     }
   }

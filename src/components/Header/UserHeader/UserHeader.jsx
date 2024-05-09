@@ -9,7 +9,7 @@ import UserDefaultViolet from '../../../assets/img/user-default/user-default-vio
 import UserInfo from 'components/UserInfo/UserInfo';
 
 const UserHeader = ({ currentTheme }) => {
-  const user = useSelector(selectUser);
+  const {user} = useSelector(selectUser);
 
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(prevShowModal => !prevShowModal)
