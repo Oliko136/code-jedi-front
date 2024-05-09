@@ -6,18 +6,17 @@ import { MainContainer } from './HomePage.styled';
 import { selectAuthLoading } from '../../redux/auth/auth-selectors';
 import { useSelector } from 'react-redux';
 
-
 const HomePage = () => {
   const isLoading = useSelector(selectAuthLoading);
 
   return isLoading ? (
     <Loader />
   ) : (
-      <>
-          <MainContainer>
-            <ScreensPage />
-          </MainContainer>
-      </>
+    <>
+      <MainContainer>
+        <ScreensPage />
+      </MainContainer>
+    </>
   );
 };
 
