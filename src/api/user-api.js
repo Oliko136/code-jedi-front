@@ -17,6 +17,7 @@ export async function updateUserAvatar(file) {
     const { data } = await axios.patch('/users/avatars', file, {
         headers: {
           'Content-Type': 'multipart/form-data'
+          
         }
     });
     return data;
