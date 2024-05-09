@@ -83,7 +83,7 @@ export const updateUserAvatar = createAsyncThunk(
     try {
       const formData = new FormData();
     // const { avatar_url, name, email, password } = dataUser;
-    formData.append('file', file);
+    formData.append('avatar,', file);
       console.log(file)
       const data = await userAPI.updateUserAvatar(formData);
       console.log(formData)
