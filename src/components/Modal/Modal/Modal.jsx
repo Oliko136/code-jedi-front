@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import xCloseImg from './x-close.svg';
-import css from './Modal.module.css';
-// import sprite from '../../../assets/svg/sprite.svg';
+import Icon from '../../Icon/Icon';
+// import xCloseImg from './x-close.svg';
+import { Opacity, Modalcont, ModalClose } from './Modal.styled';
 
-const Modal = ({ children, widthMod, heightMod, onClose }) => {
+const Modal = ({ children, width, height, onClose, developers = false }) => {
   const modalRoot = document.getElementById('modal-root');
 
   useEffect(() => {
@@ -17,21 +17,24 @@ const Modal = ({ children, widthMod, heightMod, onClose }) => {
   }, [onClose]);
 
   return createPortal(
-    <div className={css.opacity} onClick={onClose}>
-      <div
-        className={css.modal}
-        style={{ width: widthMod, height: heightMod }}
+    <Opacity onClick={onClose}>
+      <Modalcont
+        $developers={developers}
+        $Width={width}
+        $Height={height}
         onClick={event => event.stopPropagation()}
       >
-        <div className={css.close} onClick={onClose}>
-          {/* <svg width={18} height={18} fill="currentColor">
-            <use href={`${sprite}#close`}></use>
-          </svg> */}
-          <img src={xCloseImg} alt="Close" width={18} height={18} />
-        </div>
+        <ModalClose type="button" aria-label="Close modal" onClick={onClose}>
+          <Icon
+            width={18}
+            height={18}
+            strokeColor={'var(--icon-color)'}
+            name={'close'}
+          />
+        </ModalClose>
         {children}
-      </div>
-    </div>,
+      </Modalcont>
+    </Opacity>,
     modalRoot
   );
 };
