@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getAllBoards, createBoard, getOneBoard, updateBoard, deleteBoard } from "./boards-operations.js";
 import { pending, rejected } from "../../helpers/redux-functions.js";
-import { get } from "react-hook-form";
 
 const initialState = {
     boards: [],
@@ -17,19 +16,40 @@ const boardSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(getAllBoards.pending, pending)
-            .addCase(getAllBoards.fulfilled)
+            .addCase(getAllBoards.fulfilled, (state, { payload }) => {
+                state.boards = payload;
+                state.isLoading = false;
+                state.error = null;
+            })
             .addCase(getAllBoards.rejected, rejected)
             .addCase(createBoard.pending, pending)
-            .addCase(createBoard.fulfilled)
+            .addCase(createBoard.fulfilled, (state, { payload }) => {
+                state.boards.push(payload);
+                state.isLoading = false;
+                state.error = null;
+            })
             .addCase(createBoard.rejected, rejected)
             .addCase(getOneBoard.pending, pending)
-            .addCase(getOneBoard.fulfilled)
+            .addCase(getOneBoard.fulfilled, (state, { payload }) => {
+                state.currentBoard = payload;
+                state.isLoading = false;
+                state.error = null;
+            })
             .addCase(getOneBoard.rejected, rejected)
             .addCase(updateBoard.pending, pending)
-            .addCase(updateBoard.fulfilled)
+            .addCase(updateBoard.fulfilled, (state, { payload }) => {
+                state.currentBoard = { ...state.currentBoard, ...payload };
+                state.boards = state.boards.map(board => board._id === payload.id ? payload : board);
+                state.isLoading = false;
+                state.error = null;
+            })
             .addCase(updateBoard.rejected, rejected)
             .addCase(deleteBoard.pending, pending)
-            .addCase(deleteBoard.fulfilled)
+            .addCase(deleteBoard.fulfilled, state => {
+                state.boards = state.boards.filter(({ _id }) => _id !== state.currentBoard._id);
+                state.isLoading = false;
+                state.error = null;
+            })
             .addCase(deleteBoard.rejected, rejected)
     }
 });
