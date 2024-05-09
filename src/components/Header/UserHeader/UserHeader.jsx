@@ -6,7 +6,8 @@ import UserDefaultDark from '../../../assets/img/user-default/user-default-dark.
 import UserDefaultLight from '../../../assets/img/user-default/user-default-light.png';
 import UserDefaultViolet from '../../../assets/img/user-default/user-default-violet.png';
 
-import UserInfo from 'components/UserInfo/UserInfo';
+// import UserInfo from 'components/UserInfo/UserInfo';
+import ColumnModal from 'components/Modal/ColumnModal/ColumnModal'
 
 const UserHeader = ({ currentTheme }) => {
   const user = useSelector(selectUser);
@@ -57,7 +58,8 @@ const UserHeader = ({ currentTheme }) => {
 
 
       </Styled.UserDiv>
-      {showModal && (<UserInfo showModal={setShowModal} />)}
+      {/* {showModal && (<UserInfo showModal={setShowModal} />)} */}
+      {showModal && (<ColumnModal showModal={setShowModal} />)}
 
     </>
      
