@@ -14,14 +14,15 @@ export const Modalform = styled.form`
     }
   }
 `;
+
 export const ModalTitle = styled.h2`
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
   color: var(--input-text-color);
   margin-bottom: 24px;
-//   margin-top: 24px;
 `;
+
 export const TitleInput = styled.input`
   width: 100%;
   border: 1px solid var(--input-border-color);
@@ -32,7 +33,6 @@ export const TitleInput = styled.input`
   color: var(--input-text-color) !important;
   padding: 14px 18px;
   background-color: transparent;
-  
 
   &:focus {
     outline: none;
@@ -53,7 +53,6 @@ export const ButtonSend = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  
 
   &:hover {
     opacity: 0.7;
@@ -78,6 +77,4 @@ export const IconWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
-//   border: 2px solid green;
 `;
