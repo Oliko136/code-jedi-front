@@ -2,6 +2,7 @@
 import Loader from 'components/Loader/Loader';
 import ScreensPage from 'pages/ScreensPage/ScreensPage';
 import { MainContainer } from './HomePage.styled';
+
 //import { NavLink, Navigate } from 'react-router-dom';
 import { selectAuthLoading } from '../../redux/auth/auth-selectors';
 import { useSelector } from 'react-redux';
@@ -12,11 +13,17 @@ const HomePage = () => {
   return isLoading ? (
     <Loader />
   ) : (
-    <>
-      <MainContainer>
-        <ScreensPage />
-      </MainContainer>
-    </>
+    // <Container>
+    //   <Sidebar showSidebar={true} />
+
+    //   <SecondContainer>
+    //     <Header />
+
+    <MainContainer>
+      <ScreensPage />
+    </MainContainer>
+    //   </SecondContainer>
+    // </Container>
   );
 };
 
