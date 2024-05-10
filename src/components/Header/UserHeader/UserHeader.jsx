@@ -6,10 +6,11 @@ import UserDefaultDark from '../../../assets/img/user-default/user-default-dark.
 import UserDefaultLight from '../../../assets/img/user-default/user-default-light.png';
 import UserDefaultViolet from '../../../assets/img/user-default/user-default-violet.png';
 
-import UserInfo from 'components/UserInfo/UserInfo';
+// import UserInfo from 'components/UserInfo/UserInfo';
+import UserInfo from '../../UserInfo/UserInfo'
 
 const UserHeader = ({ currentTheme }) => {
-  const user = useSelector(selectUser);
+  const {user} = useSelector(selectUser);
 
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(prevShowModal => !prevShowModal)
@@ -57,6 +58,7 @@ const UserHeader = ({ currentTheme }) => {
 
 
       </Styled.UserDiv>
+      {/* {showModal && (<UserInfo showModal={setShowModal} />)} */}
       {showModal && (<UserInfo showModal={setShowModal} />)}
 
     </>

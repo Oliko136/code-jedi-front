@@ -20,6 +20,8 @@
   --additional-btn-bg-hover-color: #9dc888;
   --btn-icon-color: #ffffff;
   --btn-icon-bg: #161616;
+  --btn-text-color: #161616;
+  --icon-plus: #ffffff;
 }
 
 [data-theme='light'] {
@@ -44,6 +46,8 @@
   --additional-btn-bg-hover-color: #9dc888;
   --btn-icon-color: #161616;
   --btn-icon-bg: #161616;
+  --btn-text-color: #161616;
+  --icon-plus: #ffffff;
 }
 
 [data-theme='violet'] {
@@ -68,4 +72,6 @@
   --additional-btn-bg-hover-color: #7b7ede;
   --btn-icon-color: #161616;
   --btn-icon-bg: #fcfcfc;
+  --btn-text-color: #ffffff;
+  --icon-plus: #161616;
 }
