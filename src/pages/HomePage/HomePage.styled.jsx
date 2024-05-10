@@ -1,14 +1,5 @@
 import styled from 'styled-components';
 
-// export const Container = styled.div`
-//   display: flex;
-// `;
-
-// export const SecondContainer = styled.div`
-//   display: block;
-//   width: 100vw;
-// `;
-
 export const MainContainer = styled.div`
   display: flex;
   background-color: #1f1f1f;
