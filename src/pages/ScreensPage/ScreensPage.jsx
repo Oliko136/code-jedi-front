@@ -1,6 +1,6 @@
 import { CreateBoard } from './ScreenPage.styled';
 import { useState } from 'react';
-import Modal from '../Modal/Modal';
+import Modal from 'components/Modal/ModalKill';
 
 const ScreensPage = () => {
   const AddBoardForm = () => {};
