@@ -1,11 +1,24 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+
+// export const Container = styled.div`
+//   display: flex;
+// `;
+
+// export const SecondContainer = styled.div`
+//   display: block;
+//   width: 100vw;
+// `;
 
 export const MainContainer = styled.div`
   display: flex;
   background-color: #1f1f1f;
-  height: 100vh;
+  min-height: 90.8vh;
   justify-content: center;
+  // margin-left: 0;
+
+  @media screen (max-width: 768px) {
+    margin-left: 259px;
+  }
 
   p {
     text-align: center;
@@ -21,15 +34,5 @@ export const MainContainer = styled.div`
       font-size: 12px;
       max-width: 335px;
     }
-  }
-`;
-
-export const CreateBoard = styled(NavLink)`
-  color: #bedbb0;
-  transition: text-decoration 450ms ease-in-out;
-
-  &:hover,
-  &:focus {
-    text-decoration: underline;
   }
 `;
