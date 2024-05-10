@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import * as boardAPI from "../../api/board-api";
+import * as boardAPI from '../../api/board-api';
 
 export const getAllBoards = createAsyncThunk(
   'boards/getAllBoards',
@@ -17,10 +17,10 @@ export const createBoard = createAsyncThunk(
   'boards/createBoard',
   async (newBoard, thunkAPI) => {
     try {
-        const { data } = await boardAPI.addBoard(newBoard);
-        return data;
+      const { data } = await boardAPI.addBoard(newBoard);
+      return data;
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -29,10 +29,10 @@ export const getOneBoard = createAsyncThunk(
   'boards/getOneBoard',
   async (boardId, thunkAPI) => {
     try {
-        const { data } = await boardAPI.getBoardById(boardId);
-        return data;
+      const { data } = await boardAPI.getBoardById(boardId);
+      return data;
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -61,3 +61,5 @@ export const deleteBoard = createAsyncThunk(
     }
   }
 );
+
+//
