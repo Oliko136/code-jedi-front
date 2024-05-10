@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 // import { useDispatch, useSelector } from 'react-redux';
 
-import Modal from 'components/Modal/Modal';
+import Modal from 'components/Modal/ModalKill';
 // import EditBoardForm from './EditBoardForm'; // Виправте шлях
 
 // import { deleteBoard } from '../../../redux/'; ----------------- Імпорт функції deleteBoard з Redux для видалення дошки

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Burger from './Burger/Burger';
 
 export const Header = styled.header`
   display: flex;
@@ -25,7 +24,7 @@ export const MobMenuBtn = styled.button`
   svg {
     width: 24px;
     height: 24px;
-    stroke: var(--icon-color);
+    fill: var(--icon-color);
     @media screen and (min-width: 768px) {
       width: 32px;
       height: 32px;
@@ -35,8 +34,6 @@ export const MobMenuBtn = styled.button`
     display: none;
   }
 `;
-
-export const BurgerIcon = styled(Burger)``;
 
 export const UserInfoDiv = styled.div`
   display: flex;

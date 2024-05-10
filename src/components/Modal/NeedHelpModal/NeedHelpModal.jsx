@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Modal from '../Modal/Modal';
+import Modal from '../../Modal/Modal/Modal';
 import { needhelp } from '../../../redux/needhelp/needhelp-operation.js';
 import { toast } from 'react-toastify';
-
-import css from './NeedHelpModal.module.css';
+import {
+  Modalform,
+  ModalTitle,
+  Emailinput,
+  Commenttextarea,
+  ButtonSend,
+} from './NeedHelpModal.styled';
+// import css from './NeedHelpModal.module.css';
 
 const NeedHelpModal = ({ showModal }) => {
   const [email, setEmail] = useState('');
@@ -55,32 +61,25 @@ const NeedHelpModal = ({ showModal }) => {
   return (
     <>
       <Modal width={400} height={307} onClose={() => showModal(false)}>
-        <form className={css.modalform} onSubmit={handleSubmit}>
-          <div className={css.modalTitle}>{'Need help'}</div>
-          <div className={css.emailinput}>
-            <input
-              value={email}
-              onChange={handleEmailChange}
-              required
-              type="email"
-              name="email"
-              placeholder="Email address"
-            />
-          </div>
-          <div className={css.commenttextarea}>
-            <textarea
-              type="text"
-              name="comment"
-              value={text}
-              onChange={handleTextChange}
-              placeholder="Comment"
-              rows="4"
-            />
-          </div>
-          <button className={css.buttonSend} type="submit">
-            Send
-          </button>
-        </form>
+        <Modalform onSubmit={handleSubmit}>
+          <ModalTitle>{'Need help'}</ModalTitle>
+          <Emailinput
+            value={email}
+            onChange={handleEmailChange}
+            required
+            type="email"
+            name="email"
+            placeholder="Email address"
+          />
+          <Commenttextarea
+            type="text"
+            name="comment"
+            value={text}
+            onChange={handleTextChange}
+            placeholder="Comment"
+          />
+          <ButtonSend type="submit">Send</ButtonSend>
+        </Modalform>
       </Modal>
     </>
   );
