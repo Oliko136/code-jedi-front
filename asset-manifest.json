@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/code-jedi-front/static/css/main.458dcf6c.css",
+    "main.css": "/code-jedi-front/static/css/main.f76c7e58.css",
     "main.js": "/code-jedi-front/static/js/main.908411a8.js",
     "static/js/665.8dc1cf70.chunk.js": "/code-jedi-front/static/js/665.8dc1cf70.chunk.js",
     "static/js/688.74f352ea.chunk.js": "/code-jedi-front/static/js/688.74f352ea.chunk.js",
@@ -31,7 +31,7 @@
     "static/media/poppins-medium-webfont.woff2": "/code-jedi-front/static/media/poppins-medium-webfont.930a52297b47b9064519.woff2",
     "static/media/welcome-mob-1x.png": "/code-jedi-front/static/media/welcome-mob-1x.1b5cc85cb34c3cd6e85b.png",
     "index.html": "/code-jedi-front/index.html",
-    "main.458dcf6c.css.map": "/code-jedi-front/static/css/main.458dcf6c.css.map",
+    "main.f76c7e58.css.map": "/code-jedi-front/static/css/main.f76c7e58.css.map",
     "main.908411a8.js.map": "/code-jedi-front/static/js/main.908411a8.js.map",
     "665.8dc1cf70.chunk.js.map": "/code-jedi-front/static/js/665.8dc1cf70.chunk.js.map",
     "688.74f352ea.chunk.js.map": "/code-jedi-front/static/js/688.74f352ea.chunk.js.map",
@@ -40,7 +40,7 @@
     "657.b9686398.chunk.js.map": "/code-jedi-front/static/js/657.b9686398.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.458dcf6c.css",
+    "static/css/main.f76c7e58.css",
     "static/js/main.908411a8.js"
   ]
 }
