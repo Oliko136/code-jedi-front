@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/code-jedi-front/static/css/main.df5c16d5.css",
-    "main.js": "/code-jedi-front/static/js/main.01baa4b5.js",
+    "main.css": "/code-jedi-front/static/css/main.de8f8ced.css",
+    "main.js": "/code-jedi-front/static/js/main.8e9a03e5.js",
     "static/js/665.8dc1cf70.chunk.js": "/code-jedi-front/static/js/665.8dc1cf70.chunk.js",
-    "static/js/688.74f352ea.chunk.js": "/code-jedi-front/static/js/688.74f352ea.chunk.js",
+    "static/js/688.c850a57c.chunk.js": "/code-jedi-front/static/js/688.c850a57c.chunk.js",
     "static/js/149.a60e33d5.chunk.js": "/code-jedi-front/static/js/149.a60e33d5.chunk.js",
     "static/js/93.4625d913.chunk.js": "/code-jedi-front/static/js/93.4625d913.chunk.js",
     "static/js/657.b9686398.chunk.js": "/code-jedi-front/static/js/657.b9686398.chunk.js",
@@ -32,16 +32,16 @@
     "static/media/welcome-mob-1x.png": "/code-jedi-front/static/media/welcome-mob-1x.1b5cc85cb34c3cd6e85b.png",
     "static/media/icons-sprite.svg": "/code-jedi-front/static/media/icons-sprite.f7bad1557d5f1ff811b95faf64f78ba8.svg",
     "index.html": "/code-jedi-front/index.html",
-    "main.df5c16d5.css.map": "/code-jedi-front/static/css/main.df5c16d5.css.map",
-    "main.01baa4b5.js.map": "/code-jedi-front/static/js/main.01baa4b5.js.map",
+    "main.de8f8ced.css.map": "/code-jedi-front/static/css/main.de8f8ced.css.map",
+    "main.8e9a03e5.js.map": "/code-jedi-front/static/js/main.8e9a03e5.js.map",
     "665.8dc1cf70.chunk.js.map": "/code-jedi-front/static/js/665.8dc1cf70.chunk.js.map",
-    "688.74f352ea.chunk.js.map": "/code-jedi-front/static/js/688.74f352ea.chunk.js.map",
+    "688.c850a57c.chunk.js.map": "/code-jedi-front/static/js/688.c850a57c.chunk.js.map",
     "149.a60e33d5.chunk.js.map": "/code-jedi-front/static/js/149.a60e33d5.chunk.js.map",
     "93.4625d913.chunk.js.map": "/code-jedi-front/static/js/93.4625d913.chunk.js.map",
     "657.b9686398.chunk.js.map": "/code-jedi-front/static/js/657.b9686398.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.df5c16d5.css",
-    "static/js/main.01baa4b5.js"
+    "static/css/main.de8f8ced.css",
+    "static/js/main.8e9a03e5.js"
   ]
 }
