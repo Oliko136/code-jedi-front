@@ -30,6 +30,7 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
   const [errorMsgShown, setErrorMsgShown] = useState(false);
   const [errorClassName, setErrorClassName] = useState('');
   const [customBackground, setCustomBackground] = useState(null);
+  console.log(setCustomBackground)
   // const defaultBackgroundId = nanoid();
 
   const titleRef = useRef(null);
