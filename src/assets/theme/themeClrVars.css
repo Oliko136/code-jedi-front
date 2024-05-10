@@ -18,6 +18,8 @@
   --btn-profile-bg-color: #bedbb0;
   --additional-btn-bg-color: #bedbb0;
   --additional-btn-bg-hover-color: #9dc888;
+  --btn-icon-color: #ffffff;
+  --btn-icon-bg: #161616;
   --btn-text-color: #161616;
   --icon-plus: #ffffff;
 }
@@ -42,6 +44,8 @@
   --btn-profile-bg-color: #bedbb0;
   --additional-btn-bg-color: #bedbb0;
   --additional-btn-bg-hover-color: #9dc888;
+  --btn-icon-color: #161616;
+  --btn-icon-bg: #161616;
   --btn-text-color: #161616;
   --icon-plus: #ffffff;
 }
@@ -66,6 +70,8 @@
   --btn-profile-bg-color: #ecedfd;
   --additional-btn-bg-color: #5255bc;
   --additional-btn-bg-hover-color: #7b7ede;
+  --btn-icon-color: #161616;
+  --btn-icon-bg: #fcfcfc;
   --btn-text-color: #ffffff;
   --icon-plus: #161616;
 }
