@@ -20,8 +20,6 @@ import Icon from '../Icon/Icon';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
 
-
-
 const LoginForm = () => {
   
   const [visible, setVisible] = useState(false);
@@ -30,13 +28,12 @@ const LoginForm = () => {
 //   const { isLoading } = useAuth();
 
   const submit = async (evt) => {
-    console.log(evt.email,'qwe' );
     
     const formData = {
           email: evt.email,
           password: evt.password,
         };
-        console.log(formData)
+  
         const isValid = await loginSchema.isValid(formData);            
 
           if (!isValid) {
@@ -57,8 +54,7 @@ const LoginForm = () => {
     mode: "onBlur",
     resolver:yupResolver(loginSchema)
   })
-  
-// const iconEye = visible ? "eye" :  "icon-plus";
+
 
   return (
     <Background>
@@ -116,9 +112,7 @@ const LoginForm = () => {
           
           <SubmitBtn type="submit"
             disabled={!isValid}> 
-            
             Log In Now
-            
           </SubmitBtn>
         </FormUi>
       </FormWrapLog>
