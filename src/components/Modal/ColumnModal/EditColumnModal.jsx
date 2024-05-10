@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 // import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal/Modal';
 // import { needhelp } from '../../../redux/needhelp/needhelp-operation.js';
@@ -14,11 +15,14 @@ import {
   IconWrap,
 } from './ColumnModal.styled';
 import Icon from '../../Icon/Icon';
-
-const EditColumnModal = ({ showModal }) => {
+// нужно использовать id колонки?
+const EditColumnModal = ({ showModal,
+  //  columnId, columnTitle 
+  }) => {
+    const { boardId } = useParams();
 //   строка вреmенная
   const [titleNew, setTitleNew] = useState('To Do');
-//   const [titleNew, setTitleNew] = useState(useSelector(selectUser));
+  // const [titleNew, setTitleNew] = useState(columnTitle);
 //   const dispatch = useDispatch();
 
   const TOASTER = {
@@ -34,10 +38,15 @@ const EditColumnModal = ({ showModal }) => {
 
   const handleSubmit = async evt => {
     evt.preventDefault();
-
+    console.log(titleNew)
+    const newColumn = {
+      board: boardId,
+      titleNew,
+    };
+    console.log(newColumn)
     try {
         // создать опер
-    //   dispatch(needhelp({ titleNew }));
+    //   dispatch(editColumns({ editedColumn: newColumn, id: columnId }));
       toast('You have successfully edited the column ✅', TOASTER);
       showModal(false);
     } catch (error) {
