@@ -18,7 +18,7 @@ export const Opacity = styled.div`
 
 export const Modalcont = styled.div`
   position: relative;
-  width: 100%;
+  // width: 100%;
   justify-content: center;
   align-items: center;
 

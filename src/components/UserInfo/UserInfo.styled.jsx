@@ -8,7 +8,7 @@ export const Input = styled.input`
   width: 100%;
   padding: 14px 18px;
   background: transparent;
-  border: 1px solid var(--accent-icon-color);
+  border: 1px solid var(--additional-btn-bg-color);
   border-radius: 8px;
   color: var(--icon-color);
   opacity: 0.4;
@@ -82,13 +82,13 @@ export const SubmitBtnInfo = styled.button`
   padding: 14px 0;
   width: 100%;
   font-weight: 500;
-  background: var( --accent-icon-color);
+  background: var( --additional-btn-bg-color);
   border-radius: 8px;
   color: var(--primary-text-color);
   transition: background 0.3s ease;
   margin-top: 10px;
   &:hover {
-    background: var( --accent-icon-hover-color);
+    background: var( --additional-btn-bg-hover-color);
   }
   &:disabled {
     opacity: 0.3;
