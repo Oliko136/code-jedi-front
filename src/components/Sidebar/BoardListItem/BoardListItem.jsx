@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 // import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 // import { useDispatch, useSelector } from 'react-redux';
 
-import Modal from 'components/Modal/ModalKill';
+// import Modal from 'components/Modal/ModalKill';
 // import EditBoardForm from './EditBoardForm'; // Виправте шлях
 
 // import { deleteBoard } from '../../../redux/'; ----------------- Імпорт функції deleteBoard з Redux для видалення дошки
@@ -20,8 +20,8 @@ import {
 // Заглушка для EditBoardForm
 const BoardListItem = ({ board }) => {
   // const location = useLocation();
-  const [showModal, setShowModal] = useState(false);
-  const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
+  // const [showModal, setShowModal] = useState(false);
+  // const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
   // const dispatch = useDispatch();
   // const navigate = useNavigate();
   // const currentBoard = useSelector(selectBoard);
@@ -63,13 +63,13 @@ const BoardListItem = ({ board }) => {
           <BoardItemButtonsBlock>
             {/* --------------------- Кнопка для редагування дошки */}
             <li>
-              <BoardBtn type="button" onClick={toggleModal}>
-                <BoardBtnSvg>
-                  {/* <StyledSVG>
+              {/* <BoardBtn type="button" onClick={toggleModal}> */}
+              <BoardBtnSvg>
+                {/* <StyledSVG>
       <use href={`${sprite}#${icon}`} />
     </StyledSVG> */}
-                </BoardBtnSvg>
-              </BoardBtn>
+              </BoardBtnSvg>
+              {/* </BoardBtn> */}
             </li>
 
             {/* ----------------------- Кнопка для видалення дошки */}
@@ -90,18 +90,18 @@ const BoardListItem = ({ board }) => {
       </BoardItem>
 
       {/* ----------------Модальне вікно для редагування дошки */}
-      {showModal && (
+      {/* {showModal && (
         <Modal closeModal={toggleModal}>
-          {/* <EditBoardForm
+           <EditBoardForm
             boardId={board._id}
             initialTitle={board.title}
             initialIconName={board.icon}
             initialBackgroundName={board.background}
             handleClose={toggleModal}
-          /> */}
-          {/* Закоментовано виклик EditBoardForm */}
+          /> 
+          
         </Modal>
-      )}
+      )} */}
     </>
   );
 };
