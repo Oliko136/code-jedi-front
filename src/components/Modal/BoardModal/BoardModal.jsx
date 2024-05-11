@@ -1,19 +1,19 @@
 import { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { nanoid } from '@reduxjs/toolkit';
-import toast from 'react-hot-toast';
+import { toast } from 'react-toastify';
 // import { MdFileUpload, MdDownloadDone } from 'react-icons/md';
 import {
   createBoardThunk,
   updateBoardThunk,
 } from '../../../redux/boards/boards-operations';
-import { selectCurrentBoard } from '../../../redux/boards/boards-selectors';
-import { TOASTER_CONFIG } from '../../../constants/index.js';
+import { selectOneBoard } from '../../../redux/boards/boards-selectors';
+import { TOASTER } from '../../../constants/index';
 // import { DEFAULT_BACKGROUND_ID } from '../../../constants/index.js';
 import { validateInputMaxLength } from '../../../helpers/validateInputMaxLength.js';
 import Modal from '../Modal/Modal';
 import { IconsList } from './IconsList';
-//import { BacksList } from '../BoardModal/BacksList';
+import { BacksList } from '../BoardModal/BacksList';
 import Plus from '../../Icon/Plus';
 import {
   Form,
@@ -24,20 +24,24 @@ import {
   Button,
   Span,
 } from './BoardModal.styled';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+// import { iconMap } from './IconMap';
 
 const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
   const [errorMsgShown, setErrorMsgShown] = useState(false);
   const [errorClassName, setErrorClassName] = useState('');
-  const [customBackground, setCustomBackground] = useState(null);
-  console.log(customBackground);
-  console.log(setCustomBackground);
-  const defaultBackgroundName = "default";
+  // const [customBackground, setCustomBackground] = useState(null);
+  // console.log(setCustomBackground);
+  // const defaultBackgroundId = 'default';
 
   const titleRef = useRef(null);
   const dispatch = useDispatch();
-  //const navigate = useNavigate();
-  const currentBoard = useSelector(selectCurrentBoard);
+
+  const navigate = useNavigate();
+  const oneBoard = useSelector(selectOneBoard);
+
+  // const icons = iconMap();
+  // console.log(icons);
 
   useEffect(() => {
     titleRef.current.focus();
@@ -50,29 +54,29 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const { title, iconId } = e.target.elements;
-    //console.log(background);
+    const { title, background, iconId } = e.target.elements;
 
     if (!title.value.trim()) {
-      return toast('Enter title to create a board ❗️', TOASTER_CONFIG);
+      return toast('Enter title to create a board ❗️', TOASTER);
     }
-
+    // const corbackground = { background.value === '' ? 'default' : background.value };
     const data = {
       title: title.value,
-      iconId: iconId.value,
-      background: defaultBackgroundName,
+      icon: iconId.value,
+      background: background.value === '' ? 'default' : background.value,
     };
+    // console.log(data);
 
     if (variant === 'add') {
-      dispatch(createBoardThunk(data)).then(({payload}) => console.log(payload));
-      /*.then(action => {
-        if (action.type === 'boards/createBoard/fulfilled')
-          navigate(`board/${action.payload._id}`);
-      });*/
-      toast('Board was created successfully ✅', TOASTER_CONFIG);
+      dispatch(createBoardThunk(data)).then(action => {
+        // if (action.type === 'boards/createBoard/fulfilled')
+        // navigate(`board/${action.payload._id}`);
+        //   Обязательно вернуть назад !!!!!
+      });
+      toast('Board was created successfully ✅', TOASTER);
     } else {
-      dispatch(updateBoardThunk({ boardId: currentBoard._id, dataUpdate: data }));
-      toast('Board was edited successfully ✅', TOASTER_CONFIG);
+      dispatch(updateBoardThunk({ boardId: oneBoard._id, dataUpdate: data }));
+      toast('Board was edited successfully ✅', TOASTER);
     }
 
     closeModal();
@@ -91,7 +95,7 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
             type="text"
             placeholder={'Title'}
             name="title"
-            defaultValue={variant === 'add' ? '' : currentBoard.title}
+            defaultValue={variant === 'add' ? '' : oneBoard.title}
             autoComplete="off"
             maxLength={20}
             onChange={e =>
@@ -101,35 +105,15 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
           {errorMsgShown && <p>{'Maximum title length is 20 symbols'}</p>}
         </Label>
         <Text>{'Icons'}</Text>
-        <IconsList iconId={variant === 'add' ? 0 : currentBoard.icon_id} />
+        <IconsList
+          iconId={variant === 'add' ? 'project' : oneBoard.icon_label}
+        />
         <Text>{'Background'}</Text>
-        {/*<BacksList
-          backgroundId={
-            variant === 'add' ? DEFAULT_BACKGROUND_ID : oneBoard.background._id
-          }
-          customBackground={customBackground}
-        />*/}
 
-        {/* <Text>{'Choose your custom background'}</Text>
-        <Label>
-          <BackCustomInputRadio
-            type="radio"
-            name="background"
-            defaultChecked={defaultBackgroundId}
-          />
-        </Label>
-
-        <StyledFileLabel>
-          {customBackground
-            ? 'boards.modals.fileChosen'
-            : 'boards.modals.chooseFile'}
-          <StyledFileInput
-            type="file"
-            name="background"
-            onChange={handleUpload}
-          />
-          {customBackground ? <MdDownloadDone /> : <MdFileUpload />}
-        </StyledFileLabel> */}
+        <BacksList
+          backgroundId={variant === 'add' ? 'default' : oneBoard.background._id}
+        />
+        {/* // CHANGE ON CORRECT */}
 
         <Button type="submit">
           <Span>
