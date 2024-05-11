@@ -5,6 +5,7 @@ import { authReducer } from './auth/auth-slice';
 import { themeReducer } from './theme/theme-slice';
 import { needhelpReducer } from './needhelp/needhelpSlice';
 import { boardReducer } from './boards/boards-slice';
+import {filterReducer} from './filter/filter-slice';
 
 const persistConfig = {
   key: 'root',
@@ -15,12 +16,14 @@ const persistConfig = {
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);
 const persistedThemeReducer = persistReducer(persistConfig, themeReducer);
 const persistedneedhelpReducer = persistReducer(persistConfig, needhelpReducer);
+const persistedFilterReducer = persistReducer(persistConfig, filterReducer);
 
 const rootReducer = combineReducers({
   auth: persistedAuthReducer,
   theme: persistedThemeReducer,
   boards: boardReducer,
   needhelp: persistedneedhelpReducer,
+  filter: persistedFilterReducer,
 });
 
 export default rootReducer;
