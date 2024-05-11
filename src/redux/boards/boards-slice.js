@@ -16,28 +16,30 @@ const boardSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(getAllBoardsThunk.pending, pending)
-            .addCase(getAllBoardsThunk.fulfilled, (state, { payload }) => {
+            .addCase(getAllBoardsThunk.fulfilled, (state = initialState, { payload }) => {
                 state.boards = payload;
                 state.isLoading = false;
                 state.error = null;
             })
             .addCase(getAllBoardsThunk.rejected, rejected)
             .addCase(createBoardThunk.pending, pending)
-            .addCase(createBoardThunk.fulfilled, (state, { payload }) => {
+            .addCase(createBoardThunk.fulfilled, (state = initialState, { payload }) => {
                 state.boards.push(payload);
+                state.totalBoards = state.totalBoards + 1;
+                state.currentBoard = payload;
                 state.isLoading = false;
                 state.error = null;
             })
             .addCase(createBoardThunk.rejected, rejected)
             .addCase(getBoardByIdThunk.pending, pending)
-            .addCase(getBoardByIdThunk.fulfilled, (state, { payload }) => {
+            .addCase(getBoardByIdThunk.fulfilled, (state = initialState, { payload }) => {
                 state.currentBoard = payload;
                 state.isLoading = false;
                 state.error = null;
             })
             .addCase(getBoardByIdThunk.rejected, rejected)
             .addCase(updateBoardThunk.pending, pending)
-            .addCase(updateBoardThunk.fulfilled, (state, { payload }) => {
+            .addCase(updateBoardThunk.fulfilled, (state = initialState, { payload }) => {
                 state.currentBoard = { ...state.currentBoard, ...payload };
                 state.boards = state.boards.map(board => board._id === payload.id ? payload : board);
                 state.isLoading = false;
@@ -45,7 +47,7 @@ const boardSlice = createSlice({
             })
             .addCase(updateBoardThunk.rejected, rejected)
             .addCase(deleteBoardThunk.pending, pending)
-            .addCase(deleteBoardThunk.fulfilled, state => {
+            .addCase(deleteBoardThunk.fulfilled, (state = initialState, _)=> {
                 state.boards = state.boards.filter(({ _id }) => _id !== state.currentBoard._id);
                 state.isLoading = false;
                 state.error = null;

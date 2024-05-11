@@ -22,7 +22,7 @@ const cardSlice = createSlice({
                 state.error = null;
             })
             .addCase(getAllCardsThunk.rejected, rejected)
-            .addCase(addCardThunk, pending)
+            .addCase(addCardThunk.pending, pending)
             .addCase(addCardThunk.fulfilled, (state, { payload }) => {
                 state.cards.push(payload);
                 state.isLoading = false;
