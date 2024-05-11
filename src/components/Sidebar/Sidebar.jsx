@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux'; // Додали useDispatch
 import { logOut } from '../../redux/auth/auth-operations';
-// import BoardList from './BoardList/BoardList';
+import BoardList from './BoardList/BoardList';
 import NeedHelp from './NeedHelp/NeedHelp';
 // import Modal from '../Modal/ModalKill';
 // import SearchBoardModal from '../Modal/SearchBoardModal/SearchBoardModal';
@@ -84,7 +84,7 @@ const Sidebar = ({ showSidebar }) => {
       </BoardBlock>
 
       {/* Виведення списку дошок */}
-      <SidebarBoardsList>{/* <BoardList /> */}</SidebarBoardsList>
+      <SidebarBoardsList> <BoardList /></SidebarBoardsList>
 
       {/* Блок з інформацією NeedHelp */}
       <div>

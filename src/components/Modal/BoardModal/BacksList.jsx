@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 import sprite from '../../../assets/svg/sprite.svg';
-// import { getBackgroundIcons } from '../../../redux/boards/boards-operations';
+import { getBackgroundIcons } from '../../../redux/boards/boards-operations';
 import Loader from '../../Loader/Loader';
 import {
   selectBackgroundIcons,
@@ -21,11 +21,11 @@ export const BacksList = ({ backgroundId, customBackground }) => {
   const [selectedBackId, setSelectedBackId] = useState(backgroundId);
   const isLoading = useSelector(selectIsLoading);
   const backgroundIcons = useSelector(selectBackgroundIcons);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getBackgroundIcons());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getBackgroundIcons());
+  }, [dispatch]);
 
   const handleBackChange = id => {
     setSelectedBackId(id);

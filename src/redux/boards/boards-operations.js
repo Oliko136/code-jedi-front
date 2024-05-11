@@ -5,8 +5,8 @@ export const getAllBoardsThunk = createAsyncThunk(
   'boards/getAllBoards',
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await boardAPI.getAllBoards();
-      return data.result;
+      const data = await boardAPI.getAllBoards();
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -15,9 +15,9 @@ export const getAllBoardsThunk = createAsyncThunk(
 
 export const createBoardThunk = createAsyncThunk(
   'boards/createBoard',
-  async (newBoard, { rejectWithValue }) => {
+  async ({ title, icon, background }, { rejectWithValue }) => {
     try {
-      const { data } = await boardAPI.addBoard(newBoard);
+      const data = await boardAPI.addBoard({ title, icon, background });
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -29,7 +29,7 @@ export const getBoardByIdThunk = createAsyncThunk(
   'boards/getOneBoard',
   async (boardId, { rejectWithValue }) => {
     try {
-      const { data } = await boardAPI.getBoardById(boardId);
+      const data = await boardAPI.getBoardById(boardId);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -41,7 +41,7 @@ export const updateBoardThunk = createAsyncThunk(
   'boards/updateBoard',
   async ({ boardId, newData }, { rejectWithValue }) => {
     try {
-      const { data } = await boardAPI.updateBoard(boardId, newData);
+      const data = await boardAPI.updateBoard(boardId, newData);
 
       return data;
     } catch (error) {
@@ -54,7 +54,7 @@ export const deleteBoardThunk = createAsyncThunk(
   'boards/deleteBoard',
   async (boardId, { rejectWithValue }) => {
     try {
-      const { data } = await boardAPI.deleteBoard(boardId);
+      const data = await boardAPI.deleteBoard(boardId);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
