@@ -6,7 +6,7 @@ export const Header = styled.header`
   justify-content: space-between;
   height: 60px;
   padding: 18px 20px;
-  width: 100vw;
+  // width: 100vw;
   background-color: var(--additional-bg-color);
 
   @media screen and (min-width: 768px) {

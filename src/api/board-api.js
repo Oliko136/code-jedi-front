@@ -5,7 +5,7 @@ axios.defaults.baseURL = BASE_API_URL;
 
 export async function getAllBoards() {
     const { data } = await axios.get('/boards');
-    return data;
+    return data.result;
 }
 
 export async function addBoard(body) {

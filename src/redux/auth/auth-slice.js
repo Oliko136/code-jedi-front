@@ -44,7 +44,7 @@ const authSlice = createSlice({
             .addCase(logOut.rejected, rejected)
             .addCase(getCurrentUser.pending, pending)
             .addCase(getCurrentUser.fulfilled, (state, { payload }) => {
-                state.user = payload;
+                state.user = payload.user;
                 state.isLoggedIn = true;
                 state.isLoading = false;
                 state.error = null;
@@ -63,7 +63,7 @@ const authSlice = createSlice({
             .addCase(updateUserInfo.rejected, rejected)
             .addCase(updateUserAvatar.pending, pending)
             .addCase(updateUserAvatar.fulfilled, (state, { payload }) => {
-                state.user.avatar = payload.user.avatar;
+                state.user.avatar = payload.avatar;
                 state.isLoggedIn = true;
                 state.isLoading = false;
                 state.error = null;

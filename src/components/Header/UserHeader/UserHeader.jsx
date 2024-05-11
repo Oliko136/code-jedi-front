@@ -6,7 +6,8 @@ import UserDefaultDark from '../../../assets/img/user-default/user-default-dark.
 import UserDefaultLight from '../../../assets/img/user-default/user-default-light.png';
 import UserDefaultViolet from '../../../assets/img/user-default/user-default-violet.png';
 
-import UserInfo from 'components/UserInfo/UserInfo';
+// import UserInfo from 'components/UserInfo/UserInfo';
+import UserInfo from '../../UserInfo/UserInfo'
 
 const UserHeader = ({ currentTheme }) => {
   const user = useSelector(selectUser);
@@ -43,7 +44,7 @@ const UserHeader = ({ currentTheme }) => {
         <Styled.UserName>{user.name}</Styled.UserName>
         {user.avatar !== 'avatar/standartAvatar.png' ? (
           <Styled.UserImg
-            src={user.avatarURL}
+            src={user.avatar}
             alt="User Image"
             onClick={toggleModal}
           />
@@ -57,6 +58,7 @@ const UserHeader = ({ currentTheme }) => {
 
 
       </Styled.UserDiv>
+      {/* {showModal && (<UserInfo showModal={setShowModal} />)} */}
       {showModal && (<UserInfo showModal={setShowModal} />)}
 
     </>

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const SidebarWrapper = styled.aside`
-  position: absolute;
+  // position: absolute;
   top: 0;
   left: 0;
   display: flex;
@@ -11,8 +11,9 @@ export const SidebarWrapper = styled.aside`
   height: 100vh;
   background: var(--accent-bg-color);
   transform: translateX(0px);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 200;
+  transition: all var(--transition);
+  // z-index: 200;
+
 
   &.showSidebar {
     transform: translateX(0);

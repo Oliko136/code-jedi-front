@@ -1,63 +1,63 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import * as boardAPI from "../../api/board-api";
+import * as boardAPI from '../../api/board-api';
 
-export const getAllBoards = createAsyncThunk(
+export const getAllBoardsThunk = createAsyncThunk(
   'boards/getAllBoards',
-  async (_, thunkAPI) => {
+  async (_, { rejectWithValue }) => {
     try {
-      const { data } = await boardAPI.getAllBoards();
-      return data.result;
+      const data = await boardAPI.getAllBoards();
+      return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
   }
 );
 
-export const createBoard = createAsyncThunk(
+export const createBoardThunk = createAsyncThunk(
   'boards/createBoard',
-  async (newBoard, thunkAPI) => {
+  async ({ title, icon, background }, { rejectWithValue }) => {
     try {
-        const { data } = await boardAPI.addBoard(newBoard);
-        return data;
+      const data = await boardAPI.addBoard({ title, icon, background });
+      return data;
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
   }
 );
 
-export const getOneBoard = createAsyncThunk(
+export const getBoardByIdThunk = createAsyncThunk(
   'boards/getOneBoard',
-  async (boardId, thunkAPI) => {
+  async (boardId, { rejectWithValue }) => {
     try {
-        const { data } = await boardAPI.getBoardById(boardId);
-        return data;
+      const data = await boardAPI.getBoardById(boardId);
+      return data;
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
   }
 );
 
-export const updateBoard = createAsyncThunk(
+export const updateBoardThunk = createAsyncThunk(
   'boards/updateBoard',
-  async ({ boardId, newData }, thunkAPI) => {
+  async ({ boardId, newData }, { rejectWithValue }) => {
     try {
-      const { data } = await boardAPI.updateBoard(boardId, newData);
+      const data = await boardAPI.updateBoard(boardId, newData);
 
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
   }
 );
 
-export const deleteBoard = createAsyncThunk(
+export const deleteBoardThunk = createAsyncThunk(
   'boards/deleteBoard',
-  async (boardId, thunkAPI) => {
+  async (boardId, { rejectWithValue }) => {
     try {
-      const { data } = await boardAPI.deleteBoard(boardId);
+      const data = await boardAPI.deleteBoard(boardId);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
   }
 );

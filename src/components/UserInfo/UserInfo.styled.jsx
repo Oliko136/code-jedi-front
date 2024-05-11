@@ -1,14 +1,22 @@
 import styled from 'styled-components';
 
+export const TitleInfo = styled.h3`
+font-weight: 500;
+font-size: 18px;
+letter-spacing: -0.02em;
+color: var(--icon-color);;
+`;
+
 export const LabelWrap = styled.label`
   position: relative;
+  width: 100%;
 `;
 
 export const Input = styled.input`
   width: 100%;
   padding: 14px 18px;
   background: transparent;
-  border: 1px solid var(--accent-icon-color);
+  border: 1px solid var(--additional-btn-bg-color);
   border-radius: 8px;
   color: var(--icon-color);
   opacity: 0.4;
@@ -18,9 +26,11 @@ export const Input = styled.input`
 letter-spacing: -0.02em;
 
   &:focus {
+    border-color: var(--additional-btn-bg-color);
     opacity: 1;
   }
   &:hover {
+    border: 1px solid var(--additional-btn-bg-color);
     opacity: 1;
   }
   
@@ -39,9 +49,7 @@ export const AddPhoto = styled.input`
 
 export const AvatarEdit = styled.label`
   cursor: pointer;
-  border: 2px solid yellow;
-  transition: transform var(--easedTransition);
-  border: 2px solid yellow;
+  background-color: var(--primary-bg-color);
   &:hover {
     transform: scale(1.2);
   }
@@ -54,7 +62,6 @@ export const Avatar = styled.div`
   position: relative;
   margin-bottom: 14px;
   margin-top: 24px;
-  border: 2px solid blue;
   img {
     border-radius: 8px;
     border: 2px solid var(--primary-bg-color);
@@ -66,8 +73,6 @@ export const PlusButton = styled.div`
   height: 24px;
   border-radius: 6px;
   background-color: var(--accent-icon-color);
-  
-  border: 2px solid red;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,13 +87,13 @@ export const SubmitBtnInfo = styled.button`
   padding: 14px 0;
   width: 100%;
   font-weight: 500;
-  background: var( --accent-icon-color);
+  background: var( --additional-btn-bg-color);
   border-radius: 8px;
-  color: var(--primary-text-color);
+  color: var(--btn-text-color);
   transition: background 0.3s ease;
   margin-top: 10px;
   &:hover {
-    background: var( --accent-icon-hover-color);
+    background: var( --additional-btn-bg-hover-color);
   }
   &:disabled {
     opacity: 0.3;
