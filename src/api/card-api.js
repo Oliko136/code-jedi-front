@@ -23,8 +23,8 @@ export async function updateCard(boardId, columnId, id, body) {
     return data;
 }
 
-export async function updateCardColumn(boardId, columnId, id, columnBody) {
-    const { data } = await axios.patch(`/boards/${boardId}/columns/${columnId}/cards/${id}`, columnBody);
+export async function updateCardColumn(boardId, columnId, id, newColumn) {
+    const { data } = await axios.patch(`/boards/${boardId}/columns/${columnId}/cards/${id}`, newColumn);
     return data;
 }
 

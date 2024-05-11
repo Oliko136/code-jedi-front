@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as boardAPI from '../../api/board-api';
 
-export const getAllBoards = createAsyncThunk(
+export const getAllBoardsThunk = createAsyncThunk(
   'boards/getAllBoards',
   async (_, { rejectWithValue }) => {
     try {
@@ -13,7 +13,7 @@ export const getAllBoards = createAsyncThunk(
   }
 );
 
-export const createBoard = createAsyncThunk(
+export const createBoardThunk = createAsyncThunk(
   'boards/createBoard',
   async (newBoard, { rejectWithValue }) => {
     try {
@@ -25,7 +25,7 @@ export const createBoard = createAsyncThunk(
   }
 );
 
-export const getOneBoard = createAsyncThunk(
+export const getBoardByIdThunk = createAsyncThunk(
   'boards/getOneBoard',
   async (boardId, { rejectWithValue }) => {
     try {
@@ -37,7 +37,7 @@ export const getOneBoard = createAsyncThunk(
   }
 );
 
-export const updateBoard = createAsyncThunk(
+export const updateBoardThunk = createAsyncThunk(
   'boards/updateBoard',
   async ({ boardId, newData }, { rejectWithValue }) => {
     try {
@@ -50,7 +50,7 @@ export const updateBoard = createAsyncThunk(
   }
 );
 
-export const deleteBoard = createAsyncThunk(
+export const deleteBoardThunk = createAsyncThunk(
   'boards/deleteBoard',
   async (boardId, { rejectWithValue }) => {
     try {
@@ -61,5 +61,3 @@ export const deleteBoard = createAsyncThunk(
     }
   }
 );
-
-//
