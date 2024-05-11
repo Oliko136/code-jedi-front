@@ -1,20 +1,25 @@
 import styled from 'styled-components';
 
-// export const Container = styled.div`
-//   display: flex;
-// `;
+export const Container = styled.div`
+  display: flex;
+  width: 100vw;
+`;
 
 // export const SecondContainer = styled.div`
 //   display: block;
-//   width: 100vw;
+//   
 // `;
 
 export const MainContainer = styled.div`
-  display: flex;
-  background-color: #1f1f1f;
-  min-height: 90.8vh;
-  justify-content: center;
-  // margin-left: 0;
+  //display: flex;
+  color: var(--primary-text-color);
+  background-color: var(--primary-bg-color);
+  //background-color: #1f1f1f;
+  width: 100%;
+  height: 100vh;
+  //min-height: 90.8vh;
+  //justify-content: center;
+  //margin-left: 0;
 
   @media screen (max-width: 768px) {
     margin-left: 259px;
@@ -22,7 +27,7 @@ export const MainContainer = styled.div`
 
   p {
     text-align: center;
-    color: rgba(250, 250, 250, 0.5);
+    //color: rgba(250, 250, 250, 0.5);
     font-weight: 400;
     font-size: 14px;
     max-width: 486px;

@@ -24,8 +24,7 @@ import {
   Button,
   Span,
 } from './BoardModal.styled';
-// import { useNavigate } from 'react-router-dom';
-// import { iconMap } from './IconMap';
+import { useNavigate } from 'react-router-dom';
 
 const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
   const [errorMsgShown, setErrorMsgShown] = useState(false);
@@ -37,11 +36,11 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
   const titleRef = useRef(null);
   const dispatch = useDispatch();
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const oneBoard = useSelector(selectOneBoard);
 
-  // const icons = iconMap();
-  // console.log(icons);
+  //const icons = iconMap();
+  //console.log(icons);
 
   useEffect(() => {
     titleRef.current.focus();
@@ -65,13 +64,13 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
       icon: iconId.value,
       background: background.value === '' ? 'default' : background.value,
     };
-    // console.log(data);
+    console.log(data);
 
     if (variant === 'add') {
       dispatch(createBoardThunk(data)).then(action => {
-        // if (action.type === 'boards/createBoard/fulfilled')
-        // navigate(`board/${action.payload._id}`);
-        //   Обязательно вернуть назад !!!!!
+        if (action.type === 'boards/createBoard/fulfilled') {
+          navigate(`home/${action.payload.title}`);
+        }
       });
       toast('Board was created successfully ✅', TOASTER);
     } else {

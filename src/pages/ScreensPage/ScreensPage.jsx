@@ -1,11 +1,11 @@
-import { CreateBoard, FilterButton, TextOnHomePage } from './ScreenPage.styled';
+import { FilterButton } from './ScreenPage.styled';
 import { useState } from 'react';
 import Modal from '../../components/Modal/FilterModal.jsx';
 // import {  useSelector } from 'react-redux';
 import Icon from 'components/Icon/Icon';
 import Filter from "components/Filter/Filter.jsx";
 // import { getFilter } from 'redux/filter/filter-selectors.js';
-import { FilterDiv, TextDiv, ContainerFilter } from './ScreenPage.styled';
+import { FilterDiv, ContainerFilter } from './ScreenPage.styled';
 
 const ScreensPage = () => {
   const AddBoardForm = () => {};
@@ -39,15 +39,6 @@ const ScreensPage = () => {
           <p>Filter</p>
         </FilterButton>
       </FilterDiv>
-      <TextDiv>
-        <TextOnHomePage>
-          Before starting your project, it is essential{' '}
-          <CreateBoard onClick={toggleModal}>to create a board</CreateBoard> to
-          visualize and track all the necessary tasks and milestones. This board
-          serves as a powerful tool to organize the workflow and ensure
-          effective collaboration among team members.
-        </TextOnHomePage>
-      </TextDiv>
 
       {openFilter && (
         <Modal open={openFilter} onClose={toggleFilter}>

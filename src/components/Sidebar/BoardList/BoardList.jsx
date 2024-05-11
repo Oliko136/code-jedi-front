@@ -37,7 +37,7 @@ const BoardList = () => {
 
   return (
     <BoardListContainer>
-      {boards.length && elements}
+      {boards.length > 0 && elements}
       {/*boards?.map(board => (
         <BoardItem
           key={board._id}
