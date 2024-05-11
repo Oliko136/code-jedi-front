@@ -1,12 +1,13 @@
 {
   "files": {
     "main.css": "/code-jedi-front/static/css/main.941cbd94.css",
-    "main.js": "/code-jedi-front/static/js/main.faccff53.js",
-    "static/js/665.8dc1cf70.chunk.js": "/code-jedi-front/static/js/665.8dc1cf70.chunk.js",
-    "static/js/688.c850a57c.chunk.js": "/code-jedi-front/static/js/688.c850a57c.chunk.js",
-    "static/js/149.a60e33d5.chunk.js": "/code-jedi-front/static/js/149.a60e33d5.chunk.js",
-    "static/js/93.4625d913.chunk.js": "/code-jedi-front/static/js/93.4625d913.chunk.js",
-    "static/js/657.b9686398.chunk.js": "/code-jedi-front/static/js/657.b9686398.chunk.js",
+    "main.js": "/code-jedi-front/static/js/main.570b1099.js",
+    "static/js/665.a5f25437.chunk.js": "/code-jedi-front/static/js/665.a5f25437.chunk.js",
+    "static/js/688.551c68ab.chunk.js": "/code-jedi-front/static/js/688.551c68ab.chunk.js",
+    "static/js/149.120fe10b.chunk.js": "/code-jedi-front/static/js/149.120fe10b.chunk.js",
+    "static/js/738.613b4ff6.chunk.js": "/code-jedi-front/static/js/738.613b4ff6.chunk.js",
+    "static/js/657.dbdef1dc.chunk.js": "/code-jedi-front/static/js/657.dbdef1dc.chunk.js",
+    "static/js/50.9bf8afff.chunk.js": "/code-jedi-front/static/js/50.9bf8afff.chunk.js",
     "static/media/welcome-desk-2x.png": "/code-jedi-front/static/media/welcome-desk-2x.47352d931ddfe9011871.png",
     "static/media/welcome-tab-2x.png": "/code-jedi-front/static/media/welcome-tab-2x.47352d931ddfe9011871.png",
     "static/media/welcome-mob-2x.png": "/code-jedi-front/static/media/welcome-mob-2x.dbdef087e71e45db1268.png",
@@ -33,15 +34,16 @@
     "static/media/icons-sprite.svg": "/code-jedi-front/static/media/icons-sprite.f7bad1557d5f1ff811b95faf64f78ba8.svg",
     "index.html": "/code-jedi-front/index.html",
     "main.941cbd94.css.map": "/code-jedi-front/static/css/main.941cbd94.css.map",
-    "main.faccff53.js.map": "/code-jedi-front/static/js/main.faccff53.js.map",
-    "665.8dc1cf70.chunk.js.map": "/code-jedi-front/static/js/665.8dc1cf70.chunk.js.map",
-    "688.c850a57c.chunk.js.map": "/code-jedi-front/static/js/688.c850a57c.chunk.js.map",
-    "149.a60e33d5.chunk.js.map": "/code-jedi-front/static/js/149.a60e33d5.chunk.js.map",
-    "93.4625d913.chunk.js.map": "/code-jedi-front/static/js/93.4625d913.chunk.js.map",
-    "657.b9686398.chunk.js.map": "/code-jedi-front/static/js/657.b9686398.chunk.js.map"
+    "main.570b1099.js.map": "/code-jedi-front/static/js/main.570b1099.js.map",
+    "665.a5f25437.chunk.js.map": "/code-jedi-front/static/js/665.a5f25437.chunk.js.map",
+    "688.551c68ab.chunk.js.map": "/code-jedi-front/static/js/688.551c68ab.chunk.js.map",
+    "149.120fe10b.chunk.js.map": "/code-jedi-front/static/js/149.120fe10b.chunk.js.map",
+    "738.613b4ff6.chunk.js.map": "/code-jedi-front/static/js/738.613b4ff6.chunk.js.map",
+    "657.dbdef1dc.chunk.js.map": "/code-jedi-front/static/js/657.dbdef1dc.chunk.js.map",
+    "50.9bf8afff.chunk.js.map": "/code-jedi-front/static/js/50.9bf8afff.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.941cbd94.css",
-    "static/js/main.faccff53.js"
+    "static/js/main.570b1099.js"
   ]
 }
