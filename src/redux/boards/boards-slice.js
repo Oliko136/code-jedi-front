@@ -4,7 +4,6 @@ import { pending, rejected } from "../../helpers/redux-functions.js";
 
 const initialState = {
     boards: [],
-    totalBoards: 0,
     currentBoard: {},
     isLoading: false,
     error: null
@@ -25,7 +24,6 @@ const boardSlice = createSlice({
             .addCase(createBoardThunk.pending, pending)
             .addCase(createBoardThunk.fulfilled, (state = initialState, { payload }) => {
                 state.boards.push(payload);
-                state.totalBoards = state.totalBoards + 1;
                 state.currentBoard = payload;
                 state.isLoading = false;
                 state.error = null;

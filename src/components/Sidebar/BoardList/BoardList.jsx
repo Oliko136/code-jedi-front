@@ -1,38 +1,38 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-//import { useSelector, useDispatch } from 'react-redux';
-//import { useState } from 'react';
-
-//import { getBoard } from '../../../redux/';  ----- Імпорт функції getBoard для отримання даних про дошку з Redux
-//import { selectUser } from '../../../redux/'; // Імпорт селектора selectUser для отримання даних користувача з Redux
+import { getAllBoardsThunk, getBoardByIdThunk } from '../../../redux/boards/boards-operations';
 
 import { BoardListContainer, BoardItem } from './BoardList.styled';
 import BoardListItem from '../BoardListItem/BoardListItem';
+import { selectBoards } from '../../../redux/boards/boards-selectors.js';
 
-const BoardList = ({ boards }) => {
-  // Заглушка для даних користувача
-  /*const user = {
-    boards: [
-      { _id: 1, name: 'Board 1' },
-      { _id: 2, name: 'Board 2' },
-    ],
-  };*/
+const BoardList = () => {
+  const [activeBoardId, setActiveBoardId] = useState(0);
+  const boards = useSelector(selectBoards);
+  const dispatch = useDispatch();
 
-  // -----------------------------Видалимо дубльоване оголошення 'boards'.
-  // const boards = user.boards;
+  useEffect(() => {
+    dispatch(getAllBoardsThunk());
+  }, [dispatch]);
 
-  //----------------------------- Отримання даних про користувача з Redux
-  // const dispatch = useDispatch();
-  // const [activeBoardId, setActiveBoardId] = useState(null);
+  console.log(boards);
 
-  //----------------------------- Функція, яка викликається при кліку на дошку
-  // const handleClick = boardId => {
-  //   dispatch(getBoard(boardId));
-  //   setActiveBoardId(boardId);
-  // };
+  const handleClick = boardId => {
+    dispatch(getBoardByIdThunk(boardId));
+    setActiveBoardId(boardId);
+  };
+
+  const elements = boards.map(({ _id, title }) =>
+    <BoardItem
+      key={_id}
+      onClick={() => handleClick(_id)}
+      className={activeBoardId === _id ? 'activeBoard' : ''}> <BoardListItem board={{ title }} /></ BoardItem>);
+
   return (
     <BoardListContainer>
-      {boards?.map(board => (
+      {boards.length && elements }
+      {/*boards?.map(board => (
         <BoardItem
           key={board._id}
           // onClick={() => handleClick(board._id)}
@@ -40,8 +40,9 @@ const BoardList = ({ boards }) => {
         >
           <BoardListItem board={board} allBoards={boards} />
         </BoardItem>
-      ))}
-    </BoardListContainer>
+      ))   
+    */}
+  </BoardListContainer>
   );
 };
 
