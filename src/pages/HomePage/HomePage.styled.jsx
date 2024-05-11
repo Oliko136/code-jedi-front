@@ -14,7 +14,7 @@ export const MainContainer = styled.div`
   background-color: #1f1f1f;
   min-height: 90.8vh;
   justify-content: center;
-  // margin-left: 0;
+  margin-left: 260px;
 
   @media screen (max-width: 768px) {
     margin-left: 259px;
@@ -35,4 +35,10 @@ export const MainContainer = styled.div`
       max-width: 335px;
     }
   }
+`;
+
+export const CardContainer = styled.div`
+  background-color: #1f1f1f;
+  min-height: 90.8vh;
+  margin-left: 260px;
 `;
