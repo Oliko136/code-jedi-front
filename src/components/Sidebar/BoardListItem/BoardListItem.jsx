@@ -1,7 +1,7 @@
-import { useState } from 'react';
+// import React, { useState } from 'react';
 // import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 // import { useDispatch, useSelector } from 'react-redux';
-import BoardModal from '../../Modal/BoardModal/BoardModal';
+
 // import Modal from 'components/Modal/ModalKill';
 // import EditBoardForm from './EditBoardForm'; // Виправте шлях
 
@@ -15,15 +15,14 @@ import {
   BoardItemButtonsBlock,
   BoardBtn,
   BoardBtnSvg,
-  ChangeIcons,
 } from './BoardListItem.styled';
 import sprite from '../../../assets/svg/sprite.svg';
 
 // Заглушка для EditBoardForm
 const BoardListItem = ({ board }) => {
   // const location = useLocation();
-  const [showModal, setShowModal] = useState(false);
-  const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
+  // const [showModal, setShowModal] = useState(false);
+  // const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
   // const dispatch = useDispatch();
   // const navigate = useNavigate();
   // const currentBoard = useSelector(selectBoard);
@@ -52,10 +51,9 @@ const BoardListItem = ({ board }) => {
       <BoardItem>
         <BoardItemTitleBlock>
           <BoardIcon>
-            {/*<StyledSVG>
-      <use href={`${sprite}#${icon}`} />
-    </StyledSVG>*/}
-            {/* Заглушка для іконки */}
+            <svg>
+              <use href={`${sprite}#project`}></use>
+            </svg>
           </BoardIcon>
           <BoardTitle>{board.title}</BoardTitle>
         </BoardItemTitleBlock>
@@ -64,20 +62,15 @@ const BoardListItem = ({ board }) => {
         <div>
           <BoardItemButtonsBlock>
             {/* --------------------- Кнопка для редагування дошки */}
-            <ChangeIcons
-              type="button"
-              aria-label="Edit board"
-              onClick={() => setShowModal('true')}
-            >
-              <svg width={16} height={16} stroke={'fff'}>
-                <use href={`${sprite}#pencil`}></use>
-              </svg>
-              {/* <Pencil
-                width={16}
-                height={16}
-                strokeColor={'var(--sidebar-change-color'}
-              /> */}
-            </ChangeIcons>
+            <li>
+              {/* <BoardBtn type="button" onClick={toggleModal}> */}
+              <BoardBtnSvg>
+                <svg>
+                  <use href={`${sprite}#pencil`}></use>
+                </svg>
+              </BoardBtnSvg>
+              {/* </BoardBtn> */}
+            </li>
 
             {/* ----------------------- Кнопка для видалення дошки */}
             <li>
@@ -86,9 +79,9 @@ const BoardListItem = ({ board }) => {
                 onClick={() => handleDeleteBoard(board._id)}
               >
                 <BoardBtnSvg>
-                  {/*<StyledSVG>
-      <use href={`${sprite}#${icon}`} />
-    </StyledSVG>*/}
+                  <svg>
+                    <use href={`${sprite}#trash`}></use>
+                  </svg>
                 </BoardBtnSvg>
               </BoardBtn>
             </li>
@@ -97,17 +90,18 @@ const BoardListItem = ({ board }) => {
       </BoardItem>
 
       {/* ----------------Модальне вікно для редагування дошки */}
-      {showModal && (
-        <BoardModal closeModal={toggleModal}>
-          {/* <EditBoardForm
+      {/* {showModal && (
+        <Modal closeModal={toggleModal}>
+           <EditBoardForm
             boardId={board._id}
             initialTitle={board.title}
             initialIconName={board.icon}
             initialBackgroundName={board.background}
             handleClose={toggleModal}
-          />  */}
-        </BoardModal>
-      )}
+          /> 
+          
+        </Modal>
+      )} */}
     </>
   );
 };

@@ -8,42 +8,8 @@ export const BoardItem = styled.div`
   padding: 20px 24px;
   position: relative;
 
-  &::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    top: 0;
-    right: 0;
-    width: 4px;
-    border-radius: 4px 0px 0px 4px;
-    border-right: 4px solid transparent;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: #2d2d2d; /* Dark gray background on hover/focus */
-    cursor: pointer;
-
-    &::after {
-      border-right: 4px solid #7b7b7b; /* Dark gray border on hover/focus */
-    }
-
-    .boardTitle {
-      color: #fff; /* White text on hover/focus */
-      z-index: 5;
-    }
-
-    .boardIcon {
-      stroke: #fff; /* White icon on hover/focus */
-    }
-
-    .boardItemButtonsBlock {
-      display: flex;
-    }
-
-    .boardBtn {
-      display: block;
-    }
+  &:hover .boardBtnSvg {
+    stroke: #fff;
   }
 `;
 
@@ -56,7 +22,7 @@ export const BoardIcon = styled.svg`
   width: 18px;
   height: 18px;
   stroke-width: 1.5px;
-  stroke: #fffff;
+  stroke: var(--primary-text-color);
   fill: none;
   animation: scaleAndRotate 5s infinite alternate;
 `;
@@ -65,7 +31,7 @@ export const BoardTitle = styled.h2`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: var(--primary-text-color);
 `;
 
 export const BoardItemButtonsBlock = styled.ul`
@@ -73,29 +39,16 @@ export const BoardItemButtonsBlock = styled.ul`
   gap: 8px;
 `;
 
-export const BoardBtn = styled.button`
-  display: none;
-  width: 16px;
-  height: 16px;
-  border: none;
-  background-color: transparent;
-`;
-
 export const BoardBtnSvg = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: #ffffff;
+  stroke: var(--primary-text-color);
   fill: none;
 `;
-export const ChangeIcons = styled.button`
-  background: transparent;
-  padding: 0;
-  transition: filter 350ms linear;
 
-  @media screen and (min-width: 1440px) {
-    &:hover,
-    &:focus {
-      filter: drop-shadow(1px 1px 5px var(--sidebar-logout));
-    }
+export const HoverBoardBtnSvg = styled(BoardBtnSvg)`
+  &:hover {
+    stroke: var(--primary-text-color); /* Білий обведення при наведенні */
   }
 `;
+export const BoardBtn = styled.button``;

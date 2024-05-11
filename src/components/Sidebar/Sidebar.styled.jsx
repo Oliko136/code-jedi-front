@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 export const SidebarWrapper = styled.aside`
   // position: absolute;
-  //top: 0;
-  //left: 0;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   width: 225px;
@@ -31,7 +31,7 @@ export const SidebarWrapper = styled.aside`
 export const SidebarHeader = styled.div`
   padding: 14px 14px 0;
 
-  color: var(--icon-color);
+    color: color: var(--icon-color);
   font-style: normal;
   font-weight: 600;
   line-height: normal;
