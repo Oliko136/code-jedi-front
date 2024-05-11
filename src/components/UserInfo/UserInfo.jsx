@@ -40,7 +40,6 @@ console.log(avatar)
     // console.log(avatarNew)
     const file = new FileReader();
     file.onload = function () {
-      console.log(file.result)
       setPreview(file.result);
     };
     file.readAsDataURL(avatarNew);
