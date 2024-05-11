@@ -37,18 +37,22 @@ console.log(avatar)
 
   function changeImg(event) {
     const avatarNew = event.target.files[0]
-    // console.log(avatarNew)
+    console.log(event)
     const file = new FileReader();
     file.onload = function () {
       setPreview(file.result);
     };
     file.readAsDataURL(avatarNew);
+
     dispatch(updateUserAvatar(avatarNew))
    
   }
 
   const submit = async evt => {
-
+    console.log(evt)
+    // const avatarNew = evt.target.files[0]
+    // const qwe = evt.target.avatar.files[0]
+    console.log(evt.avatar)
     const formData = {
       name: evt.name,
       email: evt.email,
@@ -65,11 +69,12 @@ console.log(avatar)
         // await new Promise(res => setTimeout(res, 500));
   }
 
-  const {register, handleSubmit,  formState:{errors, isValid}  } = useForm({
+  const {register, handleSubmit, formState:{errors, isValid}  } = useForm({
     initialValues: {
              name: '',
             email: '',
             password: '',
+            // avatar: avatar,
           },
     mode: "onBlur",
     resolver:yupResolver(registerSchema)
@@ -80,7 +85,7 @@ console.log(avatar)
     <Modal width={335} height={440} onClose={() => showModal(false)}>
 
       <TitleInfo>Edit profile</TitleInfo>
-      
+     
         <Avatar>
           <AvatarEdit>
               {avatar !== 'avatar/standartAvatar.png' || !!preview  ? (
@@ -105,15 +110,18 @@ console.log(avatar)
                       name={"icon-plus"}
                       />
                 <AddPhoto
+                // {...register('avatar' )}
                   type="file"
+                  // name= "avatar"
                   accept=".png, .jpg, .jpeg"
+                  // onChange={handleSubmit(changeImg)}
                   onChange={changeImg}
                 />
               </PlusButton>
            </AvatarEdit>
         </Avatar>
 
-      <FormUserInfo onSubmit={handleSubmit(submit)}>
+        <FormUserInfo onSubmit={handleSubmit(submit)}>
 
          <LabelWrap>
              <Input 
