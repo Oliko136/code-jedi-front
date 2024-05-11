@@ -16,22 +16,48 @@ const cardSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(getAllCardsThunk.pending, pending)
-            .addCase(getAllCardsThunk)
+            .addCase(getAllCardsThunk.fulfilled, (state, { payload }) => {
+                state.cards = payload;
+                state.isLoading = false;
+                state.error = null;
+            })
             .addCase(getAllCardsThunk.rejected, rejected)
             .addCase(addCardThunk, pending)
-            .addCase(addCardThunk)
+            .addCase(addCardThunk.fulfilled, (state, { payload }) => {
+                state.cards.push(payload);
+                state.isLoading = false;
+                state.error = null;
+            })
             .addCase(addCardThunk.rejected, rejected)
             .addCase(getCardByIdThunk.pending, pending)
-            .addCase(getCardByIdThunk)
+            .addCase(getCardByIdThunk.fulfilled, (state, { payload }) => {
+                state.currentCard = payload;
+                state.isLoading = false;
+                state.error = null;
+            })
             .addCase(getCardByIdThunk.rejected, rejected)
             .addCase(updateCardThunk.pending, pending)
-            .addCase(updateCardThunk)
+            .addCase(updateCardThunk.fulfilled, (state, { payload }) => {
+                state.currentCard = { ...state.currentCard, ...payload };
+                state.cards = state.cards.map(card => card._id === payload._id ? payload : card); 
+                state.isLoading = false;
+                state.error = null;
+            })
             .addCase(updateCardThunk.rejected, rejected)
             .addCase(moveCardThunk.pending, pending)
-            .addCase(moveCardThunk)
+            .addCase(moveCardThunk.fulfilled, (state, { payload }) => {
+                state.currentCard = { ...state.currentCard, ...payload };
+                state.cards = state.cards.map(card => card._id === payload._id ? payload : card); 
+                state.isLoading = false;
+                state.error = null;
+            })
             .addCase(moveCardThunk.rejected, rejected)
             .addCase(deleteCardThunk.pending, pending)
-            .addCase(deleteCardThunk)
+            .addCase(deleteCardThunk.fulfilled, state => {
+                state.cards = state.cards.filter(({ _id }) => _id !== state.currentCard._id);
+                state.isLoading = false;
+                state.error = null;
+            })
             .addCase(deleteCardThunk.rejected, rejected)
     }
 });
