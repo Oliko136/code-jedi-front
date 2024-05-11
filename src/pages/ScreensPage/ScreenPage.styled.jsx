@@ -1,19 +1,5 @@
 import styled from 'styled-components';
 
-export const TextOnHomePage = styled.p`
-  // text-align: center;
-  color: #356745;
-  font-weight: 400;
-  font-size: 10px;
-  padding: 0 20px;
-  max-width: 335px;
-
-  @media only screen and (min-width: 375px) {
-    font-size: 12px;
-    max-width: 486px;
-  }
-`;
-
 export const CreatedBoard = styled.div`
   padding: 10px;
 `;
