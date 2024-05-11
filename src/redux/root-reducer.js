@@ -5,7 +5,11 @@ import { authReducer } from './auth/auth-slice';
 import { themeReducer } from './theme/theme-slice';
 import { needhelpReducer } from './needhelp/needhelpSlice';
 import { boardReducer } from './boards/boards-slice';
+
 import {filterReducer} from './filter/filter-slice';
+
+import { cardReducer } from './cards/cards-slice';
+
 
 const persistConfig = {
   key: 'root',
@@ -22,6 +26,7 @@ const rootReducer = combineReducers({
   auth: persistedAuthReducer,
   theme: persistedThemeReducer,
   boards: boardReducer,
+  cards: cardReducer,
   needhelp: persistedneedhelpReducer,
   filter: persistedFilterReducer,
 });

@@ -17,13 +17,10 @@ import {
   ErrorPara,
   PassInputWrap,
   HideBtn,
-  
 } from './RegisterForm.styled';
 import Icon from "../Icon/Icon"
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
-
-
 
 const RegisterForm = () => {
   
@@ -32,14 +29,13 @@ const RegisterForm = () => {
   // const { isLoading } = useAuth();
 
   const submit = async (evt) => {
-    console.log(evt.email,'qwe' );
     
     const formData = {
           name: evt.name,
           email: evt.email,
           password: evt.password,
         };
-        // console.log(formData)
+        
         const isValid = await registerSchema.isValid(formData);            
 
           if (!isValid) {
@@ -60,8 +56,6 @@ const RegisterForm = () => {
     mode: "onBlur",
     resolver:yupResolver(registerSchema)
   })
-
-// const iconEye = visible ? "eye" :  "icon-plus";
   
   return (
     <Background>

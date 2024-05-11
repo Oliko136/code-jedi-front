@@ -22,6 +22,11 @@
   --btn-icon-bg: #161616;
   --btn-text-color: #161616;
   --icon-plus: #ffffff;
+  --icon-user: #151515;
+  --calendar-bg-color: #1f1f1f;
+  --calendar-text-color-trans: #ffffff80;
+  --calendar-additional-color-trans: #ffffff33;
+  --calendar-secondary-hover-color: #1f1f1f;
 }
 
 [data-theme='light'] {
@@ -48,6 +53,11 @@
   --btn-icon-bg: #161616;
   --btn-text-color: #161616;
   --icon-plus: #ffffff;
+  --icon-user: #ffffff;
+  --calendar-bg-color: #ffffff;
+  --calendar-text-color-trans: #16161680;
+  --calendar-additional-color-trans: #16161633;
+  --calendar-secondary-hover-color: #161616;
 }
 
 [data-theme='violet'] {
@@ -74,4 +84,9 @@
   --btn-icon-bg: #fcfcfc;
   --btn-text-color: #ffffff;
   --icon-plus: #161616;
+  --icon-user: #ffffff;
+  --calendar-bg-color: #ffffff;
+  --calendar-text-color-trans: #16161680;
+  --calendar-additional-color-trans: #16161633;
+  --calendar-secondary-hover-color: #fcfcfc;
 }

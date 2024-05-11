@@ -33,7 +33,7 @@ const Sidebar = ({ showSidebar }) => {
   // const [showModal, setShowModal] = useState(false);
   // const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
   const [isAddBoardModalShown, setIsAddBoardModalShown] = useState(false);
-  // const [isEditBoardModalShown, setIsEditBoardModalShown] = useState(false);
+  const [isEditBoardModalShown, setIsEditBoardModalShown] = useState(false);
   // const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   // const [showSearchResult, setShowSearchResult] = useState(false);
 
@@ -120,12 +120,12 @@ const Sidebar = ({ showSidebar }) => {
           closeMenu={showSidebar}
         />
       )}
-      {/* {isEditBoardModalShown && (
+      {isEditBoardModalShown && (
         <BoardModal
           variant="edit"
           closeModal={() => setIsEditBoardModalShown(false)}
         />
-      )} */}
+      )}
 
       {/* {isSearchModalOpen && (
         <SearchBoardModal
