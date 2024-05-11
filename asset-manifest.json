@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/code-jedi-front/static/css/main.941cbd94.css",
-    "main.js": "/code-jedi-front/static/js/main.83a29333.js",
+    "main.js": "/code-jedi-front/static/js/main.f4039afd.js",
     "static/js/665.a5f25437.chunk.js": "/code-jedi-front/static/js/665.a5f25437.chunk.js",
     "static/js/688.9b535426.chunk.js": "/code-jedi-front/static/js/688.9b535426.chunk.js",
-    "static/js/184.9dff68ff.chunk.js": "/code-jedi-front/static/js/184.9dff68ff.chunk.js",
+    "static/js/184.a7c7221c.chunk.js": "/code-jedi-front/static/js/184.a7c7221c.chunk.js",
     "static/js/738.52caa03b.chunk.js": "/code-jedi-front/static/js/738.52caa03b.chunk.js",
     "static/js/657.dbdef1dc.chunk.js": "/code-jedi-front/static/js/657.dbdef1dc.chunk.js",
     "static/js/525.e652b68d.chunk.js": "/code-jedi-front/static/js/525.e652b68d.chunk.js",
@@ -36,10 +36,10 @@
     "static/media/icons-sprite.svg": "/code-jedi-front/static/media/icons-sprite.f7bad1557d5f1ff811b95faf64f78ba8.svg",
     "index.html": "/code-jedi-front/index.html",
     "main.941cbd94.css.map": "/code-jedi-front/static/css/main.941cbd94.css.map",
-    "main.83a29333.js.map": "/code-jedi-front/static/js/main.83a29333.js.map",
+    "main.f4039afd.js.map": "/code-jedi-front/static/js/main.f4039afd.js.map",
     "665.a5f25437.chunk.js.map": "/code-jedi-front/static/js/665.a5f25437.chunk.js.map",
     "688.9b535426.chunk.js.map": "/code-jedi-front/static/js/688.9b535426.chunk.js.map",
-    "184.9dff68ff.chunk.js.map": "/code-jedi-front/static/js/184.9dff68ff.chunk.js.map",
+    "184.a7c7221c.chunk.js.map": "/code-jedi-front/static/js/184.a7c7221c.chunk.js.map",
     "738.52caa03b.chunk.js.map": "/code-jedi-front/static/js/738.52caa03b.chunk.js.map",
     "657.dbdef1dc.chunk.js.map": "/code-jedi-front/static/js/657.dbdef1dc.chunk.js.map",
     "525.e652b68d.chunk.js.map": "/code-jedi-front/static/js/525.e652b68d.chunk.js.map",
@@ -48,6 +48,6 @@
   },
   "entrypoints": [
     "static/css/main.941cbd94.css",
-    "static/js/main.83a29333.js"
+    "static/js/main.f4039afd.js"
   ]
 }
