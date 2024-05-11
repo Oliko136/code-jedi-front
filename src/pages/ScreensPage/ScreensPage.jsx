@@ -1,6 +1,11 @@
-import { CreateBoard } from './ScreenPage.styled';
+import { CreateBoard, FilterButton, TextOnHomePage } from './ScreenPage.styled';
 import { useState } from 'react';
-import Modal from 'components/Modal/ModalKill';
+import Modal from '../../components/Modal/FilterModal.jsx';
+// import {  useSelector } from 'react-redux';
+import Icon from 'components/Icon/Icon';
+import Filter from "components/Filter/Filter.jsx";
+// import { getFilter } from 'redux/filter/filter-selectors.js';
+import { FilterDiv, TextDiv, ContainerFilter } from './ScreenPage.styled';
 
 const ScreensPage = () => {
   const AddBoardForm = () => {};
@@ -8,15 +13,47 @@ const ScreensPage = () => {
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
 
+    const [openFilter, setOpenFilter] = useState(false);
+  // const filter = useSelector(getFilter);
+
+  const handleOpenFilter = () => {
+    setOpenFilter(true);
+  };
+
+  const toggleFilter = () => {
+    setOpenFilter(!openFilter);
+  };
+
   return (
-    <>
-      <p>
-        Before starting your project, it is essential{' '}
-        <CreateBoard onClick={toggleModal}>to create a board</CreateBoard> to
-        visualize and track all the necessary tasks and milestones. This board
-        serves as a powerful tool to organize the workflow and ensure effective
-        collaboration among team members.
-      </p>
+    <ContainerFilter>
+      <FilterDiv>
+        <div>CreatedBoard</div>
+        <FilterButton type="button" onClick={handleOpenFilter}>
+          <Icon
+            width={20}
+            height={20}
+            fillColor={'none'}
+            strokeColor={`#fff`}
+            name={'filter'}
+          />
+          <p>Filter</p>
+        </FilterButton>
+      </FilterDiv>
+      <TextDiv>
+        <TextOnHomePage>
+          Before starting your project, it is essential{' '}
+          <CreateBoard onClick={toggleModal}>to create a board</CreateBoard> to
+          visualize and track all the necessary tasks and milestones. This board
+          serves as a powerful tool to organize the workflow and ensure
+          effective collaboration among team members.
+        </TextOnHomePage>
+      </TextDiv>
+
+      {openFilter && (
+        <Modal open={openFilter} onClose={toggleFilter}>
+          <Filter onClose={toggleFilter} />
+        </Modal>
+      )}
 
       {showModal && (
         <Modal closeModal={toggleModal}>
@@ -24,7 +61,7 @@ const ScreensPage = () => {
           <p color="white">MODAL WINDOW</p>
         </Modal>
       )}
-    </>
+    </ContainerFilter>
   );
 };
 
