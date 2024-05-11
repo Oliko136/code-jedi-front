@@ -44,7 +44,7 @@ const UserHeader = ({ currentTheme }) => {
         <Styled.UserName>{user.name}</Styled.UserName>
         {user.avatar !== 'avatar/standartAvatar.png' ? (
           <Styled.UserImg
-            src={user.avatarURL}
+            src={user.avatar}
             alt="User Image"
             onClick={toggleModal}
           />

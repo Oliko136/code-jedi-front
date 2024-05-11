@@ -82,9 +82,7 @@ export const updateUserAvatar = createAsyncThunk(
     try {
       const formData = new FormData();
     formData.append('avatar', file);
-      console.log(file)
       const data = await userAPI.updateUserAvatar(formData);
-      console.log(data)
       return data;
     } catch (error) {
       toast.error(`${error.response.data.message}`);

@@ -28,8 +28,6 @@ import { selectUser } from '../../redux/auth/auth-selectors';
 const UserInfo = ({showModal}) => {
   const user = useSelector(selectUser)
 const {name, email,password, avatar} = user
-console.log(avatar)
-  
   const [visible, setVisible] = useState(false);
   const [preview, setPreview] = useState(null);
   const dispatch = useDispatch();
@@ -37,24 +35,25 @@ console.log(avatar)
 
   function changeImg(event) {
     const avatarNew = event.target.files[0]
-    // console.log(avatarNew)
+    // console.log(event)
     const file = new FileReader();
     file.onload = function () {
       setPreview(file.result);
     };
     file.readAsDataURL(avatarNew);
-    dispatch(updateUserAvatar(avatarNew))
-   
+setValue("avatar", [avatarNew])
   }
 
-  const submit = async evt => {
-
+  const submit = async evt => { 
     const formData = {
       name: evt.name,
       email: evt.email,
       password: evt.password,
     };
-    
+    const hasAvatar = evt.avatar.length > 0
+    if (hasAvatar) {
+      dispatch(updateUserAvatar(evt.avatar[0]))
+    }
     const isValid = await registerSchema.isValid(formData);
 
           if (!isValid) {
@@ -65,11 +64,12 @@ console.log(avatar)
         // await new Promise(res => setTimeout(res, 500));
   }
 
-  const {register, handleSubmit,  formState:{errors, isValid}  } = useForm({
+  const {register, handleSubmit, setValue, formState:{errors, isValid}  } = useForm({
     initialValues: {
              name: '',
             email: '',
             password: '',
+            // avatar: avatar,
           },
     mode: "onBlur",
     resolver:yupResolver(registerSchema)
@@ -80,7 +80,7 @@ console.log(avatar)
     <Modal width={335} height={440} onClose={() => showModal(false)}>
 
       <TitleInfo>Edit profile</TitleInfo>
-      
+      <FormUserInfo onSubmit={handleSubmit(submit)}>
         <Avatar>
           <AvatarEdit>
               {avatar !== 'avatar/standartAvatar.png' || !!preview  ? (
@@ -105,15 +105,15 @@ console.log(avatar)
                       name={"icon-plus"}
                       />
                 <AddPhoto
+                {...register('avatar' )}
                   type="file"
+                  name= "avatar"
                   accept=".png, .jpg, .jpeg"
                   onChange={changeImg}
                 />
               </PlusButton>
            </AvatarEdit>
-        </Avatar>
-
-      <FormUserInfo onSubmit={handleSubmit(submit)}>
+        </Avatar>      
 
          <LabelWrap>
              <Input 
