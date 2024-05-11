@@ -24,7 +24,7 @@ import {
   Button,
   Span,
 } from './BoardModal.styled';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 // import { iconMap } from './IconMap';
 
 const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
@@ -37,7 +37,7 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
   const titleRef = useRef(null);
   const dispatch = useDispatch();
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const oneBoard = useSelector(selectOneBoard);
 
   // const icons = iconMap();

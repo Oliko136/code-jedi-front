@@ -17,6 +17,9 @@ export const BacksList = ({ backgroundId }) => {
   const [selectedBackId, setSelectedBackId] = useState(backgroundId);
   const isLoading = useSelector(selectIsLoading);
   // const backgroundIcons = useSelector(selectBackgroundIcons);
+  var temp = selectedBackId;
+  const temp1 = temp;
+  temp = temp1;
 
   const backicons = backgroundMap();
   // console.log(icons);

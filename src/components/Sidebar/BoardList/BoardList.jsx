@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getAllBoardsThunk, getBoardByIdThunk } from '../../../redux/boards/boards-operations';
+import {
+  getAllBoardsThunk,
+  getBoardByIdThunk,
+} from '../../../redux/boards/boards-operations';
 
 import { BoardListContainer, BoardItem } from './BoardList.styled';
 import BoardListItem from '../BoardListItem/BoardListItem';
@@ -16,22 +19,25 @@ const BoardList = () => {
     dispatch(getAllBoardsThunk());
   }, [dispatch]);
 
-  console.log(boards);
-
   const handleClick = boardId => {
     dispatch(getBoardByIdThunk(boardId));
     setActiveBoardId(boardId);
   };
 
-  const elements = boards.map(({ _id, title }) =>
+  const elements = boards.map(({ _id, title }) => (
     <BoardItem
       key={_id}
       onClick={() => handleClick(_id)}
-      className={activeBoardId === _id ? 'activeBoard' : ''}> <BoardListItem board={{ title }} /></ BoardItem>);
+      className={activeBoardId === _id ? 'activeBoard' : ''}
+    >
+      {' '}
+      <BoardListItem board={{ title }} />
+    </BoardItem>
+  ));
 
   return (
     <BoardListContainer>
-      {boards.length && elements }
+      {boards.length && elements}
       {/*boards?.map(board => (
         <BoardItem
           key={board._id}
@@ -42,7 +48,7 @@ const BoardList = () => {
         </BoardItem>
       ))   
     */}
-  </BoardListContainer>
+    </BoardListContainer>
   );
 };
 
