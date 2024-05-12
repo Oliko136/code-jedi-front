@@ -1,10 +1,11 @@
 import styled from 'styled-components';
-export const DivForColumns = styled.div`
+
+export const DivForColumns = styled.ul`
   display: flex;
   gap: 28px;
 `;
 
-export const Column = styled.div`
+export const Column = styled.li`
   display: block;
 `;
 

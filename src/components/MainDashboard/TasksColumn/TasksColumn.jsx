@@ -1,51 +1,30 @@
-import {
-    DivForColumns,
-    TitleColumnDiv,
-    Button,
-    Icons,
-    SvgDiv,
-    ButtonForCard,
-    IconDoCard,
-    Column,
-  } from './TasksColumn.styled';
-  import sprite from '../../../assets/svg/sprite.svg';
-  import TasksCard from '../TasksCard/TasksCard';
-  import ButtonForColumn from '../ButtonForColumn/ButtonForColumn';
-  
-  const TasksColumn = () => {
-    return (
-      <DivForColumns>
-        <Column>
-          <TitleColumnDiv>
-            <h3>Title for colum</h3>
-            <SvgDiv>
-              <Button>
-                <Icons>
-                  <use href={`${sprite}#pencil`}></use>
-                </Icons>
-              </Button>
-  
-              <Button>
-                <Icons>
-                  <use href={`${sprite}#trash`}></use>
-                </Icons>
-              </Button>
-            </SvgDiv>
-          </TitleColumnDiv>
-  
-          <TasksCard />
-  
-          <ButtonForCard>
-            <IconDoCard>
-              <use href={`${sprite}#plus`}></use>
-            </IconDoCard>
-            Add another card
-          </ButtonForCard>
-        </Column>
-  
-        <ButtonForColumn />
-      </DivForColumns>
-    );
+import { useDispatch, useSelector } from 'react-redux';
+import { selectСolumns } from '../../../redux/column/column-selectors.js';
+import { DivForColumns } from './TasksColumn.styled.jsx';
+import ButtonForColumn from '../ButtonForColumn/ButtonForColumn.jsx';
+import TasksColumnItem from './TasksColumnItem.jsx';
+import { getAllColumnsThunk } from 'redux/column/column-operations.js';
+
+const TasksColumn = boardId => {
+  const allColumns = useSelector(selectСolumns);
+
+  const dispatch = useDispatch();
+
+  const getAllCollumns = () => {
+    dispatch(getAllColumnsThunk(boardId));
   };
-  
-  export default TasksColumn;
+
+  return (
+    <DivForColumns>
+      {
+        // allColumns.length > 0 &&
+        allColumns.map(column => (
+          <TasksColumnItem key={column._id} column={column} />
+        ))
+      }
+      <ButtonForColumn />
+    </DivForColumns>
+  );
+};
+
+export default TasksColumn;
