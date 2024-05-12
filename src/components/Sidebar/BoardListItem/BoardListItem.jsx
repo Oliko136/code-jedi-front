@@ -19,7 +19,7 @@ import {
 import sprite from '../../../assets/svg/sprite.svg';
 
 // Заглушка для EditBoardForm
-const BoardListItem = ({ board }) => {
+const BoardListItem = ({ board, selectedIcon }) => {
   // const location = useLocation();
   // const [showModal, setShowModal] = useState(false);
   // const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
@@ -52,7 +52,7 @@ const BoardListItem = ({ board }) => {
         <BoardItemTitleBlock>
           <BoardIcon>
             <svg>
-              <use href={`${sprite}#project`}></use>
+              <use href={`${sprite}#${selectedIcon}`}></use>
             </svg>
           </BoardIcon>
           <BoardTitle>{board.title}</BoardTitle>

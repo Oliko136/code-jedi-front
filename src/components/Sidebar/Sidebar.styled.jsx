@@ -14,7 +14,6 @@ export const SidebarWrapper = styled.aside`
   transition: all var(--transition);
   // z-index: 200;
 
-
   &.showSidebar {
     transform: translateX(0);
   }
@@ -71,6 +70,7 @@ export const LogoBlock = styled(Link)`
 `;
 
 export const BoardBlock = styled.div`
+  padding: 0px 24px;
   margin-left: auto;
   margin-right: auto;
   h2 {

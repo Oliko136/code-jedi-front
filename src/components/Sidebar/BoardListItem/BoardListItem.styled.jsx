@@ -3,18 +3,15 @@ import styled from 'styled-components';
 export const BoardItem = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 61px;
   align-items: center;
   padding: 20px 24px;
   position: relative;
-
-  &:hover .boardBtnSvg {
-    stroke: #fff;
-  }
+  width: 100%;
 `;
 
 export const BoardItemTitleBlock = styled.div`
   display: flex;
+  align-items: center;
   gap: 8px;
 `;
 
@@ -36,6 +33,7 @@ export const BoardTitle = styled.h2`
 
 export const BoardItemButtonsBlock = styled.ul`
   display: flex;
+  align-items: center;
   gap: 8px;
 `;
 
@@ -51,4 +49,5 @@ export const HoverBoardBtnSvg = styled(BoardBtnSvg)`
     stroke: var(--primary-text-color); /* Білий обведення при наведенні */
   }
 `;
+
 export const BoardBtn = styled.button``;
