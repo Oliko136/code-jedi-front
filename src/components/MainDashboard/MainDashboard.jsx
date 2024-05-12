@@ -21,7 +21,7 @@ const MainDashboard = () => {
         <h1>оыивроаор</h1>
        
         <TasksColumn/>
-        {/* <ButtonForColumn/> */}
+        <ButtonForColumn/>
       </div>
       
     
