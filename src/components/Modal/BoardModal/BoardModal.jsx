@@ -64,7 +64,6 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
       icon: iconId.value,
       background: background.value === '' ? 'default' : background.value,
     };
-    console.log(data);
 
     if (variant === 'add') {
       dispatch(createBoardThunk(data)).then(action => {
@@ -104,9 +103,7 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
           {errorMsgShown && <p>{'Maximum title length is 20 symbols'}</p>}
         </Label>
         <Text>{'Icons'}</Text>
-        <IconsList
-          iconId={variant === 'add' ? 'project' : oneBoard.icon_label}
-        />
+        <IconsList iconId={variant === 'add' ? 'project' : oneBoard.label} />
         <Text>{'Background'}</Text>
 
         <BacksList
