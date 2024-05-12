@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import {
   getAllBoardsThunk,
@@ -19,35 +20,26 @@ const BoardList = () => {
     dispatch(getAllBoardsThunk());
   }, [dispatch]);
 
-  const handleClick = boardId => {
+  const handleClick = (boardId) => {
     dispatch(getBoardByIdThunk(boardId));
     setActiveBoardId(boardId);
   };
 
-  const elements = boards.map(({ _id, title }) => (
+  const elements = boards.map(({ _id, title, icon }) => (
     <BoardItem
       key={_id}
       onClick={() => handleClick(_id)}
       className={activeBoardId === _id ? 'activeBoard' : ''}
     >
-      {' '}
-      <BoardListItem board={{ _id, title }} />
+      <NavLink to={`/home/${title}`}>
+        <BoardListItem board={{ _id, title, icon }} />
+      </NavLink>
     </BoardItem>
   ));
 
   return (
     <BoardListContainer>
       {boards.length > 0 && elements}
-      {/*boards?.map(board => (
-        <BoardItem
-          key={board._id}
-          // onClick={() => handleClick(board._id)}
-          // className={activeBoardId === board._id ? 'activeBoard' : ''}
-        >
-          <BoardListItem board={board} allBoards={boards} />
-        </BoardItem>
-      ))   
-    */}
     </BoardListContainer>
   );
 };

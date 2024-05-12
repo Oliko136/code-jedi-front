@@ -64,7 +64,7 @@ const HomePage = () => {
          
           {boards.length > 0 ?
             <>
-              <Navigate to={`/home/${boards[0]._id}`} />
+              <Navigate to={`/home/${boards[0].title}`} />
               <Outlet />
             </> :
             <HomePageText />}
