@@ -15,7 +15,7 @@ const ScreensPage = () => {
     <div>
       
 <HeaderDashboard/>
-<MainDashboard/>
+{/* <MainDashboard/> */}
     </div>
   )
 
