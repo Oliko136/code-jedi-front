@@ -29,7 +29,6 @@ const HomePage = () => {
 
   const openSidebar = () => {
     setShowSidebar(!showSidebar);
-    console.log(showSidebar)
   };
 
   const closeSidebar = useCallback(() => {
