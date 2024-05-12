@@ -10,7 +10,7 @@ import {
   } from './TasksColumn.styled';
   import sprite from '../../../assets/svg/sprite.svg';
   import TasksCard from '../TasksCard/TasksCard';
-  import ButtonForColumn from '../ButtonForColumn/ButtonForColumn';
+  // import ButtonForColumn from '../ButtonForColumn/ButtonForColumn';
   
   const TasksColumn = () => {
     return (
@@ -43,7 +43,7 @@ import {
           </ButtonForCard>
         </Column>
   
-        <ButtonForColumn />
+        {/* <ButtonForColumn /> */}
       </DivForColumns>
     );
   };

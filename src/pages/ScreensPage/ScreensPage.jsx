@@ -12,11 +12,11 @@ import MainDashboard from 'components/MainDashboard/MainDashboard';
 const ScreensPage = () => {
 
   return(
-    <div>
-      
-<HeaderDashboard/>
+    <>
+    <HeaderDashboard/>
 <MainDashboard/>
-    </div>
+    </>
+ 
   )
 
   // const AddBoardForm = () => {};
