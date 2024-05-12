@@ -22,8 +22,8 @@ const ButtonForColumn = () => {
                 <IconWrap>
                 <Icon width={14}
                       height={14}
-                      fillColor={'red'}
-                      strokeColor={'red'}
+                      fillColor={'none'}
+                      strokeColor={'var( --btn-add-column'}
                       name={"icon-plus"}
                       />
                 </IconWrap>
