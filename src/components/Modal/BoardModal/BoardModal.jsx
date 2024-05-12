@@ -39,9 +39,6 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
   const navigate = useNavigate();
   const oneBoard = useSelector(selectOneBoard);
 
-  //const icons = iconMap();
-  //console.log(icons);
-
   useEffect(() => {
     titleRef.current.focus();
   }, []);
@@ -68,7 +65,7 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
     if (variant === 'add') {
       dispatch(createBoardThunk(data)).then(action => {
         if (action.type === 'boards/createBoard/fulfilled') {
-          navigate(`home/${action.payload.title}`);
+          navigate(`${action.payload.title}`);
         }
       });
       toast('Board was created successfully ✅', TOASTER);
