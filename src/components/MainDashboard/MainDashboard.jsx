@@ -2,9 +2,8 @@
 // import { selectAuthLoading } from '../../redux/auth/auth-selectors';
 // import { selectBoards } from '../../redux/boards/boards-selectors';
 import TasksColumn from './TasksColumn/TasksColumn';
-
-
 import ButtonForColumn from './ButtonForColumn/ButtonForColumn'
+import {ContainerMainBoard} from './MainDashboard.styled'
 
 // import {useState } from 'react';
 // import Loader from '../Loader/Loader';
@@ -17,19 +16,13 @@ const MainDashboard = () => {
 // с div может я переборщила
     return(
     // map column  по условию наличия колонок*/}
-      <div>
-        <h1>оыивроаор</h1>
+      <ContainerMainBoard>
+        
        
         <TasksColumn/>
         <ButtonForColumn/>
-      </div>
+      </ContainerMainBoard>
       
-    
-       
-
- 
-              
-              
     
   )
 }
