@@ -20,7 +20,7 @@ const BoardList = () => {
     dispatch(getAllBoardsThunk());
   }, [dispatch]);
 
-  const handleClick = (boardId) => {
+  const handleClick = boardId => {
     dispatch(getBoardByIdThunk(boardId));
     setActiveBoardId(boardId);
   };
@@ -32,15 +32,16 @@ const BoardList = () => {
       className={activeBoardId === _id ? 'activeBoard' : ''}
     >
       <NavLink to={`/home/${title}`}>
-        <BoardListItem board={{ _id, title, icon }} />
+        <BoardListItem
+          board={{ _id, title, icon }}
+          activeBoardId={activeBoardId}
+        />
       </NavLink>
     </BoardItem>
   ));
 
   return (
-    <BoardListContainer>
-      {boards.length > 0 && elements}
-    </BoardListContainer>
+    <BoardListContainer>{boards.length > 0 && elements}</BoardListContainer>
   );
 };
 
