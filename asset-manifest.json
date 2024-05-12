@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/code-jedi-front/static/css/main.b3a68940.css",
-    "main.js": "/code-jedi-front/static/js/main.50cc832e.js",
+    "main.js": "/code-jedi-front/static/js/main.ef5f24ea.js",
     "static/js/665.a5f25437.chunk.js": "/code-jedi-front/static/js/665.a5f25437.chunk.js",
     "static/js/688.9b535426.chunk.js": "/code-jedi-front/static/js/688.9b535426.chunk.js",
-    "static/js/419.72a63f96.chunk.js": "/code-jedi-front/static/js/419.72a63f96.chunk.js",
+    "static/js/419.d8c48e77.chunk.js": "/code-jedi-front/static/js/419.d8c48e77.chunk.js",
     "static/js/908.d2a3e34f.chunk.js": "/code-jedi-front/static/js/908.d2a3e34f.chunk.js",
     "static/js/657.dbdef1dc.chunk.js": "/code-jedi-front/static/js/657.dbdef1dc.chunk.js",
     "static/js/525.e652b68d.chunk.js": "/code-jedi-front/static/js/525.e652b68d.chunk.js",
@@ -36,10 +36,10 @@
     "static/media/icons-sprite.svg": "/code-jedi-front/static/media/icons-sprite.f7bad1557d5f1ff811b95faf64f78ba8.svg",
     "index.html": "/code-jedi-front/index.html",
     "main.b3a68940.css.map": "/code-jedi-front/static/css/main.b3a68940.css.map",
-    "main.50cc832e.js.map": "/code-jedi-front/static/js/main.50cc832e.js.map",
+    "main.ef5f24ea.js.map": "/code-jedi-front/static/js/main.ef5f24ea.js.map",
     "665.a5f25437.chunk.js.map": "/code-jedi-front/static/js/665.a5f25437.chunk.js.map",
     "688.9b535426.chunk.js.map": "/code-jedi-front/static/js/688.9b535426.chunk.js.map",
-    "419.72a63f96.chunk.js.map": "/code-jedi-front/static/js/419.72a63f96.chunk.js.map",
+    "419.d8c48e77.chunk.js.map": "/code-jedi-front/static/js/419.d8c48e77.chunk.js.map",
     "908.d2a3e34f.chunk.js.map": "/code-jedi-front/static/js/908.d2a3e34f.chunk.js.map",
     "657.dbdef1dc.chunk.js.map": "/code-jedi-front/static/js/657.dbdef1dc.chunk.js.map",
     "525.e652b68d.chunk.js.map": "/code-jedi-front/static/js/525.e652b68d.chunk.js.map",
@@ -48,6 +48,6 @@
   },
   "entrypoints": [
     "static/css/main.b3a68940.css",
-    "static/js/main.50cc832e.js"
+    "static/js/main.ef5f24ea.js"
   ]
 }
