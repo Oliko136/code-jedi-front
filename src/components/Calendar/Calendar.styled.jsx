@@ -29,6 +29,14 @@ export const ButtonSvg = styled.svg`
   stroke: currentColor;
 `;
 
+export const CalendarDate = styled.div`
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--additional-btn-bg-color);
+  margin-bottom: 8px; // Додайте відступ між кнопкою та датою
+`;
+
 export const StyledDatePickerContainer = styled.div`
   .react-datepicker {
     font-family: inherit;

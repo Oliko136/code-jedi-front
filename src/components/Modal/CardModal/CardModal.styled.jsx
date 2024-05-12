@@ -74,22 +74,22 @@ export const Text = styled.p`
   margin-bottom: 4px;
 `;
 
-export const PriorityUl = styled.ul`
+export const PriorityDiv = styled.div`
   display: flex;
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
   gap: 8px;
 `;
 
-export const LabelSVG = styled.svg`
-  stroke: var(--icon-color);
-  stroke-opacity: 0.5;
-  transform: scale(1.05);
-`;
+// export const LabelSVG = styled.svg`
+//   stroke: var(--icon-color);
+//   stroke-opacity: 0.5;
+//   transform: scale(1.05);
+// `;
 
 export const InputRadio = styled.input`
   display: none;
   &:checked + svg use {
-    stroke: var(--additional-text-color);
+    /* stroke: var(--additional-text-color); */
     stroke-opacity: 1;
     transform: scale(1.05);
   }

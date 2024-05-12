@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { toast } from 'react-toastify';
 import {
   ButtonSend,
@@ -15,6 +15,10 @@ import Modal from '../Modal/Modal';
 // import { useParams } from 'react-router-dom';
 import Icon from 'components/Icon/Icon';
 import CardPrirityList from './CardPriorityList';
+import Calendar from 'components/Calendar/Calendar';
+// import { useSelector } from 'react-redux';
+// import { selectError } from 'redux/cards/cards-selectors';
+import { addCardThunk } from '../../../redux/cards/cards-operations';
 
 const CardModal = ({ showModal }) => {
   const [title, setTitle] = useState('');
@@ -22,9 +26,12 @@ const CardModal = ({ showModal }) => {
   const [cardPriority, setCardPriority] = useState('without');
   const [deadline, setDeadline] = useState(new Date());
 
-  // const dispatch = useDispatch();
+  // const error = useSelector(selectError);
+  const dispatch = useDispatch();
 
-  //   const { columnId } = useParams();
+  const changeDeadline = date => {
+    setDeadline(date);
+  };
 
   //   const PRIORITY_LIST = [
   //     { id: 0, priority: 'low', color: 'blue' },
@@ -35,15 +42,15 @@ const CardModal = ({ showModal }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const { title, description, cardPriority } = e.target.elements;
 
     const data = {
-      title: title.value,
-      description: description.value,
-      cardPriority: cardPriority.value,
+      title: title.trim(),
+      description: description.trim(),
+      cardPriority,
+      deadline,
     };
 
-    //   dispatch(createCard(data));
+    dispatch(addCardThunk(data));
   };
 
   return (
@@ -66,8 +73,10 @@ const CardModal = ({ showModal }) => {
           placeholder="Description"
         />
         <Text>{'Label color'}</Text>
-        <CardPrirityList />
+        <CardPrirityList value={cardPriority} onChange={setCardPriority} />
         <Text>{'Deadline'}</Text>
+
+        <Calendar date={deadline} changeDate={changeDeadline} />
 
         <ButtonSend type="submit">
           <PlusButton>
