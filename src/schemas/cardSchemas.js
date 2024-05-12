@@ -4,7 +4,6 @@ export const CardAddSchema = yup.object().shape({
   title: yup
     .string()
     .min(2, 'Title must be at least 2 characters')
-    .label('Invalid title')
     .empty('Title should not be empty')
     .required('Title is required'),
   description: yup.string(),
@@ -16,7 +15,6 @@ export const CardEditSchema = yup.object().shape({
   title: yup
     .string()
     .min(2, 'Title must be at least 2 characters')
-    .label('Invalid title')
     .empty('Title should not be empty'),
   description: yup.string(),
   priority: yup.string(),
