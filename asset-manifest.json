@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/code-jedi-front/static/css/main.941cbd94.css",
-    "main.js": "/code-jedi-front/static/js/main.2a46d821.js",
+    "main.js": "/code-jedi-front/static/js/main.f302703e.js",
     "static/js/665.a5f25437.chunk.js": "/code-jedi-front/static/js/665.a5f25437.chunk.js",
     "static/js/688.9b535426.chunk.js": "/code-jedi-front/static/js/688.9b535426.chunk.js",
-    "static/js/419.f3da2d79.chunk.js": "/code-jedi-front/static/js/419.f3da2d79.chunk.js",
+    "static/js/419.652b50c9.chunk.js": "/code-jedi-front/static/js/419.652b50c9.chunk.js",
     "static/js/681.0dbbf24f.chunk.js": "/code-jedi-front/static/js/681.0dbbf24f.chunk.js",
     "static/js/657.dbdef1dc.chunk.js": "/code-jedi-front/static/js/657.dbdef1dc.chunk.js",
     "static/js/525.e652b68d.chunk.js": "/code-jedi-front/static/js/525.e652b68d.chunk.js",
@@ -36,10 +36,10 @@
     "static/media/icons-sprite.svg": "/code-jedi-front/static/media/icons-sprite.f7bad1557d5f1ff811b95faf64f78ba8.svg",
     "index.html": "/code-jedi-front/index.html",
     "main.941cbd94.css.map": "/code-jedi-front/static/css/main.941cbd94.css.map",
-    "main.2a46d821.js.map": "/code-jedi-front/static/js/main.2a46d821.js.map",
+    "main.f302703e.js.map": "/code-jedi-front/static/js/main.f302703e.js.map",
     "665.a5f25437.chunk.js.map": "/code-jedi-front/static/js/665.a5f25437.chunk.js.map",
     "688.9b535426.chunk.js.map": "/code-jedi-front/static/js/688.9b535426.chunk.js.map",
-    "419.f3da2d79.chunk.js.map": "/code-jedi-front/static/js/419.f3da2d79.chunk.js.map",
+    "419.652b50c9.chunk.js.map": "/code-jedi-front/static/js/419.652b50c9.chunk.js.map",
     "681.0dbbf24f.chunk.js.map": "/code-jedi-front/static/js/681.0dbbf24f.chunk.js.map",
     "657.dbdef1dc.chunk.js.map": "/code-jedi-front/static/js/657.dbdef1dc.chunk.js.map",
     "525.e652b68d.chunk.js.map": "/code-jedi-front/static/js/525.e652b68d.chunk.js.map",
@@ -48,6 +48,6 @@
   },
   "entrypoints": [
     "static/css/main.941cbd94.css",
-    "static/js/main.2a46d821.js"
+    "static/js/main.f302703e.js"
   ]
 }
