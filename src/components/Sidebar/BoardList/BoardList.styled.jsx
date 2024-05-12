@@ -16,7 +16,8 @@ export const BoardListContainer = styled.ul`
 `;
 
 export const BoardItem = styled.li`
-  display: flex;
+  display: block;
+
   justify-content: space-between;
   height: 61px;
   align-items: center;

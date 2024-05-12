@@ -20,15 +20,14 @@ import {
 import sprite from '../../../assets/svg/sprite.svg';
 import DeleteModal from 'components/Modal/DeleteModal/DeleteModal';
 
-// Заглушка для EditBoardForm
-const BoardListItem = ({ board } ) => {
-  //const location = useLocation();
-  // const [showModal, setShowModal] = useState(false);
-  // const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
+const BoardListItem = ({ board, activeBoardId }) => {
   const [isDeleteModalShown, setIsDeleteModalShown] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const isActive = activeBoardId === board._id;
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  //const currentBoard = useSelector(selectOneBoard);
+
   const handleDeleteBoard = () => {
     const boardId = board._id;
     dispatch(deleteBoardThunk(boardId)).then(action => {
@@ -42,30 +41,29 @@ const BoardListItem = ({ board } ) => {
   return (
     <>
       {/* ------------Посилання на сторінку дошки з назвою та іконкою */}
-      {/*<StyledNavLink
-        to={`/home/${board.title}`}
-        state={{ from: location }}
-        className="boardItem"
+      <BoardItem
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        isActive={isActive}
       >
-      </StyledNavLink>
-      */}
-      <BoardItem>
         <BoardItemTitleBlock>
-          <BoardIcon>
+          <BoardIcon isHovered={isHovered || isActive}>
             <svg>
               <use href={`${sprite}#${board.icon}`}></use>
             </svg>
           </BoardIcon>
-          <BoardTitle>{board.title}</BoardTitle>
+          <BoardTitle isHovered={isHovered || isActive}>
+            {board.title}
+          </BoardTitle>
         </BoardItemTitleBlock>
 
         {/*----------------- Блок з кнопками для редагування та видалення дошки */}
-        <div>
+        {isActive && (
           <BoardItemButtonsBlock>
             {/* --------------------- Кнопка для редагування дошки */}
             <li>
               {/* <BoardBtn type="button" onClick={toggleModal}> */}
-              <BoardBtnSvg>
+              <BoardBtnSvg isHovered={isHovered || isActive}>
                 <svg>
                   <use href={`${sprite}#pencil`}></use>
                 </svg>
@@ -79,7 +77,7 @@ const BoardListItem = ({ board } ) => {
                 type="button"
                 onClick={() => setIsDeleteModalShown(true)}
               >
-                <BoardBtnSvg>
+                <BoardBtnSvg isHovered={isHovered || isActive}>
                   <svg>
                     <use href={`${sprite}#trash`}></use>
                   </svg>
@@ -87,7 +85,7 @@ const BoardListItem = ({ board } ) => {
               </BoardBtn>
             </li>
           </BoardItemButtonsBlock>
-        </div>
+        )}
       </BoardItem>
 
       {/* ----------------Модальне вікно для редагування дошки */}
@@ -108,7 +106,7 @@ const BoardListItem = ({ board } ) => {
           onClose={() => setIsDeleteModalShown(false)}
           onConfirm={handleDeleteBoard}
         />
-        )}
+      )}
     </>
   );
 };
