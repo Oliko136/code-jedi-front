@@ -31,7 +31,10 @@ const BoardList = () => {
       className={activeBoardId === _id ? 'activeBoard' : ''}
     >
       {' '}
-      <BoardListItem board={{ _id, title }} />
+      <BoardListItem
+        board={{ _id, title }}
+        isActive={activeBoardId === _id} // Передати проп isActive
+      />
     </BoardItem>
   ));
 

@@ -5,29 +5,29 @@ export const SidebarWrapper = styled.aside`
   // position: absolute;
   position: ${({ showSidebar }) => (showSidebar ? 'absolute' : 'static')};
   display: ${({ showSidebar }) => (showSidebar ? 'flex' : 'none')};
-  
+
   // visibility: ${({ showSidebar }) => (showSidebar ? 'visible' : 'hidden')};
   top: 0;
   left: 0;
   // display: flex;
   flex-direction: column;
-  // width: 225px;
-  width: 100vh;
+  width: 225px;
+  max-width: 260px;
   height: 100vh;
   background: var(--accent-bg-color);
   transform: translateX(0px);
   transition: all var(--transition);
- 
-  z-index: ${({ showSidebar}) => (showSidebar ? 200 : 'auto')};
+
+  z-index: ${({ showSidebar }) => (showSidebar ? 200 : 'auto')};
   // z-index: 200;
 
   &.showSidebar {
     transform: translateX(0);
   }
 
-  // @media screen and (min-width: 768px) {
-  //   width: 260px;
-  // }
+  @media screen and (min-width: 768px) {
+    width: 260px;
+  }
 
   @media screen and (min-width: 1440px) {
     transform: translateX(0);
@@ -81,15 +81,18 @@ export const LogoBlock = styled(Link)`
 `;
 
 export const BoardBlock = styled.div`
-  padding: 0px 24px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0px 14px;
+
   h2 {
     font-weight: 400;
     font-size: 12px;
     letter-spacing: -0.02em;
     color: var(--additional-text-color-op);
     margin-bottom: 8px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 0px 24px;
   }
 `;
 
@@ -141,11 +144,6 @@ export const PlusIcon = styled.svg`
   width: 20px;
   height: 20px;
   stroke: var(--accent-bg-color);
-
-  &:hover,
-  &:focus {
-    // stroke: var(--accent-icon-hover-color);
-  }
 `;
 
 export const SidebarBoardsList = styled.div`
@@ -173,9 +171,13 @@ export const SidebarBoardsList = styled.div`
 `;
 
 export const LogoutBlock = styled.div`
-  padding: 0 0 24px 24px;
+  padding: 0 0 14px 14px;
   display: flex;
   align-items: center;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 0 24px 24px;
+  }
 `;
 
 export const LogoutLink = styled(Link)`
