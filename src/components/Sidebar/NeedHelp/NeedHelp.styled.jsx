@@ -9,10 +9,7 @@ export const HelpBlock = styled.div`
   display: flex;
   flex-direction: column;
   padding: 14px;
-  margin-bottom: 24px;
-  margin-left: auto;
-  margin-right: auto;
-
+  margin: 24px auto;
   @media screen and (min-width: 768px) {
     width: 212px;
     height: 272px;

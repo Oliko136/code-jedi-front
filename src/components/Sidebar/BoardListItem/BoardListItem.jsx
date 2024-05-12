@@ -1,12 +1,13 @@
-// import React, { useState } from 'react';
-// import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-// import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+//import { redirect } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 // import Modal from 'components/Modal/ModalKill';
 // import EditBoardForm from './EditBoardForm'; // Виправте шлях
 
-// import { deleteBoard } from '../../../redux/'; ----------------- Імпорт функції deleteBoard з Redux для видалення дошки
-// import { selectBoard } from '../../../redux/'; ----------------- Імпорт селектора selectBoard для отримання даних про дошку з Redux
+import { deleteBoardThunk } from '../../../redux/boards/boards-operations';
+//import { selectOneBoard } from '../../../redux/boards/boards-selectors'; //----------------- Імпорт селектора selectBoard для отримання даних про дошку з Redux
 import {
   BoardItem,
   BoardItemTitleBlock,
@@ -17,25 +18,25 @@ import {
   BoardBtnSvg,
 } from './BoardListItem.styled';
 import sprite from '../../../assets/svg/sprite.svg';
+import DeleteModal from 'components/Modal/DeleteModal/DeleteModal';
 
 // Заглушка для EditBoardForm
-const BoardListItem = ({ board }) => {
-  // const location = useLocation();
+const BoardListItem = ({ board } ) => {
+  //const location = useLocation();
   // const [showModal, setShowModal] = useState(false);
   // const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  // const currentBoard = useSelector(selectBoard);
-  const handleDeleteBoard = boardId => {
-    // dispatch(deleteBoard(boardId)).then(action => {
-    //   if (action.type !== 'boards/deleteBoard/fulfilled') {
-    //     return;
-    //   }
-    //   if (currentBoard._id === boardId) {
-    //     navigate('/home');
-    //   }
-    // });
-    console.log(`Deleting board with ID ${boardId}`);
+  const [isDeleteModalShown, setIsDeleteModalShown] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  //const currentBoard = useSelector(selectOneBoard);
+  const handleDeleteBoard = () => {
+    const boardId = board._id;
+    dispatch(deleteBoardThunk(boardId)).then(action => {
+      if (action.type !== 'boards/deleteBoard/fulfilled') {
+        return;
+      }
+      navigate('/');
+    });
   };
 
   return (
@@ -52,7 +53,7 @@ const BoardListItem = ({ board }) => {
         <BoardItemTitleBlock>
           <BoardIcon>
             <svg>
-              <use href={`${sprite}#project`}></use>
+              <use href={`${sprite}#${board.icon}`}></use>
             </svg>
           </BoardIcon>
           <BoardTitle>{board.title}</BoardTitle>
@@ -76,7 +77,7 @@ const BoardListItem = ({ board }) => {
             <li>
               <BoardBtn
                 type="button"
-                onClick={() => handleDeleteBoard(board._id)}
+                onClick={() => setIsDeleteModalShown(true)}
               >
                 <BoardBtnSvg>
                   <svg>
@@ -102,6 +103,12 @@ const BoardListItem = ({ board }) => {
           
         </Modal>
       )} */}
+      {isDeleteModalShown && (
+        <DeleteModal
+          onClose={() => setIsDeleteModalShown(false)}
+          onConfirm={handleDeleteBoard}
+        />
+        )}
     </>
   );
 };
