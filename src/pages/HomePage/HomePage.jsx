@@ -68,7 +68,7 @@ const HomePage = () => {
         {boards.length > 0 && !currentBoard.title && (
           <Navigate to={`/home/${boards[0].title}`} />
         )}
-        {boards.length > 0 && <Outlet />}
+        {/* {boards.length > 0 && <Outlet />} */}
         {!boards.length && <HomePageText />}
       </MainContainer>
     </Container>
