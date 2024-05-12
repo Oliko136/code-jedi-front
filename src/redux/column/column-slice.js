@@ -10,7 +10,7 @@ const initialState = {
     error: null
 }
 
-const boardSlice = createSlice({
+const columnSlice = createSlice({
     name: "columns",
     initialState,
     extraReducers: builder => {
@@ -61,4 +61,4 @@ const boardSlice = createSlice({
     }
 });
 
-export const boardReducer = boardSlice.reducer;
+export const columnReducer = columnSlice.reducer;

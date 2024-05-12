@@ -2,7 +2,7 @@
 // import sprite from '../../../assets/svg/sprite.svg';
 import ColumnModal from 'components/Modal/ColumnModal/ColumnModal';
 import { useState } from 'react';
-import Icon from '../../Modal/Modal/Modal';
+import Icon from '../../Icon/Icon';
 import  {IconWrap, PlusButton, ButtonSend} from './ButtonForColumn.styled'
 
 const ButtonForColumn = () => {
@@ -23,7 +23,7 @@ const ButtonForColumn = () => {
                 <Icon width={14}
                       height={14}
                       fillColor={'none'}
-                      strokeColor={'var(--btn-add-column)'}
+                      strokeColor={'var( --btn-add-column'}
                       name={"icon-plus"}
                       />
                 </IconWrap>
