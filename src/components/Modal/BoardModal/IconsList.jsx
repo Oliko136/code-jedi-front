@@ -20,8 +20,8 @@ export const IconsList = ({ iconId }) => {
                 type="radio"
                 name="iconId"
                 value={selectedIconId}
-                defaultChecked={selectedIconId === item.id}
-                onChange={() => handleIconChange(item.id)}
+                defaultChecked={selectedIconId === item.label}
+                onChange={() => handleIconChange(item.label)}
               />
               <IconSVG width="18" height="18">
                 <use xlinkHref={`${sprite}#${item.name}`} />

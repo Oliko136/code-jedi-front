@@ -8,14 +8,14 @@ export const LABEL_ARR = [
 ];
 
 export const ICONS_ARRAY = [
-  { id: 0, name: 'project', label: 'project' },
-  { id: 1, name: 'star', label: 'star' },
-  { id: 2, name: 'loading', label: 'loading' },
-  { id: 3, name: 'puzzle-piece', label: 'puzzle-piece' },
-  { id: 4, name: 'container', label: 'container' },
-  { id: 5, name: 'lightning', label: 'lightning' },
-  { id: 6, name: 'colors', label: 'colors' },
-  { id: 7, name: 'hexagon', label: 'hexagon' },
+  { id: 0, name: 'icon-board-fourCircles-1', label: 'project' },
+  { id: 1, name: 'icon-board-star-2', label: 'star' },
+  { id: 2, name: 'icon-board-loading-3', label: 'loading' },
+  { id: 3, name: 'icon-board-puzzle-4', label: 'puzzle-piece' },
+  { id: 4, name: 'icon-board-box-5', label: 'container' },
+  { id: 5, name: 'icon-board-lightning-6', label: 'lightning' },
+  { id: 6, name: 'icon-board-colors-7', label: 'colors' },
+  { id: 7, name: 'icon-board-hexagon-8', label: 'hexagon' },
 ];
 
 export const BACKDROP_TRANSITION = {
