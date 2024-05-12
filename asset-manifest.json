@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/code-jedi-front/static/css/main.941cbd94.css",
-    "main.js": "/code-jedi-front/static/js/main.1d8d2158.js",
+    "main.js": "/code-jedi-front/static/js/main.95a9a4d2.js",
     "static/js/665.a5f25437.chunk.js": "/code-jedi-front/static/js/665.a5f25437.chunk.js",
     "static/js/688.9b535426.chunk.js": "/code-jedi-front/static/js/688.9b535426.chunk.js",
-    "static/js/184.4dfb738b.chunk.js": "/code-jedi-front/static/js/184.4dfb738b.chunk.js",
+    "static/js/189.879918dd.chunk.js": "/code-jedi-front/static/js/189.879918dd.chunk.js",
     "static/js/738.52caa03b.chunk.js": "/code-jedi-front/static/js/738.52caa03b.chunk.js",
     "static/js/657.dbdef1dc.chunk.js": "/code-jedi-front/static/js/657.dbdef1dc.chunk.js",
     "static/js/525.e652b68d.chunk.js": "/code-jedi-front/static/js/525.e652b68d.chunk.js",
@@ -36,10 +36,10 @@
     "static/media/icons-sprite.svg": "/code-jedi-front/static/media/icons-sprite.f7bad1557d5f1ff811b95faf64f78ba8.svg",
     "index.html": "/code-jedi-front/index.html",
     "main.941cbd94.css.map": "/code-jedi-front/static/css/main.941cbd94.css.map",
-    "main.1d8d2158.js.map": "/code-jedi-front/static/js/main.1d8d2158.js.map",
+    "main.95a9a4d2.js.map": "/code-jedi-front/static/js/main.95a9a4d2.js.map",
     "665.a5f25437.chunk.js.map": "/code-jedi-front/static/js/665.a5f25437.chunk.js.map",
     "688.9b535426.chunk.js.map": "/code-jedi-front/static/js/688.9b535426.chunk.js.map",
-    "184.4dfb738b.chunk.js.map": "/code-jedi-front/static/js/184.4dfb738b.chunk.js.map",
+    "189.879918dd.chunk.js.map": "/code-jedi-front/static/js/189.879918dd.chunk.js.map",
     "738.52caa03b.chunk.js.map": "/code-jedi-front/static/js/738.52caa03b.chunk.js.map",
     "657.dbdef1dc.chunk.js.map": "/code-jedi-front/static/js/657.dbdef1dc.chunk.js.map",
     "525.e652b68d.chunk.js.map": "/code-jedi-front/static/js/525.e652b68d.chunk.js.map",
@@ -48,6 +48,6 @@
   },
   "entrypoints": [
     "static/css/main.941cbd94.css",
-    "static/js/main.1d8d2158.js"
+    "static/js/main.95a9a4d2.js"
   ]
 }
