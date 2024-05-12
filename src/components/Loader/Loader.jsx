@@ -1,27 +1,35 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-// Ключевая анимация для вращения
 const spin = keyframes`
   to {
     transform: rotate(360deg);
   }
 `;
 
-// Стили для Loader контейнера
 const LoaderContainer = styled.div`
-  margin: auto;
-  border: 4px solid #f3f3f3; /* серый */
-  border-top: 4px solid #3498db; /* синий */
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: ${spin} .5s linear infinite;
+  display: grid;
+  place-items: center;
+  height: 100vh;
 `;
 
-// Компонент Loader
+const LoaderElement = styled.div`
+  border: 25px solid #f3f3f3;
+  border-top: 20px solid #3498db; 
+  border-radius: 50%;
+  width: 150px; /* Увеличиваем ширину */
+  height: 150px; /* Увеличиваем высоту */
+  z-index: 1;
+
+  animation: ${spin} 0.5s linear infinite;
+`;
+
 const Loader = () => {
-  return <LoaderContainer />;
+  return (
+    <LoaderContainer>
+      <LoaderElement />
+    </LoaderContainer>
+  );
 };
 
 export default Loader;
