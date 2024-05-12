@@ -8,7 +8,6 @@ import HomePageText from 'components/HomePageText/HomePageText';
 import { MainContainer, Container } from './HomePage.styled';
 import { selectAuthLoading } from '../../redux/auth/auth-selectors';
 import { selectBoards } from '../../redux/boards/boards-selectors';
-import CardModal from 'components/Modal/CardModal/CardModal';
 
 const HomePage = () => {
   const isLoading = useSelector(selectAuthLoading);
@@ -58,7 +57,6 @@ const HomePage = () => {
     <Loader />
   ) : (
     <Container>
-      <CardModal />
       <Sidebar showSidebar={showSidebar} />
       <MainContainer>
         <Header openSidebar={openSidebar} />

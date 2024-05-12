@@ -11,7 +11,7 @@ export const Button = styled.button`
   border: none;
   outline: none;
   font-weight: 500;
-  font-size: 14px;
+  /* font-size: 14px; */
   letter-spacing: -0.02em;
   color: var(--additional-btn-bg-color);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -27,14 +27,6 @@ export const ButtonSvg = styled.svg`
   height: 18px;
   fill: none;
   stroke: currentColor;
-`;
-
-export const CalendarDate = styled.div`
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--additional-btn-bg-color);
-  margin-bottom: 8px; // Додайте відступ між кнопкою та датою
 `;
 
 export const StyledDatePickerContainer = styled.div`

@@ -1,98 +1,41 @@
-// import sprite from '../../../assets/images/icons/icons-sprite.svg';
 import Icon from 'components/Icon/Icon';
-import { IconWrap, InputRadio, PriorityDiv } from './CardModal.styled';
+import { Label, InputRadio, PriorityDiv } from './CardModal.styled';
 
-const CardPrirityList = ({ value, onChange }) => {
+const CardPriorityList = ({ value, onChange }) => {
   const handleChange = e => {
     onChange(e.target.value);
   };
 
+  const PRIORITY_LIST = [
+    { priority: 'low', color: '#8FA1D0' },
+    { priority: 'medium', color: '#E09CB5' },
+    { priority: 'high', color: '#BEDBB0' },
+    { priority: 'without', color: 'rgba(255, 255, 255, 0.3)' },
+  ];
+
   return (
-    <div>
-      <PriorityDiv>
-        <label>
+    <PriorityDiv>
+      {PRIORITY_LIST.map(({ priority, color }) => (
+        <Label key={priority}>
           <InputRadio
             type="radio"
             name="color"
-            value="#8FA1D0"
-            checked={value === '#8FA1D0'}
+            value={color}
+            checked={value === color}
             onChange={handleChange}
-            required
           />
           <Icon
-            width={14}
-            height={14}
-            fillColor={'#8FA1D0'}
+            fillColor={color}
             name={
-              value === '#8FA1D0'
+              value === color
                 ? 'radio-button-checked'
                 : 'radio-button-unchecked'
             }
           />
-        </label>
-        <label>
-          <InputRadio
-            type="radio"
-            name="color"
-            value="#E09CB5"
-            checked={value === '#E09CB5'}
-            onChange={handleChange}
-            style={{ display: 'none' }}
-          />
-          <Icon
-            width={14}
-            height={14}
-            fillColor={'#E09CB5'}
-            name={
-              value === '#E09CB5'
-                ? 'radio-button-checked'
-                : 'radio-button-unchecked'
-            }
-          />
-        </label>
-        <label>
-          <InputRadio
-            type="radio"
-            name="color"
-            value="#BEDBB0"
-            checked={value === '#BEDBB0'}
-            onChange={handleChange}
-            style={{ display: 'none' }}
-          />
-          <Icon
-            width={14}
-            height={14}
-            fillColor={'#BEDBB0'}
-            name={
-              value === '#BEDBB0'
-                ? 'radio-button-checked'
-                : 'radio-button-unchecked'
-            }
-          />
-        </label>
-        <label>
-          <InputRadio
-            type="radio"
-            name="color"
-            value="rgba(255, 255, 255, 0.3)"
-            checked={value === 'rgba(255, 255, 255, 0.3)'}
-            onChange={handleChange}
-            style={{ display: 'none' }}
-          />
-          <Icon
-            width={14}
-            height={14}
-            fillColor={'rgba(255, 255, 255, 0.3)'}
-            name={
-              value === '#rgba(255, 255, 255, 0.3)'
-                ? 'radio-button-checked'
-                : 'radio-button-unchecked'
-            }
-          />
-        </label>
-      </PriorityDiv>
-    </div>
+        </Label>
+      ))}
+    </PriorityDiv>
   );
 };
 
-export default CardPrirityList;
+export default CardPriorityList;

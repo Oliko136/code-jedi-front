@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 // import { toast } from 'react-toastify';
+import Modal from '../Modal/Modal';
+import Icon from 'components/Icon/Icon';
+import CardPriorityList from './CardPriorityList';
+import Calendar from 'components/Calendar/Calendar';
+import { addCardThunk } from '../../../redux/cards/cards-operations';
 import {
   ButtonSend,
   IconWrap,
@@ -11,14 +16,6 @@ import {
   Textarea,
   TitleInput,
 } from './CardModal.styled';
-import Modal from '../Modal/Modal';
-// import { useParams } from 'react-router-dom';
-import Icon from 'components/Icon/Icon';
-import CardPrirityList from './CardPriorityList';
-import Calendar from 'components/Calendar/Calendar';
-// import { useSelector } from 'react-redux';
-// import { selectError } from 'redux/cards/cards-selectors';
-import { addCardThunk } from '../../../redux/cards/cards-operations';
 
 const CardModal = ({ showModal }) => {
   const [title, setTitle] = useState('');
@@ -32,14 +29,6 @@ const CardModal = ({ showModal }) => {
   const changeDeadline = date => {
     setDeadline(date);
   };
-
-  //   const PRIORITY_LIST = [
-  //     { id: 0, priority: 'low', color: 'blue' },
-  //     { id: 1, priority: 'medium', color: 'pink' },
-  //     { id: 2, priority: 'high', color: 'green' },
-  //     { id: 3, priority: 'without', color: 'gray' },
-  //   ];
-
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -73,11 +62,9 @@ const CardModal = ({ showModal }) => {
           placeholder="Description"
         />
         <Text>{'Label color'}</Text>
-        <CardPrirityList value={cardPriority} onChange={setCardPriority} />
+        <CardPriorityList value={cardPriority} onChange={setCardPriority} />
         <Text>{'Deadline'}</Text>
-
         <Calendar date={deadline} changeDate={changeDeadline} />
-
         <ButtonSend type="submit">
           <PlusButton>
             <IconWrap>
@@ -85,7 +72,7 @@ const CardModal = ({ showModal }) => {
                 width={14}
                 height={14}
                 fillColor={'none'}
-                strokeColor={'#000'}
+                strokeColor={'var(--icon-plus)'}
                 name={'icon-plus'}
               />
             </IconWrap>

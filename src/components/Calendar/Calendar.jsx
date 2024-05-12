@@ -31,7 +31,6 @@ const Calendar = ({ date, changeDate }) => {
 
   return (
     <Styled.StyledDatePickerContainer>
-      <Styled.CalendarDate>{dateFormatChange(date)}</Styled.CalendarDate>
       <DatePicker
         className="datePicker"
         selected={date}

@@ -6,7 +6,6 @@ export const Modalform = styled.form`
   &:hover {
     border-color: var(--accent-icon-hover-color);
   }
-
   @media screen and (min-width: 1440px) {
     input {
       width: 100%;
@@ -28,16 +27,14 @@ export const TitleInput = styled.input`
   border-radius: 8px;
   height: 49px;
   opacity: 0.4;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
   color: var(--input-text-color) !important;
   padding: 14px 18px;
   background-color: transparent;
-
   &:focus {
     outline: none;
     opacity: 1;
   }
-
   &:hover {
     opacity: 1;
   }
@@ -54,12 +51,10 @@ export const Textarea = styled.textarea`
   padding: 14px 18px;
   background-color: transparent;
   font-family: inherit;
-
   &:focus {
     outline: none;
     opacity: 1;
   }
-
   &:hover {
     opacity: 1;
   }
@@ -74,22 +69,22 @@ export const Text = styled.p`
   margin-bottom: 4px;
 `;
 
+export const Label = styled.label`
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+`;
+
 export const PriorityDiv = styled.div`
   display: flex;
-  /* margin-bottom: 24px; */
+  margin-bottom: 14px;
   gap: 8px;
 `;
 
-// export const LabelSVG = styled.svg`
-//   stroke: var(--icon-color);
-//   stroke-opacity: 0.5;
-//   transform: scale(1.05);
-// `;
-
 export const InputRadio = styled.input`
   display: none;
+  cursor: pointer;
   &:checked + svg use {
-    /* stroke: var(--additional-text-color); */
     stroke-opacity: 1;
     transform: scale(1.05);
   }
@@ -105,7 +100,7 @@ export const ButtonSend = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  margin-top: 40px;
   &:hover {
     opacity: 0.7;
   }
@@ -118,6 +113,8 @@ export const PlusButton = styled.div`
   align-items: center;
   justify-content: center;
   gap: 8px;
+  letter-spacing: -0.02em;
+  color: var(--btn-text-color);
 `;
 
 export const IconWrap = styled.div`
@@ -125,7 +122,6 @@ export const IconWrap = styled.div`
   height: 28px;
   border-radius: 6px;
   background-color: var(--btn-text-color);
-
   display: flex;
   align-items: center;
   justify-content: center;
