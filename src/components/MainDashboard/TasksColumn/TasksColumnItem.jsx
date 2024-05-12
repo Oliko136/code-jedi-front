@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import {
   deleteColumnThunk,
-  uupdateColumnThunk,
+  updateColumnThunk,
 } from '../../../redux/column/column-operations.js';
 import sprite from '../../../assets/svg/sprite.svg';
 import TasksCard from '../TasksCard/TasksCard.jsx';
@@ -21,7 +21,7 @@ const TasksColumnItem = ({ column }) => {
   const dispatch = useDispatch();
 
   const onUpdateColumn = () => {
-    dispatch(uupdateColumnThunk(_id));
+    dispatch(updateColumnThunk(_id));
   };
 
   const onDeleteColumn = () => {

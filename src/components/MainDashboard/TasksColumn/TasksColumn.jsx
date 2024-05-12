@@ -1,24 +1,35 @@
-import { useDispatch, useSelector } from 'react-redux';
+import {
+  useDispatch,
+  // useDispatch,
+  useSelector,
+} from 'react-redux';
 import { selectСolumns } from '../../../redux/column/column-selectors.js';
 import { DivForColumns } from './TasksColumn.styled.jsx';
 import ButtonForColumn from '../ButtonForColumn/ButtonForColumn.jsx';
 import TasksColumnItem from './TasksColumnItem.jsx';
-import { getAllColumnsThunk } from 'redux/column/column-operations.js';
+import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
+import { getAllColumnsThunk } from '../../../redux/column/column-operations.js';
+import { useEffect } from 'react';
+// import { getAllColumnsThunk } from 'redux/column/column-operations.js';
 
-const TasksColumn = boardId => {
-  const allColumns = useSelector(selectСolumns);
+const TasksColumn = () => {
+  const columns = useSelector(selectСolumns);
+  const board = useSelector(selectCurrentBoard);
+
+  const { _id } = board;
+  console.log('_id :>> ', _id);
 
   const dispatch = useDispatch();
 
-  const getAllCollumns = () => {
-    dispatch(getAllColumnsThunk(boardId));
-  };
+  useEffect(() => {
+    dispatch(getAllColumnsThunk(_id));
+  }, [_id, dispatch]);
 
   return (
     <DivForColumns>
       {
-        // allColumns.length > 0 &&
-        allColumns.map(column => (
+        // columns.length > 0 &&
+        columns.map(column => (
           <TasksColumnItem key={column._id} column={column} />
         ))
       }
