@@ -29,6 +29,7 @@ const HomePage = () => {
 
   const openSidebar = () => {
     setShowSidebar(!showSidebar);
+    console.log(showSidebar)
   };
 
   const closeSidebar = useCallback(() => {
@@ -60,6 +61,7 @@ const HomePage = () => {
         <Sidebar showSidebar={showSidebar} />
           <MainContainer>
           <Header openSidebar={openSidebar} />
+         
           {boards.length > 0 ?
             <>
               <Navigate to={`/home/${boards[0]._id}`} />

@@ -54,7 +54,8 @@ const Sidebar = ({ showSidebar }) => {
   };
 
   return (
-    <SidebarWrapper className={showSidebar ? 'showSidebar' : ''}>
+    <SidebarWrapper showSidebar={showSidebar}>
+      {/* className={showSidebar ? 'showSidebar' : ''} */}
       {/* Логотип та назва додатку */}
       <SidebarHeader>
         <LogoBlock to="/home">

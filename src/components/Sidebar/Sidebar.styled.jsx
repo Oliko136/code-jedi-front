@@ -3,15 +3,22 @@ import { Link } from 'react-router-dom';
 
 export const SidebarWrapper = styled.aside`
   // position: absolute;
+  position: ${({ showSidebar }) => (showSidebar ? 'absolute' : 'static')};
+  display: ${({ showSidebar }) => (showSidebar ? 'flex' : 'none')};
+  
+  // visibility: ${({ showSidebar }) => (showSidebar ? 'visible' : 'hidden')};
   top: 0;
   left: 0;
-  display: flex;
+  // display: flex;
   flex-direction: column;
-  width: 225px;
+  // width: 225px;
+  width: 100vh;
   height: 100vh;
   background: var(--accent-bg-color);
   transform: translateX(0px);
   transition: all var(--transition);
+ 
+  z-index: ${({ showSidebar}) => (showSidebar ? 200 : 'auto')};
   // z-index: 200;
 
 
@@ -19,12 +26,16 @@ export const SidebarWrapper = styled.aside`
     transform: translateX(0);
   }
 
-  @media screen and (min-width: 768px) {
-    width: 260px;
-  }
+  // @media screen and (min-width: 768px) {
+  //   width: 260px;
+  // }
 
   @media screen and (min-width: 1440px) {
     transform: translateX(0);
+    position: static;
+    z-index: auto;
+    display: flex;
+    width: 260px;
   }
 `;
 
