@@ -27,18 +27,13 @@ import {
   const TasksCard = () => {
     const currentDate = new Date();
     const card = useSelector(selectCards)
-   
-const {title, description, priority, deadline = "2024-05-13"} = card;
-console.log(title)
-const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || 'rgba(255, 255, 255, 0.3)';
-const formatCurrenDate = formatCurrentDate(currentDate)
-
-// const [showModal, setShowModal] = useState(false);
-//   const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
-
-
-
-// const currentDate = new Date().toISOString().slice(0, 10);
+    const { title, description, priority, deadline = "2024-05-13" } = card;
+    console.log(title)
+    const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || 'rgba(255, 255, 255, 0.3)';
+    const formatCurrenDate = formatCurrentDate(currentDate)
+    // const [showModal, setShowModal] = useState(false);
+    //   const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
+    // const currentDate = new Date().toISOString().slice(0, 10);
 
     return (
       <Card>

@@ -53,7 +53,7 @@ const TasksColumnItem = ({ column }) => {
           </SvgDiv>
         </TitleColumnDiv>
 
-        <TasksCard />
+        <TasksCard  />
 
         <ButtonForCard onClick={toggleModal}>
           <IconDoCard>
@@ -62,7 +62,7 @@ const TasksColumnItem = ({ column }) => {
           Add another card
         </ButtonForCard>
       </Column>
-      {showModal && <CardAddModal showModal={setShowModal} />}
+      {showModal && <CardAddModal columnId={_id} showModal={setShowModal} />}
     </>
   );
 };
