@@ -34,7 +34,6 @@ export const CardsColor = styled.div`
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 
-  // background-color: var(--highPriorityColor);
 `;
 
 export const CardDiv = styled.div`
