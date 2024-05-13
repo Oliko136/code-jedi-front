@@ -18,16 +18,13 @@ import {
     Line
   } from './TasksCard.styled';
   import sprite from '../../../assets/svg/sprite.svg';
-  import { selectCards } from '../../../redux/cards/cards-selectors';
-  import { useSelector } from 'react-redux';
   import { PRIORITY_LIST} from '../../../constants/index'
   import {formatDate, formatCurrentDate} from '../../../helpers/dateFormat'
   
   // import React, {  useEffect, useState } from 'react';
   
-  const TasksCard = () => {
+  const TasksCard = ({ card }) => {
     const currentDate = new Date();
-    const card = useSelector(selectCards)
     const { title, description, priority, deadline = "2024-05-13" } = card;
     console.log(title)
     const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || PRIORITY_LIST[0].priority;
