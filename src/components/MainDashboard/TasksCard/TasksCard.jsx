@@ -14,34 +14,70 @@ import {
     SvgContainer,
     ParamsButtons,
     ButtonsIcon,
+    TextCard,
+    Line
   } from './TasksCard.styled';
   import sprite from '../../../assets/svg/sprite.svg';
+  import { selectCards } from '../../../redux/cards/cards-selectors';
+  import { useSelector } from 'react-redux';
+  // import { PRIORITY_LIST} from '../../../constants/index'
+  import {formatDate, formatCurrentDate} from '../../../helpers/dateFormat'
+  // import React, {  useEffect, useState } from 'react';
   
   const TasksCard = () => {
+    const currentDate = new Date();
+    const card = useSelector(selectCards)
+   
+const {title, description, priority, deadline = "2024-05-13"} = card;
+console.log(title)
+// const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || 'rgba(255, 255, 255, 0.3)';
+const priorityColor = 'red'
+
+console.log(currentDate)
+// const newFormatDeadline = formatDate(deadline)
+// const newFormatDeadline = formatDate(deadline) 
+console.log('qwe')
+
+const formatCurrenDate = formatCurrentDate(currentDate)
+
+console.log(formatCurrenDate)
+
+
+
+// const currentDate = new Date().toISOString().slice(0, 10);
+
     return (
       <Card>
-        <CardsColor></CardsColor>
+        <CardsColor style={{ backgroundColor: priorityColor }}></CardsColor>
   
         <CardDiv>
-          <h3>{'Cards title'}</h3>
-          <CardsText>
-            Create a visually stunning and eye-catching watch dial design that
-            embodies our brand's
-          </CardsText>
+          <TextCard>{title}</TextCard>
+          <CardsText>{description}</CardsText>
+          {/* <CardsText>bskjhdksdlsx., cmx cnhedhjadjka  SSDFGHHJUgredffgghhhtrddvvjjuytrsdsfcbhhjhjyrfddxxdvghhytddfhhtrfrfg</CardsText> */}
+          <Line></Line>
           <CardsParams>
             <PriorityDiv>
               <PriorityTitle>Priority</PriorityTitle>
               <div>
-                <ColorCard></ColorCard>
-                <ColorCardText>{'Color'}</ColorCardText>
+     
+                <ColorCard style={{ backgroundColor: priorityColor }}></ColorCard>
+
+                <ColorCardText>{priority}</ColorCardText>
               </div>
             </PriorityDiv>
   
             <DeadlineDiv>
               <DeadlineTitle>Deadline</DeadlineTitle>
-              <DeadlineDate>00/00/0000</DeadlineDate>
+              <DeadlineDate>{formatDate(deadline)}</DeadlineDate>
             </DeadlineDiv>
             <SvgContainer>
+{deadline === formatCurrenDate && (
+  <ParamsButtons>
+  <ButtonsIcon>
+    <use href={`${sprite}#bell`}></use>
+  </ButtonsIcon>
+</ParamsButtons>
+)}
               <ParamsButtons>
                 <ButtonsIcon>
                   <use href={`${sprite}#broken-right`}></use>

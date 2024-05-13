@@ -24,7 +24,7 @@ export const IconWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px s/olid red;
+  // border: 1px solid red;
   
 `;
 
