@@ -8,7 +8,7 @@ import {
   setModalStatus,
 } from '../../redux/filter/service-slice.js';
 
-const Modal = ({ open, onClose, children }) => {
+const ModalFilter = ({ open, onClose, children }) => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(open);
 
@@ -52,4 +52,4 @@ const Modal = ({ open, onClose, children }) => {
   );
 };
 
-export default Modal;
+export default ModalFilter;

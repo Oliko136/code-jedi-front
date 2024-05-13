@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ButtonClose from '../ButtonClose/ButtonClose.jsx';
+// import ButtonClose from '../ButtonClose/ButtonClose.jsx';
 import { useDispatch } from 'react-redux';
 import { setFilter } from '../../redux/filter/filter-slice.js';
 
@@ -30,7 +30,7 @@ const Filter = ({ onClose }) => {
 
   return (
     <FilterWrapper>
-      <ButtonClose onClick={onClose} />
+      {/* <ButtonClose onClick={onClose} /> */}
       <Title>Filters</Title>
       <Line />
       <TitleWrapper>
