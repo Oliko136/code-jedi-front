@@ -15,7 +15,12 @@ import {
   Column,
 } from './TasksColumn.styled.jsx';
 
+import { useState } from 'react';
+import CardAddModal from 'components/Modal/CardModal/CardAddModal.jsx';
+
 const TasksColumnItem = ({ column }) => {
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
   const { _id, title } = column;
 
   const dispatch = useDispatch();
@@ -29,33 +34,36 @@ const TasksColumnItem = ({ column }) => {
   };
 
   return (
-    <Column id={_id}>
-      <TitleColumnDiv>
-        <h3>{title}</h3>
-        <SvgDiv>
-          <Button>
-            <Icons onClick={onUpdateColumn}>
-              <use href={`${sprite}#pencil`}></use>
-            </Icons>
-          </Button>
+    <>
+      <Column id={_id}>
+        <TitleColumnDiv>
+          <h3>{title}</h3>
+          <SvgDiv>
+            <Button>
+              <Icons onClick={onUpdateColumn}>
+                <use href={`${sprite}#pencil`}></use>
+              </Icons>
+            </Button>
 
-          <Button>
-            <Icons onClick={onDeleteColumn}>
-              <use href={`${sprite}#trash`}></use>
-            </Icons>
-          </Button>
-        </SvgDiv>
-      </TitleColumnDiv>
+            <Button>
+              <Icons onClick={onDeleteColumn}>
+                <use href={`${sprite}#trash`}></use>
+              </Icons>
+            </Button>
+          </SvgDiv>
+        </TitleColumnDiv>
 
-      <TasksCard />
+        <TasksCard />
 
-      <ButtonForCard>
-        <IconDoCard>
-          <use href={`${sprite}#plus`}></use>
-        </IconDoCard>
-        Add another card
-      </ButtonForCard>
-    </Column>
+        <ButtonForCard onClick={toggleModal}>
+          <IconDoCard>
+            <use href={`${sprite}#plus`}></use>
+          </IconDoCard>
+          Add another card
+        </ButtonForCard>
+      </Column>
+      {showModal && <CardAddModal showModal={setShowModal} />}
+    </>
   );
 };
 

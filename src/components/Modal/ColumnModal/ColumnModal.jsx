@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-// import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal/Modal';
-// import { needhelp } from '../../../redux/needhelp/needhelp-operation.js';
 import { toast } from 'react-toastify';
 import {
   Modalform,
@@ -13,11 +12,9 @@ import {
   IconWrap,
 } from './ColumnModal.styled';
 import Icon from '../../Icon/Icon';
-import { useSelector } from 'react-redux';
 import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
 import { addColumnThunk } from '../../../redux/column/column-operations';
 
-// нужно создавать id колонки?
 const ColumnModal = ({ showModal }) => {
   const { _id } = useSelector(selectCurrentBoard);
   console.log('_id :>> ', _id);
@@ -40,13 +37,12 @@ const ColumnModal = ({ showModal }) => {
     console.log(title);
 
     const newColumn = {
-      // boardId: _id,
-      body: title,
+      title,
     };
+
     console.log(newColumn);
     try {
-      // создать опер
-      dispatch(addColumnThunk(_id, newColumn));
+      dispatch(addColumnThunk({ boardId: _id, body: newColumn }));
       toast('You have successfully created a column ✅', TOASTER);
       showModal(false);
     } catch (error) {
