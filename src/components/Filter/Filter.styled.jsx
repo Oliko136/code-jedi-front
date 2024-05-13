@@ -15,7 +15,9 @@ export const Title = styled.p`
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
-  color: var(--additional-text-color);
+
+  color:var(--additional-text-color);
+
   margin-bottom: 14px;
 `;
 
@@ -54,5 +56,6 @@ export const ShowAllButton = styled.button`
 
   &:hover {
     color: var(--additional-text-color-op);
+
   }
 `;
