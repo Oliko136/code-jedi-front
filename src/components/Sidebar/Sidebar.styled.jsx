@@ -35,7 +35,6 @@ export const SidebarWrapper = styled.aside`
     z-index: auto;
     display: flex;
     width: 260px;
-    padding: 0 24px;
   }
 `;
 
