@@ -22,7 +22,7 @@ const TasksCardList = ({columnId}) => {
     <>
       {cards.length > 0 &&
         cards.map(card => (
-          <TasksCard key={card._id} card={card} />
+          <TasksCard key={card._id} card={card} columnId={columnId} />
         ))}
     </>
   );
