@@ -17,7 +17,7 @@ import {
     ParamsButtons,
     ButtonsIcon,
     TextCard,
-    Line
+    Line, Wrap
   } from './TasksCard.styled';
   import sprite from '../../../assets/svg/sprite.svg';
 import { PRIORITY_LIST } from '../../../constants/index';
@@ -26,25 +26,21 @@ import { deleteCardThunk } from '../../../redux/cards/cards-operations';
 import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
 import DeleteModal from '../../Modal/DeleteModal/DeleteModal';
   
-  
 const TasksCard = ({ card, columnId }) => {
   const currentDate = new Date();
-  const { title, description, priority, deadline = "2024-05-13" } = card;
-  console.log(title);
-  const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || PRIORITY_LIST[0].priority;
-    // const qw = PRIORITY_LIST[0].priority
-    // console.log(qw)
-  const formatCurrenDate = formatCurrentDate(currentDate)
-  console.log(priorityColor);
-    // const [showModal, setShowModal] = useState(false);
+  const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || PRIORITY_LIST[0].color;
+  const formatCurrenDate = formatCurrentDate(currentDate);
+  
+  const { title, description, priority, deadline = formatCurrenDate } = card;
+  
   const [isDeleteModalShown, setIsDeleteModalShown] = useState(false);
+  
   const dispatch = useDispatch();
   const { _id: boardId } = useSelector(selectCurrentBoard);
 
   const handleDeleteCard = () => {
     dispatch(deleteCardThunk({ boardId, columnId, cardId: card._id }));
-  }
-    
+  } 
 
     return (
       <Card>
@@ -56,6 +52,7 @@ const TasksCard = ({ card, columnId }) => {
          
           <Line></Line>
           <CardsParams>
+            <Wrap>
             <PriorityDiv>
               <PriorityTitle>Priority</PriorityTitle>
               <div>
@@ -70,14 +67,18 @@ const TasksCard = ({ card, columnId }) => {
               <DeadlineTitle>Deadline</DeadlineTitle>
               <DeadlineDate>{formatDate(deadline)}</DeadlineDate>
             </DeadlineDiv>
+            </Wrap>
+           
+
             <SvgContainer>
-{deadline === formatCurrenDate && (
-  <ParamsButtons>
-  <ButtonsIcon>
-    <use href={`${sprite}#bell`}></use>
-  </ButtonsIcon>
-</ParamsButtons>
-)}
+
+            {deadline === formatCurrenDate && (
+            <ParamsButtons>
+            <ButtonsIcon>
+             <use href={`${sprite}#bell`}></use>
+            </ButtonsIcon>
+            </ParamsButtons>)}
+
               <ParamsButtons>
                 <ButtonsIcon>
                   <use href={`${sprite}#broken-right`}></use>
@@ -102,6 +103,7 @@ const TasksCard = ({ card, columnId }) => {
                 />
               )}
             </SvgContainer>
+
           </CardsParams>
         </CardDiv>
       </Card>

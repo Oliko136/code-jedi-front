@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import Icon from 'components/Icon/Icon';
  import Filter from "components/Filter/Filter.jsx";
-// import { getFilter } from 'redux/filter/filter-selectors.js';
 import { selectCurrentBoard } from '../../redux/boards/boards-selectors';
 import {ContainerFilter,
     FilterDiv,
@@ -16,10 +15,8 @@ import Modal from 'components/Modal/Modal/Modal';
 const HeaderDashboard = () => {
     const currentBoard = useSelector(selectCurrentBoard);
     const {title} = currentBoard;
-    console.log(title)
 
      const [openFilter, setOpenFilter] = useState(false);
-  // // const filter = useSelector(getFilter);
 
    const handleOpenFilter = () => {
     setOpenFilter(true);
@@ -31,8 +28,7 @@ const HeaderDashboard = () => {
 
     return(
       <ContainerHeaderBoard>
-        {/* <TitleVilter>{title}</TitleVilter> */}
-        <TitleVilter>title</TitleVilter>
+        <TitleVilter>{title}</TitleVilter>
         <ContainerFilter>
     <FilterDiv>
         

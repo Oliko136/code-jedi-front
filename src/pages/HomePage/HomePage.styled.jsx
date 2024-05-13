@@ -25,14 +25,14 @@ export const MainContainer = styled.div`
     margin-left: 259px;
   }
 
-  p {
-    text-align: center;
-    //color: rgba(250, 250, 250, 0.5);
-    font-weight: 400;
-    font-size: 14px;
-    max-width: 486px;
-    align-self: center;
-  }
+  // p {
+  //   text-align: center;
+  //   //color: rgba(250, 250, 250, 0.5);
+  //   font-weight: 400;
+  //   font-size: 14px;
+  //   max-width: 486px;
+  //   align-self: center;
+  // }
 
   @media screen (max-width: 375px) {
     p {
