@@ -11,7 +11,6 @@ const TasksColumn = () => {
   const board = useSelector(selectCurrentBoard);
 
   const { _id } = board;
-  console.log('_id :>> ', _id);
 
   const dispatch = useDispatch();
 
