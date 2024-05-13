@@ -120,7 +120,7 @@ export const ColorCardText = styled.p`
 `;
 
 export const DeadlineDiv = styled.div`
-  margin-right: 116px;
+ 
   div {
     display: flex;
     gap: 4px;
