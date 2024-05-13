@@ -5,6 +5,14 @@ export const TextDiv = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+   p {
+    text-align: center;
+    //color: rgba(250, 250, 250, 0.5);
+    font-weight: 400;
+    font-size: 14px;
+    max-width: 486px;
+    align-self: center;
+   }
 `;
 
 export const TextOnHomePage = styled.p`

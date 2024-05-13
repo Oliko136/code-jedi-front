@@ -15,7 +15,7 @@ import {
     ParamsButtons,
     ButtonsIcon,
     TextCard,
-    Line
+    Line, Wrap
   } from './TasksCard.styled';
   import sprite from '../../../assets/svg/sprite.svg';
   import { selectCards } from '../../../redux/cards/cards-selectors';
@@ -23,19 +23,14 @@ import {
   import { PRIORITY_LIST} from '../../../constants/index'
   import {formatDate, formatCurrentDate} from '../../../helpers/dateFormat'
   
-  // import React, {  useEffect, useState } from 'react';
-  
   const TasksCard = () => {
     const currentDate = new Date();
     const card = useSelector(selectCards)
-    const { title, description, priority, deadline = "2024-05-13" } = card;
+    const { title, description, priority , deadline = "2024-05-13" } = card;
     console.log(title)
-    const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || PRIORITY_LIST[0].priority;
-    // const qw = PRIORITY_LIST[0].priority
-    // console.log(qw)
+    const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || PRIORITY_LIST[0].color;
     const formatCurrenDate = formatCurrentDate(currentDate)
     console.log(priorityColor)
-    // const [showModal, setShowModal] = useState(false);
     
 
     return (
@@ -48,6 +43,7 @@ import {
          
           <Line></Line>
           <CardsParams>
+            <Wrap>
             <PriorityDiv>
               <PriorityTitle>Priority</PriorityTitle>
               <div>
@@ -62,14 +58,18 @@ import {
               <DeadlineTitle>Deadline</DeadlineTitle>
               <DeadlineDate>{formatDate(deadline)}</DeadlineDate>
             </DeadlineDiv>
+            </Wrap>
+           
+
             <SvgContainer>
-{deadline === formatCurrenDate && (
-  <ParamsButtons>
-  <ButtonsIcon>
-    <use href={`${sprite}#bell`}></use>
-  </ButtonsIcon>
-</ParamsButtons>
-)}
+
+            {deadline === formatCurrenDate && (
+            <ParamsButtons>
+            <ButtonsIcon>
+             <use href={`${sprite}#bell`}></use>
+            </ButtonsIcon>
+            </ParamsButtons>)}
+
               <ParamsButtons>
                 <ButtonsIcon>
                   <use href={`${sprite}#broken-right`}></use>
@@ -88,6 +88,7 @@ import {
                 </ButtonsIcon>
               </ParamsButtons>
             </SvgContainer>
+
           </CardsParams>
         </CardDiv>
       </Card>
