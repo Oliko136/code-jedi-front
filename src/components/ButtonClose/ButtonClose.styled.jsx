@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import Icon from 'components/Icon/Icon';
 
-
 export const CloseButtonWrapper = styled.button`
   border: none;
   outline: none;

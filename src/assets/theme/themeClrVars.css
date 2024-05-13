@@ -30,6 +30,8 @@
   --btn-add-column: #121212;
   --btn-add-column-wrap: #ffffff;
   --line-filter:#FFFFFF1A;
+  --without-filter-lable:#e1e1e149;
+  --show-filter-txt:#e1e1e180;
 }
 
 [data-theme='light'] {
@@ -64,6 +66,8 @@
   --btn-add-column: #ffffff;
   --btn-add-column-wrap: #161616;
     --line-filter:#1616161A;
+  --without-filter-lable:#1616164d;
+  --show-filter-txt:#16161680;
 
 }
 
@@ -99,5 +103,7 @@
   --btn-add-column: #ffffff;
   --btn-add-column-wrap: #5255bc;
       --line-filter:#1616161A;
+  --without-filter-lable:#1616164d;
+  --show-filter-txt:#16161680;
 
 }
