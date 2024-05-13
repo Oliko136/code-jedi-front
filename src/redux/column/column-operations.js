@@ -27,9 +27,9 @@ export const addColumnThunk = createAsyncThunk(
 
 export const getColumnByIdThunk = createAsyncThunk(
   'columns/getOneColumn',
-  async (boardId, id, thunkAPI) => {
+  async ({ boardId, id }, thunkAPI) => {
     try {
-      const { data } = await columnApi.getColumnById(boardId, id);
+      const data = await columnApi.getColumnById(boardId, id);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -39,9 +39,9 @@ export const getColumnByIdThunk = createAsyncThunk(
 
 export const updateColumnThunk = createAsyncThunk(
   'columns/updateColumn',
-  async ({ boardId, id, newData }, thunkAPI) => {
+  async ({ boardId, id, body }, thunkAPI) => {
     try {
-      const { data } = await columnApi.updateColumn(boardId, id, newData);
+      const data = await columnApi.updateColumn(boardId, id, body);
 
       return data;
     } catch (error) {
@@ -52,9 +52,9 @@ export const updateColumnThunk = createAsyncThunk(
 
 export const deleteColumnThunk = createAsyncThunk(
   'columns/deleteColumn',
-  async (boardId, id, thunkAPI) => {
+  async ({ boardId, id }, thunkAPI) => {
     try {
-      const { data } = await columnApi.deleteColumn(boardId, id);
+      const data = await columnApi.deleteColumn(boardId, id);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
