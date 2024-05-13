@@ -29,7 +29,7 @@ const columnSlice = createSlice({
                 state.isLoading = false;
                 state.error = null;
             })
-            .addCase(columnOperations.getAllColumnsThunk.rejected, rejected)
+            .addCase(columnOperations.addColumnThunk.rejected, rejected)
 
             .addCase(columnOperations.getColumnByIdThunk.pending, pending)
             .addCase(columnOperations.getColumnByIdThunk.fulfilled, (state, { payload }) => {

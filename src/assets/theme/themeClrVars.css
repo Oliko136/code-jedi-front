@@ -29,6 +29,8 @@
   --calendar-secondary-hover-color: #1f1f1f;
   --btn-add-column: #121212;
   --btn-add-column-wrap: #ffffff;
+  --cart-text:  rgba(255, 255, 255, 0.5);
+  --stroke-card: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme='light'] {
@@ -62,6 +64,8 @@
   --calendar-secondary-hover-color: #161616;
   --btn-add-column: #ffffff;
   --btn-add-column-wrap: #161616;
+  --cart-text:  rgba(22, 22, 22, 0.7);
+  --stroke-card: rgba(22, 22, 22, 0.1);
 }
 
 [data-theme='violet'] {
@@ -95,5 +99,7 @@
   --calendar-secondary-hover-color: #fcfcfc;
   --btn-add-column: #ffffff;
   --btn-add-column-wrap: #5255bc;
+  --cart-text:  rgba(22, 22, 22, 0.7);
+  --stroke-card: rgba(22, 22, 22, 0.1);
   
 }

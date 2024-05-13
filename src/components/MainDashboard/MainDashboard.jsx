@@ -1,7 +1,8 @@
 // import { useSelector } from 'react-redux';
 // import { selectAuthLoading } from '../../redux/auth/auth-selectors';
 // import { selectBoards } from '../../redux/boards/boards-selectors';
-import TasksColumn from './TasksColumn/TasksColumn';
+// import TasksColumn from './TasksColumn/TasksColumn';
+import TasksCard from './TasksCard/TasksCard';
 import ButtonForColumn from './ButtonForColumn/ButtonForColumn';
 import { ContainerMainBoard } from './MainDashboard.styled';
 
@@ -16,7 +17,8 @@ const MainDashboard = () => {
   return (
     // map column  по условию наличия колонок*/}
     <ContainerMainBoard>
-      <TasksColumn />
+      {/* <TasksColumn /> */}
+      <TasksCard/>
       <ButtonForColumn />
     </ContainerMainBoard>
   );

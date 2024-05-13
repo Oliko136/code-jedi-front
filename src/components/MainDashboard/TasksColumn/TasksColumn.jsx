@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectСolumns } from '../../../redux/column/column-selectors.js';
 import { DivForColumns } from './TasksColumn.styled.jsx';
-import ButtonForColumn from '../ButtonForColumn/ButtonForColumn.jsx';
+
 import TasksColumnItem from './TasksColumnItem.jsx';
-import { getAllColumnsThunk } from 'redux/column/column-operations.js';
+
+import {getAllColumnsThunk} from '../../../redux/column/column-operations.js'
 
 const TasksColumn = boardId => {
   const allColumns = useSelector(selectСolumns);
@@ -22,7 +23,7 @@ const TasksColumn = boardId => {
           <TasksColumnItem key={column._id} column={column} />
         ))
       }
-      <ButtonForColumn />
+      
     </DivForColumns>
   );
 };
