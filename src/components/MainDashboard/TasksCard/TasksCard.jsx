@@ -20,7 +20,7 @@ import {
   import sprite from '../../../assets/svg/sprite.svg';
   import { selectCards } from '../../../redux/cards/cards-selectors';
   import { useSelector } from 'react-redux';
-  // import { PRIORITY_LIST} from '../../../constants/index'
+  import { PRIORITY_LIST} from '../../../constants/index'
   import {formatDate, formatCurrentDate} from '../../../helpers/dateFormat'
   // import React, {  useEffect, useState } from 'react';
   
@@ -30,17 +30,11 @@ import {
    
 const {title, description, priority, deadline = "2024-05-13"} = card;
 console.log(title)
-// const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || 'rgba(255, 255, 255, 0.3)';
-const priorityColor = 'red'
-
-console.log(currentDate)
-// const newFormatDeadline = formatDate(deadline)
-// const newFormatDeadline = formatDate(deadline) 
-console.log('qwe')
-
+const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || 'rgba(255, 255, 255, 0.3)';
 const formatCurrenDate = formatCurrentDate(currentDate)
 
-console.log(formatCurrenDate)
+// const [showModal, setShowModal] = useState(false);
+//   const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
 
 
 
@@ -53,7 +47,7 @@ console.log(formatCurrenDate)
         <CardDiv>
           <TextCard>{title}</TextCard>
           <CardsText>{description}</CardsText>
-          {/* <CardsText>bskjhdksdlsx., cmx cnhedhjadjka  SSDFGHHJUgredffgghhhtrddvvjjuytrsdsfcbhhjhjyrfddxxdvghhytddfhhtrfrfg</CardsText> */}
+         
           <Line></Line>
           <CardsParams>
             <PriorityDiv>
