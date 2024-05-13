@@ -66,7 +66,7 @@ const TasksColumnItem = ({ column }) => {
           </SvgDiv>
         </TitleColumnDiv>
 
-        <TasksCardList columnId={_id} />
+        <TasksCardList columnId={column._id} />
 
         <ButtonForCard onClick={toggleAddCardModal}>
           <IconDoCard>
@@ -75,8 +75,10 @@ const TasksColumnItem = ({ column }) => {
           Add another card
         </ButtonForCard>
       </Column>
-      
-      {showAddCardModal && <CardAddModal columnId={_id} showModal={setShowAddCardModal} />}
+
+      {showAddCardModal && (
+        <CardAddModal columnId={column._id} showModal={setShowAddCardModal} />
+      )}
       {showEditColumnModal && (
         <EditColumnModal
           showModal={setShowEditColumnModal}
