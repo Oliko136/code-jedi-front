@@ -22,6 +22,7 @@ import {
   import { useSelector } from 'react-redux';
   import { PRIORITY_LIST} from '../../../constants/index'
   import {formatDate, formatCurrentDate} from '../../../helpers/dateFormat'
+  
   // import React, {  useEffect, useState } from 'react';
   
   const TasksCard = () => {
@@ -29,11 +30,13 @@ import {
     const card = useSelector(selectCards)
     const { title, description, priority, deadline = "2024-05-13" } = card;
     console.log(title)
-    const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || 'rgba(255, 255, 255, 0.3)';
+    const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || PRIORITY_LIST[0].priority;
+    // const qw = PRIORITY_LIST[0].priority
+    // console.log(qw)
     const formatCurrenDate = formatCurrentDate(currentDate)
+    console.log(priorityColor)
     // const [showModal, setShowModal] = useState(false);
-    //   const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
-    // const currentDate = new Date().toISOString().slice(0, 10);
+    
 
     return (
       <Card>
