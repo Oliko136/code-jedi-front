@@ -27,7 +27,7 @@ const CardAddModal = ({ columnId, showModal }) => {
 
   const board = useSelector(selectCurrentBoard);
 
-  console.log(columnId);
+  // console.log(columnId);
 
   // const error = useSelector(selectError);
   const dispatch = useDispatch();
