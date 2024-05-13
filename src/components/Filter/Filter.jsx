@@ -26,7 +26,7 @@ const Filter = ({ onClose }) => {
     dispatch(setFilter(priority));
     setPriority(priority);
   };
-  console.log('Render Filter component');
+  // console.log('Render Filter component');
 
   return (
     <FilterWrapper>
