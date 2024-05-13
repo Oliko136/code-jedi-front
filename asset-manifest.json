@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/code-jedi-front/static/css/main.29bd456c.css",
-    "main.js": "/code-jedi-front/static/js/main.896aff2f.js",
+    "main.js": "/code-jedi-front/static/js/main.910719d4.js",
     "static/js/665.a5f25437.chunk.js": "/code-jedi-front/static/js/665.a5f25437.chunk.js",
     "static/js/688.9b535426.chunk.js": "/code-jedi-front/static/js/688.9b535426.chunk.js",
     "static/js/419.d8c48e77.chunk.js": "/code-jedi-front/static/js/419.d8c48e77.chunk.js",
-    "static/js/677.67ff8a7c.chunk.js": "/code-jedi-front/static/js/677.67ff8a7c.chunk.js",
+    "static/js/677.923f326e.chunk.js": "/code-jedi-front/static/js/677.923f326e.chunk.js",
     "static/js/657.dbdef1dc.chunk.js": "/code-jedi-front/static/js/657.dbdef1dc.chunk.js",
     "static/js/525.e652b68d.chunk.js": "/code-jedi-front/static/js/525.e652b68d.chunk.js",
     "static/css/128.d335e4b2.chunk.css": "/code-jedi-front/static/css/128.d335e4b2.chunk.css",
@@ -37,11 +37,11 @@
     "static/media/icons-sprite.svg": "/code-jedi-front/static/media/icons-sprite.f7bad1557d5f1ff811b95faf64f78ba8.svg",
     "index.html": "/code-jedi-front/index.html",
     "main.29bd456c.css.map": "/code-jedi-front/static/css/main.29bd456c.css.map",
-    "main.896aff2f.js.map": "/code-jedi-front/static/js/main.896aff2f.js.map",
+    "main.910719d4.js.map": "/code-jedi-front/static/js/main.910719d4.js.map",
     "665.a5f25437.chunk.js.map": "/code-jedi-front/static/js/665.a5f25437.chunk.js.map",
     "688.9b535426.chunk.js.map": "/code-jedi-front/static/js/688.9b535426.chunk.js.map",
     "419.d8c48e77.chunk.js.map": "/code-jedi-front/static/js/419.d8c48e77.chunk.js.map",
-    "677.67ff8a7c.chunk.js.map": "/code-jedi-front/static/js/677.67ff8a7c.chunk.js.map",
+    "677.923f326e.chunk.js.map": "/code-jedi-front/static/js/677.923f326e.chunk.js.map",
     "657.dbdef1dc.chunk.js.map": "/code-jedi-front/static/js/657.dbdef1dc.chunk.js.map",
     "525.e652b68d.chunk.js.map": "/code-jedi-front/static/js/525.e652b68d.chunk.js.map",
     "128.d335e4b2.chunk.css.map": "/code-jedi-front/static/css/128.d335e4b2.chunk.css.map",
@@ -50,6 +50,6 @@
   },
   "entrypoints": [
     "static/css/main.29bd456c.css",
-    "static/js/main.896aff2f.js"
+    "static/js/main.910719d4.js"
   ]
 }
