@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { toast } from 'react-toastify';
 import Modal from '../Modal/Modal';
 import Icon from 'components/Icon/Icon';
@@ -16,12 +16,18 @@ import {
   Textarea,
   TitleInput,
 } from './CardModal.styled';
+import { selectCurrentBoard } from '../../../redux/boards/boards-selectors';
+//import { selectCurrentСolumn } from '../../../redux/column/column-selectors';
 
-const CardAddModal = ({ showModal }) => {
+const CardAddModal = ({ columnId, showModal }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [cardPriority, setCardPriority] = useState('without');
   const [deadline, setDeadline] = useState(new Date());
+
+  const board = useSelector(selectCurrentBoard);
+
+  // console.log(columnId);
 
   // const error = useSelector(selectError);
   const dispatch = useDispatch();
@@ -32,14 +38,21 @@ const CardAddModal = ({ showModal }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const data = {
+    const newCard = {
       title: title.trim(),
       description: description.trim(),
-      cardPriority,
+      priority: cardPriority,
       deadline,
     };
+    console.log(e);
 
-    dispatch(addCardThunk(data));
+    try {
+      dispatch(addCardThunk({ boardId: board._id, columnId, body: newCard }));
+      showModal(false);
+    } catch (error) {
+      return error.message;
+    }
+    
   };
 
   return (

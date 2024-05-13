@@ -30,6 +30,10 @@
   --btn-add-column: #121212;
   --btn-add-column-wrap: #ffffff;
   --line-filter:#FFFFFF1A;
+  --without-filter-lable:#e1e1e149;
+  --show-filter-txt:#e1e1e180;
+  --cart-text:  rgba(255, 255, 255, 0.5);
+  --stroke-card: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme='light'] {
@@ -64,7 +68,11 @@
   --btn-add-column: #ffffff;
   --btn-add-column-wrap: #161616;
     --line-filter:#1616161A;
+  --without-filter-lable:#1616164d;
+  --show-filter-txt:#16161680;
 
+  --cart-text:  rgba(22, 22, 22, 0.7);
+  --stroke-card: rgba(22, 22, 22, 0.1);
 }
 
 [data-theme='violet'] {
@@ -99,5 +107,10 @@
   --btn-add-column: #ffffff;
   --btn-add-column-wrap: #5255bc;
       --line-filter:#1616161A;
+  --without-filter-lable:#1616164d;
+  --show-filter-txt:#16161680;
 
+  --cart-text:  rgba(22, 22, 22, 0.7);
+  --stroke-card: rgba(22, 22, 22, 0.1);
+  
 }

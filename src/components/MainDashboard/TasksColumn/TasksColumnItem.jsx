@@ -5,7 +5,6 @@ import {
   getColumnByIdThunk,
 } from '../../../redux/column/column-operations.js';
 import sprite from '../../../assets/svg/sprite.svg';
-import TasksCard from '../TasksCard/TasksCard.jsx';
 import {
   TitleColumnDiv,
   Button,
@@ -19,6 +18,7 @@ import {
 import CardAddModal from 'components/Modal/CardModal/CardAddModal.jsx';
 import EditColumnModal from 'components/Modal/ColumnModal/EditColumnModal.jsx';
 import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
+import TasksCardList from '../TasksCard/TasksCardList.jsx';
 
 const TasksColumnItem = ({ column }) => {
   const [showAddCardModal, setShowAddCardModal] = useState(false);
@@ -66,7 +66,7 @@ const TasksColumnItem = ({ column }) => {
           </SvgDiv>
         </TitleColumnDiv>
 
-        <TasksCard />
+        <TasksCardList columnId={_id} />
 
         <ButtonForCard onClick={toggleAddCardModal}>
           <IconDoCard>
@@ -75,7 +75,8 @@ const TasksColumnItem = ({ column }) => {
           Add another card
         </ButtonForCard>
       </Column>
-      {showAddCardModal && <CardAddModal showModal={setShowAddCardModal} />}
+      
+      {showAddCardModal && <CardAddModal columnId={_id} showModal={setShowAddCardModal} />}
       {showEditColumnModal && (
         <EditColumnModal
           showModal={setShowEditColumnModal}
