@@ -48,7 +48,6 @@ const RadioFilter = ({ onFilterChange, priority }) => {
     setSelectedValue(selectedPriority);
     onFilterChange(selectedPriority);
   };
-console.log('Render RadioFilter component');
 
   return (
     <Box

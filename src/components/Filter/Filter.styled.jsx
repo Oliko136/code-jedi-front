@@ -38,6 +38,7 @@ export const LabelTitle = styled.p`
   font-size: 14px;
   letter-spacing: -0.02em;
   color: #121212;
+  color: var(--additional-text-color);
 `;
 
 export const ShowAllButton = styled.button`
