@@ -1,10 +1,10 @@
 export const CLOSE_KEY_CODE = 'Escape';
 
-export const LABEL_ARR = [
-  { id: 0, priority: 'low', color: 'blue' },
-  { id: 1, priority: 'medium', color: 'pink' },
-  { id: 2, priority: 'high', color: 'green' },
-  { id: 3, priority: 'without priority', color: 'gray' },
+export const PRIORITY_LIST = [
+  { priority: 'low', color: '#8FA1D0' },
+  { priority: 'medium', color: '#E09CB5' },
+  { priority: 'high', color: '#BEDBB0' },
+  { priority: 'without', color: 'rgba(255, 255, 255, 0.3)' },
 ];
 
 export const ICONS_ARRAY = [
