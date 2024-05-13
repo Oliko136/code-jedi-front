@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import Modal from '../../Modal/Modal/Modal';
 import { toast } from 'react-toastify';
+import Modal from '../../Modal/Modal/Modal';
+import Icon from '../../Icon/Icon';
+import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
+import { addColumnThunk } from '../../../redux/column/column-operations';
 import {
   Modalform,
   ModalTitle,
@@ -11,14 +14,10 @@ import {
   PlusButton,
   IconWrap,
 } from './ColumnModal.styled';
-import Icon from '../../Icon/Icon';
-import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
-import { addColumnThunk } from '../../../redux/column/column-operations';
 
 const ColumnModal = ({ showModal }) => {
-  const { _id } = useSelector(selectCurrentBoard);
-  console.log('_id :>> ', _id);
   const [title, setTitle] = useState('');
+  const { _id } = useSelector(selectCurrentBoard);
   const dispatch = useDispatch();
 
   const TOASTER = {
@@ -40,7 +39,6 @@ const ColumnModal = ({ showModal }) => {
       title,
     };
 
-    console.log(newColumn);
     try {
       dispatch(addColumnThunk({ boardId: _id, body: newColumn }));
       toast('You have successfully created a column ✅', TOASTER);
