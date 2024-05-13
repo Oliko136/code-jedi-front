@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
     Card,
     CardsColor,
@@ -18,21 +20,30 @@ import {
     Line
   } from './TasksCard.styled';
   import sprite from '../../../assets/svg/sprite.svg';
-  import { PRIORITY_LIST} from '../../../constants/index'
-  import {formatDate, formatCurrentDate} from '../../../helpers/dateFormat'
+import { PRIORITY_LIST } from '../../../constants/index';
+import { formatDate, formatCurrentDate } from '../../../helpers/dateFormat';
+import { deleteCardThunk } from '../../../redux/cards/cards-operations';
+import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
+import DeleteModal from '../../Modal/DeleteModal/DeleteModal';
   
-  // import React, {  useEffect, useState } from 'react';
   
-  const TasksCard = ({ card }) => {
-    const currentDate = new Date();
-    const { title, description, priority, deadline = "2024-05-13" } = card;
-    console.log(title)
-    const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || PRIORITY_LIST[0].priority;
+const TasksCard = ({ card, columnId }) => {
+  const currentDate = new Date();
+  const { title, description, priority, deadline = "2024-05-13" } = card;
+  console.log(title);
+  const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || PRIORITY_LIST[0].priority;
     // const qw = PRIORITY_LIST[0].priority
     // console.log(qw)
-    const formatCurrenDate = formatCurrentDate(currentDate)
-    console.log(priorityColor)
+  const formatCurrenDate = formatCurrentDate(currentDate)
+  console.log(priorityColor);
     // const [showModal, setShowModal] = useState(false);
+  const [isDeleteModalShown, setIsDeleteModalShown] = useState(false);
+  const dispatch = useDispatch();
+  const { _id: boardId } = useSelector(selectCurrentBoard);
+
+  const handleDeleteCard = () => {
+    dispatch(deleteCardThunk({ boardId, columnId, cardId: card._id }));
+  }
     
 
     return (
@@ -79,11 +90,17 @@ import {
                 </ButtonsIcon>
               </ParamsButtons>
   
-              <ParamsButtons>
+              <ParamsButtons type="button" onClick={() => setIsDeleteModalShown(true)}>
                 <ButtonsIcon>
                   <use href={`${sprite}#trash`}></use>
                 </ButtonsIcon>
               </ParamsButtons>
+              {isDeleteModalShown && (
+                <DeleteModal
+                  onClose={() => setIsDeleteModalShown(false)}
+                  onConfirm={handleDeleteCard}
+                />
+              )}
             </SvgContainer>
           </CardsParams>
         </CardDiv>
