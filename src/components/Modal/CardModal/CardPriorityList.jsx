@@ -20,8 +20,8 @@ const CardPriorityList = ({ value, onChange }) => {
           <InputRadio
             type="radio"
             name="color"
-            value={color}
-            checked={value === color}
+            value={priority}
+            checked={value === priority}
             onChange={handleChange}
           />
           <Icon

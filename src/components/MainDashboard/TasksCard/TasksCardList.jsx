@@ -10,7 +10,7 @@ const TasksCardList = ({columnId}) => {
     const board = useSelector(selectCurrentBoard);
     const { _id: boardId } = board;
 
-    console.log(cards, boardId, columnId);
+    // console.log(cards, boardId, columnId);
     
     const dispatch = useDispatch();
     
@@ -22,7 +22,7 @@ const TasksCardList = ({columnId}) => {
     <>
       {cards.length > 0 &&
         cards.map(card => (
-          <TasksCard key={card._id} card={card} />
+          <TasksCard key={card._id} card={card} columnId={columnId} />
         ))}
     </>
   );

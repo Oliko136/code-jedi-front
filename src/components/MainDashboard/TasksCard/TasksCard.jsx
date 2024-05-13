@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
     Card,
     CardsColor,
@@ -15,25 +17,32 @@ import {
     ParamsButtons,
     ButtonsIcon,
     TextCard,
-    Line
+    Line, Wrap
   } from './TasksCard.styled';
   import sprite from '../../../assets/svg/sprite.svg';
-  import { PRIORITY_LIST} from '../../../constants/index'
-  import {formatDate, formatCurrentDate} from '../../../helpers/dateFormat'
+import { PRIORITY_LIST } from '../../../constants/index';
+import { formatDate, formatCurrentDate } from '../../../helpers/dateFormat';
+import { deleteCardThunk } from '../../../redux/cards/cards-operations';
+import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
+import DeleteModal from '../../Modal/DeleteModal/DeleteModal';
   
-  // import React, {  useEffect, useState } from 'react';
+const TasksCard = ({ card, columnId }) => {
+  const currentDate = new Date();
   
-  const TasksCard = ({ card }) => {
-    const currentDate = new Date();
-    const { title, description, priority, deadline = "2024-05-13" } = card;
-    console.log(title)
-    const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || PRIORITY_LIST[0].priority;
-    // const qw = PRIORITY_LIST[0].priority
-    // console.log(qw)
-    const formatCurrenDate = formatCurrentDate(currentDate)
-    console.log(priorityColor)
-    // const [showModal, setShowModal] = useState(false);
-    
+  const formatCurrenDate = formatCurrentDate(currentDate);
+  
+  const { title, description, priority, deadline = formatCurrenDate } = card;
+console.log(priority)
+  const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || PRIORITY_LIST[0].color;
+  
+  const [isDeleteModalShown, setIsDeleteModalShown] = useState(false);
+  
+  const dispatch = useDispatch();
+  const { _id: boardId } = useSelector(selectCurrentBoard);
+
+  const handleDeleteCard = () => {
+    dispatch(deleteCardThunk({ boardId, columnId, cardId: card._id }));
+  } 
 
     return (
       <Card>
@@ -45,6 +54,7 @@ import {
          
           <Line></Line>
           <CardsParams>
+            <Wrap>
             <PriorityDiv>
               <PriorityTitle>Priority</PriorityTitle>
               <div>
@@ -59,14 +69,18 @@ import {
               <DeadlineTitle>Deadline</DeadlineTitle>
               <DeadlineDate>{formatDate(deadline)}</DeadlineDate>
             </DeadlineDiv>
+            </Wrap>
+           
+
             <SvgContainer>
-{deadline === formatCurrenDate && (
-  <ParamsButtons>
-  <ButtonsIcon>
-    <use href={`${sprite}#bell`}></use>
-  </ButtonsIcon>
-</ParamsButtons>
-)}
+
+            {deadline === formatCurrenDate && (
+            <ParamsButtons>
+            <ButtonsIcon>
+             <use href={`${sprite}#bell`}></use>
+            </ButtonsIcon>
+            </ParamsButtons>)}
+
               <ParamsButtons>
                 <ButtonsIcon>
                   <use href={`${sprite}#broken-right`}></use>
@@ -79,12 +93,19 @@ import {
                 </ButtonsIcon>
               </ParamsButtons>
   
-              <ParamsButtons>
+              <ParamsButtons type="button" onClick={() => setIsDeleteModalShown(true)}>
                 <ButtonsIcon>
                   <use href={`${sprite}#trash`}></use>
                 </ButtonsIcon>
               </ParamsButtons>
+              {isDeleteModalShown && (
+                <DeleteModal
+                  onClose={() => setIsDeleteModalShown(false)}
+                  onConfirm={handleDeleteCard}
+                />
+              )}
             </SvgContainer>
+
           </CardsParams>
         </CardDiv>
       </Card>

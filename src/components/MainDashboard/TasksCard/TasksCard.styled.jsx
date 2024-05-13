@@ -79,6 +79,12 @@ export const Line = styled.hr`
 
 export const CardsParams = styled.div`
   display: flex;
+  justify-content: space-between;
+`;
+
+export const Wrap = styled.div`
+display: flex;
+justify-content: flex-start;;
 `;
 
 export const PriorityDiv = styled.div`
@@ -102,7 +108,7 @@ export const PriorityTitle = styled.p`
 export const ColorCard = styled.div`
   width: 12px;
   height: 12px;
-  background-color: var(--highPriorityColor);
+
   border-radius: 50px;
 `;
 

@@ -27,9 +27,6 @@ const CardAddModal = ({ columnId, showModal }) => {
 
   const board = useSelector(selectCurrentBoard);
 
-  // console.log(columnId);
-
-  // const error = useSelector(selectError);
   const dispatch = useDispatch();
 
   const changeDeadline = date => {
@@ -44,7 +41,6 @@ const CardAddModal = ({ columnId, showModal }) => {
       priority: cardPriority,
       deadline,
     };
-    console.log(e);
 
     try {
       dispatch(addCardThunk({ boardId: board._id, columnId, body: newCard }));
