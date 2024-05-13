@@ -28,10 +28,12 @@ import DeleteModal from '../../Modal/DeleteModal/DeleteModal';
   
 const TasksCard = ({ card, columnId }) => {
   const currentDate = new Date();
-  const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || PRIORITY_LIST[0].color;
+  
   const formatCurrenDate = formatCurrentDate(currentDate);
   
   const { title, description, priority, deadline = formatCurrenDate } = card;
+console.log(priority)
+  const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || PRIORITY_LIST[0].color;
   
   const [isDeleteModalShown, setIsDeleteModalShown] = useState(false);
   
