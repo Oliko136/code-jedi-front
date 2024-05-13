@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal/Modal';
-// import { needhelp } from '../../../redux/needhelp/needhelp-operation.js';
-// создать селекторы и заменить путь и файл
-// import { selectUser } from '../../redux/auth/auth-selectors';
 import { toast } from 'react-toastify';
 import {
   Modalform,
@@ -16,19 +12,11 @@ import {
 } from './ColumnModal.styled';
 import Icon from '../../Icon/Icon';
 import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
-import { selectCurrentСolumn } from '../../../redux/column/column-selectors';
-import {
-  getColumnByIdThunk,
-  updateColumnThunk,
-} from '../../../redux/column/column-operations';
+import { updateColumnThunk } from '../../../redux/column/column-operations';
 
-// нужно использовать id колонки?
-const EditColumnModal = ({ showModal, columnId, title }) => {
-  const [newtitle, setNewTitle] = useState(title ? title : '');
+const EditColumnModal = ({ showModal, columnId, title, onColumnUpdate }) => {
+  const [newTitle, setNewTitle] = useState(title ? title : '');
   const { _id: boardId } = useSelector(selectCurrentBoard);
-
-  console.log('boardId :>> ', boardId);
-  console.log('columnId :>> ', columnId);
 
   const dispatch = useDispatch();
 
@@ -45,16 +33,17 @@ const EditColumnModal = ({ showModal, columnId, title }) => {
 
   const handleSubmit = async evt => {
     evt.preventDefault();
-    console.log(newtitle);
 
     const editColumn = {
-      title: newtitle,
+      title: newTitle,
     };
-    console.log(editColumn);
     try {
       dispatch(
         updateColumnThunk({ boardId: boardId, id: columnId, body: editColumn })
       );
+      if (onColumnUpdate) {
+        onColumnUpdate(newTitle);
+      }
       toast('You have successfully edited the column ✅', TOASTER);
       showModal(false);
     } catch (error) {
@@ -64,7 +53,6 @@ const EditColumnModal = ({ showModal, columnId, title }) => {
 
   const handleTitleChange = evt => {
     setNewTitle(evt.target.value);
-    // dispatch(updateColumnThunk)(newtitle);
   };
 
   return (
@@ -73,7 +61,7 @@ const EditColumnModal = ({ showModal, columnId, title }) => {
         <Modalform onSubmit={handleSubmit}>
           <ModalTitle>{'Edit column'}</ModalTitle>
           <TitleInput
-            value={newtitle}
+            value={newTitle}
             onChange={handleTitleChange}
             required
             type="text"

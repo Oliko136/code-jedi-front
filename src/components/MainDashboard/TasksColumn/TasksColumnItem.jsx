@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import {
-  deleteColumnThunk,
+  // deleteColumnThunk,
   getColumnByIdThunk,
-  // updateColumnThunk,
 } from '../../../redux/column/column-operations.js';
 import sprite from '../../../assets/svg/sprite.svg';
 import TasksCard from '../TasksCard/TasksCard.jsx';
@@ -20,47 +19,38 @@ import {
 import CardAddModal from 'components/Modal/CardModal/CardAddModal.jsx';
 import EditColumnModal from 'components/Modal/ColumnModal/EditColumnModal.jsx';
 import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
-import { selectCurrentСolumn } from '../../../redux/column/column-selectors.js';
 
 const TasksColumnItem = ({ column }) => {
   const [showAddCardModal, setShowAddCardModal] = useState(false);
   const [showEditColumnModal, setShowEditColumnModal] = useState(false);
+  const [columnTitle, setColumnTitle] = useState(column.title);
   const { _id: boardId } = useSelector(selectCurrentBoard);
-  const columnId = useSelector(selectCurrentСolumn);
 
-  console.log('boardId :>> ', boardId);
-  console.log('column :>> ', column);
-  // const [title, setTitle] = useState(column.title);
-  // console.log('column.title :>> ', column.title);
-  // const [showDeleteColumnModal, setShowDeleteColumnModal] = useState(false);
   const dispatch = useDispatch();
-  const { _id, title } = column;
-
-  console.log('title :>> ', title);
 
   useEffect(() => {
-    console.log('columnId :>> ', columnId);
-    dispatch(getColumnByIdThunk(_id));
-  }, [_id, dispatch]);
+    dispatch(getColumnByIdThunk({ boardId: boardId, id: column._id }));
+    setColumnTitle(column.title);
+  }, [dispatch, column._id, column.title, boardId]);
 
   const toggleAddCardModal = () =>
     setShowAddCardModal(prevShowModal => !prevShowModal);
   const toggleEditColumnModal = () =>
     setShowEditColumnModal(prevShowModal => !prevShowModal);
 
-  // const handleColumnUpdate = newTitle => {
-  //   setTitle(newTitle);
-  // };
+  const handleColumnUpdate = newTitle => {
+    setColumnTitle(newTitle);
+  };
 
   const onDeleteColumn = () => {
-    dispatch(deleteColumnThunk(_id));
+    // dispatch(deleteColumnThunk(_id));
   };
 
   return (
     <>
-      <Column id={_id}>
+      <Column id={column._id}>
         <TitleColumnDiv>
-          <h3>{title}</h3>
+          <h3>{columnTitle}</h3>
           <SvgDiv>
             <Button onClick={toggleEditColumnModal}>
               <Icons>
@@ -89,9 +79,9 @@ const TasksColumnItem = ({ column }) => {
       {showEditColumnModal && (
         <EditColumnModal
           showModal={setShowEditColumnModal}
-          columnId={_id}
-          title={title}
-          // onColumnUpdate={handleColumnUpdate}
+          columnId={column._id}
+          title={columnTitle}
+          onColumnUpdate={handleColumnUpdate}
         />
       )}
     </>

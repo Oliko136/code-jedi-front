@@ -33,7 +33,6 @@ const ColumnModal = ({ showModal }) => {
 
   const handleSubmit = async evt => {
     evt.preventDefault();
-    console.log(title);
 
     const newColumn = {
       title,
