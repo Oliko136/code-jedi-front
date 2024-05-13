@@ -9,8 +9,6 @@ const TasksCardList = ({columnId}) => {
     const cards = useSelector(selectCards);
     const board = useSelector(selectCurrentBoard);
     const { _id: boardId } = board;
-
-    console.log(cards, boardId, columnId);
     
     const dispatch = useDispatch();
     
