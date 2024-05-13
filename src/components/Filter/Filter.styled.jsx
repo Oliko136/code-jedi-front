@@ -4,7 +4,7 @@ export const FilterWrapper = styled.div`
   width: 300px;
   padding: 24px;
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
-    background: var(--bg-theme);
+  background: var(--bg-theme);
   // background: #151515;
   border-radius: 8px;
   position: relative;
@@ -15,7 +15,9 @@ export const Title = styled.p`
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
+
   color:var(--additional-text-color);
+
   margin-bottom: 14px;
 `;
 
@@ -53,6 +55,7 @@ export const ShowAllButton = styled.button`
   transition: color 250ms linear;
 
   &:hover {
-    color: var(--additional-text-color-op );
+    color: var(--additional-text-color-op);
+
   }
 `;

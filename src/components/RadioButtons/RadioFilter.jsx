@@ -109,5 +109,3 @@ const RadioFilter = ({ onFilterChange, priority }) => {
 };
 
 export default RadioFilter;
-
-
