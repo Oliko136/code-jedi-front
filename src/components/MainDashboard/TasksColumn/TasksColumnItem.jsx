@@ -4,7 +4,6 @@ import {
   updateColumnThunk,
 } from '../../../redux/column/column-operations.js';
 import sprite from '../../../assets/svg/sprite.svg';
-import TasksCard from '../TasksCard/TasksCard.jsx';
 import {
   TitleColumnDiv,
   Button,
@@ -17,6 +16,7 @@ import {
 
 import { useState } from 'react';
 import CardAddModal from 'components/Modal/CardModal/CardAddModal.jsx';
+import TasksCardList from '../TasksCard/TasksCardList.jsx';
 
 const TasksColumnItem = ({ column }) => {
   const [showModal, setShowModal] = useState(false);
@@ -53,7 +53,7 @@ const TasksColumnItem = ({ column }) => {
           </SvgDiv>
         </TitleColumnDiv>
 
-        <TasksCard  />
+        <TasksCardList columnId={_id} />
 
         <ButtonForCard onClick={toggleModal}>
           <IconDoCard>
