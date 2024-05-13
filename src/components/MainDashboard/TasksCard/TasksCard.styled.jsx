@@ -9,13 +9,11 @@ export const Card = styled.div`
 `;
 
 export const CardsColor = styled.div`
-  // тимчасовий колір
   width: 4px;
   min-height: 100%;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
-
-  background-color: var(--highPriorityColor);
+  background-color: var(--highPriorityColor); /* temporary color */
 `;
 
 export const CardDiv = styled.div`
@@ -64,9 +62,7 @@ export const PriorityTitle = styled.p`
 export const ColorCard = styled.div`
   width: 12px;
   height: 12px;
-
-  // тимчасово
-  background-color: var(--highPriorityColor);
+  background-color: var(--highPriorityColor); /* temporary */
   border-radius: 50px;
 `;
 
