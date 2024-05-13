@@ -5,18 +5,12 @@ export const Card = styled.div`
   min-width: 100%;
   border-radius: 8px;
   margin-bottom: 8px;
-
-
   background: var(--btn-add-column);
-
-
 
   @media screen and (min-width: 375px) {
     width: 335px;
     height: 154px;
   }
-
- 
 `;
 
 export const TextCard = styled.h4`
@@ -28,12 +22,10 @@ letter-spacing: -0.02em;
 `;
 
 export const CardsColor = styled.div`
-  
   width: 4px;
   min-height: 100%;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
-
 `;
 
 export const CardDiv = styled.div`
@@ -54,7 +46,6 @@ export const CardsText = styled.div`
   font-size: 12px;
   font-weight: 400;
   color: var(--cart-text);
-  // border-bottom: 1 px solid var(--stroke-card);
   margin-bottom: 14px;
   line-height: 133%;
 letter-spacing: -0.02em;
@@ -83,7 +74,8 @@ export const CardsParams = styled.div`
 
 export const Wrap = styled.div`
 display: flex;
-justify-content: flex-start;;
+justify-content: flex-start;
+width: 100%;
 `;
 
 export const PriorityDiv = styled.div`
@@ -100,14 +92,11 @@ export const PriorityTitle = styled.p`
   font-weight: 400;
   color: var(--cart-text);
   letter-spacing: -0.02em;
-  // margin-bottom: 8px;
-  // margin-top: 16px;
 `;
-// тимчасово
+
 export const ColorCard = styled.div`
   width: 12px;
   height: 12px;
-
   border-radius: 50px;
 `;
 
@@ -130,8 +119,6 @@ export const DeadlineTitle = styled.p`
   font-size: 8px;
   font-weight: 400;
   color: var(--cart-text);
-  // margin-bottom: 8px;
-  // margin-top: 16px;
 `;
 
 export const DeadlineDate = styled.p`
@@ -144,7 +131,6 @@ export const SvgContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  // padding-top: 24px;
 `;
 
 export const ParamsButtons = styled.button``;
