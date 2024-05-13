@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
 export const FilterWrapper = styled.div`
-  width: 300px;
-  padding: 24px;
-  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+  width: 252px;
+  // padding: 24px;
+  // box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
   background: var(--bg-theme);
-  // background: #151515;
   border-radius: 8px;
   position: relative;
-  // color: var(--color);
 `;
 
 export const Title = styled.p`
