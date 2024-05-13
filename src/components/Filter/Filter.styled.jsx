@@ -8,14 +8,14 @@ export const FilterWrapper = styled.div`
   // background: #151515;
   border-radius: 8px;
   position: relative;
-  color: var(--color);
+  // color: var(--color);
 `;
 
 export const Title = styled.p`
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
-  color: #121212;
+  color:var(--additional-text-color);
   margin-bottom: 14px;
 `;
 
@@ -46,13 +46,13 @@ export const ShowAllButton = styled.button`
   letter-spacing: -0.02em;
   text-decoration: underline;
   text-decoration-skip-ink: none;
-  color: #125621;
+  color: var(--show-filter-txt);
   border: none;
   outline: none;
   background-color: transparent;
   transition: color 250ms linear;
 
   &:hover {
-    color:#555000;
+    color: var(--additional-text-color-op );
   }
 `;
