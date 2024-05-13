@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import {
-  // deleteColumnThunk,
+  deleteColumnThunk,
   getColumnByIdThunk,
 } from '../../../redux/column/column-operations.js';
 import sprite from '../../../assets/svg/sprite.svg';
@@ -43,7 +43,7 @@ const TasksColumnItem = ({ column }) => {
   };
 
   const onDeleteColumn = () => {
-    // dispatch(deleteColumnThunk(_id));
+    dispatch(deleteColumnThunk({ boardId: boardId, id: column._id }));
   };
 
   return (
@@ -58,8 +58,8 @@ const TasksColumnItem = ({ column }) => {
               </Icons>
             </Button>
 
-            <Button>
-              <Icons onClick={onDeleteColumn}>
+            <Button onClick={onDeleteColumn}>
+              <Icons>
                 <use href={`${sprite}#trash`}></use>
               </Icons>
             </Button>
