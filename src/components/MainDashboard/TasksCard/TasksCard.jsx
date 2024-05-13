@@ -15,40 +15,52 @@ import {
     ParamsButtons,
     ButtonsIcon,
     TextCard,
+    Line
   } from './TasksCard.styled';
   import sprite from '../../../assets/svg/sprite.svg';
   import { selectCards } from '../../../redux/cards/cards-selectors';
   import { useSelector } from 'react-redux';
+  // import { PRIORITY_LIST} from '../../../constants/index'
+  import {formatDate, formatCurrentDate} from '../../../helpers/dateFormat'
   // import React, {  useEffect, useState } from 'react';
   
   const TasksCard = () => {
+    const currentDate = new Date();
     const card = useSelector(selectCards)
-const {title, description, priority, deadline} = card;
-// const formattedDate = deadline.split('-').reverse().join('/');
+   
+const {title, description, priority, deadline = "2024-05-13"} = card;
+console.log(title)
+// const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || 'rgba(255, 255, 255, 0.3)';
+const priorityColor = 'red'
 
-// const [date, setDate] = useState(deadline);
+console.log(currentDate)
+// const newFormatDeadline = formatDate(deadline)
+// const newFormatDeadline = formatDate(deadline) 
+console.log('qwe')
 
-// useEffect(() => {
-//   const currentDate = new Date().toISOString().slice(0, 10);
-//   if (deadline === currentDate) {
-//     setDate(date)
-//   }
-// }, [date,deadline]);
-const currentDate = new Date().toISOString().slice(0, 10);
+const formatCurrenDate = formatCurrentDate(currentDate)
+
+console.log(formatCurrenDate)
+
+
+
+// const currentDate = new Date().toISOString().slice(0, 10);
 
     return (
       <Card>
-        <CardsColor></CardsColor>
+        <CardsColor style={{ backgroundColor: priorityColor }}></CardsColor>
   
         <CardDiv>
           <TextCard>{title}</TextCard>
           <CardsText>{description}</CardsText>
+          {/* <CardsText>bskjhdksdlsx., cmx cnhedhjadjka  SSDFGHHJUgredffgghhhtrddvvjjuytrsdsfcbhhjhjyrfddxxdvghhytddfhhtrfrfg</CardsText> */}
+          <Line></Line>
           <CardsParams>
             <PriorityDiv>
               <PriorityTitle>Priority</PriorityTitle>
               <div>
-                {/* сюда надо из модалки создания карточки передатьиконку приоритетности */}
-                <ColorCard></ColorCard>
+     
+                <ColorCard style={{ backgroundColor: priorityColor }}></ColorCard>
 
                 <ColorCardText>{priority}</ColorCardText>
               </div>
@@ -56,10 +68,10 @@ const currentDate = new Date().toISOString().slice(0, 10);
   
             <DeadlineDiv>
               <DeadlineTitle>Deadline</DeadlineTitle>
-              <DeadlineDate>{deadline}</DeadlineDate>
+              <DeadlineDate>{formatDate(deadline)}</DeadlineDate>
             </DeadlineDiv>
             <SvgContainer>
-{deadline === currentDate && (
+{deadline === formatCurrenDate && (
   <ParamsButtons>
   <ButtonsIcon>
     <use href={`${sprite}#bell`}></use>

@@ -55,11 +55,27 @@ export const CardsText = styled.div`
   font-size: 12px;
   font-weight: 400;
   color: var(--cart-text);
-  border-bottom: 1 px solid var(--stroke-card);
-  padding-bottom: 20px;
+  // border-bottom: 1 px solid var(--stroke-card);
+  margin-bottom: 14px;
   line-height: 133%;
-letter-spacing: -0.02em
+letter-spacing: -0.02em;
+overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  // width: calc(100% - 20px);
 `;
+
+export const Line = styled.hr`
+  border: none;
+  height: 1px;
+  background-color: var(--cart-text);
+  margin: 0;
+  margin-bottom: 14px;
+`;
+
 
 export const CardsParams = styled.div`
   display: flex;
