@@ -25,6 +25,8 @@ export const TitleColumnDiv = styled.div`
     font-weight: 500;
     color: white;
     width: 260px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;
 

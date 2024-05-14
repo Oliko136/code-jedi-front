@@ -20,11 +20,13 @@ export const Card = styled.div`
 `;
 
 export const TextCard = styled.h4`
-font-weight: 600;
-font-size: 14px;
-letter-spacing: -0.02em;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.02em;
   color: var(--icon-color);
   padding-bottom: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;  
 `;
 
 export const CardsColor = styled.div`
@@ -56,15 +58,20 @@ export const CardsText = styled.div`
   font-weight: 400;
   color: var(--cart-text);
   margin-bottom: 14px;
-  line-height: 133%;
-letter-spacing: -0.02em;
-overflow: hidden;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   white-space: normal;
-  // width: calc(100% - 20px);
+  width: calc(100% - 20px);
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  max-width: 100%;
+  height: 38px;
+  overflow-wrap: anywhere;
 `;
 
 export const Line = styled.hr`
@@ -79,18 +86,20 @@ export const Line = styled.hr`
 export const CardsParams = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+
+  padding:14px 0;
 `;
 
 export const Wrap = styled.div`
-display: flex;
-justify-content: flex-start;
-width: 100%;
-margin-right: 5px;
+  display: flex;
+  flex-direction: row;
+ justify-content: flex-start;
+  width: 100%;
 `;
 
 export const PriorityDiv = styled.div`
-  margin-right: 14px;
+margin-right: 14px;
+
 
   div {
     display: flex;
@@ -103,7 +112,8 @@ export const PriorityTitle = styled.p`
   font-weight: 400;
   color: var(--cart-text);
   letter-spacing: -0.02em;
-  margin-bottom: 4px;
+  margin-bottom:4px;
+
 `;
 
 export const ColorCard = styled.div`
@@ -131,7 +141,7 @@ export const DeadlineTitle = styled.p`
   font-size: 8px;
   font-weight: 400;
   color: var(--cart-text);
-  margin-bottom: 4px;
+  margin-bottom:4px;
 `;
 
 export const DeadlineDate = styled.p`
