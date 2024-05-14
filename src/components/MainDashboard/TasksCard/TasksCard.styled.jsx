@@ -43,7 +43,9 @@ export const CardDiv = styled.div`
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   max-width: 334px;
-  padding: 14px 14px 14px 24px;
+  padding: 14px 20px 14px 24px;
+    width:100%;
+
  
 
   // h3 {
@@ -70,7 +72,6 @@ export const CardsText = styled.div`
   display: -moz-box;
   -moz-box-orient: vertical;
   max-width: 100%;
-  height: 38px;
   overflow-wrap: anywhere;
 `;
 
@@ -78,15 +79,12 @@ export const Line = styled.hr`
   border: none;
   height: 1px;
   background-color: var(--cart-text);
-  margin: 0;
-  margin-bottom: 14px;
 `;
 
 
 export const CardsParams = styled.div`
   display: flex;
   justify-content: space-between;
-
   padding:14px 0;
 `;
 
