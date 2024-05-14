@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/code-jedi-front/static/css/main.f244a060.css",
-    "main.js": "/code-jedi-front/static/js/main.57018ffa.js",
+    "main.js": "/code-jedi-front/static/js/main.cfc86af0.js",
     "static/js/665.2a3374f1.chunk.js": "/code-jedi-front/static/js/665.2a3374f1.chunk.js",
     "static/js/688.eedda2f4.chunk.js": "/code-jedi-front/static/js/688.eedda2f4.chunk.js",
-    "static/js/185.e313bdec.chunk.js": "/code-jedi-front/static/js/185.e313bdec.chunk.js",
+    "static/js/318.551b5225.chunk.js": "/code-jedi-front/static/js/318.551b5225.chunk.js",
     "static/js/193.59e51953.chunk.js": "/code-jedi-front/static/js/193.59e51953.chunk.js",
     "static/js/657.928c7ae9.chunk.js": "/code-jedi-front/static/js/657.928c7ae9.chunk.js",
     "static/js/525.27efb9b7.chunk.js": "/code-jedi-front/static/js/525.27efb9b7.chunk.js",
@@ -123,10 +123,10 @@
     "static/media/icons-sprite.svg": "/code-jedi-front/static/media/icons-sprite.f7bad1557d5f1ff811b95faf64f78ba8.svg",
     "index.html": "/code-jedi-front/index.html",
     "main.f244a060.css.map": "/code-jedi-front/static/css/main.f244a060.css.map",
-    "main.57018ffa.js.map": "/code-jedi-front/static/js/main.57018ffa.js.map",
+    "main.cfc86af0.js.map": "/code-jedi-front/static/js/main.cfc86af0.js.map",
     "665.2a3374f1.chunk.js.map": "/code-jedi-front/static/js/665.2a3374f1.chunk.js.map",
     "688.eedda2f4.chunk.js.map": "/code-jedi-front/static/js/688.eedda2f4.chunk.js.map",
-    "185.e313bdec.chunk.js.map": "/code-jedi-front/static/js/185.e313bdec.chunk.js.map",
+    "318.551b5225.chunk.js.map": "/code-jedi-front/static/js/318.551b5225.chunk.js.map",
     "193.59e51953.chunk.js.map": "/code-jedi-front/static/js/193.59e51953.chunk.js.map",
     "657.928c7ae9.chunk.js.map": "/code-jedi-front/static/js/657.928c7ae9.chunk.js.map",
     "525.27efb9b7.chunk.js.map": "/code-jedi-front/static/js/525.27efb9b7.chunk.js.map",
@@ -136,6 +136,6 @@
   },
   "entrypoints": [
     "static/css/main.f244a060.css",
-    "static/js/main.57018ffa.js"
+    "static/js/main.cfc86af0.js"
   ]
 }
