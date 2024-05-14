@@ -4,7 +4,7 @@ export const PRIORITY_LIST = [
   { priority: 'low', color: '#8FA1D0' },
   { priority: 'medium', color: '#E09CB5' },
   { priority: 'high', color: '#BEDBB0' },
-  { priority: 'without', color: 'rgba(22, 22, 22, 0.3)' },
+  { priority: 'without', color: 'var(--btn-rad-without)' },
 ];
 
 export const ICONS_ARRAY = [

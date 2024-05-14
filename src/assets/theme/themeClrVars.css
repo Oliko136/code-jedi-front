@@ -34,6 +34,7 @@
   --show-filter-txt:#e1e1e180;
   --cart-text:  rgba(255, 255, 255, 0.5);
   --stroke-card: rgba(255, 255, 255, 0.1);
+  --btn-rad-without: rgba(255, 255, 255, 0.3);
 }
 
 [data-theme='light'] {
@@ -73,6 +74,7 @@
 
   --cart-text:  rgba(22, 22, 22, 0.7);
   --stroke-card: rgba(22, 22, 22, 0.1);
+  --btn-rad-without: rgba(22, 22, 22, 0.3);
 }
 
 [data-theme='violet'] {
@@ -112,5 +114,6 @@
 
   --cart-text:  rgba(22, 22, 22, 0.7);
   --stroke-card: rgba(22, 22, 22, 0.1);
+  --btn-rad-without: rgba(22, 22, 22, 0.3);
   
 }
