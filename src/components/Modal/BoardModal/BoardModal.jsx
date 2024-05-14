@@ -1,15 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { nanoid } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
-// import { MdFileUpload, MdDownloadDone } from 'react-icons/md';
 import {
   createBoardThunk,
   updateBoardThunk,
 } from '../../../redux/boards/boards-operations';
 import { selectOneBoard } from '../../../redux/boards/boards-selectors';
 import { TOASTER } from '../../../constants/index';
-// import { DEFAULT_BACKGROUND_ID } from '../../../constants/index.js';
 import { validateInputMaxLength } from '../../../helpers/validateInputMaxLength.js';
 import Modal from '../Modal/Modal';
 import { IconsList } from './IconsList';
@@ -29,9 +26,7 @@ import { useNavigate } from 'react-router-dom';
 const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
   const [errorMsgShown, setErrorMsgShown] = useState(false);
   const [errorClassName, setErrorClassName] = useState('');
-  // const [customBackground, setCustomBackground] = useState(null);
-  // console.log(setCustomBackground);
-  // const defaultBackgroundId = 'default';
+
 
   const titleRef = useRef(null);
   const dispatch = useDispatch();
@@ -43,10 +38,6 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
     titleRef.current.focus();
   }, []);
 
-  // const handleUpload = event => {
-  //   const file = event.target.files[0];
-  //   setCustomBackground(file);
-  // };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -55,7 +46,7 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
     if (!title.value.trim()) {
       return toast('Enter title to create a board ❗️', TOASTER);
     }
-    // const corbackground = { background.value === '' ? 'default' : background.value };
+    
     const data = {
       title: title.value,
       icon: iconId.value,
@@ -106,7 +97,7 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
         <BacksList
           backgroundId={variant === 'add' ? 'default' : oneBoard.background._id}
         />
-        {/* // CHANGE ON CORRECT */}
+      
 
         <Button type="submit">
           <Span>

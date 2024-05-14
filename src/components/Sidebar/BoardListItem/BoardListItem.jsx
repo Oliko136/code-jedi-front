@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-//import { redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
-// import Modal from 'components/Modal/ModalKill';
-// import EditBoardForm from './EditBoardForm'; // Виправте шлях
-
 import { deleteBoardThunk } from '../../../redux/boards/boards-operations';
-//import { selectOneBoard } from '../../../redux/boards/boards-selectors'; //----------------- Імпорт селектора selectBoard для отримання даних про дошку з Redux
 import {
   BoardItem,
   BoardItemTitleBlock,
@@ -90,16 +84,6 @@ const BoardListItem = ({ board, activeBoardId }) => {
 
       {/* ----------------Модальне вікно для редагування дошки */}
       {/* {showModal && (
-        <Modal closeModal={toggleModal}>
-           <EditBoardForm
-            boardId={board._id}
-            initialTitle={board.title}
-            initialIconName={board.icon}
-            initialBackgroundName={board.background}
-            handleClose={toggleModal}
-          /> 
-          
-        </Modal>
       )} */}
       {isDeleteModalShown && (
         <DeleteModal
