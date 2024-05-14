@@ -15,10 +15,23 @@ import {
     ParamsButtons,
     ButtonsIcon,
   } from './TasksCard.styled';
+  import { useState } from 'react';
   import sprite from '../../../assets/svg/sprite.svg';
-  
+  import RadioPop from '../RadioPop/RadioPop'
+
+
   const TasksCard = () => {
+    const [showRadioPop, setShowRadioPop] = useState(false);
+    const toggleRadioPop = () => setShowRadioPop(prevShowRadio => !prevShowRadio);
+    const [todoList, setTodoList] = useState(1);
+
+    const handleChange = (value) => {
+        setTodoList(value);
+        setShowRadioPop(false);
+    };
+
     return (
+      <>
       <Card>
         <CardsColor></CardsColor>
   
@@ -43,7 +56,8 @@ import {
             </DeadlineDiv>
             <SvgContainer>
               <ParamsButtons>
-                <ButtonsIcon>
+              <ButtonsIcon onClick={toggleRadioPop} type="button">
+                {/* <ButtonsIcon onClick={toggleRadioPop} type="button"> */}
                   <use href={`${sprite}#broken-right`}></use>
                 </ButtonsIcon>
               </ParamsButtons>
@@ -63,6 +77,9 @@ import {
           </CardsParams>
         </CardDiv>
       </Card>
+      {showRadioPop && (<RadioPop todoList={todoList} handleChange={handleChange} />)}
+      {/* {showRadioPop && (<RadioPop todoList={initial} showModal={setShowRadioPop} />)} */}
+      </>
     );
   };
   

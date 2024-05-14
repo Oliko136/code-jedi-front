@@ -1,69 +1,44 @@
-// import { FilterButton } from './ScreenPage.styled';
-// import { useState } from 'react';
-// import Modal from '../../components/Modal/FilterModal.jsx';
-// import {  useSelector } from 'react-redux';
-// import Icon from 'components/Icon/Icon';
-// import Filter from "components/Filter/Filter.jsx";
-// import { getFilter } from 'redux/filter/filter-selectors.js';
-// import { FilterDiv, ContainerFilter } from './ScreenPage.styled';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import HeaderDashboard from 'components/HeaderDashboard/HeaderDashboard';
 import MainDashboard from 'components/MainDashboard/MainDashboard';
+import { getBoardByIdThunk } from '../../redux/boards/boards-operations.js';
+import {
+  selectBoards,
+  selectCurrentBoard,
+} from '../../redux/boards/boards-selectors.js';
+import { ContainerScreensPage } from './ScreenPage.styled';
+import { handleBackgroundChange } from './handleBackgorundChange.js';
 
 const ScreensPage = () => {
+  const boards = useSelector(selectBoards);
+  const board = useSelector(selectCurrentBoard);
+  const { boardName } = useParams();
 
-  return(
-    <div>
-<HeaderDashboard/>
-<MainDashboard/>
-    </div>
-  )
+  const dispatch = useDispatch();
 
-  // const AddBoardForm = () => {};
+  useEffect(() => {
+    try {
+      if (boardName) {
+        const board = boards.find(board => board.title === boardName);
+        const boardId = board._id;
+        dispatch(getBoardByIdThunk(boardId));
+      }
+      dispatch(getBoardByIdThunk(boards[0]._id));
+    } catch (error) {
+      console.log(error.message);
+    }
+  }, [dispatch, boardName, boards]);
 
-  // const [showModal, setShowModal] = useState(false);
-  // const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
+  const backgroundImage = handleBackgroundChange(board.background);
 
-  //   const [openFilter, setOpenFilter] = useState(false);
-  // // const filter = useSelector(getFilter);
-
-  // const handleOpenFilter = () => {
-  //   setOpenFilter(true);
-  // };
-
-  // const toggleFilter = () => {
-  //   setOpenFilter(!openFilter);
-  // };
-
-  // return (
-  //   <ContainerFilter>
-  //     <FilterDiv>
-  //       <div>CreatedBoard</div>
-  //       <FilterButton type="button" onClick={handleOpenFilter}>
-  //         <Icon
-  //           width={20}
-  //           height={20}
-  //           fillColor={'none'}
-  //           strokeColor={`#fff`}
-  //           name={'filter'}
-  //         />
-  //         <p>Filter</p>
-  //       </FilterButton>
-  //     </FilterDiv>
-
-  //     {openFilter && (
-  //       <Modal open={openFilter} onClose={toggleFilter}>
-  //         <Filter onClose={toggleFilter} />
-  //       </Modal>
-  //     )}
-
-  //     {showModal && (
-  //       <Modal closeModal={toggleModal}>
-  //         <AddBoardForm handleClose={toggleModal} />
-  //         <p color="white">MODAL WINDOW</p>
-  //       </Modal>
-  //     )}
-  //   </ContainerFilter>
-  // );
+  return (
+    <ContainerScreensPage backgroundImage={backgroundImage}>
+      <HeaderDashboard />
+      <MainDashboard />
+    </ContainerScreensPage>
+  );
 };
 
 export default ScreensPage;

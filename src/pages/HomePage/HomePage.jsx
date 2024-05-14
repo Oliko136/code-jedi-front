@@ -7,11 +7,15 @@ import Sidebar from 'components/Sidebar/Sidebar';
 import HomePageText from 'components/HomePageText/HomePageText';
 import { MainContainer, Container } from './HomePage.styled';
 import { selectAuthLoading } from '../../redux/auth/auth-selectors';
-import { selectBoards } from '../../redux/boards/boards-selectors';
+import {
+  selectBoards,
+  selectCurrentBoard,
+} from '../../redux/boards/boards-selectors';
 
 const HomePage = () => {
   const isLoading = useSelector(selectAuthLoading);
   const boards = useSelector(selectBoards);
+  const currentBoard = useSelector(selectCurrentBoard);
   const [showSidebar, setShowSidebar] = useState(false);
 
   useEffect(() => {
@@ -29,7 +33,6 @@ const HomePage = () => {
 
   const openSidebar = () => {
     setShowSidebar(!showSidebar);
-    console.log(showSidebar)
   };
 
   const closeSidebar = useCallback(() => {
@@ -46,7 +49,7 @@ const HomePage = () => {
     },
     [closeSidebar]
   );
-  
+
   useEffect(() => {
     window.addEventListener('keydown', escClick);
     return () => {
@@ -57,19 +60,18 @@ const HomePage = () => {
   return isLoading ? (
     <Loader />
   ) : (
-        <Container>
-        <Sidebar showSidebar={showSidebar} />
-          <MainContainer>
-          <Header openSidebar={openSidebar} />
-         
-          {boards.length > 0 ?
-            <>
-              <Navigate to={`/home/${boards[0]._id}`} />
-              <Outlet />
-            </> :
-            <HomePageText />}
-          </MainContainer>
-        </Container>
+    <Container>
+      <Sidebar showSidebar={showSidebar} />
+      <MainContainer>
+        <Header openSidebar={openSidebar} />
+
+        {boards.length > 0 && !currentBoard.title && (
+          <Navigate to={`/home/${boards[0].title}`} />
+        )}
+        {boards.length > 0 && <Outlet />}
+        {!boards.length && <HomePageText />}
+      </MainContainer>
+    </Container>
   );
 };
 

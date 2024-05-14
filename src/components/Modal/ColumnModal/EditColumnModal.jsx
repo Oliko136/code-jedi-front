@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal/Modal';
-// import { needhelp } from '../../../redux/needhelp/needhelp-operation.js';
-// создать селекторы и заменить путь и файл
-// import { selectUser } from '../../redux/auth/auth-selectors';
 import { toast } from 'react-toastify';
 import {
   Modalform,
@@ -15,15 +11,14 @@ import {
   IconWrap,
 } from './ColumnModal.styled';
 import Icon from '../../Icon/Icon';
-// нужно использовать id колонки?
-const EditColumnModal = ({ showModal,
-  //  columnId, columnTitle 
-  }) => {
-    const { boardId } = useParams();
-//   строка вреmенная
-  const [titleNew, setTitleNew] = useState('To Do');
-  // const [titleNew, setTitleNew] = useState(columnTitle);
-//   const dispatch = useDispatch();
+import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
+import { updateColumnThunk } from '../../../redux/column/column-operations';
+
+const EditColumnModal = ({ showModal, columnId, title, onColumnUpdate }) => {
+  const [newTitle, setNewTitle] = useState(title ? title : '');
+  const { _id: boardId } = useSelector(selectCurrentBoard);
+
+  const dispatch = useDispatch();
 
   const TOASTER = {
     style: {
@@ -38,24 +33,26 @@ const EditColumnModal = ({ showModal,
 
   const handleSubmit = async evt => {
     evt.preventDefault();
-    console.log(titleNew)
-    const newColumn = {
-      board: boardId,
-      titleNew,
+
+    const editColumn = {
+      title: newTitle,
     };
-    console.log(newColumn)
     try {
-        // создать опер
-    //   dispatch(editColumns({ editedColumn: newColumn, id: columnId }));
+      dispatch(
+        updateColumnThunk({ boardId: boardId, id: columnId, body: editColumn })
+      );
+      if (onColumnUpdate) {
+        onColumnUpdate(newTitle);
+      }
       toast('You have successfully edited the column ✅', TOASTER);
       showModal(false);
     } catch (error) {
-      return error.message
+      return error.message;
     }
   };
 
   const handleTitleChange = evt => {
-    setTitleNew(evt.target.value);
+    setNewTitle(evt.target.value);
   };
 
   return (
@@ -64,26 +61,26 @@ const EditColumnModal = ({ showModal,
         <Modalform onSubmit={handleSubmit}>
           <ModalTitle>{'Edit column'}</ModalTitle>
           <TitleInput
-            value={titleNew}
+            value={newTitle}
             onChange={handleTitleChange}
             required
             type="text"
             name="title"
             placeholder="Titie"
           />
-          
+
           <ButtonSend type="submit">
             <PlusButton>
-                <IconWrap>
-                <Icon width={14}
-                      height={14}
-                      fillColor={'none'}
-                      strokeColor={'var(--icon-plus)'}
-                      name={"icon-plus"}
-                      />
-                </IconWrap>
-            
-            Add
+              <IconWrap>
+                <Icon
+                  width={14}
+                  height={14}
+                  fillColor={'none'}
+                  strokeColor={'var(--icon-plus)'}
+                  name={'icon-plus'}
+                />
+              </IconWrap>
+              Edit
             </PlusButton>
           </ButtonSend>
         </Modalform>

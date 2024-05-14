@@ -1,26 +1,23 @@
-import { useSelector } from 'react-redux';
-import { selectAuthLoading } from '../../redux/auth/auth-selectors';
-import { selectBoards } from '../../redux/boards/boards-selectors';
 
-// import {useState } from 'react';
-import Loader from '../Loader/Loader';
+import TasksColumn from './TasksColumn/TasksColumn';
+import ButtonForColumn from './ButtonForColumn/ButtonForColumn';
+import { ContainerMainBoard } from './MainDashboard.styled';
+
+
+
+// import Loader from '../Loader/Loader';
 
 const MainDashboard = () => {
+  // const isLoading = useSelector(selectAuthLoading);
+  
 
-  const isLoading = useSelector(selectAuthLoading);
-  const boards = useSelector(selectBoards);
+  return (
+    <ContainerMainBoard>
+      <TasksColumn />
+      <ButtonForColumn />
 
-    return(
-      isLoading ? (
-        <Loader />
-      ) : (
-           
-              boards.length > 1 ?
-                <p>здесь будет куча карточек и колонок</p> :
-                <p>здесь будет кнопка создания первой колонки</p>
-              
-    )
-  )
-}
+    </ContainerMainBoard>
+  );
+};
 
-export default MainDashboard
+export default MainDashboard;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ButtonClose from '../ButtonClose/ButtonClose.jsx';
+// import ButtonClose from '../ButtonClose/ButtonClose.jsx';
 import { useDispatch } from 'react-redux';
 import { setFilter } from '../../redux/filter/filter-slice.js';
 
@@ -26,11 +26,11 @@ const Filter = ({ onClose }) => {
     dispatch(setFilter(priority));
     setPriority(priority);
   };
-  console.log('Render Filter component');
+  // console.log('Render Filter component');
 
   return (
     <FilterWrapper>
-      <ButtonClose onClick={onClose} />
+      {/* <ButtonClose onClick={onClose} /> */}
       <Title>Filters</Title>
       <Line />
       <TitleWrapper>
