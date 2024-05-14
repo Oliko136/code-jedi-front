@@ -14,11 +14,11 @@ const LoaderContainer = styled.div`
 `;
 
 const LoaderElement = styled.div`
-  border: 25px solid #f3f3f3;
-  border-top: 20px solid #3498db; 
+  border: 10px solid #f3f3f3;
+  border-top: 8px solid #3498db; 
   border-radius: 50%;
-  width: 150px; /* Увеличиваем ширину */
-  height: 150px; /* Увеличиваем высоту */
+  width: 80px; 
+  height: 80px; 
   z-index: 1;
 
   animation: ${spin} 0.5s linear infinite;

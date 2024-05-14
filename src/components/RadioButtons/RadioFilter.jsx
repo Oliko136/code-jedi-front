@@ -9,8 +9,8 @@ const RadioFilter = ({ onFilterChange, priority }) => {
       label: 'Without priority',
       labelColor:
         selectedValue === 'Without'
-          ? 'var(--additional-text-color-op)'
-          : 'var(--additional-text-color-op)',
+          ? 'var(--additional-text-color)'
+          : 'var(--show-filter-txt)',
       radioColor: {
         static: 'var(--without-filter-lable)',
         onChecked: 'var( --additional-bg-color)',
@@ -19,7 +19,8 @@ const RadioFilter = ({ onFilterChange, priority }) => {
     {
       value: 'Low',
       label: 'Low',
-      labelColor: selectedValue === 'Low' ? '#8FA1D0' : '#8FA1D0',
+      labelColor:
+        selectedValue === 'Low' ? '#8FA1D0' : 'var(--show-filter-txt)',
       radioColor: {
         static: '#8FA1D0',
         onChecked: 'var( --additional-bg-color)',
@@ -28,18 +29,24 @@ const RadioFilter = ({ onFilterChange, priority }) => {
     {
       value: 'Medium',
       label: 'Medium',
-      labelColor: selectedValue === 'Medium' ? '#E09CB5' : '#E09CB5',
+      labelColor:
+        selectedValue === 'Medium'
+          ? 'var(--mediumPriorityColor)'
+          : 'var(--show-filter-txt)',
       radioColor: {
-        static: '#E09CB5',
+        static: 'var(--mediumPriorityColor)',
         onChecked: 'var( --additional-bg-color)',
       },
     },
     {
       value: 'High',
       label: 'High',
-      labelColor: selectedValue === 'High' ? '#BEDBB0' : '#BEDBB0',
+      labelColor:
+        selectedValue === 'High'
+          ? 'var(--highPriorityColor)'
+          : 'var(--show-filter-txt)',
       radioColor: {
-        static: '#BEDBB0',
+        static: 'var(--highPriorityColor)',
         onChecked: 'var( --additional-bg-color)',
       },
     },
