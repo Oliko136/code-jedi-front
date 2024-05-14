@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { deleteBoardThunk } from '../../../redux/boards/boards-operations';
 import {
   BoardItem,
   BoardItemTitleBlock,
@@ -15,23 +12,11 @@ import BoardModalEdit from '../../Modal/BoardModal/BoardModalEdit'
 import sprite from '../../../assets/svg/sprite.svg';
 import DeleteModal from 'components/Modal/DeleteModal/DeleteModal';
 
-const BoardListItem = ({ board, activeBoardId }) => {
+const BoardListItem = ({ board, activeBoardId, onDelete }) => {
   const [isDeleteModalShown, setIsDeleteModalShown] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const isActive = activeBoardId === board._id;
   const [isModalShown, setIsModalShown] = useState(false);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const handleDeleteBoard = () => {
-    const boardId = board._id;
-    dispatch(deleteBoardThunk(boardId)).then(action => {
-      if (action.type !== 'boards/deleteBoard/fulfilled') {
-        return;
-      }
-      navigate('/');
-    });
-  };
 
   return (
     <>
@@ -50,6 +35,7 @@ const BoardListItem = ({ board, activeBoardId }) => {
             {board.title}
           </BoardTitle>
         </BoardItemTitleBlock>
+
         {isActive && (
           <BoardItemButtonsBlock>
             <li>
@@ -61,6 +47,7 @@ const BoardListItem = ({ board, activeBoardId }) => {
               </BoardBtnSvg>
               </BoardBtn>
             </li>
+            
             <li>
               <BoardBtn
                 type="button"
@@ -80,7 +67,7 @@ const BoardListItem = ({ board, activeBoardId }) => {
       {isDeleteModalShown && (
         <DeleteModal
           onClose={() => setIsDeleteModalShown(false)}
-          onConfirm={handleDeleteBoard}
+          onConfirm={()=> onDelete(board._id)}
         />
       )}
          {isModalShown && (

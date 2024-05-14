@@ -63,7 +63,7 @@ export const Textarea = styled.textarea`
 export const Text = styled.p`
   font-size: 12px;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--show-filter-txt);
   display: flex;
   flex-direction: column;
   margin-bottom: 4px;

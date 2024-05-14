@@ -25,6 +25,7 @@ import { formatDate,  isSameDay } from '../../../helpers/dateFormat';
 import { deleteCardThunk } from '../../../redux/cards/cards-operations';
 import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
 import DeleteModal from '../../Modal/DeleteModal/DeleteModal';
+import CardEditModal from 'components/Modal/CardModal/CardEditModal';
   
 const TasksCard = ({ card, columnId }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -42,13 +43,21 @@ const TasksCard = ({ card, columnId }) => {
   const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || PRIORITY_LIST[0].color;
   
   const [isDeleteModalShown, setIsDeleteModalShown] = useState(false);
+  const [showCardEditModal, setShowCardEditModal] = useState(false);
   
   const dispatch = useDispatch();
   const { _id: boardId } = useSelector(selectCurrentBoard);
 
   const handleDeleteCard = () => {
     dispatch(deleteCardThunk({ boardId, columnId, cardId: card._id }));
-  } 
+  }
+
+  const toggleCardEditModal = () =>
+    setShowCardEditModal(prevShowModal => !prevShowModal);
+
+  /*const handleCardUpdate = (cardData) => {
+    setCardData(cardData);
+  };*/
 
     return (
       <Card>
@@ -92,7 +101,7 @@ const TasksCard = ({ card, columnId }) => {
                 </ButtonsIcon>
               </ParamsButtons>
   
-              <ParamsButtons>
+              <ParamsButtons type="button" onClick={toggleCardEditModal}>
                 <ButtonsIcon>
                   <use href={`${sprite}#pencil`}></use>
                 </ButtonsIcon>
@@ -103,6 +112,12 @@ const TasksCard = ({ card, columnId }) => {
                   <use href={`${sprite}#trash`}></use>
                 </ButtonsIcon>
               </ParamsButtons>
+              {showCardEditModal && (
+                <CardEditModal
+                  showModal={setShowCardEditModal}
+                  cardData={card}
+                />
+              )}
               {isDeleteModalShown && (
                 <DeleteModal
                   onClose={() => setIsDeleteModalShown(false)}

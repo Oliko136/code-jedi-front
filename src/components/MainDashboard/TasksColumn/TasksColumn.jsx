@@ -11,6 +11,7 @@ import {
 } from '../../../redux/column/column-operations.js';
 
 const TasksColumn = () => {
+
   const columns = useSelector(selectСolumns);
   const board = useSelector(selectCurrentBoard);
   const { _id } = board;
@@ -18,7 +19,9 @@ const TasksColumn = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllColumnsThunk(_id));
+    if(_id) {
+      dispatch(getAllColumnsThunk(_id));
+    }
   }, [_id, dispatch]);
 
   const TOASTER = {
