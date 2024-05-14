@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     Card,
@@ -21,18 +21,24 @@ import {
   } from './TasksCard.styled';
   import sprite from '../../../assets/svg/sprite.svg';
 import { PRIORITY_LIST } from '../../../constants/index';
-import { formatDate, formatCurrentDate } from '../../../helpers/dateFormat';
+import { formatDate,  isSameDay } from '../../../helpers/dateFormat';
 import { deleteCardThunk } from '../../../redux/cards/cards-operations';
 import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
 import DeleteModal from '../../Modal/DeleteModal/DeleteModal';
   
 const TasksCard = ({ card, columnId }) => {
-  const currentDate = new Date();
+  const [currentDate, setCurrentDate] = useState(new Date());
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentDate(new Date());
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
   
-  const formatCurrenDate = formatCurrentDate(currentDate);
-  
-  const { title, description, priority, deadline = formatCurrenDate } = card;
-console.log(priority)
+  const { title, description, priority, deadline = currentDate } = card;
+  const deadlineDate = new Date(deadline);
+
   const priorityColor = PRIORITY_LIST.find(item => item.priority === priority)?.color || PRIORITY_LIST[0].color;
   
   const [isDeleteModalShown, setIsDeleteModalShown] = useState(false);
@@ -71,10 +77,9 @@ console.log(priority)
             </DeadlineDiv>
             </Wrap>
            
-
             <SvgContainer>
 
-            {deadline === formatCurrenDate && (
+            {isSameDay(deadlineDate, currentDate) && (
             <ParamsButtons>
             <ButtonsIcon>
              <use href={`${sprite}#bell`}></use>
