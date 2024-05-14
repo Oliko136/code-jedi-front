@@ -27,7 +27,6 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
   const [errorMsgShown, setErrorMsgShown] = useState(false);
   const [errorClassName, setErrorClassName] = useState('');
 
-
   const titleRef = useRef(null);
   const dispatch = useDispatch();
 
@@ -56,10 +55,10 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
     if (variant === 'add') {
       dispatch(createBoardThunk(data)).then(action => {
         if (action.type === 'boards/createBoard/fulfilled') {
-          navigate(`${action.payload.title}`);
+          navigate(action.payload.title);
+          toast('Board was created successfully ✅', TOASTER);
         }
       });
-      toast('Board was created successfully ✅', TOASTER);
     } else {
       dispatch(updateBoardThunk({ boardId: oneBoard._id, dataUpdate: data }));
       toast('Board was edited successfully ✅', TOASTER);
