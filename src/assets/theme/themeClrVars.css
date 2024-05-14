@@ -35,6 +35,8 @@
   --cart-text:  rgba(255, 255, 255, 0.5);
   --stroke-card: rgba(255, 255, 255, 0.1);
   --btn-rad-without: rgba(255, 255, 255, 0.3);
+  --btn-column: #161616;
+  --btn-plus-card: #ffffff;
 }
 
 [data-theme='light'] {
@@ -75,6 +77,8 @@
   --cart-text:  rgba(22, 22, 22, 0.7);
   --stroke-card: rgba(22, 22, 22, 0.1);
   --btn-rad-without: rgba(22, 22, 22, 0.3);
+  --btn-column: #161616;
+  --btn-plus-card: #ffffff;
 }
 
 [data-theme='violet'] {
@@ -115,5 +119,7 @@
   --cart-text:  rgba(22, 22, 22, 0.7);
   --stroke-card: rgba(22, 22, 22, 0.1);
   --btn-rad-without: rgba(22, 22, 22, 0.3);
+  --btn-column: #ffffff;;
+  --btn-plus-card: #5255bc;
   
 }
