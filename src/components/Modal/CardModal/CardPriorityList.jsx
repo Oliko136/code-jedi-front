@@ -16,28 +16,28 @@ const CardPriorityList = ({ value, onChange }) => {
       value: 'low',
       radioColor: {
         static: '#8fa1d0',
-        onChecked: 'var(--additional-bg-color)',
+        onChecked: '#8fa1d0',
       },
     },
     {
       value: 'medium',
       radioColor: {
         static: 'var(--mediumPriorityColor)',
-        onChecked: 'var(--additional-bg-color)',
+        onChecked: 'var(--mediumPriorityColor)',
       },
     },
     {
       value: 'high',
       radioColor: {
         static: 'var(--highPriorityColor)',
-        onChecked: 'var(--additional-bg-color)',
+        onChecked: 'var(--highPriorityColor)',
       },
     },
     {
       value: 'without',
       radioColor: {
-        static: 'var(--without-filter-lable)',
-        onChecked: 'var(--additional-bg-color)',
+        static: 'var(--btn-rad-without)',
+        onChecked: 'var(--btn-rad-without)',
       },
     },
   ]; 

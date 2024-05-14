@@ -23,15 +23,12 @@ const Filter = ({ onClose }) => {
   };
 
   const handleFilterChange = priority => {
-    // console.log(priority)
     dispatch(setFilter(priority));
     setPriority(priority);
   };
-  // console.log('Render Filter component');
 
   return (
     <FilterWrapper>
-      {/* <ButtonClose onClick={onClose} /> */}
       <Title>Filters</Title>
       <Line />
       <TitleWrapper>

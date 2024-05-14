@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal/Modal';
-import { toast } from 'react-toastify';
 import {
   Modalform,
   ModalTitle,
@@ -20,17 +19,6 @@ const EditColumnModal = ({ showModal, columnId, title, onColumnUpdate }) => {
 
   const dispatch = useDispatch();
 
-  const TOASTER = {
-    style: {
-      border: '2px solid #bedbb0',
-      backgroundColor: '#1f1f1f',
-      color: '#fff',
-      textAlign: 'center',
-    },
-    position: 'top-center',
-    duration: 2000,
-  };
-
   const handleSubmit = async evt => {
     evt.preventDefault();
 
@@ -44,7 +32,7 @@ const EditColumnModal = ({ showModal, columnId, title, onColumnUpdate }) => {
       if (onColumnUpdate) {
         onColumnUpdate(newTitle);
       }
-      toast('You have successfully edited the column ✅', TOASTER);
+     
       showModal(false);
     } catch (error) {
       return error.message;

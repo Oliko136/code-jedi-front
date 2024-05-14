@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 import Modal from '../../Modal/Modal/Modal';
 import Icon from '../../Icon/Icon';
 import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
@@ -20,17 +19,6 @@ const ColumnModal = ({ showModal }) => {
   const { _id } = useSelector(selectCurrentBoard);
   const dispatch = useDispatch();
 
-  const TOASTER = {
-    style: {
-      border: '2px solid #bedbb0',
-      backgroundColor: '#1f1f1f',
-      color: '#fff',
-      textAlign: 'center',
-    },
-    position: 'top-center',
-    duration: 2000,
-  };
-
   const handleSubmit = async evt => {
     evt.preventDefault();
 
@@ -40,7 +28,7 @@ const ColumnModal = ({ showModal }) => {
 
     try {
       dispatch(addColumnThunk({ boardId: _id, body: newColumn }));
-      toast('You have successfully created a column ✅', TOASTER);
+      
       showModal(false);
     } catch (error) {
       return error.message;

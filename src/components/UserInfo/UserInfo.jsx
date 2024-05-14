@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { updateUserAvatar, updateUserInfo } from '../../redux/auth/auth-operations';
 import  registerSchema  from '../../schemas/registerSchema';
-// нужен Loader на кнопку?
-// import SmallLoader from 'components/Loader/SmallLoader';
 import {
   SubmitBtnInfo,
   FormUserInfo,
@@ -31,11 +29,9 @@ const {name, email,password, avatar} = user
   const [visible, setVisible] = useState(false);
   const [preview, setPreview] = useState(null);
   const dispatch = useDispatch();
-  // const { isLoading } = useAuth();
 
   function changeImg(event) {
     const avatarNew = event.target.files[0]
-    // console.log(event)
     const file = new FileReader();
     file.onload = function () {
       setPreview(file.result);
@@ -61,7 +57,6 @@ setValue("avatar", [avatarNew])
            }
            
         dispatch(updateUserInfo({ ...formData }))
-        // await new Promise(res => setTimeout(res, 500));
   }
 
   const {register, handleSubmit, setValue, formState:{errors, isValid}  } = useForm({
@@ -165,7 +160,7 @@ setValue("avatar", [avatarNew])
     </Modal>
   
             
-      
+    
       
     
     

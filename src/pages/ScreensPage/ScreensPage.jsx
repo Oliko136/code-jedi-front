@@ -29,7 +29,6 @@ const ScreensPage = () => {
       }
       
     } catch (error) {
-      console.log(error.message);
     }
   }, [dispatch, boardName, boards]);
 

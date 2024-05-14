@@ -1,11 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { registerThunk } from '../../redux/auth/auth-operations';
-// хук на useSelector
-// import { useAuth } from 'hooks';
 import  registerSchema  from '../../schemas/registerSchema';
-// нужен Loader на кнопку?
-// import SmallLoader from 'components/Loader/SmallLoader';
 import {
   Background,
   FormWrap,
@@ -26,7 +22,6 @@ const RegisterForm = () => {
   
   const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
-  // const { isLoading } = useAuth();
 
   const submit = async (evt) => {
     
@@ -43,7 +38,6 @@ const RegisterForm = () => {
            }
            
         dispatch(registerThunk({ ...formData }))
-        // await new Promise(res => setTimeout(res, 500));
     reset();
   }
 
