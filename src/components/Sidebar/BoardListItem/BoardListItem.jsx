@@ -11,6 +11,7 @@ import {
   BoardBtn,
   BoardBtnSvg,
 } from './BoardListItem.styled';
+import BoardModalEdit from '../../Modal/BoardModal/BoardModalEdit'
 import sprite from '../../../assets/svg/sprite.svg';
 import DeleteModal from 'components/Modal/DeleteModal/DeleteModal';
 
@@ -18,7 +19,7 @@ const BoardListItem = ({ board, activeBoardId }) => {
   const [isDeleteModalShown, setIsDeleteModalShown] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const isActive = activeBoardId === board._id;
-
+  const [isModalShown, setIsModalShown] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -34,7 +35,6 @@ const BoardListItem = ({ board, activeBoardId }) => {
 
   return (
     <>
-      {/* ------------Посилання на сторінку дошки з назвою та іконкою */}
       <BoardItem
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -50,22 +50,17 @@ const BoardListItem = ({ board, activeBoardId }) => {
             {board.title}
           </BoardTitle>
         </BoardItemTitleBlock>
-
-        {/*----------------- Блок з кнопками для редагування та видалення дошки */}
         {isActive && (
           <BoardItemButtonsBlock>
-            {/* --------------------- Кнопка для редагування дошки */}
             <li>
-              {/* <BoardBtn type="button" onClick={toggleModal}> */}
+            <BoardBtn onClick={() => setIsModalShown(true)} type="button">
               <BoardBtnSvg isHovered={isHovered || isActive}>
                 <svg>
                   <use href={`${sprite}#pencil`}></use>
                 </svg>
               </BoardBtnSvg>
-              {/* </BoardBtn> */}
+              </BoardBtn>
             </li>
-
-            {/* ----------------------- Кнопка для видалення дошки */}
             <li>
               <BoardBtn
                 type="button"
@@ -82,13 +77,19 @@ const BoardListItem = ({ board, activeBoardId }) => {
         )}
       </BoardItem>
 
-      {/* ----------------Модальне вікно для редагування дошки */}
-      {/* {showModal && (
-      )} */}
       {isDeleteModalShown && (
         <DeleteModal
           onClose={() => setIsDeleteModalShown(false)}
           onConfirm={handleDeleteBoard}
+        />
+      )}
+         {isModalShown && (
+        <BoardModalEdit
+          variant="add"
+          closeModal={() => setIsModalShown(false)}
+          //  menu={menu}
+        
+          currentBoard={board}
         />
       )}
     </>

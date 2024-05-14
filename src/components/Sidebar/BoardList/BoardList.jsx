@@ -20,11 +20,12 @@ const BoardList = () => {
     dispatch(getAllBoardsThunk());
   }, [dispatch]);
 
-  useEffect(() => {
+
     if (!activeBoardId && boards.length > 0) {
+      dispatch(getBoardByIdThunk(boards[0]._id));
       setActiveBoardId(boards[0]._id);
     }
-  }, [activeBoardId, boards]);
+
 
   const handleClick = boardId => {
     dispatch(getBoardByIdThunk(boardId));

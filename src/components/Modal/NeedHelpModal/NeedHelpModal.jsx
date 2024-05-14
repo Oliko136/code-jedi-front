@@ -10,8 +10,6 @@ import {
   Commenttextarea,
   ButtonSend,
 } from './NeedHelpModal.styled';
-// import css from './NeedHelpModal.module.css';
-
 const NeedHelpModal = ({ showModal }) => {
   const [email, setEmail] = useState('');
   const [text, setText] = useState('');

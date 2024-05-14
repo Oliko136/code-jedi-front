@@ -4,7 +4,7 @@ import { Container, Title, ConfirmButton } from './DeleteModal.styled';
 const DeleteModal = ({ onClose, onConfirm }) => {
   const handleConfirm = () => {
     onConfirm();
-    onClose(); // закрытие модального окна после подтверждения удаления
+    onClose(); 
   };
   return (
     <Modal width={335} height={200} onClose={onClose}>
