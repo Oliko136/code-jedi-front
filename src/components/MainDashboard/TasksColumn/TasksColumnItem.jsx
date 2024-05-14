@@ -11,7 +11,7 @@ import {
   SvgDiv,
   ButtonForCard,
   IconDoCard,
-  Column,
+  Column, Plus, TextBtn,
 } from './TasksColumn.styled.jsx';
 
 const TasksColumnItem = ({ column, onDeleteColumn }) => {
@@ -53,9 +53,9 @@ const TasksColumnItem = ({ column, onDeleteColumn }) => {
 
         <ButtonForCard onClick={toggleAddCardModal}>
           <IconDoCard>
-            <use href={`${sprite}#plus`}></use>
+            <Plus href={`${sprite}#plus`}></Plus>
           </IconDoCard>
-          Add another card
+          <TextBtn>Add another card</TextBtn>
         </ButtonForCard>
       </Column>
 

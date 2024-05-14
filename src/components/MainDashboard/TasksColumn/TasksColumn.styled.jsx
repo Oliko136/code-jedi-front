@@ -53,7 +53,7 @@ export const ButtonForCard = styled.button`
   display: flex;
   width: 100%;
   padding: 14px 79px;
-  background-color: var(--highPriorityColor);
+  background-color: var(--additional-icon-color);
   color: black;
   border-radius: 8px;
   align-items: center;
@@ -66,10 +66,18 @@ export const ButtonForCard = styled.button`
 `;
 
 export const IconDoCard = styled.svg`
-  background-color: black;
+  background-color: var(--btn-column);
   border-radius: 8px;
   width: 28px;
   height: 28px;
   stroke: white;
   padding: 5px 7px 8px 6px;
+`;
+
+export const Plus = styled.use`
+  stroke: var(--btn-plus-card);
+`;
+
+export const TextBtn = styled.use`
+  color: var(--btn-text-color);
 `;
