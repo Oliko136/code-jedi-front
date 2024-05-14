@@ -1,10 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import {
-  // deleteColumnThunk,
-  getColumnByIdThunk,
-} from '../../../redux/column/column-operations.js';
+import { useState } from 'react';
 import sprite from '../../../assets/svg/sprite.svg';
+import CardAddModal from 'components/Modal/CardModal/CardAddModal.jsx';
+import EditColumnModal from 'components/Modal/ColumnModal/EditColumnModal.jsx';
+import DeleteModal from '../../Modal/DeleteModal/DeleteModal.jsx';
+import TasksCardList from '../TasksCard/TasksCardList.jsx';
 import {
   TitleColumnDiv,
   Button,
@@ -15,23 +14,11 @@ import {
   Column,
 } from './TasksColumn.styled.jsx';
 
-import CardAddModal from 'components/Modal/CardModal/CardAddModal.jsx';
-import EditColumnModal from 'components/Modal/ColumnModal/EditColumnModal.jsx';
-import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
-import TasksCardList from '../TasksCard/TasksCardList.jsx';
-
-const TasksColumnItem = ({ column }) => {
+const TasksColumnItem = ({ column, onDeleteColumn }) => {
+  const [columnTitle, setColumnTitle] = useState(column.title);
   const [showAddCardModal, setShowAddCardModal] = useState(false);
   const [showEditColumnModal, setShowEditColumnModal] = useState(false);
-  const [columnTitle, setColumnTitle] = useState(column.title);
-  const { _id: boardId } = useSelector(selectCurrentBoard);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getColumnByIdThunk({ boardId: boardId, id: column._id }));
-    setColumnTitle(column.title);
-  }, [dispatch, column._id, column.title, boardId]);
+  const [showDeleteModal, setshowDeleteModal] = useState(false);
 
   const toggleAddCardModal = () =>
     setShowAddCardModal(prevShowModal => !prevShowModal);
@@ -40,10 +27,6 @@ const TasksColumnItem = ({ column }) => {
 
   const handleColumnUpdate = newTitle => {
     setColumnTitle(newTitle);
-  };
-
-  const onDeleteColumn = () => {
-    // dispatch(deleteColumnThunk(_id));
   };
 
   return (
@@ -58,8 +41,8 @@ const TasksColumnItem = ({ column }) => {
               </Icons>
             </Button>
 
-            <Button>
-              <Icons onClick={onDeleteColumn}>
+            <Button onClick={() => setshowDeleteModal(true)}>
+              <Icons>
                 <use href={`${sprite}#trash`}></use>
               </Icons>
             </Button>
@@ -75,14 +58,22 @@ const TasksColumnItem = ({ column }) => {
           Add another card
         </ButtonForCard>
       </Column>
-      
-      {showAddCardModal && <CardAddModal columnId={column._id} showModal={setShowAddCardModal} />}
+
+      {showAddCardModal && (
+        <CardAddModal columnId={column._id} showModal={setShowAddCardModal} />
+      )}
       {showEditColumnModal && (
         <EditColumnModal
           showModal={setShowEditColumnModal}
           columnId={column._id}
           title={columnTitle}
           onColumnUpdate={handleColumnUpdate}
+        />
+      )}
+      {showDeleteModal && (
+        <DeleteModal
+          onClose={() => setshowDeleteModal(false)}
+          onConfirm={() => onDeleteColumn(column._id)}
         />
       )}
     </>
