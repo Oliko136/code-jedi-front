@@ -5,7 +5,7 @@ export const SidebarWrapper = styled.aside`
   // position: absolute;
   position: ${({ showSidebar }) => (showSidebar ? 'absolute' : 'static')};
   display: ${({ showSidebar }) => (showSidebar ? 'flex' : 'none')};
-  
+
   // visibility: ${({ showSidebar }) => (showSidebar ? 'visible' : 'hidden')};
   top: 0;
   left: 0;
@@ -17,8 +17,8 @@ export const SidebarWrapper = styled.aside`
   background: var(--accent-bg-color);
   transform: translateX(0px);
   transition: all var(--transition);
- 
-  z-index: ${({ showSidebar}) => (showSidebar ? 200 : 'auto')};
+
+  z-index: ${({ showSidebar }) => (showSidebar ? 200 : 'auto')};
   // z-index: 200;
 
   &.showSidebar {

@@ -12,13 +12,19 @@ import BoardListItem from '../BoardListItem/BoardListItem';
 import { selectBoards } from '../../../redux/boards/boards-selectors.js';
 
 const BoardList = () => {
-  const [activeBoardId, setActiveBoardId] = useState(0);
+  const [activeBoardId, setActiveBoardId] = useState(null);
   const boards = useSelector(selectBoards);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllBoardsThunk());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (!activeBoardId && boards.length > 0) {
+      setActiveBoardId(boards[0]._id);
+    }
+  }, [activeBoardId, boards]);
 
   const handleClick = boardId => {
     dispatch(getBoardByIdThunk(boardId));

@@ -17,7 +17,7 @@ import {
     ParamsButtons,
     ButtonsIcon,
     TextCard,
-    Line, Wrap
+    Line, Wrap,ButtonsIconBell
   } from './TasksCard.styled';
   import sprite from '../../../assets/svg/sprite.svg';
 import { PRIORITY_LIST } from '../../../constants/index';
@@ -81,9 +81,9 @@ const TasksCard = ({ card, columnId }) => {
 
             {isSameDay(deadlineDate, currentDate) && (
             <ParamsButtons>
-            <ButtonsIcon>
+            <ButtonsIconBell>
              <use href={`${sprite}#bell`}></use>
-            </ButtonsIcon>
+            </ButtonsIconBell>
             </ParamsButtons>)}
 
               <ParamsButtons>
