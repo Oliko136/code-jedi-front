@@ -23,6 +23,7 @@ const Filter = ({ onClose }) => {
   };
 
   const handleFilterChange = priority => {
+    // console.log(priority)
     dispatch(setFilter(priority));
     setPriority(priority);
   };

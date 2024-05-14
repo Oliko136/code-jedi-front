@@ -6,9 +6,15 @@ export const Card = styled.div`
   border-radius: 8px;
   margin-bottom: 8px;
   background: var(--btn-add-column);
+  // padding: 14px 14px 14px 0px;
 
   @media screen and (min-width: 375px) {
     width: 335px;
+    height: 154px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 334px;
     height: 154px;
   }
 `;
@@ -26,6 +32,8 @@ export const CardsColor = styled.div`
   min-height: 100%;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
+  // margin-right: 24px;
+
 `;
 
 export const CardDiv = styled.div`
@@ -33,7 +41,8 @@ export const CardDiv = styled.div`
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   max-width: 334px;
-  padding: 14px 24px;
+  padding: 14px 14px 14px 24px;
+ 
 
   // h3 {
   //   font-size: 14px;
@@ -70,16 +79,18 @@ export const Line = styled.hr`
 export const CardsParams = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 `;
 
 export const Wrap = styled.div`
 display: flex;
 justify-content: flex-start;
 width: 100%;
+margin-right: 5px;
 `;
 
 export const PriorityDiv = styled.div`
-  margin-right: 16px;
+  margin-right: 14px;
 
   div {
     display: flex;
@@ -92,6 +103,7 @@ export const PriorityTitle = styled.p`
   font-weight: 400;
   color: var(--cart-text);
   letter-spacing: -0.02em;
+  margin-bottom: 4px;
 `;
 
 export const ColorCard = styled.div`
@@ -119,6 +131,7 @@ export const DeadlineTitle = styled.p`
   font-size: 8px;
   font-weight: 400;
   color: var(--cart-text);
+  margin-bottom: 4px;
 `;
 
 export const DeadlineDate = styled.p`
@@ -137,6 +150,18 @@ export const ParamsButtons = styled.button``;
 
 export const ButtonsIcon = styled.svg`
   stroke: var(--cart-text);
+  opacity: 50%;
+  width: 16px;
+  height: 16px;
+  transition: 350ms ease-in-out;
+
+  &:hover {
+    opacity: 100%;
+  }
+  `;
+
+  export const ButtonsIconBell = styled.svg`
+  stroke: var(--additional-icon-color);
   opacity: 50%;
   width: 16px;
   height: 16px;
