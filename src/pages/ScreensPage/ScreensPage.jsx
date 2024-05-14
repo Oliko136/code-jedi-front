@@ -24,8 +24,10 @@ const ScreensPage = () => {
         const board = boards.find(board => board.title === boardName);
         const boardId = board._id;
         dispatch(getBoardByIdThunk(boardId));
+      } else {
+        dispatch(getBoardByIdThunk(boards[0]._id));
       }
-      dispatch(getBoardByIdThunk(boards[0]._id));
+      
     } catch (error) {
       console.log(error.message);
     }

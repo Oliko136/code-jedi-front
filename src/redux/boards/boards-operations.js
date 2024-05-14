@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as boardAPI from '../../api/board-api';
+import {resetCards} from '../cards/cards-slice'
 
 export const getAllBoardsThunk = createAsyncThunk(
   'boards/getAllBoards',
@@ -27,8 +28,9 @@ export const createBoardThunk = createAsyncThunk(
 
 export const getBoardByIdThunk = createAsyncThunk(
   'boards/getOneBoard',
-  async (boardId, { rejectWithValue }) => {
+  async (boardId, { rejectWithValue, dispatch }) => {
     try {
+      dispatch(resetCards)
       const data = await boardAPI.getBoardById(boardId);
       return data;
     } catch (error) {

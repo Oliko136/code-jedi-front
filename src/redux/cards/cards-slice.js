@@ -13,11 +13,26 @@ const initialState = {
 const cardSlice = createSlice({
     name: "cards",
     initialState,
+    reducers: {
+        resetCards: (state) => {
+            state.cards = []
+        }
+    },
     extraReducers: builder => {
         builder
             .addCase(getAllCardsThunk.pending, pending)
             .addCase(getAllCardsThunk.fulfilled, (state, { payload }) => {
-                state.cards = payload;
+                const uniqueById = [...state.cards, ...payload].filter((function() {
+                    const seenIds = new Set();
+                    return function(item) {
+                        if (!seenIds.has(item._id)) {
+                            seenIds.add(item._id);
+                            return true;
+                        }
+                        return false;
+                    };
+                })())
+                state.cards = uniqueById;
                 state.isLoading = false;
                 state.error = null;
             })
@@ -63,3 +78,4 @@ const cardSlice = createSlice({
 });
 
 export const cardReducer = cardSlice.reducer;
+export const {resetCards} = cardSlice.actions;
