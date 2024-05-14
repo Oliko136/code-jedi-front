@@ -45,11 +45,13 @@ const CardEditModal = ({ showModal, cardData }) => {
       id: cardData._id,
       title: title.trim(),
       description: description.trim(),
-      cardPriority,
+      priority: cardPriority,
       deadline,
     };
 
-    dispatch(updateCardThunk(data));
+    console.log(data);
+
+    dispatch(updateCardThunk({data}));
   };
 
   return (
