@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Icon from '../../Icon/Icon';
-// import xCloseImg from './x-close.svg';
 import { Opacity, Modalcont, ModalClose } from './Modal.styled';
 
 const Modal = ({ children, width, height, onClose, developers = false }) => {

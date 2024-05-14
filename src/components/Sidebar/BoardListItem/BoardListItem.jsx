@@ -8,6 +8,7 @@ import {
   BoardBtn,
   BoardBtnSvg,
 } from './BoardListItem.styled';
+import BoardModalEdit from '../../Modal/BoardModal/BoardModalEdit'
 import sprite from '../../../assets/svg/sprite.svg';
 import DeleteModal from 'components/Modal/DeleteModal/DeleteModal';
 
@@ -15,6 +16,7 @@ const BoardListItem = ({ board, activeBoardId, onDelete }) => {
   const [isDeleteModalShown, setIsDeleteModalShown] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const isActive = activeBoardId === board._id;
+  const [isModalShown, setIsModalShown] = useState(false);
 
   return (
     <>
@@ -37,15 +39,15 @@ const BoardListItem = ({ board, activeBoardId, onDelete }) => {
         {isActive && (
           <BoardItemButtonsBlock>
             <li>
-              {/* <BoardBtn type="button" onClick={toggleModal}> */}
+            <BoardBtn onClick={() => setIsModalShown(true)} type="button">
               <BoardBtnSvg isHovered={isHovered || isActive}>
                 <svg>
                   <use href={`${sprite}#pencil`}></use>
                 </svg>
               </BoardBtnSvg>
-              {/* </BoardBtn> */}
+              </BoardBtn>
             </li>
-
+            
             <li>
               <BoardBtn
                 type="button"
@@ -66,6 +68,15 @@ const BoardListItem = ({ board, activeBoardId, onDelete }) => {
         <DeleteModal
           onClose={() => setIsDeleteModalShown(false)}
           onConfirm={()=> onDelete(board._id)}
+        />
+      )}
+         {isModalShown && (
+        <BoardModalEdit
+          variant="add"
+          closeModal={() => setIsModalShown(false)}
+          //  menu={menu}
+        
+          currentBoard={board}
         />
       )}
     </>

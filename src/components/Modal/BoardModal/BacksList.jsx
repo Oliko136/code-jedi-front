@@ -1,8 +1,5 @@
 import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-// import { useEffect } from 'react';
-// import { getBackgroundIcons } from '../../../redux/boards/boards-operations';
 import Loader from '../../Loader/Loader';
 import { selectIsLoading } from '../../../redux/boards/boards-selectors';
 import {
@@ -16,20 +13,12 @@ import { backgroundMap } from './backgroundMap';
 export const BacksList = ({ backgroundId }) => {
   const [selectedBackId, setSelectedBackId] = useState(backgroundId);
   const isLoading = useSelector(selectIsLoading);
-  // const backgroundIcons = useSelector(selectBackgroundIcons);
+
   var temp = selectedBackId;
   const temp1 = temp;
   temp = temp1;
 
   const backicons = backgroundMap();
-  // console.log(icons);
-
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getBackgroundIcons());
-  // }, [dispatch]);
-
   const handleBackChange = id => {
     setSelectedBackId(id);
   };
@@ -48,7 +37,7 @@ export const BacksList = ({ backgroundId }) => {
                 type="radio"
                 name="background"
                 value={item.name}
-                // defaultChecked={selectedBackId}
+         
                 onChange={() => handleBackChange(item.name)}
               />
               <BackImage
