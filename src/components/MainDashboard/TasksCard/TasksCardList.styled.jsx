@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
-  max-height: 70vh;
-  overflow-x: none;
+  max-height: 65vh;
+  overflow-x: visible;
   overflow-y: auto;
 `;
