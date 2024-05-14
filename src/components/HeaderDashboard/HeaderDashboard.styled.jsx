@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ContainerHeaderBoard = styled.div`
-display: flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   padding-bottom: 10px;
