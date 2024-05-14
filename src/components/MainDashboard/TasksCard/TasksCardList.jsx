@@ -4,6 +4,7 @@ import { selectCards } from "../../../redux/cards/cards-selectors.js";
 import { selectCurrentBoard } from "../../../redux/boards/boards-selectors.js";
 import { getAllCardsThunk } from "../../../redux/cards/cards-operations.js";
 import TasksCard from "./TasksCard";
+import { CardContainer } from "./TasksCardList.styled.jsx";
 
 const TasksCardList = ({columnId}) => {
     const cards = useSelector(selectCards);
@@ -19,12 +20,12 @@ const TasksCardList = ({columnId}) => {
     }, [dispatch, boardId, columnId]);
 
   return (
-    <>
+    <CardContainer>
       {cards.length > 0 &&
         cards.map(card => (
           <TasksCard key={card._id} card={card} columnId={columnId} />
         ))}
-    </>
+    </CardContainer>
   );
 };
 
