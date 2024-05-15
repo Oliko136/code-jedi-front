@@ -39,13 +39,11 @@ const NeedHelpModal = ({ showModal }) => {
       return;
     }
 
-    try {
+  
       dispatch(needhelpThunk({ email: email, comment: comment }));
       toast('Your message was sent successfully ✅', TOASTER);
       showModal(false);
-    } catch (error) { 
-      // toast('Failed to send email', TOASTER);
-    }
+
   };
 
   const handleEmailChange = evt => {
