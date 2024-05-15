@@ -6,7 +6,6 @@ export const Card = styled.div`
   border-radius: 8px;
   margin-bottom: 8px;
   background: var(--btn-add-column);
-  // padding: 14px 14px 14px 0px;
 
   @media screen and (min-width: 375px) {
     width: 335px;
@@ -34,25 +33,16 @@ export const CardsColor = styled.div`
   min-height: 100%;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
-  // margin-right: 24px;
 
 `;
 
 export const CardDiv = styled.div`
-  // background-color: #121212;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   max-width: 334px;
   padding: 14px 20px 14px 24px;
     width:100%;
-
- 
-
-  // h3 {
-  //   font-size: 14px;
-  //   font-weight: 600;
-  //   margin-bottom: 14px;
-  // }
+  
 `;
 
 export const CardsText = styled.div`

@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/auth-operations';
-// import { useAuth } from 'hooks';
 import  loginSchema  from '../../schemas/loginSchema';
-// import SmallLoader from 'components/Loader/SmallLoader';
 import {
   Background,
   AuthList,
@@ -25,7 +23,6 @@ const LoginForm = () => {
   const [visible, setVisible] = useState(false);
  
   const dispatch = useDispatch();
-//   const { isLoading } = useAuth();
 
   const submit = async (evt) => {
     
@@ -41,7 +38,6 @@ const LoginForm = () => {
            }
            
         dispatch(logIn({ ...formData }))
-        // await new Promise(res => setTimeout(res, 500));
     reset();
   }
 

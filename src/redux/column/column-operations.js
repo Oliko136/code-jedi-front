@@ -1,5 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as columnApi from '../../api/column-api';
+import { toast } from 'react-toastify';
+
+const TOASTER = {
+  style: {
+    border: '2px solid #bedbb0',
+    backgroundColor: '#1f1f1f',
+    color: '#fff',
+    textAlign: 'center',
+  },
+  position: 'top-center',
+  duration: 2000,
+};
 
 export const getAllColumnsThunk = createAsyncThunk(
   'columns/getAllColumns',
@@ -18,6 +30,7 @@ export const addColumnThunk = createAsyncThunk(
   async ({ boardId, body }, thunkAPI) => {
     try {
       const data = await columnApi.addColumn(boardId, body);
+      toast('You have successfully created a column ✅', TOASTER);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -42,7 +55,7 @@ export const updateColumnThunk = createAsyncThunk(
   async ({ boardId, id, body }, thunkAPI) => {
     try {
       const data = await columnApi.updateColumn(boardId, id, body);
-
+      toast('You have successfully edited the column ✅', TOASTER);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -55,6 +68,7 @@ export const deleteColumnThunk = createAsyncThunk(
   async ({ boardId, id }, thunkAPI) => {
     try {
       const data = await columnApi.deleteColumn(boardId, id);
+      toast('You have successfully deleted the column ✅', TOASTER);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

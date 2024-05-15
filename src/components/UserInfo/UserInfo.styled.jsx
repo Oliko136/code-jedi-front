@@ -23,7 +23,7 @@ export const Input = styled.input`
   transition: opacity 0.3s ease; 
  font-weight: 400;
  font-size: 14px;
-letter-spacing: -0.02em;
+ letter-spacing: -0.02em;
 
   &:focus {
     border-color: var(--additional-btn-bg-color);

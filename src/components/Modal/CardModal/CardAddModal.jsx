@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { toast } from 'react-toastify';
 import Modal from '../Modal/Modal';
 import Icon from 'components/Icon/Icon';
 import CardPriorityList from './CardPriorityList';
@@ -17,7 +16,6 @@ import {
   TitleInput,
 } from './CardModal.styled';
 import { selectCurrentBoard } from '../../../redux/boards/boards-selectors';
-//import { selectCurrentСolumn } from '../../../redux/column/column-selectors';
 
 const CardAddModal = ({ columnId, showModal }) => {
   const [title, setTitle] = useState('');

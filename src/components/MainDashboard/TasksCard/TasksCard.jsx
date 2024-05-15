@@ -49,10 +49,6 @@ const TasksCard = ({ card, columnId, onDelete }) => {
   const toggleCardEditModal = () =>
     setShowCardEditModal(prevShowModal => !prevShowModal);
 
-  /*const handleCardUpdate = (cardData) => {
-    setCardData(cardData);
-  };*/
-
     return (
       <Card>
         <CardsColor style={{ backgroundColor: priorityColor }}></CardsColor>

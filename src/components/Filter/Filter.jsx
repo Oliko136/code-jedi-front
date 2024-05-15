@@ -29,7 +29,6 @@ const Filter = ({ onClose }) => {
 
   return (
     <FilterWrapper>
-      {/* <ButtonClose onClick={onClose} /> */}
       <Title>Filters</Title>
       <Line />
       <TitleWrapper>
