@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ButtonSend = styled.button`
   border-radius: 8px;
-  width: 335px;
+  min-width: 335px;
   height: 56px;
   background-color: var(--btn-add-column);
   color: var(--icon-color);
@@ -15,8 +15,8 @@ export const ButtonSend = styled.button`
     opacity: 0.7;
   }
   @media (max-width: 768px) {
-    min-width: 335px; 
-    width: 100%; 
+    min-width: 335px;
+    width: 100%;
   }
 `;
 
@@ -29,7 +29,6 @@ export const IconWrap = styled.div`
   align-items: center;
   justify-content: center;
   // border: 1px solid red;
-  
 `;
 
 export const PlusButton = styled.div`
@@ -38,7 +37,7 @@ export const PlusButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap:8px;
+  gap: 8px;
 `;
 
 // export const AddColumnButton = styled.button`
