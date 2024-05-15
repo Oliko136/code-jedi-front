@@ -52,6 +52,9 @@ const CardEditModal = ({ showModal, cardData, columnId }) => {
     };
 
     dispatch(updateCardThunk({ boardId: board._id, columnId, cardId: cardData._id, body: data }));
+
+    showModal(false)
+    return;
   };
 
   return (
