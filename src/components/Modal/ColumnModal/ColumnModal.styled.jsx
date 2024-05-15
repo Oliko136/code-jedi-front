@@ -60,6 +60,7 @@ export const ButtonSend = styled.button`
 `;
 
 export const PlusButton = styled.div`
+
   width: 64px;
   height: 28px;
   display: flex;
@@ -77,4 +78,10 @@ export const IconWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+ 
+`;
+ export const Text = styled.div`
+font-weight:500;
+font-size:14px;
 `;
