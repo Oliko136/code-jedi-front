@@ -106,6 +106,7 @@ const TasksCard = ({ card, columnId, onDelete }) => {
                 <CardEditModal
                   showModal={setShowCardEditModal}
                   cardData={card}
+                  columnId={columnId}
                 />
               )}
               {isDeleteModalShown && (

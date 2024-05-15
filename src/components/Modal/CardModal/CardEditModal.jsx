@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-// import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../Modal/Modal';
 import Icon from 'components/Icon/Icon';
 import CardPriorityList from './CardPriorityList';
@@ -16,12 +15,15 @@ import {
   Textarea,
   TitleInput,
 } from './CardModal.styled';
+import { selectCurrentBoard } from '../../../redux/boards/boards-selectors';
 
-const CardEditModal = ({ showModal, cardData }) => {
+const CardEditModal = ({ showModal, cardData, columnId }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [cardPriority, setCardPriority] = useState('without');
   const [deadline, setDeadline] = useState(new Date());
+
+  const board = useSelector(selectCurrentBoard);
 
   const dispatch = useDispatch();
 
@@ -42,16 +44,14 @@ const CardEditModal = ({ showModal, cardData }) => {
     e.preventDefault();
 
     const data = {
-      id: cardData._id,
+      //id: cardData._id,
       title: title.trim(),
       description: description.trim(),
       priority: cardPriority,
       deadline,
     };
 
-    console.log(data);
-
-    dispatch(updateCardThunk({data}));
+    dispatch(updateCardThunk({ boardId: board._id, columnId, cardId: cardData._id, body: data }));
   };
 
   return (
