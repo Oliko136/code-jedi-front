@@ -7,6 +7,7 @@ import { selectСolumns } from '../../../redux/column/column-selectors.js';
 import {
   deleteColumnThunk,
   getAllColumnsThunk,
+  getColumnByIdThunk
 } from '../../../redux/column/column-operations.js';
 
 const TasksColumn = () => {
@@ -26,9 +27,10 @@ const TasksColumn = () => {
 
   const handleDeleteColumn = async colunmId => {
     try {
-      dispatch(deleteColumnThunk({ boardId: _id, id: colunmId }));
      
-      dispatch(getAllColumnsThunk(_id));
+        dispatch(getColumnByIdThunk({ boardId: _id, id: colunmId,  }))
+          .then(({ payload }) => {  dispatch(deleteColumnThunk({ boardId: _id, id: payload._id }))});
+     
     } catch (error) {
       return error.message;
     }
