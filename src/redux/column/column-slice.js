@@ -66,7 +66,7 @@ const columnSlice = createSlice({
       .addCase(columnOperations.deleteColumnThunk.pending, pending)
       .addCase(columnOperations.deleteColumnThunk.fulfilled, state => {
         state.columns = state.columns.filter(
-          ({ _id }) => _id !== state.columns._id
+          ({ _id }) => _id !== state.currentColumn._id
         );
 
         state.isLoading = false;
