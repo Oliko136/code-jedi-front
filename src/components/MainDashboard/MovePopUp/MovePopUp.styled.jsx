@@ -9,7 +9,7 @@ export const Popup = styled.div`
   gap: 8px;
   padding: 18px;
   width: 135px;
-  bottom: 20px;ß
+  bottom: 20px;
   border-radius: 8px;
   z-index: 10;
   box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
