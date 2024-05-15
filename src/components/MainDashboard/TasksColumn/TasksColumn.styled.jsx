@@ -13,7 +13,7 @@ export const TitleColumnDiv = styled.div`
   display: flex;
   align-items: center;
   padding: 16px;
-  background-color: black;
+  background-color: var(--btn-add-column);
   border-radius: 8px;
   align-items: center;
   width: 334px;
@@ -23,7 +23,7 @@ export const TitleColumnDiv = styled.div`
   h3 {
     font-size: 16px;
     font-weight: 500;
-    color: white;
+    color: var(--additional-text-color);
     width: 260px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -38,7 +38,7 @@ export const SvgDiv = styled.div`
 export const Button = styled.button``;
 
 export const Icons = styled.svg`
-  stroke: rgba(255, 255, 255, 0.5);
+  stroke: var(--show-filter-txt);
   width: 16px;
   height: 16px;
   opacity: 50%;

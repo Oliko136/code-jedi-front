@@ -14,6 +14,10 @@ export const ButtonSend = styled.button`
   &:hover {
     opacity: 0.7;
   }
+  @media (max-width: 768px) {
+    min-width: 335px; 
+    width: 100%; 
+  }
 `;
 
 export const IconWrap = styled.div`
