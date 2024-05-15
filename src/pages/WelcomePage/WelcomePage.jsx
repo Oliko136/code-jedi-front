@@ -43,15 +43,7 @@ const WelcomePage = () => {
         <h1>Task Pro</h1>
       </WelcomeLogo>
 
-      <p
-        style={{
-          fontWeight: `400`,
-          fontSize: `14px`,
-          lineHeight: `1.29`,
-          letterSpacing: `-0.02em`,
-          textAlign: `center`,
-        }}
-      >
+      <p>
         Supercharge your productivity and take control of your tasks with Task
         <br />
         Pro - Don't wait, start achieving your goals now!
