@@ -34,10 +34,15 @@ export const IconWrap = styled.div`
 export const PlusButton = styled.div`
   // width: 64px;
   // height: 28px;
+  font-weight:500;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+`;
+export const Text = styled.div`
+font-weight:500;
+font-size:14px;
 `;
 
 // export const AddColumnButton = styled.button`

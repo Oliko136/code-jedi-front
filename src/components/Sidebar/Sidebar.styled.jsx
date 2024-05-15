@@ -85,7 +85,7 @@ export const BoardBlock = styled.div`
     font-weight: 400;
     font-size: 12px;
     letter-spacing: -0.02em;
-    color: var(--additional-text-color-op);
+    color: var(--show-filter-txt);
     margin-bottom: 8px;
   }
   @media screen and (min-width: 768px) {

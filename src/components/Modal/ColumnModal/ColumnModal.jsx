@@ -13,6 +13,7 @@ import {
   ButtonSend,
   PlusButton,
   IconWrap,
+  Text,
 } from './ColumnModal.styled';
 
 const ColumnModal = ({ showModal }) => {
@@ -70,7 +71,7 @@ const ColumnModal = ({ showModal }) => {
                   name={'icon-plus'}
                 />
               </IconWrap>
-              Add
+            <Text>Add</Text>
             </PlusButton>
           </ButtonSend>
         </Modalform>

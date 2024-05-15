@@ -8,7 +8,7 @@ export const Form = styled.form`
 export const Title = styled.h4`
   color: var(--additional-text-color);
   font-size: 18px;
-  font-weight: normal;
+  font-weight: 500;
   line-height: 1.5;
   margin-bottom: 24px;
 `;
@@ -50,9 +50,11 @@ export const Input = styled.input`
 
 export const Text = styled.p`
   color: var(--additional-text-color);
+  font-weight:500;
   font-size: 14px;
   line-height: 1.5;
   margin-bottom: 14px;
+  letter-spacing:-0.02em;
 `;
 
 export const IconsUl = styled.ul`

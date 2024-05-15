@@ -81,6 +81,14 @@ button {
   background-color: transparent;
   cursor: pointer;
   padding: 0;
-}`;
+}
+
+input {
+    font-family: 'Poppins', sans-serif ; 
+  }
+
+input::placeholder {
+    font-family: 'Poppins', sans-serif ; 
+  }`;
 
 export default GlobalStyle;

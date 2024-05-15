@@ -79,5 +79,7 @@ export const Plus = styled.use`
 `;
 
 export const TextBtn = styled.use`
+font-weight:500;
+font-size: 14px;
   color: var(--btn-text-color);
 `;
