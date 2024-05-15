@@ -19,7 +19,7 @@ export const IconsList = ({ iconId }) => {
               <InputRadio
                 type="radio"
                 name="iconId"
-                value={selectedIconId}
+                value={item.label} // исправлено здесь
                 defaultChecked={selectedIconId === item.label}
                 onChange={() => handleIconChange(item.label)}
               />
