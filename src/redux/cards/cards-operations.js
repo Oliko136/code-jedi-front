@@ -65,8 +65,8 @@ export const deleteCardThunk = createAsyncThunk(
   'cards/deleteCard',
   async ({ boardId, columnId, cardId  }, { rejectWithValue }) => {
       try {
-          const data = await cardAPI.deleteCard(boardId, columnId, cardId);
-          return data;
+          await cardAPI.deleteCard(boardId, columnId, cardId);
+          return;
       } catch (error) {
           return rejectWithValue(error.message);
     }

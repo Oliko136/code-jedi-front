@@ -25,11 +25,11 @@ const TasksCardList = ({columnId}) => {
       dispatch(getAllCardsThunk({ boardId, columnId }));
     }, [dispatch, boardId, columnId]);
   
-  const handleDeleteCard = (boardId, columnId, card) => {
+  const handleDeleteCard = async (boardId, columnId, card) => {
     try {
-      dispatch(deleteCardThunk({ boardId, columnId, cardId: card._id })).then(action => {
-        if (action.type !== 'cards/deleteCard/fulfilled') {
-          dispatch(getAllCardsThunk(boardId, columnId));
+      await dispatch(deleteCardThunk({ boardId, columnId, cardId: card._id })).then(action => {
+        if (action.type === 'cards/deleteCard/fulfilled') {
+          return dispatch(getAllCardsThunk({ boardId, columnId }));
         }
       })
     } catch (error) {
