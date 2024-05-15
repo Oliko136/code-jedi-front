@@ -18,7 +18,7 @@ export const getAllBoardThunk = createAsyncThunk(
       const response = await getAllBoards();
       return response;
     } catch (error) {
-      console.log(error);
+      
       toast.error('Error get ', error);
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -32,7 +32,7 @@ export const createBoardThunk = createAsyncThunk(
       const response = await addBoard(body);
       return response;
     } catch (error) {
-      console.log(error);
+      
       toast.error('Error add', error);
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -43,7 +43,7 @@ export const getOneBoardById = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const data = await getBoardById(id);
-      console.log(id);
+      
       return data;
     } catch (error) {
       toast.error(error.response.data.message);
@@ -61,7 +61,7 @@ export const updateBoardThunk = createAsyncThunk(
 
       return response;
     } catch (error) {
-      console.log(error);
+      
       toast.error('Error edit ', error);
       return thunkAPI.rejectWithValue(error.message);
     }

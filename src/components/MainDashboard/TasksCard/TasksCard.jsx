@@ -1,5 +1,5 @@
 import { useState ,useEffect} from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {
     Card,
     CardsColor,
@@ -22,11 +22,14 @@ import {
   import sprite from '../../../assets/svg/sprite.svg';
 import { PRIORITY_LIST } from '../../../constants/index';
 import { formatDate,  isSameDay } from '../../../helpers/dateFormat';
+import { moveCardThunk } from '../../../redux/cards/cards-operations';
 import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
 import DeleteModal from '../../Modal/DeleteModal/DeleteModal';
 import CardEditModal from 'components/Modal/CardModal/CardEditModal';
+import  MovePopUp from '../MovePopUp/MovePopUp';
   
-const TasksCard = ({ card, columnId, onDelete }) => {
+const TasksCard = ({ card, columnId, allColumns,onDelete  }) => {
+  const dispatch = useDispatch();
   const [currentDate, setCurrentDate] = useState(new Date());
   useEffect(() => {
     const interval = setInterval(() => {
@@ -43,11 +46,21 @@ const TasksCard = ({ card, columnId, onDelete }) => {
   
   const [isDeleteModalShown, setIsDeleteModalShown] = useState(false);
   const [showCardEditModal, setShowCardEditModal] = useState(false);
+  const [showCardMoveModal, setShowCardMoveModal] = useState(false);
   
   const { _id: boardId } = useSelector(selectCurrentBoard);
 
   const toggleCardEditModal = () =>
     setShowCardEditModal(prevShowModal => !prevShowModal);
+  
+  const moveCardToAnotherColumn = newColumn => {
+    
+    dispatch(moveCardThunk({ cardId: card._id, newColumn, columnId, boardId }));
+  };
+
+  const toggleCardMoveModal  =() => {
+    setShowCardMoveModal(prevShowModal => !prevShowModal);
+  }
 
     return (
       <Card>
@@ -85,11 +98,19 @@ const TasksCard = ({ card, columnId, onDelete }) => {
             </ButtonsIconBell>
             </ParamsButtons>)}
 
-              <ParamsButtons>
-                <ButtonsIcon>
+          
+             <ParamsButtons onClick={toggleCardMoveModal}>
+                <ButtonsIcon >
                   <use href={`${sprite}#broken-right`}></use>
                 </ButtonsIcon>
               </ParamsButtons>
+              {showCardMoveModal && (<MovePopUp
+                  allColumns={allColumns}
+                  columnId={columnId}
+                  moveCard={moveCardToAnotherColumn}
+                  onClose={toggleCardMoveModal}
+                />)}
+             
   
               <ParamsButtons type="button" onClick={toggleCardEditModal}>
                 <ButtonsIcon>

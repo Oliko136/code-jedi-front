@@ -12,6 +12,7 @@ import {
 const TasksColumn = () => {
 
   const columns = useSelector(selectСolumns);
+
   const board = useSelector(selectCurrentBoard);
   const { _id } = board;
 
@@ -32,6 +33,9 @@ const TasksColumn = () => {
       return error.message;
     }
   };
+ 
+ 
+
 
   return (
     <DivForColumns>
@@ -39,6 +43,7 @@ const TasksColumn = () => {
         columns.map(column => (
           <TasksColumnItem
             key={column._id}
+            allColumns={columns}
             column={column}
             onDeleteColumn={() => handleDeleteColumn(column._id)}
           />

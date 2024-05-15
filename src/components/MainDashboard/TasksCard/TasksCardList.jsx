@@ -7,7 +7,7 @@ import TasksCard from "./TasksCard";
 import { CardContainer } from "./TasksCardList.styled.jsx";
 import {getFilter} from '../../../redux/filter/filter-selectors.js'
 
-const TasksCardList = ({columnId}) => {
+const TasksCardList = ({columnId, allColumns}) => {
     const cardsAll = useSelector(selectCards);
 
     const columnCards = cardsAll.filter(({column}) => column._id === columnId || column === columnId)
@@ -41,7 +41,8 @@ const TasksCardList = ({columnId}) => {
     <CardContainer>
       {cards.length > 0 &&
         cards.map(card => (
-          <TasksCard key={card._id} card={card} columnId={columnId} onDelete={()=> handleDeleteCard(boardId, columnId, card )}/>
+          <TasksCard key={card._id} card={card} columnId={columnId} allColumns={allColumns} onDelete={()=> handleDeleteCard(boardId, columnId, card ) }/>
+          
         ))}
     </CardContainer>
   );
