@@ -21,7 +21,7 @@ import {
 } from './BoardModal.styled';
 
 
-const BoardModalEdit = ({ variant, closeModal, menu, closeMenu, currentBoard}) => {
+const BoardModalEdit = ({ closeModal, menu, closeMenu, currentBoard}) => {
   const [errorMsgShown, setErrorMsgShown] = useState(false);
   const [errorClassName, setErrorClassName] = useState('');
 
@@ -31,15 +31,15 @@ const BoardModalEdit = ({ variant, closeModal, menu, closeMenu, currentBoard}) =
 
   const handleSubmit = e => {
     e.preventDefault();
-   const { title, background, iconId } = e.target.elements;
-  const data = {
+    const { title, background, iconId } = e.target.elements;
+    const data = {
       title: title.value,
       icon: iconId.value,
       background: background.value,
-     };
- 
- dispatch(updateBoardThunk({ boardId: oneBoard._id, newData: data  }))
- dispatch(getAllBoardsThunk());
+    };
+    
+    dispatch(updateBoardThunk({ boardId: currentBoard._id, newData: data }))
+    dispatch(getAllBoardsThunk());
     closeModal();
     if (menu) closeMenu();
   
