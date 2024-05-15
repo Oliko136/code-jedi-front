@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal/Modal';
@@ -18,6 +19,17 @@ const ColumnModal = ({ showModal }) => {
   const [title, setTitle] = useState('');
   const { _id } = useSelector(selectCurrentBoard);
   const dispatch = useDispatch();
+
+  const TOASTER = {
+    style: {
+      border: '2px solid #bedbb0',
+      backgroundColor: '#1f1f1f',
+      color: '#fff',
+      textAlign: 'center',
+    },
+    position: 'top-center',
+    duration: 2000,
+  };
 
   const handleSubmit = async evt => {
     evt.preventDefault();
