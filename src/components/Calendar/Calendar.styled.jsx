@@ -4,6 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 export const Button = styled.button`
   display: flex;
   gap: 4px;
+  font-size:14px;
   align-items: flex-end;
   justify-content: center;
   text-align: center;

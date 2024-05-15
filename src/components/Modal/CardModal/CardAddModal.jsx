@@ -14,6 +14,7 @@ import {
   Text,
   Textarea,
   TitleInput,
+  TextAdd,
 } from './CardModal.styled';
 import { selectCurrentBoard } from '../../../redux/boards/boards-selectors';
 
@@ -71,7 +72,7 @@ const CardAddModal = ({ columnId, showModal }) => {
         <Text>{'Label color'}</Text>
         <CardPriorityList value={cardPriority} onChange={setCardPriority} />
         <Text>{'Deadline'}</Text>
-        <Calendar date={deadline} changeDate={changeDeadline} />
+        <Calendar style={{fontSize:`14px`}} date={deadline} changeDate={changeDeadline} />
         <ButtonSend type="submit">
           <PlusButton>
             <IconWrap>
@@ -83,7 +84,7 @@ const CardAddModal = ({ columnId, showModal }) => {
                 name={'icon-plus'}
               />
             </IconWrap>
-            Add
+            <TextAdd>Add</TextAdd>
           </PlusButton>
         </ButtonSend>
       </Modalform>

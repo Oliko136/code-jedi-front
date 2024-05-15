@@ -68,6 +68,10 @@ export const Text = styled.p`
   flex-direction: column;
   margin-bottom: 4px;
 `;
+export const TextAdd = styled.p`
+font-size:14px;
+font-weight:500;
+`;
 
 export const Label = styled.label`
   width: 14px;
