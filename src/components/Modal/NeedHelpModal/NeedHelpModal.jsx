@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Modal from '../../Modal/Modal/Modal';
-import { needhelp } from '../../../redux/needhelp/needhelp-operation.js';
+import { needhelpThunk } from '../../../redux/needhelp/needhelp-operation.js';
 import { toast } from 'react-toastify';
 import {
   Modalform,
@@ -12,7 +12,7 @@ import {
 } from './NeedHelpModal.styled';
 const NeedHelpModal = ({ showModal }) => {
   const [email, setEmail] = useState('');
-  const [text, setText] = useState('');
+  const [comment, setComment] = useState('');
   const dispatch = useDispatch();
 
   const TOASTER = {
@@ -29,22 +29,22 @@ const NeedHelpModal = ({ showModal }) => {
   const handleSubmit = async evt => {
     evt.preventDefault();
 
-    if (email.trim() === '' || text.trim() === '') {
+    if (email.trim() === '' || comment.trim() === '') {
       toast('Please enter data to submit ❗️', TOASTER);
       return;
     }
 
-    if (text.trim().length < 10) {
+    if (comment.trim().length < 10) {
       toast('Comment must be at least 10 characters long ❗️', TOASTER);
       return;
     }
 
     try {
-      dispatch(needhelp({ email, text }));
+      dispatch(needhelpThunk({ email: email, comment: comment }));
       toast('Your message was sent successfully ✅', TOASTER);
       showModal(false);
-    } catch (error) {
-      toast('Failed to send email', TOASTER);
+    } catch (error) { 
+      // toast('Failed to send email', TOASTER);
     }
   };
 
@@ -53,7 +53,7 @@ const NeedHelpModal = ({ showModal }) => {
   };
 
   const handleTextChange = evt => {
-    setText(evt.target.value);
+    setComment(evt.target.value);
   };
 
   return (
@@ -72,7 +72,7 @@ const NeedHelpModal = ({ showModal }) => {
           <Commenttextarea
             type="text"
             name="comment"
-            value={text}
+            value={comment}
             onChange={handleTextChange}
             placeholder="Comment"
           />

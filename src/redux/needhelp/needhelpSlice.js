@@ -1,25 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { needhelp } from './needhelp-operation.js';
+import { needhelpThunk } from './needhelp-operation.js';
 import { pending, rejected } from '../../helpers/redux-functions.js';
 
 const needhelpSlice = createSlice({
-  name: 'needhelp',
+  name: 'support',
   initialState: {
-    email: '',
-    text: '',
     isLoading: false,
     error: null,
   },
   extraReducers: builder => {
     builder
-      .addCase(needhelp.pending, pending)
-      .addCase(needhelp.fulfilled, (state, { payload }) => {
-        state.email = payload;
-        state.text = payload;
+      .addCase(needhelpThunk.pending, pending)
+      .addCase(needhelpThunk.fulfilled, (state) => {
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(needhelp.rejected, rejected);
+      .addCase(needhelpThunk.rejected, rejected);
   },
 });
 

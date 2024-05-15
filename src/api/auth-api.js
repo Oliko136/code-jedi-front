@@ -41,7 +41,7 @@ export async function getCurrentUser(token) {
   }
 }
 
-export async function needhelp(credentials) {
-  const { data } = await axios.post('email/needhelp', credentials);
+export async function needhelp(body) {
+  const { data } = await axios.post('/support', body);
   return data;
 }
