@@ -75,7 +75,7 @@ export const deleteBoardThunk = createAsyncThunk(
       const response = await deleteBoard(id);
       return response;
     } catch (error) {
-      console.log(error);
+     
       toast.error('Error delete', error);
       return thunkAPI.rejectWithValue(error.message);
     }

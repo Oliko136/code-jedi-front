@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { toast } from 'react-toastify';
+
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal/Modal';
@@ -20,16 +20,7 @@ const ColumnModal = ({ showModal }) => {
   const { _id } = useSelector(selectCurrentBoard);
   const dispatch = useDispatch();
 
-  const TOASTER = {
-    style: {
-      border: '2px solid #bedbb0',
-      backgroundColor: '#1f1f1f',
-      color: '#fff',
-      textAlign: 'center',
-    },
-    position: 'top-center',
-    duration: 2000,
-  };
+  
 
   const handleSubmit = async evt => {
     evt.preventDefault();
@@ -41,7 +32,7 @@ const ColumnModal = ({ showModal }) => {
     try {
       dispatch(addColumnThunk({ boardId: _id, body: newColumn })).then(action => {
         if (action.type === 'columns/createColumn/fulfilled') {
-          toast('You have successfully created a column ✅', TOASTER); 
+          
         }
       });
       showModal(false);
