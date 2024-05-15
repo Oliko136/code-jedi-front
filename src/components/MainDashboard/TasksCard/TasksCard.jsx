@@ -22,12 +22,11 @@ import {
   import sprite from '../../../assets/svg/sprite.svg';
 import { PRIORITY_LIST } from '../../../constants/index';
 import { formatDate,  isSameDay } from '../../../helpers/dateFormat';
-import { deleteCardThunk } from '../../../redux/cards/cards-operations';
 import { selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
 import DeleteModal from '../../Modal/DeleteModal/DeleteModal';
 import CardEditModal from 'components/Modal/CardModal/CardEditModal';
   
-const TasksCard = ({ card, columnId }) => {
+const TasksCard = ({ card, columnId, onDelete }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   useEffect(() => {
     const interval = setInterval(() => {
@@ -45,12 +44,12 @@ const TasksCard = ({ card, columnId }) => {
   const [isDeleteModalShown, setIsDeleteModalShown] = useState(false);
   const [showCardEditModal, setShowCardEditModal] = useState(false);
   
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   const { _id: boardId } = useSelector(selectCurrentBoard);
 
-  const handleDeleteCard = () => {
+  /*const handleDeleteCard = () => {
     dispatch(deleteCardThunk({ boardId, columnId, cardId: card._id }));
-  }
+  }*/
 
   const toggleCardEditModal = () =>
     setShowCardEditModal(prevShowModal => !prevShowModal);
@@ -121,7 +120,7 @@ const TasksCard = ({ card, columnId }) => {
               {isDeleteModalShown && (
                 <DeleteModal
                   onClose={() => setIsDeleteModalShown(false)}
-                  onConfirm={handleDeleteCard}
+                  onConfirm={() => onDelete(boardId, columnId, card._id)}
                 />
               )}
             </SvgContainer>

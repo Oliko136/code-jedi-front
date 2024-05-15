@@ -39,8 +39,11 @@ const ColumnModal = ({ showModal }) => {
     };
 
     try {
-      dispatch(addColumnThunk({ boardId: _id, body: newColumn }));
-      toast('You have successfully created a column ✅', TOASTER);
+      dispatch(addColumnThunk({ boardId: _id, body: newColumn })).then(action => {
+        if (action.type === 'columns/createColumn/fulfilled') {
+          toast('You have successfully created a column ✅', TOASTER); 
+        }
+      });
       showModal(false);
     } catch (error) {
       return error.message;

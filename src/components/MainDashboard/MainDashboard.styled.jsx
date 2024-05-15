@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const ContainerMainBoard = styled.div`
   display: flex;
   gap: 18px;
-  overflow: auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
   height: 105%;
 
   &::-webkit-scrollbar {
