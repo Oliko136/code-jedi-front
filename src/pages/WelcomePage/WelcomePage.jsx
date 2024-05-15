@@ -45,6 +45,7 @@ const WelcomePage = () => {
 
       <p>
         Supercharge your productivity and take control of your tasks with Task
+        <br />
         Pro - Don't wait, start achieving your goals now!
       </p>
 

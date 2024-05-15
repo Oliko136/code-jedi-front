@@ -105,9 +105,11 @@ export const HideBtn = styled.button`
 export const SubmitBtn = styled.button`
   display: flex;
   justify-content: center;
+
   align-items: center;
   padding: 14px 0;
   font-weight: 500;
+  font-size: 14px;
   background: var(--inputBorderFocus);
   border-radius: 8px;
   color: var(--buttonColor);
