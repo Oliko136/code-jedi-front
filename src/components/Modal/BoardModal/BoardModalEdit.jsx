@@ -27,8 +27,7 @@ const BoardModalEdit = ({ closeModal, menu, closeMenu, currentBoard}) => {
 
   const dispatch = useDispatch();
   const oneBoard = useSelector(selectCurrentBoard);
-
-
+console.log(oneBoard);
   const handleSubmit = e => {
     e.preventDefault();
     const { title, background, iconId } = e.target.elements;
@@ -37,7 +36,7 @@ const BoardModalEdit = ({ closeModal, menu, closeMenu, currentBoard}) => {
       icon: iconId.value,
       background: background.value,
     };
-    
+    console.log(data);
     dispatch(updateBoardThunk({ boardId: currentBoard._id, newData: data }))
     dispatch(getAllBoardsThunk());
     closeModal();
@@ -45,6 +44,7 @@ const BoardModalEdit = ({ closeModal, menu, closeMenu, currentBoard}) => {
   
     return;
   };
+
 
   return (
     <Modal width={350} onClose={closeModal}>
@@ -66,11 +66,11 @@ const BoardModalEdit = ({ closeModal, menu, closeMenu, currentBoard}) => {
           {errorMsgShown && <p>{'Maximum title length is 20 symbols'}</p>}
         </Label>
         <Text>{'Icons'}</Text>
-        <IconsList iconId={ oneBoard.label} />
+        <IconsList iconId={ oneBoard.icon} />
         <Text>{'Background'}</Text>
 
         <BacksList
-          backgroundId={oneBoard.background._id}
+          backgroundId={oneBoard.background}
         />
         <Button type="submit">
           <Span>
