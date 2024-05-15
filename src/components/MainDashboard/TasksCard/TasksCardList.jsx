@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCards } from "../../../redux/cards/cards-selectors.js";
 import { selectCurrentBoard } from "../../../redux/boards/boards-selectors.js";
-import { getAllCardsThunk, deleteCardThunk } from "../../../redux/cards/cards-operations.js";
+import { getAllCardsThunk, deleteCardThunk, getCardByIdThunk } from "../../../redux/cards/cards-operations.js";
 import TasksCard from "./TasksCard";
 import { CardContainer } from "./TasksCardList.styled.jsx";
 import {getFilter} from '../../../redux/filter/filter-selectors.js'
@@ -25,13 +25,10 @@ const TasksCardList = ({columnId}) => {
       dispatch(getAllCardsThunk({ boardId, columnId }));
     }, [dispatch, boardId, columnId]);
   
-  const handleDeleteCard = async (boardId, columnId, card) => {
+  const handleDeleteCard = (boardId, columnId, card) => {
     try {
-      await dispatch(deleteCardThunk({ boardId, columnId, cardId: card._id })).then(action => {
-        if (action.type === 'cards/deleteCard/fulfilled') {
-          return dispatch(getAllCardsThunk({ boardId, columnId }));
-        }
-      })
+      dispatch(getCardByIdThunk({ boardId, columnId, cardId: card._id }))
+        .then(({ payload }) => {  dispatch(deleteCardThunk({ boardId, columnId, cardId: payload._id })) });
     } catch (error) {
       return error.message;
     }

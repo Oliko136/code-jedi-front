@@ -40,6 +40,7 @@ const cardSlice = createSlice({
             .addCase(addCardThunk.pending, pending)
             .addCase(addCardThunk.fulfilled, (state, { payload }) => {
                 state.cards.push(payload);
+                state.currentCard = payload;
                 state.isLoading = false;
                 state.error = null;
             })
