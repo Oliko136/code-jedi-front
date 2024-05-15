@@ -1,5 +1,5 @@
 import { useState ,useEffect} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
     Card,
     CardsColor,
@@ -44,12 +44,7 @@ const TasksCard = ({ card, columnId, onDelete }) => {
   const [isDeleteModalShown, setIsDeleteModalShown] = useState(false);
   const [showCardEditModal, setShowCardEditModal] = useState(false);
   
-  //const dispatch = useDispatch();
   const { _id: boardId } = useSelector(selectCurrentBoard);
-
-  /*const handleDeleteCard = () => {
-    dispatch(deleteCardThunk({ boardId, columnId, cardId: card._id }));
-  }*/
 
   const toggleCardEditModal = () =>
     setShowCardEditModal(prevShowModal => !prevShowModal);

@@ -72,7 +72,6 @@ const BoardListItem = ({ board, activeBoardId, onDelete }) => {
       )}
          {isModalShown && (
         <BoardModalEdit
-          variant="add"
           closeModal={() => setIsModalShown(false)}
           //  menu={menu}
         
