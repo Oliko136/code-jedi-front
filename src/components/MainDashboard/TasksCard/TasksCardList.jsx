@@ -27,8 +27,12 @@ const TasksCardList = ({columnId}) => {
   
   const handleDeleteCard = (boardId, columnId, card) => {
     try {
-      dispatch(deleteCardThunk({ boardId, columnId, cardId: card._id }));
-      } catch (error) {
+      dispatch(deleteCardThunk({ boardId, columnId, cardId: card._id })).then(action => {
+        if (action.type !== 'cards/deleteCard/fulfilled') {
+          dispatch(getAllCardsThunk(boardId, columnId));
+        }
+      })
+    } catch (error) {
       return error.message;
     }
   }
