@@ -90,11 +90,11 @@ const BoardModal = ({ variant, closeModal, menu, closeMenu }) => {
           {errorMsgShown && <p>{'Maximum title length is 20 symbols'}</p>}
         </Label>
         <Text>{'Icons'}</Text>
-        <IconsList iconId={variant === 'add' ? 'project' : oneBoard.label} />
+        <IconsList iconId={variant === 'add' ? 'project' : oneBoard.title} />
         <Text>{'Background'}</Text>
 
         <BacksList
-          backgroundId={variant === 'add' ? 'default' : oneBoard.background._id}
+          backgroundId={variant === 'add' ? 'default' : oneBoard.background}
         />
       
 
