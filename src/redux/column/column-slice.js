@@ -31,6 +31,7 @@ const columnSlice = createSlice({
         columnOperations.addColumnThunk.fulfilled,
         (state, { payload }) => {
           state.columns.push(payload);
+          state.currentColumn = payload;
           state.isLoading = false;
           state.error = null;
         }
@@ -52,7 +53,6 @@ const columnSlice = createSlice({
       .addCase(
         columnOperations.updateColumnThunk.fulfilled,
         (state, { payload }) => {
-          // надо подумать
           state.currentColumn = { ...state.currentColumn, ...payload };
           state.columns = state.columns.map(column =>
             column._id === payload.id ? payload : column
@@ -65,7 +65,6 @@ const columnSlice = createSlice({
 
       .addCase(columnOperations.deleteColumnThunk.pending, pending)
       .addCase(columnOperations.deleteColumnThunk.fulfilled, state => {
-        // надо подумать
         state.columns = state.columns.filter(
           ({ _id }) => _id !== state.columns._id
         );
