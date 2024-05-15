@@ -6,6 +6,8 @@ export const Card = styled.div`
   border-radius: 8px;
   margin-bottom: 8px;
   background: var(--btn-add-column);
+  position: relative;
+  
 
   @media screen and (min-width: 375px) {
     width: 335px;

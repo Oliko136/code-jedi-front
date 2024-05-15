@@ -14,7 +14,7 @@ import {
   Column, Plus, TextBtn,
 } from './TasksColumn.styled.jsx';
 
-const TasksColumnItem = ({ column, onDeleteColumn }) => {
+const TasksColumnItem = ({ column, onDeleteColumn, allColumns }) => {
   const [columnTitle, setColumnTitle] = useState(column.title);
   const [showAddCardModal, setShowAddCardModal] = useState(false);
   const [showEditColumnModal, setShowEditColumnModal] = useState(false);
@@ -49,7 +49,7 @@ const TasksColumnItem = ({ column, onDeleteColumn }) => {
           </SvgDiv>
         </TitleColumnDiv>
 
-        <TasksCardList columnId={column._id} />
+        <TasksCardList columnId={column._id} allColumns={allColumns}/>
 
         <ButtonForCard onClick={toggleAddCardModal}>
           <IconDoCard>
