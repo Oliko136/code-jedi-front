@@ -27,7 +27,7 @@ const BoardModalEdit = ({ closeModal, menu, closeMenu, currentBoard}) => {
 
   const dispatch = useDispatch();
   const oneBoard = useSelector(selectCurrentBoard);
-console.log(oneBoard);
+
   const handleSubmit = e => {
     e.preventDefault();
     const { title, background, iconId } = e.target.elements;
@@ -36,7 +36,7 @@ console.log(oneBoard);
       icon: iconId.value,
       background: background.value,
     };
-    console.log(data);
+   
     dispatch(updateBoardThunk({ boardId: currentBoard._id, newData: data }))
     dispatch(getAllBoardsThunk());
     closeModal();
