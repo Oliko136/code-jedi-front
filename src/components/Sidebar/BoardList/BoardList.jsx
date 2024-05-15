@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {
@@ -8,13 +8,15 @@ import {
 } from '../../../redux/boards/boards-operations';
 import { BoardListContainer, BoardItem } from './BoardList.styled';
 import BoardListItem from '../BoardListItem/BoardListItem';
-import { selectBoards } from '../../../redux/boards/boards-selectors.js';
+import { selectBoards, selectCurrentBoard } from '../../../redux/boards/boards-selectors.js';
 
 const BoardList = () => {
-  const [activeBoardId, setActiveBoardId] = useState(null);
   const boards = useSelector(selectBoards);
+  const currentBoard = useSelector(selectCurrentBoard);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const activeBoardId = currentBoard?._id;
 
   const activeBoardIndex = boards.findIndex(board => board._id === activeBoardId);
   const nextBoardId = activeBoardIndex > 0 ? boards[activeBoardIndex - 1]?._id : boards[activeBoardIndex + 1]?._id;
@@ -25,16 +27,12 @@ const BoardList = () => {
   }, [dispatch]);
 
 
-    if (!activeBoardId && boards.length > 0) {
-      dispatch(getBoardByIdThunk(boards[0]._id));
-      setActiveBoardId(boards[0]._id);
-    }
-
-
+  if (!activeBoardId && boards.length > 0) {
+    dispatch(getBoardByIdThunk(boards[0]._id));
+  }
 
   const handleClick = boardId => {
     dispatch(getBoardByIdThunk(boardId));
-    setActiveBoardId(boardId);
   };
 
   const handleDeleteBoard = boardId => {
@@ -44,7 +42,6 @@ const BoardList = () => {
       }
       navigate(nextBoardId ? `/home/${nextBoardName}` : '/');
       dispatch(getBoardByIdThunk(nextBoardId));
-      setActiveBoardId(nextBoardId);
     });
   };
 

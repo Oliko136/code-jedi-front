@@ -10,6 +10,7 @@ export const MainContainer = styled.div`
   background-color: var(--primary-bg-color);
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 
   @media screen (max-width: 768px) {
     margin-left: 259px;

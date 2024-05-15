@@ -8,29 +8,28 @@ export const TextDiv = styled.div`
   
    p {
     text-align: center;
-    //color: rgba(250, 250, 250, 0.5);
     font-weight: 400;
-    font-size: 14px;
     max-width: 486px;
     align-self: center;
    }
 `;
 
 export const TextOnHomePage = styled.p`
-  color: var(--primary-text-color);
+  color: var(--cart-text);
   font-weight: 400;
-  font-size: 10px;
+  font-size: 12px;
   padding: 0 20px;
   max-width: 335px;
+  line-height: 133%;
 
-  @media only screen and (min-width: 375px) {
-    font-size: 12px;
-    //max-width: 486px;
+  @media only screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 129%;
   }
 `;
 
 export const CreateBoard = styled.button`
-  color: #bedbb0;
+  color: var(  --accent-icon-hover-color);
 
   &:hover {
     text-decoration: underline;

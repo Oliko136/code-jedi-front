@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const CardContainer = styled.div`
   max-height: 63vh;
-  height: 100%;
   overflow-y: auto;
 
   &::-webkit-scrollbar {
